@@ -1,0 +1,1262 @@
+{
+    "purpose": "Guidelines arquiteturais e boas práticas para o projeto do site da Igreja Cévennes",
+    "project_specifics": {
+        "project_name": "Igreja Cévennes - Site e CMS",
+        "language": "TypeScript",
+        "framework": "Next.js 14+ (App Router)",
+        "architecture_pattern": "Clean Architecture (Pragmática) + Feature-Based Structure",
+        "description": "Plataforma web multilíngue (FR/PT/EN) para igreja nas Cévennes, França, com site público e backoffice CMS para gestão de conteúdo",
+        "tech_stack": {
+            "frontend": "Next.js 14+, React 18+, TypeScript 5+",
+            "styling": "Tailwind CSS, shadcn/ui",
+            "backend": "Cappuccino Cloud Database (BaaS)",
+            "database": "MongoDB (via Cappuccino)",
+            "i18n": "next-intl",
+            "forms": "React Hook Form + Zod",
+            "state": "React Context API / Zustand (se necessário)",
+            "deployment": "Vercel",
+            "external_services": "YouTube API (embed), Google Maps API, Cappuccino SDK"
+        }
+    },
+    "reference_files": {
+        "description": "Arquivos essenciais que devem ser consultados antes de qualquer mudança significativa",
+        "project_structure": {
+            "description": "Estrutura de diretórios e organização do monorepo",
+            "files": [
+                {
+                    "path": "/docs/project-structure.md",
+                    "description": "Estrutura completa do monorepo com apps/ e packages/",
+                    "priority": "alta"
+                },
+                {
+                    "path": "/docs/architecture-diagram.png",
+                    "description": "Diagrama visual da arquitetura (Frontend → Cappuccino → MongoDB)",
+                    "priority": "alta"
+                }
+            ]
+        },
+        "documentation": {
+            "description": "Documentação técnica e de negócio",
+            "files": [
+                {
+                    "path": "/README.md",
+                    "description": "Documentação geral do projeto, setup inicial e comandos",
+                    "priority": "alta"
+                },
+                {
+                    "path": "/docs/PROJETO_COMPLETO.md",
+                    "description": "Documento completo do projeto com todas as fases, schemas e requisitos",
+                    "priority": "alta"
+                },
+                {
+                    "path": "/docs/COLLECTIONS_SCHEMA.md",
+                    "description": "Schemas detalhados de todas as collections do MongoDB",
+                    "priority": "alta"
+                },
+                {
+                    "path": "/docs/API.md",
+                    "description": "Documentação de API Routes e endpoints internos",
+                    "priority": "média"
+                },
+                {
+                    "path": "/docs/CAPPUCCINO_INTEGRATION.md",
+                    "description": "Guia de integração com Cappuccino Cloud Database",
+                    "priority": "alta"
+                },
+                {
+                    "path": "/docs/I18N.md",
+                    "description": "Sistema de internacionalização (FR/PT/EN)",
+                    "priority": "média"
+                }
+            ]
+        },
+        "design_references": {
+            "description": "Designs, mockups e referências visuais",
+            "files": [
+                {
+                    "path": "/design/mockups/",
+                    "description": "Mockups das páginas principais",
+                    "priority": "alta"
+                },
+                {
+                    "path": "/design/style-guide.md",
+                    "description": "Cores (borgonha), tipografia, espaçamentos",
+                    "priority": "alta"
+                },
+                {
+                    "path": "/design/components-ui.md",
+                    "description": "Documentação dos componentes UI reutilizáveis",
+                    "priority": "média"
+                }
+            ]
+        },
+        "technical_specs": {
+            "description": "Especificações técnicas e diagramas",
+            "files": [
+                {
+                    "path": "/docs/database-schema.png",
+                    "description": "Diagrama visual das collections e relacionamentos",
+                    "priority": "alta"
+                },
+                {
+                    "path": "/docs/data-flow.md",
+                    "description": "Fluxo de dados entre camadas (UI → Cappuccino → MongoDB)",
+                    "priority": "alta"
+                },
+                {
+                    "path": "/docs/authentication-flow.md",
+                    "description": "Fluxo de autenticação no backoffice",
+                    "priority": "média"
+                }
+            ]
+        },
+        "code_examples": {
+            "description": "Exemplos de código e padrões estabelecidos",
+            "files": [
+                {
+                    "path": "/examples/component-pattern.tsx",
+                    "description": "Como criar componentes React reutilizáveis",
+                    "priority": "alta"
+                },
+                {
+                    "path": "/examples/cappuccino-usage.ts",
+                    "description": "Padrões de uso da lib Cappuccino",
+                    "priority": "alta"
+                },
+                {
+                    "path": "/examples/form-pattern.tsx",
+                    "description": "Como criar formulários com React Hook Form + Zod",
+                    "priority": "média"
+                },
+                {
+                    "path": "/examples/i18n-usage.tsx",
+                    "description": "Como usar traduções no projeto",
+                    "priority": "média"
+                }
+            ]
+        },
+        "configuration_files": {
+            "description": "Arquivos de configuração importantes",
+            "files": [
+                {
+                    "path": "/package.json",
+                    "description": "Dependências e scripts do monorepo",
+                    "priority": "alta"
+                },
+                {
+                    "path": "/tsconfig.json",
+                    "description": "Configuração TypeScript global",
+                    "priority": "alta"
+                },
+                {
+                    "path": "/next.config.js",
+                    "description": "Configuração do Next.js",
+                    "priority": "alta"
+                },
+                {
+                    "path": "/tailwind.config.ts",
+                    "description": "Configuração do Tailwind (cores, tema)",
+                    "priority": "média"
+                },
+                {
+                    "path": "/.env.example",
+                    "description": "Variáveis de ambiente necessárias",
+                    "priority": "alta"
+                }
+            ]
+        },
+        "testing_references": {
+            "description": "Referências sobre testes e qualidade",
+            "files": [
+                {
+                    "path": "/docs/testing-strategy.md",
+                    "description": "Estratégia de testes (unit, integration, e2e)",
+                    "priority": "média"
+                },
+                {
+                    "path": "/tests/examples/",
+                    "description": "Exemplos de testes para diferentes camadas",
+                    "priority": "baixa"
+                }
+            ]
+        },
+        "usage_instructions": {
+            "for_ai": [
+                "SEMPRE consultar PROJETO_COMPLETO.md e COLLECTIONS_SCHEMA.md antes de criar/modificar schemas",
+                "SEMPRE consultar CAPPUCCINO_INTEGRATION.md antes de fazer operações no banco",
+                "Verificar component-pattern.tsx antes de criar novos componentes",
+                "Verificar cappuccino-usage.ts para padrões de uso do SDK",
+                "Seguir estrutura feature-based documentada em project-structure.md",
+                "Respeitar convenções de i18n ao adicionar textos",
+                "Consultar style-guide.md para cores, tipografia e espaçamentos"
+            ]
+        }
+    },
+    "core_principles": {
+        "kiss_principle": {
+            "priority": "Keep It Simple, Stupid - Prioridade #1",
+            "description": "Este é um projeto de porte médio. Simplicidade, legibilidade e pragmatismo são fundamentais.",
+            "rules": [
+                "Código simples e direto é melhor que código 'elegante' complexo",
+                "Componentes devem ser auto-explicativos sem precisar de muito contexto",
+                "Abstrações só quando houver necessidade REAL (3+ casos de uso)",
+                "Se está ficando complexo, provavelmente está errado - simplifique"
+            ],
+            "avoid": [
+                "Over-engineering - não criar abstrações para 'possíveis usos futuros'",
+                "Abstrações prematuras antes de ter casos de uso concretos",
+                "Padrões de design elaborados sem necessidade clara",
+                "Soluções 'inteligentes' que sacrificam clareza"
+            ]
+        },
+        "core_priorities": {
+            "simplicity_and_readability": "PRIORIDADE #1: Código DEVE ser simples, legível e auto-explicativo. Qualquer desenvolvedor deve entender rapidamente.",
+            "efficiency": "Código DEVE ser eficiente. Evitar processamento desnecessário, N+1 queries, e uso excessivo de recursos.",
+            "single_responsibility": "Cada componente/função/módulo DEVE ter UMA responsabilidade única e bem definida.",
+            "layer_separation": "DEVE seguir separação de camadas: UI → Hooks/Actions → Cappuccino Client → MongoDB",
+            "i18n_first": "TODO texto visível ao usuário DEVE ser multilíngue (FR/PT/EN) desde o início."
+        },
+        "pragmatic_approach": {
+            "scale_matters": "Este é um projeto de porte MÉDIO. Aplicar Clean Architecture de forma PRAGMÁTICA.",
+            "current_project": {
+                "size": "Médio (Site público + CMS)",
+                "complexity": "Média (CRUD + autenticação + i18n + upload de arquivos)",
+                "team": "Pequena",
+                "approach": "Clean Architecture SIMPLIFICADA com foco em feature-based structure"
+            },
+            "what_to_apply": [
+                "Separação clara de camadas (UI, hooks, Cappuccino client)",
+                "Single Responsibility em componentes e funções",
+                "Componentes reutilizáveis (DRY)",
+                "Validação de dados (Zod schemas)",
+                "Error handling adequado"
+            ],
+            "what_to_avoid": [
+                "Múltiplas camadas de abstração desnecessárias",
+                "Use cases/interactors complexos para CRUDs simples",
+                "Abstrair prematuramente antes de ter 3+ casos de uso",
+                "Criar 'frameworks internos' dentro do projeto"
+            ],
+            "golden_rule": "Se a abstração torna o código MAIS DIFÍCIL de entender, ela NÃO é necessária. Preferir código direto e claro."
+        },
+        "solid_principles": {
+            "note": "Aplicar SOLID de forma pragmática. Não forçar todos os princípios em todo código.",
+            "single_responsibility": {
+                "apply": "SEMPRE - cada componente/função faz UMA coisa",
+                "example": "Um componente EventCard só renderiza um card de evento, não faz fetch nem validação"
+            },
+            "open_closed": {
+                "apply": "Quando houver necessidade clara de extensão",
+                "avoid": "Não criar interfaces complexas 'por precaução'"
+            },
+            "liskov_substitution": {
+                "apply": "Em hierarquias de componentes quando necessário",
+                "note": "Raro em projetos React modernos com composition"
+            },
+            "interface_segregation": {
+                "apply": "Props específicas por componente, evitar 'props dump'",
+                "example": "EventCardProps deve ter apenas props relevantes para o card"
+            },
+            "dependency_inversion": {
+                "apply": "SEMPRE - componentes dependem de hooks/clients, não de implementações diretas",
+                "example": "Componentes usam useCappuccinoCollection(), não chamam Cappuccino diretamente"
+            }
+        },
+        "clean_code": {
+            "note": "Clean Code NÃO significa criar abstrações excessivas. Significa código legível e manutenível.",
+            "meaningful_names": {
+                "principles": [
+                    "Nomes devem expressar CLARAMENTE o propósito",
+                    "Usar convenções: PascalCase (componentes), camelCase (funções/variáveis), UPPER_CASE (constantes)",
+                    "Componentes: {Feature}{Type} - ex: EventCard, EventForm, EventList",
+                    "Hooks: use{Action}{Entity} - ex: useGetEvents, useCreateSermon",
+                    "Funções: {verb}{Object} - ex: formatDate, validateEmail"
+                ],
+                "examples": {
+                    "good": [
+                        "EventCard",
+                        "useGetEvents",
+                        "formatEventDate",
+                        "COLORS"
+                    ],
+                    "bad": [
+                        "Card",
+                        "useEvents",
+                        "format",
+                        "colors"
+                    ]
+                },
+                "avoid": [
+                    "Nomes genéricos: data, info, temp, manager, handler",
+                    "Abreviações não universais: evt, srv, usr",
+                    "Nomes excessivamente longos: EventCardWithImageAndMetadataAndActions"
+                ]
+            },
+            "small_functions": {
+                "rule": "Funções devem fazer UMA coisa só e ter no máximo 20-30 linhas",
+                "principle": "Se precisa de comentário 'Step 1, Step 2', extrair funções"
+            },
+            "no_duplication": "DRY - eliminar duplicação através de componentes/hooks reutilizáveis",
+            "clear_intent": "Código auto-explicativo > comentários. Comentar apenas 'POR QUÊ', nunca 'O QUÊ'",
+            "minimal_comments": {
+                "when_to_comment": [
+                    "Decisões arquiteturais não óbvias",
+                    "Workarounds temporários (com TODO)",
+                    "Regras de negócio complexas da igreja",
+                    "Integrações externas (Cappuccino, YouTube, etc)"
+                ],
+                "avoid": [
+                    "Comentar código óbvio",
+                    "Comentários que repetem o nome da função",
+                    "Código comentado (deletar ao invés)"
+                ]
+            }
+        },
+        "clean_architecture": {
+            "note": "Aplicar Clean Architecture de forma SIMPLIFICADA para este projeto médio",
+            "project_layers": {
+                "presentation": "Componentes React (UI pura, sem lógica)",
+                "application": "Hooks customizados e Server Actions (orquestração)",
+                "infrastructure": "Cappuccino Client (acesso a dados)",
+                "domain": "Types e Schemas (entidades e validações)"
+            },
+            "independence": {
+                "framework": "Lógica de negócio NÃO deve depender de Next.js/React",
+                "database": "Cappuccino pode ser substituído por outro BaaS sem quebrar componentes",
+                "ui": "Componentes UI podem ser trocados (shadcn → outro) sem quebrar lógica"
+            },
+            "dependency_flow": "UI → Hooks/Actions → Cappuccino Client → MongoDB",
+            "pragmatic_note": "Não criar camadas extras (use cases, repositories) para CRUDs simples. Cappuccino Client já é a camada de dados."
+        },
+        "code_reusability": {
+            "priority": "ALTA - sempre reutilizar antes de criar",
+            "strategies": [
+                "Componentes compartilhados em /components/ui e /components/shared",
+                "Hooks customizados reutilizáveis em /hooks",
+                "Utils/helpers em /lib/utils",
+                "Validações Zod em /lib/validations",
+                "Constantes em /lib/constants"
+            ]
+        },
+        "no_redundancy": "Cada lógica existe em UM único lugar. Se há código similar, refatorar para extrair comum.",
+        "no_dead_code": {
+            "continuous_cleanup": "Remover proativamente:",
+            "items": [
+                "Imports não utilizados",
+                "Componentes não referenciados",
+                "Funções obsoletas",
+                "Código comentado antigo",
+                "TODOs resolvidos",
+                "Console.logs de debug"
+            ]
+        },
+        "separation_of_concerns": {
+            "ui_components": "APENAS renderização. Recebem dados via props, emitem eventos via callbacks",
+            "hooks": "Lógica de estado, side effects, fetching de dados",
+            "server_actions": "Operações de mutação (create, update, delete)",
+            "cappuccino_client": "ÚNICA camada que fala com MongoDB",
+            "schemas": "Validação de dados e tipos"
+        },
+        "conciseness": "Código direto ao ponto. Evitar verbosidade excessiva, mas manter clareza.",
+        "performance_first": {
+            "rules": [
+                "Usar Server Components por padrão, Client Components apenas quando necessário",
+                "Implementar React Suspense para loading states",
+                "Cache de queries do Cappuccino (unstable_cache do Next.js)",
+                "Lazy loading de componentes pesados",
+                "Otimização de imagens (next/image)",
+                "Paginação em listagens grandes"
+            ]
+        }
+    },
+    "architecture_layers": {
+        "note": "Arquitetura simplificada em 4 camadas principais",
+        "presentation_layer": {
+            "location": "components/",
+            "role": "Componentes React - renderização pura de UI",
+            "types": {
+                "ui": "Componentes genéricos reutilizáveis (Button, Card, Input)",
+                "shared": "Componentes compartilhados do domínio (EventCard, SermonPlayer)",
+                "feature": "Componentes específicos de features (EventForm, SermonEditor)"
+            },
+            "allowed": [
+                "Renderizar dados recebidos via props",
+                "Gerenciar estado local de UI (aberto/fechado, hover, etc)",
+                "Emitir eventos via callbacks (onClick, onSubmit)",
+                "Usar hooks de UI (useState, useEffect para UI apenas)"
+            ],
+            "forbidden": [
+                "Fazer chamadas diretas ao Cappuccino",
+                "Conter lógica de negócio",
+                "Fazer validações complexas (usar Zod schemas)",
+                "Acessar localStorage/sessionStorage diretamente"
+            ],
+            "example": "EventCard recebe event via props, renderiza, onClick chama callback do pai"
+        },
+        "application_layer": {
+            "location": "hooks/, app/actions/",
+            "role": "Orquestração de lógica, fetching e mutações",
+            "components": {
+                "custom_hooks": {
+                    "location": "hooks/",
+                    "purpose": "Fetching de dados, estado compartilhado, lógica reutilizável",
+                    "examples": [
+                        "useGetEvents() - busca eventos",
+                        "useAuth() - estado de autenticação",
+                        "useI18n() - traduções"
+                    ],
+                    "pattern": "Usar hooks do Cappuccino Client (useCappuccinoCollection, useCappuccinoDocument)"
+                },
+                "server_actions": {
+                    "location": "app/actions/",
+                    "purpose": "Mutações de dados (create, update, delete)",
+                    "examples": [
+                        "createEvent(data) - cria evento",
+                        "updateSermon(id, data) - atualiza sermão",
+                        "deletePost(id) - deleta post"
+                    ],
+                    "pattern": "Server Actions do Next.js 14+ com revalidatePath/revalidateTag"
+                }
+            },
+            "allowed": [
+                "Usar Cappuccino Client hooks/functions",
+                "Validar dados (Zod)",
+                "Transformar dados para UI",
+                "Gerenciar estado global (Context/Zustand)",
+                "Revalidar cache do Next.js"
+            ],
+            "forbidden": [
+                "Renderizar UI diretamente",
+                "Acessar MongoDB diretamente (usar Cappuccino)",
+                "Lógica complexa de negócio (mover para helpers)"
+            ]
+        },
+        "infrastructure_layer": {
+            "location": "packages/cappuccino-client/",
+            "role": "Acesso a dados e serviços externos",
+            "components": {
+                "cappuccino_client": {
+                    "purpose": "ÚNICA camada que comunica com MongoDB via Cappuccino",
+                    "exports": [
+                        "Funções CRUD: createDocument, getDocument, updateDocument, deleteDocument, listDocuments",
+                        "Hooks React: useCappuccinoDocument, useCappuccinoCollection",
+                        "Storage: uploadFile, getFileUrl, deleteFile",
+                        "Auth: login, logout, getSession"
+                    ]
+                },
+                "external_apis": {
+                    "youtube": "Wrapper para YouTube embed API (se necessário)",
+                    "google_maps": "Wrapper para Google Maps API"
+                }
+            },
+            "allowed": [
+                "Fazer chamadas ao Cappuccino SDK",
+                "Fazer upload/download de arquivos",
+                "Autenticação e autorização",
+                "Cache de queries"
+            ],
+            "forbidden": [
+                "Conter lógica de negócio",
+                "Renderizar UI",
+                "Validar dados de negócio (apenas técnicos)"
+            ]
+        },
+        "domain_layer": {
+            "location": "types/, lib/validations/",
+            "role": "Definições de tipos, schemas e constantes",
+            "components": {
+                "types": {
+                    "location": "types/",
+                    "content": "Interfaces TypeScript para collections, DTOs, props"
+                },
+                "schemas": {
+                    "location": "lib/validations/",
+                    "content": "Zod schemas para validação",
+                    "examples": [
+                        "eventSchema - validação de evento",
+                        "prayerRequestSchema - validação de pedido de oração"
+                    ]
+                },
+                "constants": {
+                    "location": "lib/constants/",
+                    "content": "Constantes do domínio",
+                    "examples": [
+                        "EVENT_CATEGORIES",
+                        "PRAYER_CATEGORIES",
+                        "LOCALES"
+                    ]
+                }
+            },
+            "rules": [
+                "Sem dependências de frameworks",
+                "Sem lógica de acesso a dados",
+                "Apenas estruturas, tipos e validações"
+            ]
+        }
+    },
+    "external_integrations": {
+        "isolation_principle": "TODA integração externa deve ser isolada em wrappers na camada de infraestrutura",
+        "integrations": {
+            "cappuccino_cloud_database": {
+                "purpose": "Backend as a Service - MongoDB multi-tenant",
+                "layer": "Infrastructure (packages/cappuccino-client/)",
+                "wrapper_location": "packages/cappuccino-client/src/",
+                "usage": "SEMPRE usar via Cappuccino Client, NUNCA chamar SDK diretamente nos componentes",
+                "rules": [
+                    "Cappuccino Client é singleton configurado com tenant ID e API key",
+                    "Todas as operações passam pela lib intermediária",
+                    "Hooks customizados (useCappuccinoCollection, etc) encapsulam lógica comum"
+                ]
+            },
+            "youtube_api": {
+                "purpose": "Embed de vídeos de sermões",
+                "layer": "Infrastructure",
+                "wrapper_location": "lib/integrations/youtube.ts",
+                "usage": "Componente YouTubeEmbed usa wrapper, não API direto"
+            },
+            "google_maps_api": {
+                "purpose": "Mapas de localização das igrejas",
+                "layer": "Infrastructure",
+                "wrapper_location": "lib/integrations/google-maps.ts",
+                "usage": "Componente LocationMap usa wrapper"
+            }
+        },
+        "error_handling": {
+            "principle": "Tratar erros de integração gracefully com fallbacks",
+            "strategies": [
+                "Try-catch em todas as chamadas externas",
+                "Mensagens de erro amigáveis ao usuário",
+                "Logging de erros técnicos para debug",
+                "Fallbacks visuais (skeleton, placeholders)"
+            ]
+        }
+    },
+    "data_model": {
+        "collections": [
+            "site_config",
+            "banners",
+            "events",
+            "sermons",
+            "blog_posts",
+            "groups",
+            "testimonies",
+            "prayer_requests",
+            "newsletter_subscribers",
+            "donations",
+            "mission_partners",
+            "resources",
+            "users"
+        ],
+        "reference": "Ver COLLECTIONS_SCHEMA.md para schemas completos",
+        "rules": {
+            "multilingual_fields": "Campos de texto SEMPRE têm { fr, pt, en }",
+            "dates": "Usar Date objects, converter para ISO strings quando enviar",
+            "ids": "MongoDB ObjectId gerenciado pelo Cappuccino",
+            "timestamps": "createdAt, updatedAt automáticos (se configurado no Cappuccino)",
+            "soft_delete": "Usar flag 'active' ou 'status' ao invés de deletar registros importantes"
+        }
+    },
+    "code_reuse_policy": {
+        "mandatory_analysis": "OBRIGATÓRIO: Antes de criar QUALQUER código novo, analisar TODO o código existente",
+        "analysis_checklist": [
+            "✓ Existe componente similar que posso reutilizar?",
+            "✓ Existe hook customizado que faz isso?",
+            "✓ Existe util/helper com essa lógica?",
+            "✓ Posso extrair código comum de componentes existentes?",
+            "✓ Posso compor componentes existentes ao invés de criar novo?"
+        ],
+        "reuse_priority": "SEMPRE priorizar reutilização > refatoração > criação",
+        "creation_rules": {
+            "allow_new_code_only_if": [
+                "NÃO existe código reutilizável de forma alguma",
+                "O caso é extremamente específico e único",
+                "Reutilizar quebraria o princípio de responsabilidade única",
+                "Abstrair o código atual criaria complexidade desnecessária"
+            ],
+            "minimum_reuse_threshold": {
+                "component": "Se vai ser usado em 2+ lugares, criar componente compartilhado",
+                "hook": "Se a lógica se repete em 2+ componentes, criar hook customizado",
+                "function": "Se o código se repete em 3+ lugares, extrair função utilitária"
+            }
+        },
+        "composition_over_creation": {
+            "principle": "Compor componentes existentes > Criar componente novo",
+            "example": {
+                "instead_of": "Criar EventCardWithActions componente novo",
+                "do": "Compor <EventCard> + <ActionButtons> existentes"
+            }
+        },
+        "refactoring_first": "Se código similar existe, refatorar para extrair abstração comum ANTES de criar duplicata"
+    },
+    "code_cleanup_strategies": {
+        "continuous_cleanup": "Limpar código proativamente durante QUALQUER modificação",
+        "dead_code_elimination": {
+            "remove_immediately": [
+                "Imports não utilizados (usar ESLint)",
+                "Componentes não referenciados",
+                "Funções/hooks não chamados",
+                "Props não usadas",
+                "Variáveis declaradas mas não usadas",
+                "Código comentado > 1 semana",
+                "Console.logs de debug",
+                "TODOs resolvidos"
+            ],
+            "tools": [
+                "ESLint rules: no-unused-vars, no-console",
+                "TypeScript strict mode",
+                "Busca global para encontrar referências"
+            ]
+        },
+        "redundancy_elimination": {
+            "detect": "Código que faz a mesma coisa de formas diferentes",
+            "strategies": [
+                "Extrair componente compartilhado",
+                "Criar hook customizado",
+                "Criar função utilitária",
+                "Usar composition",
+                "Centralizar lógica repetida"
+            ],
+            "example": {
+                "problem": "3 componentes formatam data de evento de formas similares",
+                "solution": "Criar formatEventDate() em lib/utils/date.ts e usar em todos"
+            }
+        },
+        "import_organization": {
+            "order": [
+                "1. React/Next imports",
+                "2. External libraries",
+                "3. Internal absolute imports (@/)",
+                "4. Relative imports (./)",
+                "5. Types imports (type-only)",
+                "6. Styles"
+            ],
+            "example": "// React\nimport { useState } from 'react'\n// External\nimport { z } from 'zod'\n// Internal\nimport { Button } from '@/components/ui'\n// Relative\nimport { EventCard } from './EventCard'\n// Types\nimport type { Event } from '@/types'"
+        }
+    },
+    "component_patterns": {
+        "file_structure": {
+            "simple_component": "Component.tsx - para componentes simples sem sub-componentes",
+            "complex_component": "Component/index.tsx + Component/Component.tsx + Component/types.ts",
+            "with_styles": "Usar Tailwind inline, não criar arquivos CSS separados (exceto globals)"
+        },
+        "naming": {
+            "files": "PascalCase - EventCard.tsx, SermonPlayer.tsx",
+            "components": "PascalCase - export const EventCard = () => {}",
+            "props_interface": "{ComponentName}Props - export interface EventCardProps {}"
+        },
+        "structure": {
+            "order": [
+                "1. Imports",
+                "2. Types/Interfaces",
+                "3. Constants (dentro do componente se específicas)",
+                "4. Component function",
+                "5. Sub-components (se houver, pequenos)",
+                "6. Export"
+            ]
+        },
+        "props": {
+            "destructure": "SEMPRE desestruturar props: ({ title, date, ...props }) =>",
+            "rest_props": "Usar ...props para passar para elemento raiz quando apropriado",
+            "children": "Sempre tipar children: { children: React.ReactNode }",
+            "optional": "Usar ? para props opcionais, não undefined",
+            "defaults": "Usar default parameters: ({ size = 'md' }) =>"
+        },
+        "server_vs_client": {
+            "default": "Server Component (sem 'use client')",
+            "use_client_when": [
+                "Usa hooks (useState, useEffect, useContext)",
+                "Usa event handlers (onClick, onChange)",
+                "Usa browser APIs (window, localStorage)",
+                "Precisa de interatividade"
+            ],
+            "tip": "Mover 'use client' o mais baixo possível na árvore de componentes"
+        },
+        "example_component": "Ver /examples/component-pattern.tsx para exemplo completo"
+    },
+    "hook_patterns": {
+        "naming": "use{Action}{Entity} - useGetEvents, useCreateSermon, useAuth",
+        "file_location": "hooks/{entity}.ts ou hooks/use-{entity}.ts",
+        "structure": {
+            "order": [
+                "1. Imports",
+                "2. Types",
+                "3. Hook function",
+                "4. Return object",
+                "5. Export"
+            ]
+        },
+        "return_pattern": "SEMPRE retornar objeto com { data, loading, error, ...methods }",
+        "example": "export const useGetEvents = () => {\n  const { data, loading, error } = useCappuccinoCollection('events')\n  return { events: data, loading, error }\n}"
+    },
+    "form_patterns": {
+        "library": "React Hook Form + Zod",
+        "structure": [
+            "1. Define Zod schema em lib/validations/",
+            "2. useForm com zodResolver",
+            "3. onSubmit handler com try-catch",
+            "4. Form com campos controlados",
+            "5. Error display",
+            "6. Loading state"
+        ],
+        "validation": "SEMPRE validar no cliente (Zod) E no servidor (Server Action)",
+        "i18n": "Labels e mensagens de erro devem ser traduzidas",
+        "example_location": "/examples/form-pattern.tsx"
+    },
+    "i18n_patterns": {
+        "library": "next-intl",
+        "locales": [
+            "fr",
+            "pt",
+            "en"
+        ],
+        "default_locale": "fr",
+        "structure": {
+            "translations": "messages/{locale}.json",
+            "usage": "const t = useTranslations('namespace')",
+            "namespaces": [
+                "common - textos comuns (buttons, labels)",
+                "navigation - menu e navegação",
+                "home - homepage",
+                "events - eventos",
+                "sermons - sermões",
+                "blog - blog/artigos",
+                "forms - formulários",
+                "errors - mensagens de erro"
+            ]
+        },
+        "rules": [
+            "NUNCA hardcodar texto em português/francês/inglês nos componentes",
+            "SEMPRE usar t('key') do useTranslations()",
+            "Keys devem ser descritivas: 'events.card.readMore' não 'btn1'",
+            "Pluralizações usar next-intl: t('items', { count })"
+        ],
+        "multilingual_data": {
+            "database": "Campos { fr, pt, en } nas collections",
+            "display": "Pegar campo baseado no locale atual: event.title[locale]",
+            "forms": "Tabs ou accordions para cada idioma no backoffice"
+        }
+    },
+    "styling_patterns": {
+        "framework": "Tailwind CSS + shadcn/ui",
+        "approach": "Utility-first inline",
+        "colors": {
+            "primary": "Borgonha (definir em tailwind.config.ts)",
+            "secondary": "Definir cores secundárias",
+            "semantic": "Usar semantic tokens: bg-primary, text-destructive"
+        },
+        "spacing": "Usar scale padrão do Tailwind (4, 8, 12, 16, 24, 32...)",
+        "responsive": "Mobile-first: classes sem prefixo = mobile, md: tablet, lg: desktop",
+        "dark_mode": "Preparar para dark mode mas implementar depois (usar dark: prefix)",
+        "component_variants": {
+            "use": "class-variance-authority (CVA) do shadcn",
+            "example": "button({ variant: 'primary', size: 'lg' })"
+        },
+        "avoid": [
+            "Arquivos CSS separados (exceto globals.css)",
+            "Inline styles (style prop) exceto para valores dinâmicos",
+            "Classes customizadas sem necessidade",
+            "!important"
+        ]
+    },
+    "file_organization": {
+        "monorepo_structure": {
+            "apps/web": "Site público (Next.js)",
+            "apps/backoffice": "CMS admin (Next.js)",
+            "packages/cappuccino-client": "Lib do Cappuccino",
+            "packages/ui": "Componentes compartilhados (futuro)",
+            "packages/types": "Types compartilhados (futuro)",
+            "packages/config": "Configs compartilhadas (futuro)"
+        },
+        "app_structure": "Feature-based (por domínio) não por tipo de arquivo",
+        "example": "app/\n  [locale]/\n    (public)/          # Site público\n      page.tsx         # Homepage\n      community/       # Feature: Comunidade\n        page.tsx\n        _components/   # Componentes privados\n      events/          # Feature: Eventos\n      sermons/         # Feature: Sermões\n    (backoffice)/      # CMS Admin\n      dashboard/\n      content/\n        events/\n        sermons/",
+        "components_structure": "components/\n  ui/              # shadcn components\n  shared/          # Compartilhados entre features\n  layout/          # Header, Footer, Nav",
+        "colocate": "Colocar arquivos relacionados próximos. Components específicos de uma feature vão em _components/ dentro da feature."
+    },
+    "performance_and_safety": {
+        "database_safeguards": [
+            "SEMPRE usar paginação em listagens (limit + skip)",
+            "SEMPRE validar IDs antes de queries",
+            "Evitar N+1 queries - buscar dados relacionados em batch",
+            "Usar índices no MongoDB para queries frequentes",
+            "Implementar cache com unstable_cache() do Next.js",
+            "Rate limiting em Server Actions sensíveis",
+            "Timeout em queries longas"
+        ],
+        "api_optimization": [
+            "Usar Server Components para fetching quando possível",
+            "Cache agressivo com revalidação inteligente",
+            "Prefetch de dados críticos",
+            "Lazy loading de dados não essenciais",
+            "Implementar Suspense boundaries"
+        ],
+        "image_optimization": [
+            "SEMPRE usar next/image",
+            "Definir width/height ou fill",
+            "Usar placeholder='blur' quando possível",
+            "Otimizar imagens antes do upload (resize, compress)",
+            "Usar formato moderno (WebP) via Cappuccino Storage"
+        ],
+        "bundle_optimization": [
+            "Dynamic imports para componentes pesados",
+            "Separar client/server components adequadamente",
+            "Não importar bibliotecas pesadas no cliente desnecessariamente",
+            "Tree-shaking: importar apenas o necessário"
+        ],
+        "monitoring": [
+            "Vercel Analytics para performance",
+            "Error tracking (Sentry futuro)",
+            "Logging estruturado de erros",
+            "Monitorar Core Web Vitals"
+        ]
+    },
+    "error_handling": {
+        "layers": {
+            "ui_layer": "Mostrar mensagens amigáveis ao usuário, usar ErrorBoundary",
+            "application_layer": "Try-catch em hooks/actions, retornar { error } estruturado",
+            "infrastructure_layer": "Try-catch em todas as chamadas externas, logar erros técnicos"
+        },
+        "error_types": {
+            "validation_error": "Mostrar no formulário, não toast",
+            "network_error": "Toast ou banner com retry",
+            "auth_error": "Redirect para login",
+            "not_found": "Mostrar 404 page",
+            "server_error": "Toast genérico, logar detalhes"
+        },
+        "patterns": {
+            "server_actions": "return { success: boolean, data?: T, error?: string }",
+            "hooks": "return { data, loading, error: Error | null }",
+            "components": "ErrorBoundary para erros não tratados"
+        },
+        "messages": {
+            "user_facing": "Mensagens claras em FR/PT/EN via i18n",
+            "developer_facing": "Stack trace e contexto no log",
+            "never": "Não mostrar stack traces ou detalhes técnicos ao usuário"
+        }
+    },
+    "testing_strategy": {
+        "approach": "Pragmático - testar o que importa",
+        "priorities": {
+            "high": [
+                "Validações Zod",
+                "Lógica de negócio em utils/helpers",
+                "Server Actions críticas (create, update, delete)",
+                "Hooks customizados complexos"
+            ],
+            "medium": [
+                "Componentes complexos com lógica",
+                "Integrações externas (mocks)"
+            ],
+            "low": [
+                "Componentes puramente visuais",
+                "Pages simples"
+            ]
+        },
+        "tools": {
+            "unit": "Vitest (Jest)",
+            "component": "React Testing Library",
+            "e2e": "Playwright (fase 2)",
+            "type_checking": "TypeScript strict mode"
+        },
+        "coverage": "Não buscar 100%, buscar testar código crítico bem",
+        "location": "Co-located: EventCard.tsx → EventCard.test.tsx"
+    },
+    "naming_conventions": {
+        "files": {
+            "components": "PascalCase - EventCard.tsx",
+            "hooks": "camelCase - useGetEvents.ts ou use-get-events.ts",
+            "utils": "camelCase - formatDate.ts",
+            "types": "camelCase - event.types.ts",
+            "constants": "camelCase - eventCategories.ts",
+            "pages": "kebab-case ou lowercase - page.tsx, events/[id]/page.tsx"
+        },
+        "variables_functions": {
+            "variables": "camelCase - eventData, isLoading",
+            "functions": "camelCase - formatEventDate(), handleSubmit()",
+            "constants": "UPPER_SNAKE_CASE - EVENT_CATEGORIES, MAX_FILE_SIZE",
+            "types": "PascalCase - Event, EventCardProps",
+            "enums": "PascalCase - EventStatus.SCHEDULED"
+        },
+        "components": {
+            "react_components": "PascalCase - EventCard, SermonPlayer",
+            "component_files": "PascalCase - EventCard.tsx",
+            "props_interface": "PascalCase - EventCardProps"
+        },
+        "boolean_variables": {
+            "prefix": "is, has, should, can",
+            "examples": [
+                "isLoading",
+                "hasError",
+                "shouldRender",
+                "canEdit"
+            ]
+        },
+        "event_handlers": {
+            "pattern": "handle{Action}",
+            "examples": [
+                "handleClick",
+                "handleSubmit",
+                "handleChange",
+                "handleDelete"
+            ]
+        }
+    },
+    "project_specific_rules": {
+        "multilingual_mandatory": {
+            "description": "TODO texto deve suportar FR/PT/EN desde o início",
+            "applies_to": "Componentes, formulários, mensagens de erro",
+            "never": "NUNCA hardcodar texto em um único idioma"
+        },
+        "cappuccino_only": {
+            "description": "ÚNICA forma de acessar dados é via Cappuccino Client",
+            "applies_to": "Toda camada de aplicação",
+            "never": "NUNCA chamar MongoDB diretamente ou usar outro BaaS"
+        },
+        "server_components_first": {
+            "description": "Preferir Server Components, usar Client apenas quando necessário",
+            "applies_to": "Todos os componentes",
+            "use_client_only_for": [
+                "Interatividade",
+                "Hooks",
+                "Browser APIs"
+            ]
+        },
+        "feature_based_structure": {
+            "description": "Organizar código por feature/domínio, não por tipo",
+            "applies_to": "Estrutura de pastas",
+            "example": "events/ contém page, components, actions tudo junto"
+        },
+        "borgonha_theme": {
+            "description": "Cor primária é borgonha, definida no Tailwind config",
+            "applies_to": "Todo o design system",
+            "use": "bg-primary, text-primary, border-primary"
+        },
+        "three_locations": {
+            "description": "Igreja tem 3 localizações: Saint-Hippolyte, Lasalle, Monoblet",
+            "applies_to": "Eventos, mapas, horários",
+            "important": "Sempre considerar múltiplas localizações no design"
+        },
+        "youtube_integration": {
+            "description": "Sermões vêm do YouTube (embed)",
+            "applies_to": "SermonPlayer component",
+            "never": "Não fazer upload de vídeos, apenas armazenar URL do YouTube"
+        }
+    },
+    "ai_behavior_rules": {
+        "consult_references_first": {
+            "priority": "CRÍTICO",
+            "rule": "ANTES de qualquer mudança significativa, consultar:",
+            "files": [
+                "PROJETO_COMPLETO.md",
+                "COLLECTIONS_SCHEMA.md",
+                "CAPPUCCINO_INTEGRATION.md",
+                "component-pattern.tsx",
+                "style-guide.md"
+            ]
+        },
+        "kiss_first": {
+            "priority": "PRIORIDADE #1",
+            "rule": "SEMPRE escolher a solução MAIS SIMPLES que funcione",
+            "ask": "Esta abstração é realmente necessária ou estou complicando?"
+        },
+        "analyze_before_create": {
+            "priority": "CRÍTICO",
+            "checklist": [
+                "✓ Li os reference files relevantes?",
+                "✓ Analisei TODO o código existente?",
+                "✓ Existe código similar que posso reutilizar?",
+                "✓ Posso compor componentes existentes?",
+                "✓ Posso refatorar ao invés de criar novo?",
+                "✓ Esta abstração é necessária ou estou complicando?",
+                "✓ O código é SIMPLES e LEGÍVEL?",
+                "✓ Cada função tem UMA responsabilidade?",
+                "✓ Estou respeitando as camadas?",
+                "✓ Todos os textos estão em i18n?",
+                "✓ Estou usando Cappuccino Client corretamente?",
+                "✓ Removi código morto?",
+                "✓ O código é EFICIENTE?"
+            ]
+        },
+        "prefer_composition": {
+            "rule": "Composição > Herança > Abstração > Criação nova",
+            "example": "Compor <Card> + <Image> ao invés de criar <ImageCard>"
+        },
+        "single_responsibility_always": {
+            "priority": "SEMPRE",
+            "rule": "NUNCA criar função/componente com múltiplas responsabilidades"
+        },
+        "efficiency_always": {
+            "priority": "SEMPRE",
+            "rule": "SEMPRE considerar performance: N+1, cache, paginação, bundle size"
+        },
+        "i18n_always": {
+            "priority": "SEMPRE",
+            "rule": "TODO texto visível deve usar useTranslations(), nunca hardcoded"
+        },
+        "layer_respect_always": {
+            "priority": "CRÍTICO",
+            "rule": "NUNCA violar separação de camadas. Componentes não acessam Cappuccino diretamente."
+        },
+        "pragmatic_solid": {
+            "rule": "Aplicar SOLID pragmaticamente. Não criar abstrações complexas sem necessidade.",
+            "ask": "Esta interface/abstração resolve problema real ou é 'por precaução'?"
+        },
+        "continuous_cleanup": {
+            "rule": "SEMPRE limpar: imports não usados, código comentado, console.logs, TODOs resolvidos"
+        },
+        "ask_for_clarification": {
+            "rule": "Quando ambíguo, PERGUNTAR ao invés de assumir",
+            "examples": [
+                "Não sei se este caso precisa de paginação",
+                "Não sei qual validação aplicar aqui",
+                "Não sei se deve ser Server ou Client Component"
+            ]
+        },
+        "suggest_improvements": {
+            "rule": "Sugerir ativamente:",
+            "examples": [
+                "Este componente viola SRP, sugiro extrair X",
+                "Este código é duplicado com Y, sugiro refatorar",
+                "Esta query causa N+1, sugiro usar Z",
+                "Este texto não está em i18n"
+            ]
+        },
+        "document_decisions": {
+            "rule": "Documentar decisões importantes:",
+            "when": [
+                "Criar nova abstração",
+                "Escolher abordagem não óbvia",
+                "Workaround técnico",
+                "Trade-off de performance"
+            ],
+            "format": "Comentário no código explicando POR QUÊ"
+        },
+        "validate_before_respond": {
+            "rule": "Antes de responder com código:",
+            "checklist": [
+                "✓ É SIMPLES?",
+                "✓ É LEGÍVEL?",
+                "✓ Reutiliza código existente?",
+                "✓ Cada função tem UMA responsabilidade?",
+                "✓ Respeita as camadas?",
+                "✓ Usa i18n?",
+                "✓ É EFICIENTE?",
+                "✓ Está limpo (sem dead code)?"
+            ]
+        }
+    },
+    "documentation_requirements": {
+        "code_comments": {
+            "when": [
+                "Decisões arquiteturais não óbvias",
+                "Workarounds temporários (com // TODO)",
+                "Regras de negócio complexas específicas da igreja",
+                "Integrações externas (Cappuccino, YouTube, Google Maps)",
+                "Algoritmos complexos"
+            ],
+            "format": "// Por quê estamos fazendo isso desta forma",
+            "avoid": [
+                "Comentar código óbvio",
+                "Comentários que repetem o nome da função",
+                "Código comentado (deletar)"
+            ]
+        },
+        "component_documentation": {
+            "when": "Componentes complexos ou públicos (shared/ui)",
+            "format": "JSDoc acima do componente",
+            "include": [
+                "Propósito",
+                "Props importantes",
+                "Exemplo de uso"
+            ]
+        },
+        "api_documentation": {
+            "when": "Server Actions públicas",
+            "format": "JSDoc com @param e @returns",
+            "include": [
+                "O que faz",
+                "Parâmetros",
+                "Retorno",
+                "Possíveis erros"
+            ]
+        },
+        "architectural_decisions": {
+            "where": "/docs/decisions/ADR-{number}-{title}.md",
+            "when": [
+                "Escolhas arquiteturais importantes",
+                "Mudanças significativas de abordagem",
+                "Trade-offs importantes"
+            ],
+            "format": "ADR (Architecture Decision Record)"
+        },
+        "readme_updates": {
+            "when": "Adicionar features significativas, mudar setup, adicionar dependências",
+            "sections": [
+                "Setup",
+                "Scripts",
+                "Estrutura",
+                "Tecnologias",
+                "Deploy"
+            ]
+        }
+    },
+    "git_workflow": {
+        "branch_naming": "feature/{feature-name}, fix/{bug-name}, refactor/{what}",
+        "commit_messages": {
+            "format": "type(scope): message",
+            "types": [
+                "feat",
+                "fix",
+                "refactor",
+                "docs",
+                "style",
+                "test",
+                "chore"
+            ],
+            "examples": [
+                "feat(events): add event creation form",
+                "fix(sermons): resolve video player bug",
+                "refactor(components): extract EventCard component"
+            ]
+        },
+        "pr_guidelines": [
+            "Título descritivo",
+            "Descrição do que foi feito e por quê",
+            "Screenshots se houver mudanças visuais",
+            "Checklist de validação"
+        ]
+    },
+    "deployment": {
+        "platform": "Vercel",
+        "environments": {
+            "production": "main branch → igreja-cevennes.com",
+            "staging": "develop branch → staging.igreja-cevennes.com",
+            "preview": "PRs → preview URLs automáticos"
+        },
+        "environment_variables": {
+            "required": [
+                "NEXT_PUBLIC_CAPPUCCINO_TENANT_ID",
+                "CAPPUCCINO_API_KEY",
+                "NEXT_PUBLIC_SITE_URL",
+                "NEXT_PUBLIC_GOOGLE_MAPS_API_KEY"
+            ],
+            "optional": [
+                "SENTRY_DSN",
+                "GOOGLE_ANALYTICS_ID"
+            ]
+        },
+        "build_optimization": [
+            "Análise de bundle com @next/bundle-analyzer",
+            "Lighthouse scores > 90 em todas as métricas",
+            "Core Web Vitals dentro dos limites"
+        ]
+    },
+    "phase_specific_rules": {
+        "phase_1_mvp": {
+            "duration": "2-3 semanas",
+            "focus": "Site estático funcional com conteúdo hardcoded",
+            "priorities": [
+                "Estrutura de componentes clara e reutilizável",
+                "Design responsivo e acessível",
+                "i18n implementado desde o início",
+                "Performance otimizada",
+                "SEO básico"
+            ],
+            "skip": [
+                "Autenticação",
+                "CMS/Backoffice",
+                "Integração real com Cappuccino (usar mocks)",
+                "Upload de arquivos"
+            ],
+            "deliverables": [
+                "Homepage completa",
+                "Página Comunidade",
+                "Página Recursos",
+                "Página Missão",
+                "Página Contato",
+                "Componentes UI base (shadcn)",
+                "Sistema i18n funcionando",
+                "Formulários básicos (sem persistência)"
+            ]
+        },
+        "phase_2_cms": {
+            "duration": "4-6 semanas",
+            "focus": "Sistema de gerenciamento de conteúdo completo",
+            "priorities": [
+                "Integração completa com Cappuccino",
+                "Autenticação e autorização",
+                "CRUD para todas as entidades",
+                "Upload de arquivos",
+                "Preview antes de publicar",
+                "Sistema de permissões"
+            ],
+            "deliverables": [
+                "Sistema de auth",
+                "Dashboard do backoffice",
+                "Gestão de banners",
+                "Gestão de eventos",
+                "Gestão de sermões",
+                "Gestão de blog",
+                "Gestão de grupos",
+                "Gestão de testemunhos",
+                "Gestão de pedidos de oração",
+                "Biblioteca de mídia",
+                "Configurações globais",
+                "Gestão de usuários"
+            ]
+        }
+    },
+    "quick_reference": {
+        "creating_component": [
+            "1. Verificar se já existe similar",
+            "2. Decidir: Server ou Client Component?",
+            "3. Criar em local apropriado (ui/, shared/, feature/_components/)",
+            "4. Nomear PascalCase",
+            "5. Definir Props interface",
+            "6. Implementar com responsabilidade única",
+            "7. Usar Tailwind para styling",
+            "8. Adicionar i18n se houver textos",
+            "9. Exportar"
+        ],
+        "creating_hook": [
+            "1. Verificar se já existe similar",
+            "2. Nomear use{Action}{Entity}",
+            "3. Criar em hooks/",
+            "4. Usar hooks do Cappuccino Client",
+            "5. Retornar { data, loading, error, ...methods }",
+            "6. Adicionar error handling",
+            "7. Exportar"
+        ],
+        "creating_server_action": [
+            "1. Criar em app/actions/{entity}.ts",
+            "2. Adicionar 'use server'",
+            "3. Validar com Zod",
+            "4. Usar Cappuccino Client",
+            "5. Try-catch para errors",
+            "6. Revalidar cache",
+            "7. Retornar { success, data?, error? }"
+        ],
+        "adding_new_page": [
+            "1. Criar em app/[locale]/(group)/{route}/page.tsx",
+            "2. Decidir: Server ou Client?",
+            "3. Fetch dados se Server Component",
+            "4. Implementar SEO (metadata)",
+            "5. Adicionar traduções em messages/",
+            "6. Testar em FR/PT/EN",
+            "7. Adicionar ao menu se necessário"
+        ],
+        "common_mistakes_to_avoid": [
+            "❌ Texto hardcoded sem i18n",
+            "❌ Componente acessando Cappuccino diretamente",
+            "❌ Múltiplas responsabilidades em uma função",
+            "❌ Criar código novo sem verificar existente",
+            "❌ Abstrações complexas desnecessárias",
+            "❌ Imports não utilizados",
+            "❌ Console.logs esquecidos",
+            "❌ Não validar dados do usuário",
+            "❌ Não tratar erros",
+            "❌ Não usar next/image para imagens",
+            "❌ Client Component quando Server bastaria",
+            "❌ Não usar paginação em listagens grandes"
+        ]
+    }
+}
