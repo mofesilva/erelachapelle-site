@@ -50,17 +50,17 @@
                     "priority": "alta"
                 },
                 {
-                    "path": "/docs/COLLECTIONS_SCHEMA.md",
+                    "path": "/docs/collections_schema.md",
                     "description": "Schemas detalhados de todas as collections do MongoDB",
                     "priority": "alta"
                 },
                 {
-                    "path": "/docs/API.md",
+                    "path": "/docs/api.md",
                     "description": "Documentação de API Routes e endpoints internos",
                     "priority": "média"
                 },
                 {
-                    "path": "/docs/CAPPUCCINO_INTEGRATION.md",
+                    "path": "/docs/cappuccino_integration.md",
                     "description": "Guia de integração com Cappuccino Cloud Database",
                     "priority": "alta"
                 },
@@ -367,6 +367,223 @@
                 "Lazy loading de componentes pesados",
                 "Otimização de imagens (next/image)",
                 "Paginação em listagens grandes"
+            ]
+        }
+    },
+    "mvc_architecture": {
+        "pattern": "Model > Mapper > Collection > Service > Controller",
+        "description": "Estrutura MVC feature-based - todos os arquivos MVC ficam dentro da pasta do domínio",
+        "organization": "Feature-Based por domínio - ex: blog_posts/, events/, sermons/",
+        "flow": "UI Components → Controllers → Services → Collections → Mappers → Models → MongoDB",
+        "folder_structure": {
+            "example": "lib/\n  blog_posts/\n    blog-post.model.ts\n    blog-post.mapper.ts\n    blog-post.collection.ts\n    blog-post.service.ts\n    blog-post.controller.ts\n  events/\n    event.model.ts\n    event.mapper.ts\n    event.collection.ts\n    event.service.ts\n    event.controller.ts\n  sermons/\n    sermon.model.ts\n    sermon.mapper.ts\n    sermon.collection.ts\n    sermon.service.ts\n    sermon.controller.ts",
+            "structure": "Cada domínio tem sua própria pasta com todos os arquivos MVC"
+        },
+        "domains": [
+            "blog_posts",
+            "events",
+            "sermons",
+            "users",
+            "groups",
+            "testimonies",
+            "prayer_requests",
+            "newsletter",
+            "donations",
+            "mission_partners",
+            "resources",
+            "site_config",
+            "banners"
+        ],
+        "layers": {
+            "model": {
+                "file_pattern": "{domain}.model.ts",
+                "location": "lib/{domain}/{domain}.model.ts",
+                "role": "Definições de tipos, interfaces e entidades do domínio",
+                "responsibility": "Estruturas de dados puros, tipos TypeScript, validações Zod",
+                "examples": [
+                    "lib/events/event.model.ts - interface Event, eventSchema Zod",
+                    "lib/sermons/sermon.model.ts - interface Sermon, sermonSchema Zod",
+                    "lib/users/user.model.ts - interface User, userSchema Zod"
+                ],
+                "content": [
+                    "TypeScript interface/type definitions",
+                    "Zod schemas para validação",
+                    "Enums e constantes do domínio",
+                    "Types para DTOs e formulários"
+                ],
+                "rules": [
+                    "Apenas definições de tipos e schemas",
+                    "Sem lógica de negócio",
+                    "Sem dependências externas",
+                    "Export default o schema principal"
+                ]
+            },
+            "mapper": {
+                "file_pattern": "{domain}.mapper.ts",
+                "location": "lib/{domain}/{domain}.mapper.ts",
+                "role": "Conversão entre formatos de dados (camelCase ↔ snake_case, API ↔ UI)",
+                "responsibility": "Transformação de dados entre camadas, normalização, formatação",
+                "examples": [
+                    "lib/events/event.mapper.ts - toDatabaseFormat(), fromDatabaseFormat()",
+                    "lib/sermons/sermon.mapper.ts - toUIFormat(), fromFormData()",
+                    "lib/blog_posts/blog-post.mapper.ts - mapMultilingual(), formatDates()"
+                ],
+                "functions": [
+                    "toDatabaseFormat(data) - converte camelCase para snake_case",
+                    "fromDatabaseFormat(data) - converte snake_case para camelCase",
+                    "toUIFormat(data) - formata dados para display na UI",
+                    "fromFormData(formData) - converte dados de formulário"
+                ],
+                "rules": [
+                    "Conversões automáticas de nomenclatura",
+                    "Formatação de datas e valores",
+                    "Mapeamento de dados multilíngues",
+                    "Sem lógica de negócio complexa",
+                    "Funções puras (pure functions)"
+                ]
+            },
+            "collection": {
+                "file_pattern": "{domain}.collection.ts",
+                "location": "lib/{domain}/{domain}.collection.ts",
+                "role": "Acesso direto aos dados via Cappuccino Client",
+                "responsibility": "Operações CRUD básicas, queries simples, interface com MongoDB",
+                "examples": [
+                    "lib/events/event.collection.ts - getEvent(), listEvents(), createEvent()",
+                    "lib/sermons/sermon.collection.ts - getSermon(), listSermons()",
+                    "lib/users/user.collection.ts - getUser(), createUser()"
+                ],
+                "methods": [
+                    "get(id) - buscar por ID",
+                    "list(filters, pagination) - listagem com filtros",
+                    "create(data) - criar novo registro",
+                    "update(id, data) - atualizar existente",
+                    "delete(id) - soft delete (is_active = false)",
+                    "count(filters) - contar registros",
+                    "exists(id) - verificar existência"
+                ],
+                "rules": [
+                    "ÚNICA camada que acessa Cappuccino Client",
+                    "Operações CRUD básicas apenas",
+                    "Usar mapper para conversão de dados",
+                    "Implementar paginação e filtros",
+                    "Error handling básico",
+                    "Retornar dados convertidos (camelCase)"
+                ]
+            },
+            "service": {
+                "file_pattern": "{domain}.service.ts",
+                "location": "lib/{domain}/{domain}.service.ts",
+                "role": "Lógica de negócio, orquestração, validações complexas",
+                "responsibility": "Regras de negócio, workflows, integrações, cache",
+                "examples": [
+                    "lib/events/event.service.ts - createEventWithValidation(), getUpcomingEvents()",
+                    "lib/sermons/sermon.service.ts - processYouTubeSermon(), getSermonsByPreacher()",
+                    "lib/newsletter/newsletter.service.ts - subscribeUser(), sendNewsletter()"
+                ],
+                "functions": [
+                    "Business logic específica do domínio",
+                    "Validações complexas multi-campo",
+                    "Integrações com APIs externas",
+                    "Cache e otimizações",
+                    "Workflows complexos",
+                    "Agregações e relatórios"
+                ],
+                "rules": [
+                    "Usar collection para acesso a dados",
+                    "Implementar error handling robusto",
+                    "Validar dados com schemas Zod do model",
+                    "Aplicar regras de negócio da igreja",
+                    "Gerenciar cache quando necessário",
+                    "Pode chamar services de outros domínios"
+                ]
+            },
+            "controller": {
+                "file_pattern": "{domain}.controller.ts ou {domain}.actions.ts",
+                "location": "lib/{domain}/{domain}.controller.ts ou app/actions/{domain}.ts",
+                "role": "Interface entre UI e Services, Server Actions, API Routes",
+                "responsibility": "Receber requests, chamar services, retornar responses formatadas",
+                "examples": [
+                    "lib/events/event.controller.ts - createEventAction(), updateEventAction()",
+                    "lib/sermons/sermon.controller.ts - createSermonAction(), deleteSermonAction()",
+                    "lib/users/user.controller.ts - loginAction(), logoutAction()"
+                ],
+                "patterns": {
+                    "server_actions": "'use server' + return { success: boolean, data?: T, error?: string }",
+                    "api_routes": "Response.json() com status codes apropriados",
+                    "error_handling": "Try-catch com logging e user-friendly messages"
+                },
+                "rules": [
+                    "SEMPRE usar service para lógica de negócio",
+                    "Validar entrada com Zod schemas",
+                    "Revalidar cache do Next.js após mutações",
+                    "Retornar formato consistente de response",
+                    "Logs estruturados para debug",
+                    "Nunca expor detalhes internos ao cliente"
+                ]
+            }
+        },
+        "data_flow": {
+            "read_operation": "UI → Controller → Service → Collection → Mapper → Model (MongoDB)",
+            "write_operation": "UI → Controller → Service → Collection → Mapper → Model (MongoDB)",
+            "example_flow": {
+                "create_event": [
+                    "1. EventForm (UI) submits data",
+                    "2. lib/events/event.controller.ts - createEventAction() receives form data",
+                    "3. lib/events/event.service.ts - createEvent() validates and processes",
+                    "4. lib/events/event.collection.ts - create() handles database operation",
+                    "5. lib/events/event.mapper.ts - toDatabaseFormat() converts to snake_case",
+                    "6. lib/events/event.model.ts - Event schema validates data",
+                    "7. Data saved to MongoDB via Cappuccino"
+                ]
+            }
+        },
+        "integration_with_clean_architecture": {
+            "mapping": {
+                "presentation_layer": "UI Components (React) - app/[locale]/",
+                "application_layer": "Controllers + Services - lib/{domain}/",
+                "infrastructure_layer": "Collections + Mappers - lib/{domain}/",
+                "domain_layer": "Models - lib/{domain}/"
+            },
+            "note": "Feature-based MVC mantém tudo relacionado ao domínio junto, facilitando manutenção"
+        },
+        "naming_conventions": {
+            "files": {
+                "model": "{domain}.model.ts - kebab-case",
+                "mapper": "{domain}.mapper.ts - kebab-case",
+                "collection": "{domain}.collection.ts - kebab-case",
+                "service": "{domain}.service.ts - kebab-case",
+                "controller": "{domain}.controller.ts ou {domain}.actions.ts - kebab-case"
+            },
+            "exports": {
+                "model": "export interface Event, export const eventSchema",
+                "mapper": "export const eventMapper = { toDatabaseFormat, ... }",
+                "collection": "export const eventCollection = { get, list, ... }",
+                "service": "export const eventService = { createEvent, ... }",
+                "controller": "export async function createEventAction()"
+            }
+        },
+        "shared_utilities": {
+            "location": "lib/shared/",
+            "description": "Utilities compartilhadas entre domínios",
+            "examples": [
+                "lib/shared/case-conversion.ts - toSnakeCase(), toCamelCase() genéricos",
+                "lib/shared/date-utils.ts - formatDate(), parseDate()",
+                "lib/shared/validation.ts - validateMultilingual(), validateEmail()",
+                "lib/shared/pagination.ts - createPagination(), parsePaginationParams()"
+            ]
+        },
+        "testing_strategy": {
+            "location": "Testes co-localizados na pasta do domínio",
+            "structure": "lib/\n  events/\n    event.model.ts\n    event.model.spec.ts\n    event.mapper.ts\n    event.mapper.spec.ts\n    event.collection.ts\n    event.collection.spec.ts\n    event.service.ts\n    event.service.spec.ts\n    event.controller.ts\n    event.controller.spec.ts",
+            "unit_tests": [
+                "Models: schemas Zod validation",
+                "Mappers: data transformation functions",
+                "Services: business logic and workflows",
+                "Collections: CRUD operations (mocked Cappuccino)"
+            ],
+            "integration_tests": [
+                "Controllers: Server Actions end-to-end",
+                "Services + Collections: real data flow"
             ]
         }
     },
@@ -746,7 +963,183 @@
             "semantic": "Usar semantic tokens: bg-primary, text-destructive"
         },
         "spacing": "Usar scale padrão do Tailwind (4, 8, 12, 16, 24, 32...)",
-        "responsive": "Mobile-first: classes sem prefixo = mobile, md: tablet, lg: desktop",
+        "responsive": {
+            "approach": "Mobile-first: classes sem prefixo = mobile, prefixos para telas maiores",
+            "philosophy": "Design para mobile primeiro, progressively enhance para desktop",
+            "breakpoints": {
+                "mobile": {
+                    "size": "320px - 767px",
+                    "description": "Smartphones, design base sem prefixo",
+                    "tailwind_prefix": "(sem prefixo)",
+                    "considerations": [
+                        "Touch targets mínimo 44px",
+                        "Navegação simplificada (hamburger menu)",
+                        "Conteúdo stackado verticalmente",
+                        "Imagens full-width ou responsivas",
+                        "Texto legível sem zoom (16px+)"
+                    ]
+                },
+                "tablet": {
+                    "size": "768px - 1023px",
+                    "description": "Tablets em modo portrait/landscape",
+                    "tailwind_prefix": "md:",
+                    "considerations": [
+                        "Aproveitar espaço horizontal extra",
+                        "Começar a usar layouts em grid/flexbox mais complexos",
+                        "Navegação pode ser híbrida (tabs + menu)",
+                        "Sidebar pode aparecer em landscape"
+                    ]
+                },
+                "hd_ready": {
+                    "size": "1024px - 1366px",
+                    "description": "Notebooks HD Ready (1366x768) e similares",
+                    "tailwind_prefix": "lg:",
+                    "considerations": [
+                        "Primeira experiência desktop real",
+                        "Navegação horizontal completa",
+                        "Layouts em múltiplas colunas",
+                        "Hover states começam a fazer sentido",
+                        "Sidebars e conteúdo principal lado a lado"
+                    ]
+                },
+                "full_hd": {
+                    "size": "1367px - 1920px",
+                    "description": "Desktop Full HD (1920x1080)",
+                    "tailwind_prefix": "xl:",
+                    "considerations": [
+                        "Layout completo com sidebars",
+                        "Aproveitamento total do espaço horizontal",
+                        "Componentes podem ser maiores e mais espaçados",
+                        "Imagens em tamanhos maiores",
+                        "Experiência desktop otimizada"
+                    ]
+                },
+                "2k": {
+                    "size": "1921px - 2560px",
+                    "description": "Monitores 2K (2560x1440)",
+                    "tailwind_prefix": "2xl:",
+                    "considerations": [
+                        "Manter densidade visual adequada",
+                        "Evitar que elementos fiquem muito pequenos",
+                        "Pode usar max-width para containers",
+                        "Espaçamentos podem ser mais generosos",
+                        "Considerar zoom do browser (125-150%)"
+                    ]
+                },
+                "4k": {
+                    "size": "2561px+",
+                    "description": "Monitores 4K (3840x2160) e superiores",
+                    "tailwind_prefix": "3xl: (custom)",
+                    "considerations": [
+                        "OBRIGATÓRIO: max-width nos containers principais",
+                        "Densidade adequada - não deixar interface muito pequena",
+                        "Considerar que usuários podem usar zoom 150-200%",
+                        "Imagens de alta resolução para não ficar pixelizadas",
+                        "Conteúdo centralizado com margens laterais"
+                    ]
+                }
+            },
+            "breakpoint_strategy": {
+                "mobile_first": "SEMPRE começar com design mobile e expandir",
+                "progressive_enhancement": "Adicionar features conforme tela cresce",
+                "content_priority": "Conteúdo mais importante visível em mobile",
+                "touch_vs_hover": "Mobile = touch, Desktop = hover + keyboard"
+            },
+            "tailwind_config": {
+                "substitute_default": "Subistituir os breakpoints padrão do Tailwind pelos customizados",
+                "default_breakpoints": {
+                    "sm": "320px > 767px",
+                    "md": "768px > 1023px",
+                    "lg": "1024px > 1366px",
+                    "xl": "1367px > 1920px",
+                    "2xl": "1921px > 2560px",
+                    "3xl": "2561px+"
+                },
+                "custom_breakpoint_needed": {
+                    "reason": "Para monitores 4K e superiores",
+                    "config": "screens: { ...defaultTheme.screens, '3xl': '2560px' }"
+                }
+            },
+            "responsive_rules": {
+                "images": [
+                    "SEMPRE usar next/image com responsive sizing",
+                    "Definir diferentes tamanhos: sizes='(max-width: 768px) 100vw, 50vw'",
+                    "Imagens hero: diferentes crops para mobile/desktop",
+                    "Lazy loading automático com next/image"
+                ],
+                "typography": [
+                    "Mobile: text-base (16px) mínimo para legibilidade",
+                    "Desktop: pode usar text-lg ou xl para melhor leitura",
+                    "Headings: escalar adequadamente (h1 mobile ≠ h1 desktop)",
+                    "Line-height: ajustar para diferentes larguras de linha"
+                ],
+                "spacing": [
+                    "Mobile: spacing mais compacto (p-4, gap-4)",
+                    "Desktop: spacing mais generoso (p-8, gap-8)",
+                    "Usar padding responsivo: px-4 md:px-8 xl:px-12",
+                    "Margins verticais: my-8 md:my-12 xl:my-16"
+                ],
+                "layout": [
+                    "Mobile: stack vertical (flex-col)",
+                    "Tablet+: layout horizontal (md:flex-row)",
+                    "Grid: grid-cols-1 md:grid-cols-2 xl:grid-cols-3",
+                    "Max-width: sempre definir para telas grandes"
+                ],
+                "navigation": [
+                    "Mobile: hamburger menu obrigatório",
+                    "Desktop: navegação horizontal visível",
+                    "Tablet: híbrido dependendo da complexidade",
+                    "Breadcrumbs: apenas desktop (lg:block)"
+                ]
+            },
+            "testing_devices": {
+                "mobile": [
+                    "iPhone 14 Pro (393x852)",
+                    "Samsung Galaxy S23 (384x854)",
+                    "iPhone SE (375x667)"
+                ],
+                "tablet": [
+                    "iPad (768x1024)",
+                    "iPad Pro 11' (834x1194)",
+                    "Surface Pro (912x1368)"
+                ],
+                "desktop": [
+                    "MacBook Air 13' (1366x768)",
+                    "MacBook Pro 14' (1512x982)",
+                    "iMac 24' (1920x1080)",
+                    "Studio Display (2560x1440)",
+                    "Pro Display XDR (3008x1692)"
+                ],
+                "browser_zoom": [
+                    "Testar em 100%, 125%, 150%, 200%",
+                    "Especialmente importante para 4K users"
+                ]
+            },
+            "performance_considerations": {
+                "mobile": [
+                    "Imagens otimizadas e menores",
+                    "Lazy loading agressivo",
+                    "Menos animações/efeitos",
+                    "Bundle JavaScript menor"
+                ],
+                "desktop": [
+                    "Pode carregar mais recursos",
+                    "Animações mais elaboradas",
+                    "Imagens de alta resolução",
+                    "Features adicionais (hover effects, etc)"
+                ]
+            },
+            "container_strategy": {
+                "max_widths": {
+                    "prose": "max-w-prose (65ch) para textos longos",
+                    "content": "max-w-7xl para conteúdo geral",
+                    "full": "max-w-full apenas quando necessário",
+                    "4k_safety": "NUNCA deixar conteúdo esticar até infinito"
+                },
+                "centering": "mx-auto para centralizar containers",
+                "padding": "px-4 md:px-8 xl:px-12 para breathing room"
+            }
+        },
         "dark_mode": "Preparar para dark mode mas implementar depois (usar dark: prefix)",
         "component_variants": {
             "use": "class-variance-authority (CVA) do shadcn",
@@ -761,8 +1154,9 @@
     },
     "file_organization": {
         "monorepo_structure": {
-            "apps/web": "Site público (Next.js)",
-            "apps/backoffice": "CMS admin (Next.js)",
+            "apps/.": "Site público (Next.js), raiz da aplicação",
+            "apps/admin": "CMS admin (Next.js) acessado através do /admin",
+            "apps/admin/login": "Redirecionamento ao acessar o admin do site para fazer o login",
             "packages/cappuccino-client": "Lib do Cappuccino",
             "packages/ui": "Componentes compartilhados (futuro)",
             "packages/types": "Types compartilhados (futuro)",
@@ -899,6 +1293,26 @@
                 "handleChange",
                 "handleDelete"
             ]
+        },
+        "database_fields": {
+            "pattern": "snake_case - campos no MongoDB",
+            "examples": [
+                "created_at",
+                "updated_at",
+                "user_id",
+                "event_title",
+                "is_active"
+            ],
+            "conversion": {
+                "outgoing": "camelCase → snake_case ao enviar para MongoDB",
+                "incoming": "snake_case → camelCase ao receber do MongoDB",
+                "utils_location": "lib/utils/case-conversion.ts",
+                "functions": [
+                    "toSnakeCase(obj) - converte objeto camelCase para snake_case",
+                    "toCamelCase(obj) - converte objeto snake_case para camelCase"
+                ]
+            },
+            "note": "JavaScript usa camelCase, MongoDB usa snake_case. Utils fazem conversão automática."
         }
     },
     "project_specific_rules": {
