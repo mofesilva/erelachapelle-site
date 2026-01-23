@@ -6,6 +6,7 @@
         "framework": "Next.js 14+ (App Router)",
         "architecture_pattern": "Clean Architecture (Pragmática) + Feature-Based Structure",
         "description": "Plataforma web multilíngue (FR/PT/EN) para igreja nas Cévennes, França, com site público e backoffice CMS para gestão de conteúdo",
+        "current_website": "https://erelachapelle.fr/",
         "tech_stack": {
             "frontend": "Next.js 14+, React 18+, TypeScript 5+",
             "styling": "Tailwind CSS, shadcn/ui",
