@@ -1,0 +1,210 @@
+{
+  "common": {
+    "readMore": "Lire la suite",
+    "seeAll": "Voir tout",
+    "loading": "Chargement...",
+    "error": "Une erreur est survenue",
+    "noResults": "Aucun résultat trouvé",
+    "submit": "Envoyer",
+    "cancel": "Annuler",
+    "back": "Retour",
+    "share": "Partager",
+    "download": "Télécharger",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "all": "Tout",
+    "getDirections": "Itinéraire"
+  },
+  "navigation": {
+    "home": "Accueil",
+    "home": "Accueil",
+    "about": "À propos",
+    "sermons": "Prédications",
+    "events": "Événements",
+    "community": "Communauté",
+    "groups": "Groupes",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "homepage": {
+    "hero": {
+      "title": "Bienvenue à l'Église Réformée Évangélique La Chapelle",
+      "subtitle": "Une communauté de foi dans les Cévennes",
+      "cta": "Nous découvrir"
+    },
+    "gathering": {
+      "label": "Nos cultes",
+      "title": "Rejoignez-nous"
+    },
+    "about": {
+      "label": "Qui sommes-nous",
+      "title": "Notre mission",
+      "cta": "En savoir plus"
+    },
+    "team": {
+      "label": "Notre équipe",
+      "title": "L'équipe pastorale"
+    },
+    "events": {
+      "label": "Événements",
+      "title": "Prochains événements",
+      "cta": "Tous les événements",
+      "empty": "De nouveaux événements seront annoncés bientôt."
+    },
+    "sermons": {
+      "label": "Prédications",
+      "title": "Dernières prédications",
+      "cta": "Toutes les prédications",
+      "empty": "De nouvelles prédications seront disponibles bientôt."
+    },
+    "community": {
+      "label": "Communauté",
+      "title": "Vie communautaire",
+      "cta": "Rejoindre un groupe"
+    },
+    "blog": {
+      "label": "Actualités",
+      "title": "Dernières nouvelles",
+      "cta": "Lire le blog"
+    },
+    "faith": {
+      "statement": "Nous croyons en un seul Dieu, Père, Fils et Saint-Esprit, et nous proclamons Jésus-Christ comme Seigneur et Sauveur. Enracinés dans la tradition réformée, nous vivons par la grâce, guidés par l'Écriture.",
+      "cta": "En savoir plus"
+    }
+  },
+  "events": {
+    "title": "Événements",
+    "upcoming": "Événements à venir",
+    "past": "Événements passés",
+    "noEvents": "Aucun événement à venir",
+    "register": "S'inscrire",
+    "registrationSuccess": "Inscription confirmée !",
+    "filterByType": "Type d'événement",
+    "filterByLocation": "Lieu",
+    "filterByDate": "Date",
+    "attendees": "Nombre de participants",
+    "types": {
+      "service": "Culte",
+      "conference": "Conférence",
+      "community": "Communautaire",
+      "youth": "Jeunesse",
+      "outreach": "Mission",
+      "prayer": "Prière",
+      "other": "Autre"
+    }
+  },
+  "sermons": {
+    "title": "Prédications",
+    "archive": "Archives des prédications",
+    "filterByPreacher": "Prédicateur",
+    "filterBySeries": "Série",
+    "filterByTheme": "Thème",
+    "filterByDate": "Date",
+    "noSermons": "Aucune prédication trouvée",
+    "downloadNotes": "Télécharger les notes",
+    "notesUnavailable": "Notes non disponibles",
+    "videoUnavailable": "Cette vidéo est temporairement indisponible",
+    "series": "Série",
+    "preacher": "Prédicateur",
+    "biblicalRef": "Référence biblique"
+  },
+  "community": {
+    "title": "Communauté",
+    "groups": {
+      "title": "Groupes communautaires",
+      "joinGroup": "Je suis intéressé(e)",
+      "interestSuccess": "Votre intérêt a été enregistré !",
+      "filterByType": "Type de groupe",
+      "filterByDay": "Jour de la semaine",
+      "noGroups": "Aucun groupe trouvé",
+      "leader": "Responsable",
+      "meetingTime": "Horaire",
+      "types": {
+        "bible_study": "Étude biblique",
+        "prayer": "Prière",
+        "youth": "Jeunesse",
+        "women": "Femmes",
+        "men": "Hommes",
+        "seniors": "Aînés",
+        "worship": "Louange",
+        "outreach": "Mission",
+        "other": "Autre"
+      },
+      "days": {
+        "monday": "Lundi",
+        "tuesday": "Mardi",
+        "wednesday": "Mercredi",
+        "thursday": "Jeudi",
+        "friday": "Vendredi",
+        "saturday": "Samedi",
+        "sunday": "Dimanche"
+      }
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "articles": "Articles",
+    "filterByCategory": "Catégorie",
+    "noArticles": "Aucun article trouvé",
+    "publishedOn": "Publié le",
+    "by": "Par",
+    "categories": {
+      "community": "Communauté",
+      "news": "Actualités",
+      "devotional": "Méditation"
+    }
+  },
+  "about": {
+    "title": "À propos",
+    "mission": "Notre mission",
+    "missionText": "L'Église Réformée Évangélique La Chapelle est une communauté chrétienne engagée à servir les habitants des Cévennes. Notre mission est d'accueillir chacun, de partager l'amour de Dieu et de construire une communauté fondée sur la foi, l'espérance et la charité.",
+    "vision": "Notre vision",
+    "visionText": "Nous aspirons à être un lieu de refuge et de renouveau spirituel dans les Cévennes, où chaque personne peut découvrir sa place dans la famille de Dieu, grandir dans la foi et servir les autres avec amour.",
+    "history": "Notre histoire",
+    "historyText": "Née d'une vision de rassembler les croyants dans la région des Cévennes, notre église s'est implantée à Saint-Hippolyte-du-Fort. Depuis nos débuts, nous avons grandi en tant que communauté multiculturelle et multilingue, accueillant des personnes de tous horizons.",
+    "faith": "Déclaration de foi",
+    "faithText": "Nous croyons en un seul Dieu, créateur de toutes choses, révélé en trois personnes : le Père, le Fils et le Saint-Esprit. Nous croyons en la Bible comme Parole de Dieu, en Jésus-Christ comme seul Sauveur et Seigneur, et en la puissance transformatrice du Saint-Esprit.",
+    "values": "Nos valeurs",
+    "valuesText": "Accueil inconditionnel, authenticité, service, prière, enseignement biblique, communion fraternelle et engagement dans la communauté locale. Ces valeurs guident chacune de nos actions et de nos décisions.",
+    "team": {
+      "label": "Notre équipe",
+      "title": "L'équipe pastorale"
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Nous contacter",
+    "sendMessage": "Envoyez-nous un message",
+    "ourLocations": "Nos lieux de culte",
+    "address": "Adresse",
+    "phone": "Téléphone",
+    "email": "Email",
+    "officeHours": "Heures d'ouverture",
+    "form": {
+      "name": "Nom",
+      "email": "Email",
+      "subject": "Sujet",
+      "message": "Message",
+      "send": "Envoyer le message",
+      "success": "Votre message a été envoyé avec succès !",
+      "error": "Erreur lors de l'envoi. Veuillez réessayer."
+    }
+  },
+  "forms": {
+    "validation": {
+      "required": "Ce champ est obligatoire",
+      "email": "Veuillez entrer un email valide",
+      "minLength": "Minimum {min} caractères",
+      "maxLength": "Maximum {max} caractères",
+      "phone": "Numéro de téléphone invalide",
+      "minAttendees": "Minimum 1 participant",
+      "maxAttendees": "Maximum 20 participants"
+    }
+  },
+  "newsletter": {
+    "title": "Newsletter",
+    "placeholder": "Votre email",
+    "subscribe": "S'abonner",
+    "success": "Inscription confirmée !"
+  }
+}

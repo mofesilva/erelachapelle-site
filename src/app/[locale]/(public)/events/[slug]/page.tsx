@@ -1,0 +1,140 @@
+import type { Metadata } from "next";
+import { getTranslations, getLocale } from "next-intl/server";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { Badge } from "@/components/ui/badge";
+import { GoogleMapEmbed } from "@/components/shared/GoogleMapEmbed";
+import { ShareButtons } from "@/components/shared/ShareButtons";
+import { getEventBySlug, getAllEvents } from "@/lib/data/events";
+import { getLocationById } from "@/lib/data/locations";
+import { formatDateTime, getLocalizedContent } from "@/lib/utils";
+import { eventJsonLd } from "@/lib/structured-data";
+import type { Locale } from "@/types/common";
+import { Calendar, MapPin } from "lucide-react";
+import { EventRegistrationForm } from "../_components/EventRegistrationForm";
+
+type PageProps = {
+  params: Promise<{ slug: string; locale: string }>;
+};
+
+export async function generateStaticParams() {
+  return getAllEvents().map((event) => ({ slug: event.slug }));
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const event = getEventBySlug(slug);
+  if (!event) return {};
+  return {
+    title: event.title.fr,
+    description: event.description.fr,
+  };
+}
+
+export default async function EventDetailPage({ params }: PageProps) {
+  const { slug } = await params;
+  const t = await getTranslations("events");
+  const tTypes = await getTranslations("events.types");
+  const tCommon = await getTranslations("common");
+  const locale = (await getLocale()) as Locale;
+  const event = getEventBySlug(slug);
+
+  if (!event) notFound();
+
+  const location = getLocationById(event.locationId);
+  const pageUrl = `https://erelachapelle.fr/${locale}/events/${event.slug}`;
+
+  return (
+    <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(eventJsonLd(event, locale)),
+        }}
+      />
+      <section className="bg-primary py-12 text-primary-foreground">
+        <div className="mx-auto max-w-4xl px-4">
+          <Link
+            href={`/${locale}/events`}
+            className="text-sm text-primary-foreground/70 hover:text-primary-foreground"
+          >
+            ← {tCommon("back")}
+          </Link>
+          <h1 className="mt-4 font-serif text-3xl font-bold md:text-4xl">
+            {getLocalizedContent(event.title, locale)}
+          </h1>
+          <Badge className="mt-4 bg-primary-foreground/20 text-primary-foreground">
+            {tTypes(event.eventType)}
+          </Badge>
+        </div>
+      </section>
+
+      <section className="py-12">
+        <div className="mx-auto max-w-4xl px-4">
+          <div className="grid gap-8 md:grid-cols-3">
+            <div className="space-y-8 md:col-span-2">
+              <p className="text-lg leading-relaxed text-muted-foreground">
+                {getLocalizedContent(event.description, locale)}
+              </p>
+
+              {location && (
+                <GoogleMapEmbed
+                  address={`${location.address}, ${location.postalCode} ${location.city}`}
+                  coordinates={location.coordinates}
+                  directionsLabel={tCommon("getDirections")}
+                />
+              )}
+
+              <ShareButtons
+                url={pageUrl}
+                title={getLocalizedContent(event.title, locale)}
+              />
+            </div>
+
+            <div className="space-y-6">
+              <div className="space-y-6 rounded-lg bg-muted/50 p-6">
+                <div className="flex items-start gap-3">
+                  <Calendar className="mt-1 h-5 w-5 text-primary" />
+                  <div>
+                    <p className="font-semibold">
+                      {formatDateTime(event.startDate, locale)}
+                    </p>
+                    {event.endDate && (
+                      <p className="text-sm text-muted-foreground">
+                        → {formatDateTime(event.endDate, locale)}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                {location && (
+                  <div className="flex items-start gap-3">
+                    <MapPin className="mt-1 h-5 w-5 text-primary" />
+                    <div>
+                      <p className="font-semibold">{location.name}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {location.address}
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        {location.postalCode} {location.city}
+                      </p>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {event.registrationEnabled && (
+                <div className="rounded-lg border p-6">
+                  <h3 className="mb-4 font-serif text-lg font-semibold">
+                    {t("register")}
+                  </h3>
+                  <EventRegistrationForm eventId={event._id} />
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}

@@ -1,0 +1,210 @@
+{
+  "common": {
+    "readMore": "Read more",
+    "seeAll": "See all",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "noResults": "No results found",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "back": "Back",
+    "share": "Share",
+    "download": "Download",
+    "search": "Search",
+    "filter": "Filter",
+    "all": "All",
+    "getDirections": "Get directions"
+  },
+  "navigation": {
+    "home": "Home",
+    "home": "Home",
+    "about": "About",
+    "sermons": "Sermons",
+    "events": "Events",
+    "community": "Community",
+    "groups": "Groups",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "homepage": {
+    "hero": {
+      "title": "Welcome to the Reformed Evangelical Church La Chapelle",
+      "subtitle": "A community of faith in the Cévennes",
+      "cta": "Discover us"
+    },
+    "gathering": {
+      "label": "Our services",
+      "title": "Join us"
+    },
+    "about": {
+      "label": "Who we are",
+      "title": "Our mission",
+      "cta": "Learn more"
+    },
+    "team": {
+      "label": "Our team",
+      "title": "Pastoral team"
+    },
+    "events": {
+      "label": "Events",
+      "title": "Upcoming events",
+      "cta": "All events",
+      "empty": "New events will be announced soon."
+    },
+    "sermons": {
+      "label": "Sermons",
+      "title": "Latest sermons",
+      "cta": "All sermons",
+      "empty": "New sermons will be available soon."
+    },
+    "community": {
+      "label": "Community",
+      "title": "Community life",
+      "cta": "Join a group"
+    },
+    "blog": {
+      "label": "News",
+      "title": "Latest news",
+      "cta": "Read the blog"
+    },
+    "faith": {
+      "statement": "We believe in one God, Father, Son and Holy Spirit, and we proclaim Jesus Christ as Lord and Savior. Rooted in the Reformed tradition, we live by grace, guided by Scripture.",
+      "cta": "Learn more"
+    }
+  },
+  "events": {
+    "title": "Events",
+    "upcoming": "Upcoming events",
+    "past": "Past events",
+    "noEvents": "No upcoming events",
+    "register": "Register",
+    "registrationSuccess": "Registration confirmed!",
+    "filterByType": "Event type",
+    "filterByLocation": "Location",
+    "filterByDate": "Date",
+    "attendees": "Number of attendees",
+    "types": {
+      "service": "Service",
+      "conference": "Conference",
+      "community": "Community",
+      "youth": "Youth",
+      "outreach": "Outreach",
+      "prayer": "Prayer",
+      "other": "Other"
+    }
+  },
+  "sermons": {
+    "title": "Sermons",
+    "archive": "Sermon archive",
+    "filterByPreacher": "Preacher",
+    "filterBySeries": "Series",
+    "filterByTheme": "Theme",
+    "filterByDate": "Date",
+    "noSermons": "No sermons found",
+    "downloadNotes": "Download notes",
+    "notesUnavailable": "Notes not available",
+    "videoUnavailable": "This video is temporarily unavailable",
+    "series": "Series",
+    "preacher": "Preacher",
+    "biblicalRef": "Biblical reference"
+  },
+  "community": {
+    "title": "Community",
+    "groups": {
+      "title": "Community groups",
+      "joinGroup": "I'm interested",
+      "interestSuccess": "Your interest has been registered!",
+      "filterByType": "Group type",
+      "filterByDay": "Day of the week",
+      "noGroups": "No groups found",
+      "leader": "Leader",
+      "meetingTime": "Meeting time",
+      "types": {
+        "bible_study": "Bible study",
+        "prayer": "Prayer",
+        "youth": "Youth",
+        "women": "Women",
+        "men": "Men",
+        "seniors": "Seniors",
+        "worship": "Worship",
+        "outreach": "Outreach",
+        "other": "Other"
+      },
+      "days": {
+        "monday": "Monday",
+        "tuesday": "Tuesday",
+        "wednesday": "Wednesday",
+        "thursday": "Thursday",
+        "friday": "Friday",
+        "saturday": "Saturday",
+        "sunday": "Sunday"
+      }
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "articles": "Articles",
+    "filterByCategory": "Category",
+    "noArticles": "No articles found",
+    "publishedOn": "Published on",
+    "by": "By",
+    "categories": {
+      "community": "Community",
+      "news": "News",
+      "devotional": "Devotional"
+    }
+  },
+  "about": {
+    "title": "About",
+    "mission": "Our mission",
+    "missionText": "The Reformed Evangelical Church La Chapelle is a Christian community committed to serving the people of the Cévennes. Our mission is to welcome everyone, share God's love, and build a community founded on faith, hope, and charity.",
+    "vision": "Our vision",
+    "visionText": "We aspire to be a place of refuge and spiritual renewal in the Cévennes, where every person can discover their place in God's family, grow in faith, and serve others with love.",
+    "history": "Our history",
+    "historyText": "Born from a vision to gather believers in the Cévennes region, our church established itself in Saint-Hippolyte-du-Fort. Since our beginnings, we have grown as a multicultural and multilingual community, welcoming people from all walks of life.",
+    "faith": "Statement of faith",
+    "faithText": "We believe in one God, creator of all things, revealed in three persons: the Father, the Son, and the Holy Spirit. We believe in the Bible as the Word of God, in Jesus Christ as the only Savior and Lord, and in the transformative power of the Holy Spirit.",
+    "values": "Our values",
+    "valuesText": "Unconditional welcome, authenticity, service, prayer, biblical teaching, fellowship, and engagement in the local community. These values guide each of our actions and decisions.",
+    "team": {
+      "label": "Our team",
+      "title": "Pastoral team"
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Get in touch",
+    "sendMessage": "Send us a message",
+    "ourLocations": "Our worship locations",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "officeHours": "Office hours",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send message",
+      "success": "Your message has been sent successfully!",
+      "error": "Failed to send. Please try again."
+    }
+  },
+  "forms": {
+    "validation": {
+      "required": "This field is required",
+      "email": "Please enter a valid email",
+      "minLength": "Minimum {min} characters",
+      "maxLength": "Maximum {max} characters",
+      "phone": "Invalid phone number",
+      "minAttendees": "Minimum 1 attendee",
+      "maxAttendees": "Maximum 20 attendees"
+    }
+  },
+  "newsletter": {
+    "title": "Newsletter",
+    "placeholder": "Your email",
+    "subscribe": "Subscribe",
+    "success": "Subscription confirmed!"
+  }
+}
