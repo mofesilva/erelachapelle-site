@@ -33,8 +33,17 @@
       "cta": "Conheça-nos"
     },
     "gathering": {
-      "label": "Nossos cultos",
-      "title": "Junte-se a nós"
+      "label": "Nossa igreja",
+      "title": "Junte-se a nós",
+      "subtitle": "Uma comunidade de fé no coração das Cévennes",
+      "churchName": "Igreja Reformada Evangélica de La Chapelle",
+      "addressLabel": "Endereço",
+      "scheduleLabel": "Culto",
+      "directions": "Como chegar",
+      "directionsLabel": "Navegar",
+      "contactLabel": "Contacte-nos",
+      "emailLabel": "E-mail",
+      "phoneLabel": "Telefone"
     },
     "about": {
       "label": "Quem somos",
@@ -65,11 +74,20 @@
     "blog": {
       "label": "Notícias",
       "title": "Últimas notícias",
-      "cta": "Ler o blog"
+      "cta": "Ler o blog",
+      "readMore": "Ler"
     },
     "faith": {
       "statement": "Cremos em um só Deus, Pai, Filho e Espírito Santo, e proclamamos Jesus Cristo como Senhor e Salvador. Enraizados na tradição reformada, vivemos pela graça, guiados pelas Escrituras.",
       "cta": "Saiba mais"
+    },
+    "newsletter": {
+      "label": "Fique conectado",
+      "title": "Assine nossa newsletter",
+      "subtitle": "Receba novidades sobre nossa comunidade, eventos e reflexões espirituais diretamente no seu email.",
+      "placeholder": "Digite seu email",
+      "subscribe": "Inscrever-se",
+      "success": "Bem-vindo! Você agora está inscrito."
     }
   },
   "events": {

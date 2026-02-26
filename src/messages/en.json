@@ -33,8 +33,17 @@
       "cta": "Discover us"
     },
     "gathering": {
-      "label": "Our services",
-      "title": "Join us"
+      "label": "Our church",
+      "title": "Join us",
+      "subtitle": "A faith community in the heart of the Cévennes",
+      "churchName": "Evangelical Reformed Church of La Chapelle",
+      "addressLabel": "Address",
+      "scheduleLabel": "Worship service",
+      "directions": "Get directions",
+      "directionsLabel": "Navigate",
+      "contactLabel": "Contact us",
+      "emailLabel": "Email",
+      "phoneLabel": "Phone"
     },
     "about": {
       "label": "Who we are",
@@ -65,11 +74,20 @@
     "blog": {
       "label": "News",
       "title": "Latest news",
-      "cta": "Read the blog"
+      "cta": "Read the blog",
+      "readMore": "Read"
     },
     "faith": {
       "statement": "We believe in one God, Father, Son and Holy Spirit, and we proclaim Jesus Christ as Lord and Savior. Rooted in the Reformed tradition, we live by grace, guided by Scripture.",
       "cta": "Learn more"
+    },
+    "newsletter": {
+      "label": "Stay Connected",
+      "title": "Join Our Newsletter",
+      "subtitle": "Receive updates about our community, events, and spiritual reflections directly in your inbox.",
+      "placeholder": "Enter your email",
+      "subscribe": "Subscribe",
+      "success": "Welcome! You're now subscribed."
     }
   },
   "events": {

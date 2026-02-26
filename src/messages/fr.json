@@ -33,8 +33,17 @@
       "cta": "Nous découvrir"
     },
     "gathering": {
-      "label": "Nos cultes",
-      "title": "Rejoignez-nous"
+      "label": "Notre église",
+      "title": "Rejoignez-nous",
+      "subtitle": "Une communauté de foi au cœur des Cévennes",
+      "churchName": "Église Réformée Évangélique de La Chapelle",
+      "addressLabel": "Adresse",
+      "scheduleLabel": "Culte",
+      "directions": "Itinéraire",
+      "directionsLabel": "Y aller",
+      "contactLabel": "Contactez-nous",
+      "emailLabel": "E-mail",
+      "phoneLabel": "Téléphone"
     },
     "about": {
       "label": "Qui sommes-nous",
@@ -65,11 +74,20 @@
     "blog": {
       "label": "Actualités",
       "title": "Dernières nouvelles",
-      "cta": "Lire le blog"
+      "cta": "Lire le blog",
+      "readMore": "Lire"
     },
     "faith": {
       "statement": "Nous croyons en un seul Dieu, Père, Fils et Saint-Esprit, et nous proclamons Jésus-Christ comme Seigneur et Sauveur. Enracinés dans la tradition réformée, nous vivons par la grâce, guidés par l'Écriture.",
       "cta": "En savoir plus"
+    },
+    "newsletter": {
+      "label": "Restez connecté",
+      "title": "Rejoignez notre newsletter",
+      "subtitle": "Recevez des nouvelles de notre communauté, événements et réflexions spirituelles directement dans votre boîte mail.",
+      "placeholder": "Entrez votre email",
+      "subscribe": "S'abonner",
+      "success": "Bienvenue ! Vous êtes maintenant inscrit."
     }
   },
   "events": {
