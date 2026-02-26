@@ -1,26 +1,231 @@
 @import "tailwindcss";
+@source "../../src";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* ── Paleta Base ── */
+    --carbon-black: #171717ff;
+    --rich-mahogany: #3d0008ff;
+    --night-bordeaux: #520014ff;
+    --night-bordeaux-2: #660019ff;
+    --coffee-bean: #76522eff;
+    --olive-wood: #845c33ff;
+    --toffee-brown: #936639ff;
+    --powder-petal: #e2d4cbff;
+    --dust-grey: #e9dfd8ff;
+    --parchment: #f9f4f1ff;
+    --scarlet-red: #EF4444ff;
+
+    /* ── Aliases semânticos shadcn/ui ── */
+    --background: var(--parchment);
+    --foreground: var(--carbon-black);
+    --card: var(--parchment);
+    --card-foreground: var(--carbon-black);
+    --popover: var(--parchment);
+    --popover-foreground: var(--carbon-black);
+    --primary: var(--night-bordeaux-2);
+    --primary-foreground: var(--parchment);
+    --secondary: var(--dust-grey);
+    --secondary-foreground: var(--carbon-black);
+    --muted: var(--powder-petal);
+    --muted-foreground: var(--coffee-bean);
+    --accent: var(--toffee-brown);
+    --accent-foreground: var(--carbon-black);
+    --destructive: var(--scarlet-red);
+    --destructive-foreground: var(--parchment);
+    --border: var(--dust-grey);
+    --input: var(--dust-grey);
+    --ring: var(--night-bordeaux);
+    --radius: 0.5rem;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@theme inline {
+  /* ── Paleta Base (gera bg-*, text-*, border-*, ring-*) ── */
+  --color-carbon-black: var(--carbon-black);
+  --color-rich-mahogany: var(--rich-mahogany);
+  --color-night-bordeaux: var(--night-bordeaux);
+  --color-night-bordeaux-2: var(--night-bordeaux-2);
+  --color-coffee-bean: var(--coffee-bean);
+  --color-olive-wood: var(--olive-wood);
+  --color-toffee-brown: var(--toffee-brown);
+  --color-powder-petal: var(--powder-petal);
+  --color-dust-grey: var(--dust-grey);
+  --color-parchment: var(--parchment);
+  --color-scarlet-red: var(--scarlet-red);
+
+  /* ── Aliases semânticos shadcn/ui ── */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* ── Radius ── */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+
+  *,
+  ::after,
+  ::before {
+    @apply border-border;
+    border-width: 0;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Typographic Scale (1.25 ratio) - Mobile First */
+  p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  h6 {
+    font-size: 1.125rem;
+    letter-spacing: -0.005em;
+    line-height: 1.45;
+  }
+
+  h5 {
+    font-size: 1.25rem;
+    letter-spacing: -0.0075em;
+    line-height: 1.4;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 2rem;
+    letter-spacing: -0.0175em;
+    line-height: 1.1;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    letter-spacing: -0.02em;
+    line-height: 1.0;
+  }
+
+  /* Desktop typography scale */
+  @media (min-width: 768px) {
+    h6 {
+      font-size: 1.25rem;
+    }
+
+    h5 {
+      font-size: 1.563rem;
+    }
+
+    h4 {
+      font-size: 1.953rem;
+    }
+
+    h3 {
+      font-size: 2.441rem;
+    }
+
+    h2 {
+      font-size: 3.052rem;
+    }
+
+    h1 {
+      font-size: 3.815rem;
+    }
+  }
+}
+
+@keyframes bounce-3x {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+@layer utilities {
+
+  /* Fast transition (200ms) - links, buttons */
+  .transition-fast {
+    transition: all 200ms ease-in-out;
+  }
+
+  /* Medium transition (250ms) - simple cards */
+  .transition-medium {
+    transition: all 250ms ease-in-out;
+  }
+
+  /* Smooth transition (300ms) - interactive cards with scale */
+  .transition-smooth {
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Scroll indicator animation */
+  .animate-bounce-3x {
+    animation: bounce-3x 2s ease-in-out infinite;
+  }
+
+  /* Hover elevation levels */
+  .hover-elevation-sm:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  .hover-elevation-md:hover {
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
+  }
+
+  /* Hover scale for cards */
+  .hover-scale:hover {
+    transform: scale(1.02);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-bounce-3x {
+    animation: none;
+  }
 }

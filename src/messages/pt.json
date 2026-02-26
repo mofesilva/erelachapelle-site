@@ -1,0 +1,228 @@
+{
+  "common": {
+    "readMore": "Ler mais",
+    "seeAll": "Ver tudo",
+    "loading": "Carregando...",
+    "error": "Ocorreu um erro",
+    "noResults": "Nenhum resultado encontrado",
+    "submit": "Enviar",
+    "cancel": "Cancelar",
+    "back": "Voltar",
+    "share": "Compartilhar",
+    "download": "Baixar",
+    "search": "Pesquisar",
+    "filter": "Filtrar",
+    "all": "Todos",
+    "getDirections": "Como chegar"
+  },
+  "navigation": {
+    "home": "Início",
+    "home": "Início",
+    "about": "Sobre",
+    "sermons": "Pregações",
+    "events": "Eventos",
+    "community": "Comunidade",
+    "groups": "Grupos",
+    "blog": "Blog",
+    "contact": "Contato"
+  },
+  "homepage": {
+    "hero": {
+      "title": "Bem-vindo à Igreja Reformada Evangélica La Chapelle",
+      "subtitle": "Uma comunidade de fé nas Cévennes",
+      "cta": "Conheça-nos"
+    },
+    "gathering": {
+      "label": "Nossa igreja",
+      "title": "Junte-se a nós",
+      "subtitle": "Uma comunidade de fé no coração das Cévennes",
+      "churchName": "Igreja Reformada Evangélica de La Chapelle",
+      "addressLabel": "Endereço",
+      "scheduleLabel": "Culto",
+      "directions": "Como chegar",
+      "directionsLabel": "Navegar",
+      "contactLabel": "Contacte-nos",
+      "emailLabel": "E-mail",
+      "phoneLabel": "Telefone"
+    },
+    "about": {
+      "label": "Quem somos",
+      "title": "Nossa missão",
+      "cta": "Saiba mais"
+    },
+    "team": {
+      "label": "Nossa equipe",
+      "title": "Equipe pastoral"
+    },
+    "events": {
+      "label": "Eventos",
+      "title": "Próximos eventos",
+      "cta": "Todos os eventos",
+      "empty": "Novos eventos serão anunciados em breve."
+    },
+    "sermons": {
+      "label": "Pregações",
+      "title": "Últimas pregações",
+      "cta": "Todas as pregações",
+      "empty": "Novas pregações estarão disponíveis em breve."
+    },
+    "community": {
+      "label": "Comunidade",
+      "title": "Vida comunitária",
+      "cta": "Participar de um grupo"
+    },
+    "blog": {
+      "label": "Notícias",
+      "title": "Últimas notícias",
+      "cta": "Ler o blog",
+      "readMore": "Ler"
+    },
+    "faith": {
+      "statement": "Cremos em um só Deus, Pai, Filho e Espírito Santo, e proclamamos Jesus Cristo como Senhor e Salvador. Enraizados na tradição reformada, vivemos pela graça, guiados pelas Escrituras.",
+      "cta": "Saiba mais"
+    },
+    "newsletter": {
+      "label": "Fique conectado",
+      "title": "Assine nossa newsletter",
+      "subtitle": "Receba novidades sobre nossa comunidade, eventos e reflexões espirituais diretamente no seu email.",
+      "placeholder": "Digite seu email",
+      "subscribe": "Inscrever-se",
+      "success": "Bem-vindo! Você agora está inscrito."
+    }
+  },
+  "events": {
+    "title": "Eventos",
+    "upcoming": "Próximos eventos",
+    "past": "Eventos passados",
+    "noEvents": "Nenhum evento próximo",
+    "register": "Inscrever-se",
+    "registrationSuccess": "Inscrição confirmada!",
+    "filterByType": "Tipo de evento",
+    "filterByLocation": "Local",
+    "filterByDate": "Data",
+    "attendees": "Número de participantes",
+    "types": {
+      "service": "Culto",
+      "conference": "Conferência",
+      "community": "Comunitário",
+      "youth": "Juventude",
+      "outreach": "Missão",
+      "prayer": "Oração",
+      "other": "Outro"
+    }
+  },
+  "sermons": {
+    "title": "Pregações",
+    "archive": "Arquivo de pregações",
+    "filterByPreacher": "Pregador",
+    "filterBySeries": "Série",
+    "filterByTheme": "Tema",
+    "filterByDate": "Data",
+    "noSermons": "Nenhuma pregação encontrada",
+    "downloadNotes": "Baixar notas",
+    "notesUnavailable": "Notas não disponíveis",
+    "videoUnavailable": "Este vídeo está temporariamente indisponível",
+    "series": "Série",
+    "preacher": "Pregador",
+    "biblicalRef": "Referência bíblica"
+  },
+  "community": {
+    "title": "Comunidade",
+    "groups": {
+      "title": "Grupos comunitários",
+      "joinGroup": "Tenho interesse",
+      "interestSuccess": "Seu interesse foi registrado!",
+      "filterByType": "Tipo de grupo",
+      "filterByDay": "Dia da semana",
+      "noGroups": "Nenhum grupo encontrado",
+      "leader": "Líder",
+      "meetingTime": "Horário",
+      "types": {
+        "bible_study": "Estudo bíblico",
+        "prayer": "Oração",
+        "youth": "Juventude",
+        "women": "Mulheres",
+        "men": "Homens",
+        "seniors": "Terceira idade",
+        "worship": "Louvor",
+        "outreach": "Missão",
+        "other": "Outro"
+      },
+      "days": {
+        "monday": "Segunda-feira",
+        "tuesday": "Terça-feira",
+        "wednesday": "Quarta-feira",
+        "thursday": "Quinta-feira",
+        "friday": "Sexta-feira",
+        "saturday": "Sábado",
+        "sunday": "Domingo"
+      }
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "articles": "Artigos",
+    "filterByCategory": "Categoria",
+    "noArticles": "Nenhum artigo encontrado",
+    "publishedOn": "Publicado em",
+    "by": "Por",
+    "categories": {
+      "community": "Comunidade",
+      "news": "Notícias",
+      "devotional": "Meditação"
+    }
+  },
+  "about": {
+    "title": "Sobre",
+    "mission": "Nossa missão",
+    "missionText": "A Igreja Reformada Evangélica La Chapelle é uma comunidade cristã comprometida em servir os habitantes das Cévennes. Nossa missão é acolher cada pessoa, compartilhar o amor de Deus e construir uma comunidade fundada na fé, na esperança e no amor.",
+    "vision": "Nossa visão",
+    "visionText": "Aspiramos ser um lugar de refúgio e renovação espiritual nas Cévennes, onde cada pessoa pode descobrir seu lugar na família de Deus, crescer na fé e servir os outros com amor.",
+    "history": "Nossa história",
+    "historyText": "Nascida da visão de reunir crentes na região das Cévennes, nossa igreja se estabeleceu em Saint-Hippolyte-du-Fort. Desde o início, crescemos como uma comunidade multicultural e multilíngue, acolhendo pessoas de todas as origens.",
+    "faith": "Declaração de fé",
+    "faithText": "Cremos em um só Deus, criador de todas as coisas, revelado em três pessoas: o Pai, o Filho e o Espírito Santo. Cremos na Bíblia como Palavra de Deus, em Jesus Cristo como único Salvador e Senhor, e no poder transformador do Espírito Santo.",
+    "values": "Nossos valores",
+    "valuesText": "Acolhimento incondicional, autenticidade, serviço, oração, ensino bíblico, comunhão fraterna e compromisso com a comunidade local. Esses valores orientam cada uma de nossas ações e decisões.",
+    "team": {
+      "label": "Nossa equipe",
+      "title": "Equipe pastoral"
+    }
+  },
+  "contact": {
+    "title": "Contato",
+    "subtitle": "Fale conosco",
+    "sendMessage": "Envie-nos uma mensagem",
+    "ourLocations": "Nossos locais de culto",
+    "address": "Endereço",
+    "phone": "Telefone",
+    "email": "Email",
+    "officeHours": "Horário de atendimento",
+    "form": {
+      "name": "Nome",
+      "email": "Email",
+      "subject": "Assunto",
+      "message": "Mensagem",
+      "send": "Enviar mensagem",
+      "success": "Sua mensagem foi enviada com sucesso!",
+      "error": "Erro ao enviar. Por favor, tente novamente."
+    }
+  },
+  "forms": {
+    "validation": {
+      "required": "Este campo é obrigatório",
+      "email": "Por favor, insira um email válido",
+      "minLength": "Mínimo {min} caracteres",
+      "maxLength": "Máximo {max} caracteres",
+      "phone": "Número de telefone inválido",
+      "minAttendees": "Mínimo 1 participante",
+      "maxAttendees": "Máximo 20 participantes"
+    }
+  },
+  "newsletter": {
+    "title": "Newsletter",
+    "placeholder": "Seu email",
+    "subscribe": "Inscrever-se",
+    "success": "Inscrição confirmada!"
+  }
+}
