@@ -29,11 +29,10 @@ export function LanguageSwitcher({ variant = "default" }: { variant?: "default" 
         <button
           key={loc}
           onClick={() => handleChange(loc)}
-          className={`px-2 py-1 text-sm font-medium transition-colors ${
-            loc === locale
+          className={`cursor-pointer px-2 py-1 text-sm font-medium transition-colors ${loc === locale
               ? isLight ? "text-white" : "text-primary"
               : isLight ? "text-white/60 hover:text-white" : "text-muted-foreground hover:text-foreground"
-          }`}
+            }`}
           aria-label={`Switch to ${loc}`}
         >
           {localeLabels[loc]}

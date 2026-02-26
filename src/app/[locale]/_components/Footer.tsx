@@ -1,7 +1,7 @@
 import { getTranslations, getLocale } from "next-intl/server";
 import Link from "next/link";
 import { SITE_CONFIG } from "@/lib/constants";
-import { NewsletterSignup } from "@/components/shared/NewsletterSignup";
+import { NewsletterSignup } from "@/_components/NewsletterSignup";
 import type { Locale } from "@/types/common";
 
 export async function Footer() {
