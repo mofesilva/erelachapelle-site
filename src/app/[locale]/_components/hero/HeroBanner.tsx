@@ -13,11 +13,11 @@ export default function HeroBanner() {
                             in="SourceGraphic"
                             result="gray"
                         />
-                        {/* Remap luminosity: shadows → dark borgonha, highlights → light borgonha/rose */}
+                        {/* Remap luminosity: rich-mahogany → night-bordeaux → night-bordeaux-2/40 */}
                         <feComponentTransfer in="gray" result="mapped">
-                            <feFuncR type="table" tableValues="0.12 0.42 0.78" />
-                            <feFuncG type="table" tableValues="0.05 0.18 0.38" />
-                            <feFuncB type="table" tableValues="0.08 0.22 0.42" />
+                            <feFuncR type="table" tableValues="0.24 0.32 0.76" />
+                            <feFuncG type="table" tableValues="0.00 0.00 0.60" />
+                            <feFuncB type="table" tableValues="0.03 0.08 0.64" />
                         </feComponentTransfer>
                     </filter>
                 </defs>
@@ -26,12 +26,16 @@ export default function HeroBanner() {
             {/* Background Image with Gradient Map applied */}
             <div className="absolute inset-0" style={{ filter: "url(#gradient-map-borgonha)" }}>
                 <Image
-                    src="/images/hero-church.jpg"
+                    src="https://cappuccino.dzign-e.app/erelachappelle-assets/igreja-lachappelle.jpg"
                     alt=""
                     fill
                     priority
                     className="object-cover object-center"
                 />
-            </div></>
+            </div>
+
+            {/* Desaturation overlay: rich-mahogany at 30% to soften contrast */}
+            <div className="absolute inset-0 bg-rich-mahogany/30" />
+        </>
     );
 }

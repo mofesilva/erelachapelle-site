@@ -1,6 +1,5 @@
 import { getTranslations, getLocale } from "next-intl/server";
-import { SectionLabel } from "@/components/shared/SectionLabel";
-import { SplitButton } from "@/components/shared/SplitButton";
+import { SplitButton } from "@/_components/SplitButton";
 import type { Locale } from "@/types/common";
 
 export async function AboutSection() {
@@ -11,7 +10,6 @@ export async function AboutSection() {
   return (
     <section className="bg-muted/50 py-20">
       <div className="mx-auto max-w-7xl px-4">
-        <SectionLabel label={t("label")} />
         <div className="mt-6 grid items-center gap-12 md:grid-cols-2">
           <div>
             <h2 className="font-serif text-3xl font-bold text-primary md:text-4xl">

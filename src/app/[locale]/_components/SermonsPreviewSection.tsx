@@ -1,13 +1,12 @@
 import { getTranslations, getLocale } from "next-intl/server";
-import Link from "next/link";
-import { SectionLabel } from "@/components/shared/SectionLabel";
+import { SectionLabel } from "@/_components/SectionLabel";
 import { SermonCard } from "./SermonCard";
-import { SplitButton } from "@/components/shared/SplitButton";
+import { SplitButton } from "@/_components/SplitButton";
 import { getRecentSermons } from "@/lib/data/sermons";
 import { getLocalizedContent } from "@/lib/utils";
 import { getYouTubeThumbnailUrl } from "@/lib/integrations/youtube";
 import type { Locale } from "@/types/common";
-import { Video } from "lucide-react";
+import { VideocameraBoldDuotone } from "solar-icon-set";
 
 export async function SermonsPreviewSection() {
   const t = await getTranslations("homepage.sermons");
@@ -16,14 +15,11 @@ export async function SermonsPreviewSection() {
 
   if (sermons.length === 0) {
     return (
-      <section className="relative bg-[#E7C6B5] py-20 md:py-32">
+      <section className="relative bg-dust-grey py-20 md:py-32">
         <div className="mx-auto max-w-7xl px-4">
-          <SectionLabel label={t("label")} />
-          <h2 className="mt-6 text-center font-serif text-3xl font-bold text-[#3D000A] md:text-5xl">
-            {t("title")}
-          </h2>
-          <div className="mt-14 flex flex-col items-center gap-4 text-[#3D000A]/40">
-            <Video className="h-16 w-16" />
+          <SectionLabel icon={VideocameraBoldDuotone} title={t("title")} />
+          <div className="mt-14 flex flex-col items-center gap-4 text-rich-mahogany/40">
+            <VideocameraBoldDuotone size={64} />
             <p className="text-lg font-light">{t("empty")}</p>
           </div>
         </div>
@@ -32,18 +28,12 @@ export async function SermonsPreviewSection() {
   }
 
   return (
-    <section className="relative bg-[#E7C6B5] py-20 md:py-32">
+    <section className="relative bg-dust-grey py-20 md:py-32">
       {/* Top decorative border */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#8C5E35] to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-toffee-brown to-transparent" />
 
       <div className="mx-auto max-w-7xl px-4">
-        <SectionLabel label={t("label")} />
-        <h2 className="mt-6 text-center font-serif text-3xl font-bold text-[#3D000A] md:text-5xl">
-          {t("title")}
-        </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-center text-lg text-[#3D000A]/30">
-          ◆────◆
-        </p>
+        <SectionLabel icon={VideocameraBoldDuotone} title={t("title")} />
 
         <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {sermons.map((sermon) => (

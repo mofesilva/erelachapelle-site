@@ -1,6 +1,6 @@
 import { format } from "date-fns";
 import { fr, pt, enUS } from "date-fns/locale";
-import { MapPin } from "lucide-react";
+import { MapPointBold } from "solar-icon-set";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -18,10 +18,10 @@ interface EventCardProps {
 }
 
 const badgeColors: Record<EventType, string> = {
-  culte: "bg-[#8C5E35] text-white",
-  conference: "bg-[#D1A594] text-[#3D000A]",
-  jeunesse: "bg-[#643036] text-white",
-  autre: "bg-[#3D000A] text-white",
+  culte: "bg-toffee-brown text-white",
+  conference: "bg-powder-petal text-rich-mahogany",
+  jeunesse: "bg-night-bordeaux-2 text-white",
+  autre: "bg-rich-mahogany text-white",
 };
 
 const localeMap = {
@@ -46,54 +46,48 @@ export function EventCard({
     <article className="group">
       <Link
         href={href}
-        className="block overflow-hidden rounded-2xl bg-[#8C5E35] shadow-[0_4px_24px_rgba(0,0,0,0.06)] transition-all duration-500 hover:shadow-[0_12px_40px_rgba(106,13,30,0.12)] hover:-translate-y-1"
+        className="block overflow-hidden rounded-2xl bg-white shadow-[0_2px_16px_rgba(0,0,0,0.06)] border border-rich-mahogany/8 transition-all duration-500 hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:-translate-y-1"
       >
-        {/* Date Header with gradient */}
-        <div className="bg-gradient-to-r from-[#8C5E35] to-[#A67342] px-6 py-4 text-center">
-          <time dateTime={date.toISOString()} className="block">
-            <span className="block text-4xl font-bold text-white leading-none">
-              {format(date, "d")}
+        <div className="p-5 md:p-6">
+          {/* Date + badge row */}
+          <div className="flex items-start justify-between gap-4">
+            <time dateTime={date.toISOString()} className="shrink-0">
+              <span className="block text-3xl font-bold text-toffee-brown leading-none">
+                {format(date, "d")}
+              </span>
+              <span className="mt-0.5 block text-xs uppercase tracking-widest text-rich-mahogany/40">
+                {format(date, "MMM", { locale: dateLocale })}
+              </span>
+            </time>
+            <span
+              className={cn(
+                "rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest",
+                badgeColors[type]
+              )}
+            >
+              {typeLabel}
             </span>
-            <span className="mt-1 block text-sm uppercase tracking-widest text-white/70">
-              {format(date, "MMMM", { locale: dateLocale })}
-            </span>
-          </time>
-        </div>
-
-        {/* Content */}
-        <div className="bg-white p-6">
-          {/* Type Badge */}
-          <span
-            className={cn(
-              "inline-block rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest",
-              badgeColors[type]
-            )}
-          >
-            {typeLabel}
-          </span>
+          </div>
 
           {/* Title */}
-          <h3 className="mt-3 font-serif text-xl font-bold text-[#3D000A] line-clamp-2 group-hover:text-[#643036] transition-colors duration-300">
+          <h3 className="mt-4 font-serif text-xl font-bold text-rich-mahogany line-clamp-2 group-hover:text-night-bordeaux-2 transition-colors duration-300">
             {title}
           </h3>
 
           {/* Location */}
           {location && (
-            <address className="mt-3 flex items-center gap-2 text-sm text-[#171717]/60 not-italic">
-              <MapPin className="h-3.5 w-3.5 flex-shrink-0 text-[#8C5E35]" />
+            <address className="mt-3 flex items-center gap-2 text-sm text-carbon-black/50 not-italic">
+              <MapPointBold size={14} color="var(--toffee-brown)" className="shrink-0" />
               <span className="truncate">{location}</span>
             </address>
           )}
 
           {/* Description */}
           {description && (
-            <p className="mt-3 text-sm text-[#171717]/50 line-clamp-2 leading-relaxed">
+            <p className="mt-3 text-sm text-carbon-black/45 line-clamp-2 leading-relaxed">
               {description}
             </p>
           )}
-
-          {/* Decorative accent */}
-          <div className="mt-5 h-0.5 w-8 rounded-full bg-[#8C5E35]/30 transition-all duration-500 group-hover:w-16 group-hover:bg-[#8C5E35]" />
         </div>
       </Link>
     </article>
