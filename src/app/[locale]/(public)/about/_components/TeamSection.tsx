@@ -1,7 +1,7 @@
 import { getTranslations, getLocale } from "next-intl/server";
 import Image from "next/image";
-import { SectionLabel } from "@/components/shared/SectionLabel";
-import { Card, CardContent } from "@/components/ui/card";
+import { SectionLabel } from "@/_components/SectionLabel";
+import { Card, CardContent } from "@/_components/ui/card";
 import { getLeadershipTeam } from "@/lib/data/leadership";
 import { getLocalizedContent } from "@/lib/utils";
 import type { Locale } from "@/types/common";
@@ -14,10 +14,7 @@ export async function TeamSection() {
   return (
     <section className="py-20">
       <div className="mx-auto max-w-7xl px-4">
-        <SectionLabel label={t("label")} />
-        <h2 className="mt-6 text-center font-serif text-3xl font-bold text-primary md:text-4xl">
-          {t("title")}
-        </h2>
+        <SectionLabel title={t("title")} />
 
         <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {team.map((member) => (

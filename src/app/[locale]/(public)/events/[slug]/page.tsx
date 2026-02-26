@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import { getTranslations, getLocale } from "next-intl/server";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Badge } from "@/components/ui/badge";
-import { GoogleMapEmbed } from "@/components/shared/GoogleMapEmbed";
-import { ShareButtons } from "@/components/shared/ShareButtons";
+import { Badge } from "@/_components/ui/badge";
+import { GoogleMapEmbed } from "@/_components/GoogleMapEmbed";
+import { ShareButtons } from "@/_components/ShareButtons";
 import { getEventBySlug, getAllEvents } from "@/lib/data/events";
 import { getLocationById } from "@/lib/data/locations";
 import { formatDateTime, getLocalizedContent } from "@/lib/utils";
 import { eventJsonLd } from "@/lib/structured-data";
 import type { Locale } from "@/types/common";
-import { Calendar, MapPin } from "lucide-react";
+import { CalendarBold, MapPointBold } from "solar-icon-set";
 import { EventRegistrationForm } from "../_components/EventRegistrationForm";
 
 type PageProps = {
@@ -94,7 +94,7 @@ export default async function EventDetailPage({ params }: PageProps) {
             <div className="space-y-6">
               <div className="space-y-6 rounded-lg bg-muted/50 p-6">
                 <div className="flex items-start gap-3">
-                  <Calendar className="mt-1 h-5 w-5 text-primary" />
+                  <CalendarBold size={20} color="var(--primary)" className="mt-1" />
                   <div>
                     <p className="font-semibold">
                       {formatDateTime(event.startDate, locale)}
@@ -109,7 +109,7 @@ export default async function EventDetailPage({ params }: PageProps) {
 
                 {location && (
                   <div className="flex items-start gap-3">
-                    <MapPin className="mt-1 h-5 w-5 text-primary" />
+                    <MapPointBold size={20} color="var(--primary)" className="mt-1" />
                     <div>
                       <p className="font-semibold">{location.name}</p>
                       <p className="text-sm text-muted-foreground">

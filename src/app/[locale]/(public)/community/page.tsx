@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, getLocale } from "next-intl/server";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/_components/ui/button";
 import type { Locale } from "@/types/common";
 
 export async function generateMetadata(): Promise<Metadata> {

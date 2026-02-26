@@ -1,8 +1,8 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { SectionLabel } from "@/components/shared/SectionLabel";
-import { Separator } from "@/components/ui/separator";
+import { SectionLabel } from "@/_components/SectionLabel";
+import { Separator } from "@/_components/ui/separator";
 import { TeamSection } from "./_components/TeamSection";
 
 export function AboutPageContent() {
@@ -22,7 +22,7 @@ export function AboutPageContent() {
       {/* Mission */}
       <section className="py-16">
         <div className="mx-auto max-w-3xl px-4">
-          <SectionLabel label={t("mission")} />
+          <SectionLabel title={t("mission")} />
           <div className="mt-8 space-y-4 text-lg leading-relaxed text-muted-foreground">
             <p>{t("missionText")}</p>
           </div>
@@ -34,7 +34,7 @@ export function AboutPageContent() {
       {/* Vision */}
       <section className="py-16">
         <div className="mx-auto max-w-3xl px-4">
-          <SectionLabel label={t("vision")} />
+          <SectionLabel title={t("vision")} />
           <div className="mt-8 space-y-4 text-lg leading-relaxed text-muted-foreground">
             <p>{t("visionText")}</p>
           </div>
@@ -46,7 +46,7 @@ export function AboutPageContent() {
       {/* History */}
       <section className="bg-muted/50 py-16">
         <div className="mx-auto max-w-3xl px-4">
-          <SectionLabel label={t("history")} />
+          <SectionLabel title={t("history")} />
           <div className="mt-8 space-y-4 text-lg leading-relaxed text-muted-foreground">
             <p>{t("historyText")}</p>
           </div>
@@ -56,7 +56,7 @@ export function AboutPageContent() {
       {/* Statement of Faith */}
       <section className="py-16">
         <div className="mx-auto max-w-3xl px-4">
-          <SectionLabel label={t("faith")} />
+          <SectionLabel title={t("faith")} />
           <div className="mt-8 space-y-4 text-lg leading-relaxed text-muted-foreground">
             <p>{t("faithText")}</p>
           </div>
@@ -68,7 +68,7 @@ export function AboutPageContent() {
       {/* Values */}
       <section className="bg-muted/50 py-16">
         <div className="mx-auto max-w-3xl px-4">
-          <SectionLabel label={t("values")} />
+          <SectionLabel title={t("values")} />
           <div className="mt-8 space-y-4 text-lg leading-relaxed text-muted-foreground">
             <p>{t("valuesText")}</p>
           </div>

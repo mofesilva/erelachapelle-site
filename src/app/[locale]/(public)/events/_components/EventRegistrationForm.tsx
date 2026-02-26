@@ -2,9 +2,9 @@
 
 import { useActionState } from "react";
 import { useTranslations } from "next-intl";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { Button } from "@/_components/ui/button";
+import { Input } from "@/_components/ui/input";
+import { Label } from "@/_components/ui/label";
 import { registerForEvent, type RegistrationResult } from "@/app/actions/events";
 
 interface EventRegistrationFormProps {

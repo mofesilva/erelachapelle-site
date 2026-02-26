@@ -1,12 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/_components/ui/badge";
 import {
   Card,
   CardContent,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from "@/_components/ui/card";
 import { formatDate, getLocalizedContent } from "@/lib/utils";
 import { getYouTubeThumbnailUrl } from "@/lib/integrations/youtube";
 import type { Locale } from "@/types/common";

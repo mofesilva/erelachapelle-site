@@ -1,15 +1,15 @@
 import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/_components/ui/badge";
 import {
   Card,
   CardContent,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from "@/_components/ui/card";
 import { formatDate, getLocalizedContent } from "@/lib/utils";
 import type { Locale } from "@/types/common";
 import type { Event } from "@/types/event";
-import { Calendar } from "lucide-react";
+import { CalendarBold } from "solar-icon-set";
 
 interface EventCardProps {
   event: Event;
@@ -22,7 +22,7 @@ export function EventCard({ event, locale, typeLabel }: EventCardProps) {
     <Card>
       <CardHeader>
         <div className="flex items-center gap-2">
-          <Calendar className="h-4 w-4 text-primary" />
+          <CalendarBold size={16} color="var(--primary)" />
           <span className="text-sm text-muted-foreground">
             {formatDate(event.startDate, locale)}
           </span>

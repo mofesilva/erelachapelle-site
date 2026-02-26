@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { getTranslations, getLocale } from "next-intl/server";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent } from "@/_components/ui/card";
 import { getLocations } from "@/lib/data/locations";
 import { getLocalizedContent } from "@/lib/utils";
 import type { Locale } from "@/types/common";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPointBold, PhoneBold, LetterBold, ClockCircleBold } from "solar-icon-set";
 import { ContactForm } from "./_components/ContactForm";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -55,7 +55,7 @@ export default async function ContactPage() {
                     </h3>
 
                     <div className="flex items-start gap-3">
-                      <MapPin className="mt-1 h-4 w-4 text-primary" />
+                      <MapPointBold size={16} color="var(--primary)" className="mt-1" />
                       <div className="text-sm text-muted-foreground">
                         <p>{location.address}</p>
                         <p>
@@ -66,7 +66,7 @@ export default async function ContactPage() {
 
                     {location.contactPhone && (
                       <div className="flex items-center gap-3">
-                        <Phone className="h-4 w-4 text-primary" />
+                        <PhoneBold size={16} color="var(--primary)" />
                         <a
                           href={`tel:${location.contactPhone}`}
                           className="text-sm text-muted-foreground hover:text-primary"
@@ -78,7 +78,7 @@ export default async function ContactPage() {
 
                     {location.contactEmail && (
                       <div className="flex items-center gap-3">
-                        <Mail className="h-4 w-4 text-primary" />
+                        <LetterBold size={16} color="var(--primary)" />
                         <a
                           href={`mailto:${location.contactEmail}`}
                           className="text-sm text-muted-foreground hover:text-primary"
@@ -89,7 +89,7 @@ export default async function ContactPage() {
                     )}
 
                     <div className="flex items-start gap-3">
-                      <Clock className="mt-1 h-4 w-4 text-primary" />
+                      <ClockCircleBold size={16} color="var(--primary)" className="mt-1" />
                       <p className="text-sm text-muted-foreground">
                         {getLocalizedContent(
                           location.worshipSchedule,

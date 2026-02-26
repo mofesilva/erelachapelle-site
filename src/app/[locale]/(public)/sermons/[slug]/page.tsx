@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, getLocale } from "next-intl/server";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { YouTubeEmbed } from "@/components/shared/YouTubeEmbed";
+import { YouTubeEmbed } from "@/_components/YouTubeEmbed";
 import { getSermonBySlug, getAllSermons } from "@/lib/data/sermons";
 import { formatDate, getLocalizedContent } from "@/lib/utils";
 import { videoJsonLd } from "@/lib/structured-data";

@@ -2,7 +2,7 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/_components/ui/button";
 
 interface SermonFiltersProps {
   preachers: string[];

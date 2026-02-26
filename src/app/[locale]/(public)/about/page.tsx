@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { getTranslations, getLocale } from "next-intl/server";
 import Image from "next/image";
-import { SectionLabel } from "@/components/shared/SectionLabel";
-import { Card, CardContent } from "@/components/ui/card";
+import { SectionLabel } from "@/_components/SectionLabel";
+import { Card, CardContent } from "@/_components/ui/card";
 import { getLeadershipTeam } from "@/lib/data/leadership";
 import { getLocalizedContent } from "@/lib/utils";
 import type { Locale } from "@/types/common";
@@ -94,10 +94,7 @@ export default async function AboutPage() {
       {/* Leadership Team */}
       <section className="bg-muted/50 py-20">
         <div className="mx-auto max-w-7xl px-4">
-          <SectionLabel label={t("team.label")} />
-          <h2 className="mt-6 text-center font-serif text-3xl font-bold text-primary md:text-4xl">
-            {t("team.title")}
-          </h2>
+          <SectionLabel title={t("team.title")} />
 
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {team.map((member) => (

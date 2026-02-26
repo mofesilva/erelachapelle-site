@@ -5,8 +5,8 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+} from "@/_components/ui/card";
+import { Badge } from "@/_components/ui/badge";
 import { formatDate, getLocalizedContent } from "@/lib/utils";
 import type { BlogArticle } from "@/types/blog";
 import type { Locale } from "@/types/common";

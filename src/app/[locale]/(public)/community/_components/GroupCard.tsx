@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/_components/ui/badge";
+import { Card, CardContent } from "@/_components/ui/card";
 import { getLocalizedContent } from "@/lib/utils";
 import type { CommunityGroup } from "@/types/group";
 import type { Locale } from "@/types/common";
-import { Users, Clock } from "lucide-react";
+import { UsersGroupRoundedBold, ClockCircleBold } from "solar-icon-set";
 
 interface GroupCardProps {
   group: CommunityGroup;
@@ -17,7 +17,7 @@ export function GroupCard({ group, locale, typeLabel, dayLabel }: GroupCardProps
   return (
     <Card className="transition-shadow hover:shadow-md">
       <CardContent className="pt-6">
-        <Users className="mb-3 h-6 w-6 text-primary" />
+        <UsersGroupRoundedBold size={24} color="var(--primary)" className="mb-3" />
         <h3 className="font-serif text-lg font-semibold">
           <Link
             href={`/${locale}/community/groups/${group._id}`}
@@ -31,7 +31,7 @@ export function GroupCard({ group, locale, typeLabel, dayLabel }: GroupCardProps
         </p>
         <div className="mt-4 space-y-2">
           <div className="flex items-center gap-2 text-sm">
-            <Clock className="h-4 w-4 text-primary" />
+            <ClockCircleBold size={16} color="var(--primary)" />
             <span>
               {dayLabel} · {group.meetingTime}
             </span>

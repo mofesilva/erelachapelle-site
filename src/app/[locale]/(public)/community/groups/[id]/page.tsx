@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import { getTranslations, getLocale } from "next-intl/server";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/_components/ui/badge";
 import { getGroupById, getGroups } from "@/lib/data/groups";
 import { getLocationById } from "@/lib/data/locations";
 import { getLocalizedContent } from "@/lib/utils";
 import type { Locale } from "@/types/common";
-import { Users, Clock, MapPin } from "lucide-react";
+import { UsersGroupRoundedBold, ClockCircleBold, MapPointBold } from "solar-icon-set";
 import { JoinGroupForm } from "../../_components/JoinGroupForm";
 
 type PageProps = {
@@ -74,7 +74,7 @@ export default async function GroupDetailPage({ params }: PageProps) {
             <div className="space-y-6">
               <div className="space-y-4 rounded-lg bg-muted/50 p-6">
                 <div className="flex items-start gap-3">
-                  <Clock className="mt-1 h-5 w-5 text-primary" />
+                  <ClockCircleBold size={20} color="var(--primary)" className="mt-1" />
                   <div>
                     <p className="font-semibold">
                       {tDays(group.meetingDay)}
@@ -86,7 +86,7 @@ export default async function GroupDetailPage({ params }: PageProps) {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Users className="mt-1 h-5 w-5 text-primary" />
+                  <UsersGroupRoundedBold size={20} color="var(--primary)" className="mt-1" />
                   <div>
                     <p className="font-semibold">{t("leader")}</p>
                     <p className="text-sm text-muted-foreground">
@@ -97,7 +97,7 @@ export default async function GroupDetailPage({ params }: PageProps) {
 
                 {location && (
                   <div className="flex items-start gap-3">
-                    <MapPin className="mt-1 h-5 w-5 text-primary" />
+                    <MapPointBold size={20} color="var(--primary)" className="mt-1" />
                     <div>
                       <p className="font-semibold">{location.name}</p>
                       <p className="text-sm text-muted-foreground">
