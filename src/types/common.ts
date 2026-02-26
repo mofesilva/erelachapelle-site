@@ -29,4 +29,8 @@ export interface SEOMeta {
   ogImage?: string;
 }
 
+/** Reusable type for Solar Icon components (replaces LucideIcon) */
+export type { SolarIconProps } from "solar-icon-set";
+export type SolarIcon = (props: import("solar-icon-set").SolarIconProps) => React.JSX.Element;
+
 export type Locale = "fr" | "pt" | "en";
