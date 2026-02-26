@@ -3,17 +3,19 @@ import type { Location } from "@/types/location";
 export const LOCATIONS: Location[] = [
   {
     _id: "loc-saint-hippolyte",
-    name: "Saint-Hippolyte-du-Fort",
-    address: "Place de la Mairie",
-    city: "Saint-Hippolyte-du-Fort",
+    name: "La Chapelle",
+    address: "Bd des Remparts",
+    city: "St Hippolyte du Fort",
     postalCode: "30170",
     country: "France",
-    coordinates: { lat: 43.9667, lng: 3.85 },
+    coordinates: { lat: 43.9622486, lng: 3.8569039 },
     worshipSchedule: {
       fr: "Dimanche 10h30",
       pt: "Domingo 10h30",
       en: "Sunday 10:30 AM",
     },
+    contactEmail: "erelachapelle@orange.fr",
+    contactPhone: "04 66 77 20 58",
     active: true,
   },
 ];
