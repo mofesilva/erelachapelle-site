@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { HeroSection } from "./_components/hero/HeroSection";
-import { FaithStatementSection } from "./_components/FaithStatementSection";
-import { GatheringSection } from "./_components/GatheringSection";
+import { FaithStatementSection } from "./_components/faith-statement-section/FaithStatementSection";
+import { GatheringSection } from "./_components/gathering-section/GatheringSection";
 import { EventsPreviewSection } from "./_components/EventsPreviewSection";
-import { SermonsPreviewSection } from "./_components/SermonsPreviewSection";
-import { CommunitySection } from "./_components/CommunitySection";
+import { CommunitySection } from "./_components/community-section/CommunitySection";
 import { BlogPreviewSection } from "./_components/BlogPreviewSection";
+import { NewsletterSection } from "./_components/NewsletterSection";
 import { churchJsonLd } from "@/lib/structured-data";
 import { getLocations } from "@/lib/data/locations";
 
@@ -36,10 +36,10 @@ export default async function HomePage() {
       <HeroSection />
       <FaithStatementSection />
       <GatheringSection />
-      <EventsPreviewSection />
-      <SermonsPreviewSection />
       <CommunitySection />
+      <EventsPreviewSection />
       <BlogPreviewSection />
+      <NewsletterSection />
     </>
   );
 }
