@@ -74,15 +74,29 @@ export function SplitButton(props: SplitButtonProps) {
   const { children, variant = "gold" } = props;
 
   if (props.type === "submit") {
+    const isDisabled = props.disabled;
     return (
-      <button
-        type="submit"
-        disabled={props.disabled}
-        className="group/btn flex items-stretch h-full shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed appearance-none border-0 p-0 m-0 bg-transparent"
-        style={{ height: "100%" }}
+      <div
+        role="button"
+        tabIndex={0}
+        aria-disabled={isDisabled}
+        onClick={(e) => {
+          if (isDisabled) return;
+          const form = (e.currentTarget as HTMLElement).closest("form");
+          form?.requestSubmit();
+        }}
+        onKeyDown={(e) => {
+          if (isDisabled) return;
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            const form = (e.currentTarget as HTMLElement).closest("form");
+            form?.requestSubmit();
+          }
+        }}
+        className={`${sharedClassName} ${isDisabled ? "opacity-60 cursor-not-allowed" : "cursor-pointer"}`}
       >
         <SplitButtonInner variant={variant}>{children}</SplitButtonInner>
-      </button>
+      </div>
     );
   }
 

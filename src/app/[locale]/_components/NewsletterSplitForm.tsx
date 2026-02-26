@@ -32,7 +32,7 @@ export function NewsletterSplitForm() {
 
     return (
         <div className="flex flex-col items-center gap-3">
-            <form action={formAction}>
+            <form action={formAction} className="shadow-lg">
                 <input type="hidden" name="locale" value={locale} />
 
                 {/* Honeypot */}
@@ -40,9 +40,14 @@ export function NewsletterSplitForm() {
                     <Input type="text" name="honeypot" tabIndex={-1} autoComplete="off" />
                 </div>
 
-                <div className="flex shadow-lg" style={{ height: 48 }}>
+                {/* Hidden submit for Enter key */}
+                <button type="submit" className="sr-only" tabIndex={-1} aria-hidden="true">
+                    Submit
+                </button>
+
+                <div className="flex">
                     {/* Email input with icon */}
-                    <div className="relative bg-parchment flex items-center" style={{ height: 48 }}>
+                    <div className="relative bg-parchment flex items-center">
                         <span className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none">
                             <LetterBold size={16} color="var(--night-bordeaux)" />
                         </span>
@@ -52,8 +57,7 @@ export function NewsletterSplitForm() {
                             required
                             placeholder={t("placeholder")}
                             aria-label={t("placeholder")}
-                            className="sm:w-72 md:w-80 bg-transparent text-night-bordeaux placeholder:text-night-bordeaux pl-11 pr-6 text-sm tracking-wider border-0 outline-none"
-                            style={{ height: 48 }}
+                            className="sm:w-72 md:w-80 bg-transparent text-night-bordeaux placeholder:text-night-bordeaux pl-11 pr-6 py-3.5 text-sm tracking-wider border-0 outline-none"
                         />
                     </div>
 
