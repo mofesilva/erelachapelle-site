@@ -52,7 +52,7 @@ export function TeamMemberCard({
       <h3 className="font-serif text-xl font-semibold text-primary">{name}</h3>
 
       {/* Role */}
-      <p className="mt-1 text-sm font-medium uppercase tracking-wide text-[#D1A594]">
+      <p className="mt-1 text-sm font-medium uppercase tracking-wide text-powder-petal">
         {role}
       </p>
 

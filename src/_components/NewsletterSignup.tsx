@@ -2,13 +2,13 @@
 
 import { useActionState } from "react";
 import { useTranslations, useLocale } from "next-intl";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Button } from "@/_components/ui/button";
+import { Input } from "@/_components/ui/input";
 import {
   subscribeNewsletter,
   type NewsletterResult,
 } from "@/app/actions/newsletter";
-import { Mail } from "lucide-react";
+import { LetterBold } from "solar-icon-set";
 
 export function NewsletterSignup() {
   const t = useTranslations("newsletter");
@@ -34,7 +34,7 @@ export function NewsletterSignup() {
       </div>
 
       <div className="relative flex-1">
-        <Mail className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+        <LetterBold size={16} color="var(--muted-foreground)" className="absolute left-3 top-1/2 -translate-y-1/2" />
         <Input
           name="email"
           type="email"

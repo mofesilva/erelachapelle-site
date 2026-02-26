@@ -1,6 +1,6 @@
 import { getDirectionsUrl } from "@/lib/integrations/maps";
 import type { Coordinates } from "@/types/common";
-import { MapPin } from "lucide-react";
+import { MapPointBold } from "solar-icon-set";
 
 interface GoogleMapEmbedProps {
   address: string;
@@ -34,7 +34,7 @@ export function GoogleMapEmbed({
         rel="noopener noreferrer"
         className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
       >
-        <MapPin className="h-4 w-4" />
+        <MapPointBold size={16} />
         {directionsLabel}
       </a>
     </div>
