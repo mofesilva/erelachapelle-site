@@ -22,7 +22,7 @@ export function NewsletterSplitForm() {
         return (
             <div className="flex items-center justify-center gap-3">
                 <span className="text-toffee-brown text-lg">✦</span>
-                <p className="text-sm font-semibold uppercase tracking-wider text-green-300">
+                <p className="font-semibold uppercase tracking-wider text-green-300">
                     {t("success")}
                 </p>
                 <span className="text-toffee-brown text-lg">✦</span>
@@ -70,7 +70,7 @@ export function NewsletterSplitForm() {
 
             {/* Error message */}
             {state && !state.success && (
-                <p className="text-sm text-red-300">{state.message}</p>
+                <p className="text-red-300">{state.message}</p>
             )}
         </div>
     );
