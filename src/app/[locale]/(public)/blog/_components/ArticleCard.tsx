@@ -47,7 +47,7 @@ export function ArticleCard({ article, locale, categoryLabel }: ArticleCardProps
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <p className="line-clamp-3 text-sm text-muted-foreground">
+        <p className="line-clamp-3 text-muted-foreground">
           {getLocalizedContent(article.excerpt, locale)}
         </p>
         {article.categories.length > 0 && (
