@@ -71,11 +71,10 @@
       "title": "Community life",
       "cta": "Join a group"
     },
-    "blog": {
-      "label": "News",
-      "title": "Latest news",
-      "cta": "Read the blog",
-      "readMore": "Read"
+    "gallery": {
+      "label": "Gallery",
+      "title": "Our moments",
+      "cta": "See all photos"
     },
     "faith": {
       "statement": "We believe in one God, Father, Son and Holy Spirit, and we proclaim Jesus Christ as Lord and Savior. Rooted in the Reformed tradition, we live by grace, guided by Scripture.",
@@ -113,7 +112,14 @@
   },
   "sermons": {
     "title": "Sermons",
+    "heroSubtitle": "Nourishing our faith through the Word of God",
     "archive": "Sermon archive",
+    "latestSermon": "Latest sermon",
+    "watchNow": "Watch",
+    "allSermons": "All sermons",
+    "clearFilters": "Clear filters",
+    "backToSermons": "Back to sermons",
+    "relatedSermons": "Sermons from this series",
     "filterByPreacher": "Preacher",
     "filterBySeries": "Series",
     "filterByTheme": "Theme",
@@ -124,21 +130,19 @@
     "videoUnavailable": "This video is temporarily unavailable",
     "series": "Series",
     "preacher": "Preacher",
-    "biblicalRef": "Biblical reference"
+    "biblicalRef": "Biblical reference",
+    "ctaTitle": "Follow our sermons",
+    "ctaSubtitle": "Find all our sermons on our YouTube channel and stay nourished by the Word.",
+    "ctaButton": "Our YouTube channel"
   },
   "community": {
     "title": "Community",
     "groups": {
-      "title": "Community groups",
-      "joinGroup": "I'm interested",
-      "interestSuccess": "Your interest has been registered!",
-      "filterByType": "Group type",
-      "filterByDay": "Day of the week",
-      "noGroups": "No groups found",
+      "title": "Groups",
       "leader": "Leader",
-      "meetingTime": "Meeting time",
+      "joinGroup": "Join this group",
       "types": {
-        "bible_study": "Bible study",
+        "bible_study": "Bible Study",
         "prayer": "Prayer",
         "youth": "Youth",
         "women": "Women",
@@ -156,6 +160,12 @@
         "friday": "Friday",
         "saturday": "Saturday",
         "sunday": "Sunday"
+      },
+      "form": {
+        "name": "Name",
+        "message": "Message (optional)",
+        "success": "Your interest has been registered. We will contact you soon!",
+        "error": "Failed to submit. Please try again."
       }
     }
   },
@@ -174,19 +184,71 @@
   },
   "about": {
     "title": "About",
+    "heroSubtitle": "A community of faith in the heart of the Cévennes",
     "mission": "Our mission",
     "missionText": "The Reformed Evangelical Church La Chapelle is a Christian community committed to serving the people of the Cévennes. Our mission is to welcome everyone, share God's love, and build a community founded on faith, hope, and charity.",
     "vision": "Our vision",
     "visionText": "We aspire to be a place of refuge and spiritual renewal in the Cévennes, where every person can discover their place in God's family, grow in faith, and serve others with love.",
     "history": "Our history",
+    "historySubtitle": "A story written by faith",
     "historyText": "Born from a vision to gather believers in the Cévennes region, our church established itself in Saint-Hippolyte-du-Fort. Since our beginnings, we have grown as a multicultural and multilingual community, welcoming people from all walks of life.",
     "faith": "Statement of faith",
-    "faithText": "We believe in one God, creator of all things, revealed in three persons: the Father, the Son, and the Holy Spirit. We believe in the Bible as the Word of God, in Jesus Christ as the only Savior and Lord, and in the transformative power of the Holy Spirit.",
+    "faithSubtitle": "The foundations of our belief",
+    "faithItems": {
+      "god": {
+        "title": "One God",
+        "text": "We believe in one God, creator of all things, eternally existing in three persons: the Father, the Son, and the Holy Spirit."
+      },
+      "bible": {
+        "title": "Holy Scripture",
+        "text": "We believe the Bible is the inspired and infallible Word of God, the supreme authority for faith and life."
+      },
+      "jesus": {
+        "title": "Jesus Christ",
+        "text": "We believe in Jesus Christ, truly God and truly man, the only Savior and Lord, who died for our sins and rose again."
+      },
+      "spirit": {
+        "title": "Holy Spirit",
+        "text": "We believe in the transformative power of the Holy Spirit, who dwells in every believer and guides the Church."
+      }
+    },
     "values": "Our values",
-    "valuesText": "Unconditional welcome, authenticity, service, prayer, biblical teaching, fellowship, and engagement in the local community. These values guide each of our actions and decisions.",
+    "valuesSubtitle": "The principles that guide our community",
+    "valuesItems": {
+      "welcome": {
+        "title": "Unconditional Welcome",
+        "description": "We open our doors to everyone, without distinction, because every person is precious in God's eyes."
+      },
+      "authenticity": {
+        "title": "Authenticity",
+        "description": "We cultivate honest and transparent relationships, grounded in truth and mutual respect."
+      },
+      "service": {
+        "title": "Service",
+        "description": "We serve one another and our community with generosity, following Christ's example of humility."
+      },
+      "prayer": {
+        "title": "Prayer",
+        "description": "Prayer is the heartbeat of our community, the foundation upon which everything else is built."
+      },
+      "teaching": {
+        "title": "Biblical Teaching",
+        "description": "We are committed to faithful, relevant teaching of Scripture that transforms hearts and minds."
+      },
+      "fellowship": {
+        "title": "Fellowship",
+        "description": "We nurture deep bonds of brotherhood, sharing joys and burdens as one family in Christ."
+      }
+    },
     "team": {
       "label": "Our team",
-      "title": "Pastoral team"
+      "title": "Pastoral team",
+      "subtitle": "Servant leaders guiding our community with love and dedication"
+    },
+    "cta": {
+      "title": "Come visit us",
+      "subtitle": "Join us every Sunday at 10:30 AM and discover a community that welcomes you with open arms.",
+      "button": "Plan your visit"
     }
   },
   "contact": {
@@ -208,21 +270,24 @@
       "error": "Failed to send. Please try again."
     }
   },
-  "forms": {
-    "validation": {
-      "required": "This field is required",
-      "email": "Please enter a valid email",
-      "minLength": "Minimum {min} characters",
-      "maxLength": "Maximum {max} characters",
-      "phone": "Invalid phone number",
-      "minAttendees": "Minimum 1 attendee",
-      "maxAttendees": "Maximum 20 attendees"
-    }
-  },
   "newsletter": {
     "title": "Newsletter",
     "placeholder": "Your email",
     "subscribe": "Subscribe",
     "success": "Subscription confirmed!"
+  },
+  "footer": {
+    "tagline": "A community of faith in the heart of the Cévennes, rooted in the Reformed tradition.",
+    "quickLinks": "Quick Links",
+    "contactUs": "Contact",
+    "stayConnected": "Stay Connected",
+    "newsletterSubtitle": "Receive updates about our community directly in your inbox.",
+    "address": "Address",
+    "worship": "Worship",
+    "phone": "Phone",
+    "email": "Email",
+    "followUs": "Follow us",
+    "copyright": "All rights reserved.",
+    "madeIn": "Made with faith in the Cévennes"
   }
 }

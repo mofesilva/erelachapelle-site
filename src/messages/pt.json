@@ -71,11 +71,10 @@
       "title": "Vida comunitária",
       "cta": "Participar de um grupo"
     },
-    "blog": {
-      "label": "Notícias",
-      "title": "Últimas notícias",
-      "cta": "Ler o blog",
-      "readMore": "Ler"
+    "gallery": {
+      "label": "Galeria",
+      "title": "Nossos momentos",
+      "cta": "Ver todas as fotos"
     },
     "faith": {
       "statement": "Cremos em um só Deus, Pai, Filho e Espírito Santo, e proclamamos Jesus Cristo como Senhor e Salvador. Enraizados na tradição reformada, vivemos pela graça, guiados pelas Escrituras.",
@@ -113,7 +112,14 @@
   },
   "sermons": {
     "title": "Pregações",
+    "heroSubtitle": "Alimentando nossa fé pela Palavra de Deus",
     "archive": "Arquivo de pregações",
+    "latestSermon": "Pregação recente",
+    "watchNow": "Assistir",
+    "allSermons": "Todas as pregações",
+    "clearFilters": "Limpar filtros",
+    "backToSermons": "Voltar às pregações",
+    "relatedSermons": "Pregações da série",
     "filterByPreacher": "Pregador",
     "filterBySeries": "Série",
     "filterByTheme": "Tema",
@@ -124,26 +130,24 @@
     "videoUnavailable": "Este vídeo está temporariamente indisponível",
     "series": "Série",
     "preacher": "Pregador",
-    "biblicalRef": "Referência bíblica"
+    "biblicalRef": "Referência bíblica",
+    "ctaTitle": "Acompanhe nossas pregações",
+    "ctaSubtitle": "Encontre todas as nossas pregações em nosso canal do YouTube e fique alimentado pela Palavra.",
+    "ctaButton": "Nosso canal YouTube"
   },
   "community": {
     "title": "Comunidade",
     "groups": {
-      "title": "Grupos comunitários",
-      "joinGroup": "Tenho interesse",
-      "interestSuccess": "Seu interesse foi registrado!",
-      "filterByType": "Tipo de grupo",
-      "filterByDay": "Dia da semana",
-      "noGroups": "Nenhum grupo encontrado",
-      "leader": "Líder",
-      "meetingTime": "Horário",
+      "title": "Grupos",
+      "leader": "Responsável",
+      "joinGroup": "Participar deste grupo",
       "types": {
         "bible_study": "Estudo bíblico",
         "prayer": "Oração",
         "youth": "Juventude",
         "women": "Mulheres",
         "men": "Homens",
-        "seniors": "Terceira idade",
+        "seniors": "Idosos",
         "worship": "Louvor",
         "outreach": "Missão",
         "other": "Outro"
@@ -156,6 +160,12 @@
         "friday": "Sexta-feira",
         "saturday": "Sábado",
         "sunday": "Domingo"
+      },
+      "form": {
+        "name": "Nome",
+        "message": "Mensagem (opcional)",
+        "success": "Seu interesse foi registrado. Entraremos em contato em breve!",
+        "error": "Erro ao enviar. Por favor, tente novamente."
       }
     }
   },
@@ -174,19 +184,71 @@
   },
   "about": {
     "title": "Sobre",
+    "heroSubtitle": "Uma comunidade de fé no coração das Cévennes",
     "mission": "Nossa missão",
     "missionText": "A Igreja Reformada Evangélica La Chapelle é uma comunidade cristã comprometida em servir os habitantes das Cévennes. Nossa missão é acolher cada pessoa, compartilhar o amor de Deus e construir uma comunidade fundada na fé, na esperança e no amor.",
     "vision": "Nossa visão",
     "visionText": "Aspiramos ser um lugar de refúgio e renovação espiritual nas Cévennes, onde cada pessoa pode descobrir seu lugar na família de Deus, crescer na fé e servir os outros com amor.",
     "history": "Nossa história",
+    "historySubtitle": "Uma história escrita pela fé",
     "historyText": "Nascida da visão de reunir crentes na região das Cévennes, nossa igreja se estabeleceu em Saint-Hippolyte-du-Fort. Desde o início, crescemos como uma comunidade multicultural e multilíngue, acolhendo pessoas de todas as origens.",
     "faith": "Declaração de fé",
-    "faithText": "Cremos em um só Deus, criador de todas as coisas, revelado em três pessoas: o Pai, o Filho e o Espírito Santo. Cremos na Bíblia como Palavra de Deus, em Jesus Cristo como único Salvador e Senhor, e no poder transformador do Espírito Santo.",
+    "faithSubtitle": "Os fundamentos da nossa crença",
+    "faithItems": {
+      "god": {
+        "title": "Um só Deus",
+        "text": "Cremos em um só Deus, criador de todas as coisas, existindo eternamente em três pessoas: o Pai, o Filho e o Espírito Santo."
+      },
+      "bible": {
+        "title": "Sagrada Escritura",
+        "text": "Cremos que a Bíblia é a Palavra de Deus inspirada e infalível, a autoridade suprema para a fé e a vida."
+      },
+      "jesus": {
+        "title": "Jesus Cristo",
+        "text": "Cremos em Jesus Cristo, verdadeiro Deus e verdadeiro homem, único Salvador e Senhor, que morreu por nossos pecados e ressuscitou."
+      },
+      "spirit": {
+        "title": "Espírito Santo",
+        "text": "Cremos no poder transformador do Espírito Santo, que habita em cada crente e guia a Igreja."
+      }
+    },
     "values": "Nossos valores",
-    "valuesText": "Acolhimento incondicional, autenticidade, serviço, oração, ensino bíblico, comunhão fraterna e compromisso com a comunidade local. Esses valores orientam cada uma de nossas ações e decisões.",
+    "valuesSubtitle": "Os princípios que guiam nossa comunidade",
+    "valuesItems": {
+      "welcome": {
+        "title": "Acolhimento incondicional",
+        "description": "Abrimos nossas portas a todos, sem distinção, pois cada pessoa é preciosa aos olhos de Deus."
+      },
+      "authenticity": {
+        "title": "Autenticidade",
+        "description": "Cultivamos relações honestas e transparentes, fundamentadas na verdade e no respeito mútuo."
+      },
+      "service": {
+        "title": "Serviço",
+        "description": "Servimos uns aos outros e nossa comunidade com generosidade, seguindo o exemplo de humildade de Cristo."
+      },
+      "prayer": {
+        "title": "Oração",
+        "description": "A oração é o coração pulsante da nossa comunidade, o alicerce sobre o qual tudo o mais é construído."
+      },
+      "teaching": {
+        "title": "Ensino bíblico",
+        "description": "Estamos comprometidos com o ensino fiel e relevante das Escrituras que transforma corações e mentes."
+      },
+      "fellowship": {
+        "title": "Comunhão fraterna",
+        "description": "Nutrimos laços profundos de fraternidade, partilhando alegrias e fardos como uma só família em Cristo."
+      }
+    },
     "team": {
       "label": "Nossa equipe",
-      "title": "Equipe pastoral"
+      "title": "Equipe pastoral",
+      "subtitle": "Líderes servos que guiam nossa comunidade com amor e dedicação"
+    },
+    "cta": {
+      "title": "Venha nos visitar",
+      "subtitle": "Junte-se a nós todo domingo às 10h30 e descubra uma comunidade que o recebe de braços abertos.",
+      "button": "Planeje sua visita"
     }
   },
   "contact": {
@@ -208,21 +270,24 @@
       "error": "Erro ao enviar. Por favor, tente novamente."
     }
   },
-  "forms": {
-    "validation": {
-      "required": "Este campo é obrigatório",
-      "email": "Por favor, insira um email válido",
-      "minLength": "Mínimo {min} caracteres",
-      "maxLength": "Máximo {max} caracteres",
-      "phone": "Número de telefone inválido",
-      "minAttendees": "Mínimo 1 participante",
-      "maxAttendees": "Máximo 20 participantes"
-    }
-  },
   "newsletter": {
     "title": "Newsletter",
     "placeholder": "Seu email",
     "subscribe": "Inscrever-se",
     "success": "Inscrição confirmada!"
+  },
+  "footer": {
+    "tagline": "Uma comunidade de fé no coração das Cévennes, enraizada na tradição reformada.",
+    "quickLinks": "Links rápidos",
+    "contactUs": "Contato",
+    "stayConnected": "Fique conectado",
+    "newsletterSubtitle": "Receba novidades da nossa comunidade diretamente no seu email.",
+    "address": "Endereço",
+    "worship": "Culto",
+    "phone": "Telefone",
+    "email": "E-mail",
+    "followUs": "Siga-nos",
+    "copyright": "Todos os direitos reservados.",
+    "madeIn": "Feito com fé nas Cévennes"
   }
 }

@@ -71,11 +71,10 @@
       "title": "Vie communautaire",
       "cta": "Rejoindre un groupe"
     },
-    "blog": {
-      "label": "Actualités",
-      "title": "Dernières nouvelles",
-      "cta": "Lire le blog",
-      "readMore": "Lire"
+    "gallery": {
+      "label": "Galerie",
+      "title": "Nos moments",
+      "cta": "Voir toutes les photos"
     },
     "faith": {
       "statement": "Nous croyons en un seul Dieu, Père, Fils et Saint-Esprit, et nous proclamons Jésus-Christ comme Seigneur et Sauveur. Enracinés dans la tradition réformée, nous vivons par la grâce, guidés par l'Écriture.",
@@ -113,7 +112,14 @@
   },
   "sermons": {
     "title": "Prédications",
+    "heroSubtitle": "Nourrir notre foi par la Parole de Dieu",
     "archive": "Archives des prédications",
+    "latestSermon": "Prédication récente",
+    "watchNow": "Regarder",
+    "allSermons": "Toutes les prédications",
+    "clearFilters": "Effacer les filtres",
+    "backToSermons": "Retour aux prédications",
+    "relatedSermons": "Prédications de la série",
     "filterByPreacher": "Prédicateur",
     "filterBySeries": "Série",
     "filterByTheme": "Thème",
@@ -124,26 +130,24 @@
     "videoUnavailable": "Cette vidéo est temporairement indisponible",
     "series": "Série",
     "preacher": "Prédicateur",
-    "biblicalRef": "Référence biblique"
+    "biblicalRef": "Référence biblique",
+    "ctaTitle": "Suivez nos prédications",
+    "ctaSubtitle": "Retrouvez toutes nos prédications sur notre chaîne YouTube et restez nourris par la Parole.",
+    "ctaButton": "Notre chaîne YouTube"
   },
   "community": {
     "title": "Communauté",
     "groups": {
-      "title": "Groupes communautaires",
-      "joinGroup": "Je suis intéressé(e)",
-      "interestSuccess": "Votre intérêt a été enregistré !",
-      "filterByType": "Type de groupe",
-      "filterByDay": "Jour de la semaine",
-      "noGroups": "Aucun groupe trouvé",
+      "title": "Groupes",
       "leader": "Responsable",
-      "meetingTime": "Horaire",
+      "joinGroup": "Rejoindre ce groupe",
       "types": {
         "bible_study": "Étude biblique",
         "prayer": "Prière",
         "youth": "Jeunesse",
         "women": "Femmes",
         "men": "Hommes",
-        "seniors": "Aînés",
+        "seniors": "Seniors",
         "worship": "Louange",
         "outreach": "Mission",
         "other": "Autre"
@@ -156,6 +160,12 @@
         "friday": "Vendredi",
         "saturday": "Samedi",
         "sunday": "Dimanche"
+      },
+      "form": {
+        "name": "Nom",
+        "message": "Message (optionnel)",
+        "success": "Votre intérêt a été enregistré. Nous vous contacterons bientôt !",
+        "error": "Erreur lors de l'envoi. Veuillez réessayer."
       }
     }
   },
@@ -174,19 +184,71 @@
   },
   "about": {
     "title": "À propos",
+    "heroSubtitle": "Une communauté de foi au cœur des Cévennes",
     "mission": "Notre mission",
     "missionText": "L'Église Réformée Évangélique La Chapelle est une communauté chrétienne engagée à servir les habitants des Cévennes. Notre mission est d'accueillir chacun, de partager l'amour de Dieu et de construire une communauté fondée sur la foi, l'espérance et la charité.",
     "vision": "Notre vision",
     "visionText": "Nous aspirons à être un lieu de refuge et de renouveau spirituel dans les Cévennes, où chaque personne peut découvrir sa place dans la famille de Dieu, grandir dans la foi et servir les autres avec amour.",
     "history": "Notre histoire",
+    "historySubtitle": "Une histoire écrite par la foi",
     "historyText": "Née d'une vision de rassembler les croyants dans la région des Cévennes, notre église s'est implantée à Saint-Hippolyte-du-Fort. Depuis nos débuts, nous avons grandi en tant que communauté multiculturelle et multilingue, accueillant des personnes de tous horizons.",
     "faith": "Déclaration de foi",
-    "faithText": "Nous croyons en un seul Dieu, créateur de toutes choses, révélé en trois personnes : le Père, le Fils et le Saint-Esprit. Nous croyons en la Bible comme Parole de Dieu, en Jésus-Christ comme seul Sauveur et Seigneur, et en la puissance transformatrice du Saint-Esprit.",
+    "faithSubtitle": "Les fondements de notre croyance",
+    "faithItems": {
+      "god": {
+        "title": "Un seul Dieu",
+        "text": "Nous croyons en un seul Dieu, créateur de toutes choses, existant éternellement en trois personnes : le Père, le Fils et le Saint-Esprit."
+      },
+      "bible": {
+        "title": "Sainte Écriture",
+        "text": "Nous croyons que la Bible est la Parole de Dieu inspirée et infaillible, l'autorité suprême pour la foi et la vie."
+      },
+      "jesus": {
+        "title": "Jésus-Christ",
+        "text": "Nous croyons en Jésus-Christ, vrai Dieu et vrai homme, seul Sauveur et Seigneur, mort pour nos péchés et ressuscité."
+      },
+      "spirit": {
+        "title": "Saint-Esprit",
+        "text": "Nous croyons en la puissance transformatrice du Saint-Esprit, qui habite en chaque croyant et guide l'Église."
+      }
+    },
     "values": "Nos valeurs",
-    "valuesText": "Accueil inconditionnel, authenticité, service, prière, enseignement biblique, communion fraternelle et engagement dans la communauté locale. Ces valeurs guident chacune de nos actions et de nos décisions.",
+    "valuesSubtitle": "Les principes qui guident notre communauté",
+    "valuesItems": {
+      "welcome": {
+        "title": "Accueil inconditionnel",
+        "description": "Nous ouvrons nos portes à tous, sans distinction, car chaque personne est précieuse aux yeux de Dieu."
+      },
+      "authenticity": {
+        "title": "Authenticité",
+        "description": "Nous cultivons des relations honnêtes et transparentes, fondées sur la vérité et le respect mutuel."
+      },
+      "service": {
+        "title": "Service",
+        "description": "Nous servons les uns les autres et notre communauté avec générosité, suivant l'exemple d'humilité du Christ."
+      },
+      "prayer": {
+        "title": "Prière",
+        "description": "La prière est le cœur battant de notre communauté, le fondement sur lequel tout le reste est bâti."
+      },
+      "teaching": {
+        "title": "Enseignement biblique",
+        "description": "Nous nous engageons à un enseignement fidèle et pertinent des Écritures qui transforme les cœurs et les esprits."
+      },
+      "fellowship": {
+        "title": "Communion fraternelle",
+        "description": "Nous nourrissons des liens profonds de fraternité, partageant joies et fardeaux comme une seule famille en Christ."
+      }
+    },
     "team": {
       "label": "Notre équipe",
-      "title": "L'équipe pastorale"
+      "title": "L'équipe pastorale",
+      "subtitle": "Des serviteurs dévoués qui guident notre communauté avec amour et dévouement"
+    },
+    "cta": {
+      "title": "Venez nous rendre visite",
+      "subtitle": "Rejoignez-nous chaque dimanche à 10h30 et découvrez une communauté qui vous accueille à bras ouverts.",
+      "button": "Planifier votre visite"
     }
   },
   "contact": {
@@ -208,21 +270,24 @@
       "error": "Erreur lors de l'envoi. Veuillez réessayer."
     }
   },
-  "forms": {
-    "validation": {
-      "required": "Ce champ est obligatoire",
-      "email": "Veuillez entrer un email valide",
-      "minLength": "Minimum {min} caractères",
-      "maxLength": "Maximum {max} caractères",
-      "phone": "Numéro de téléphone invalide",
-      "minAttendees": "Minimum 1 participant",
-      "maxAttendees": "Maximum 20 participants"
-    }
-  },
   "newsletter": {
     "title": "Newsletter",
     "placeholder": "Votre email",
     "subscribe": "S'abonner",
     "success": "Inscription confirmée !"
+  },
+  "footer": {
+    "tagline": "Une communauté de foi au cœur des Cévennes, enracinée dans la tradition réformée.",
+    "quickLinks": "Liens rapides",
+    "contactUs": "Contact",
+    "stayConnected": "Restez connecté",
+    "newsletterSubtitle": "Recevez des nouvelles de notre communauté directement dans votre boîte mail.",
+    "address": "Adresse",
+    "worship": "Culte",
+    "phone": "Téléphone",
+    "email": "E-mail",
+    "followUs": "Suivez-nous",
+    "copyright": "Tous droits réservés.",
+    "madeIn": "Fait avec foi dans les Cévennes"
   }
 }
