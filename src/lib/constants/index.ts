@@ -1,6 +1,5 @@
 import type { Locale } from "@/types/common";
 
-export const LOCALES: Locale[] = ["fr", "pt", "en"];
 export const DEFAULT_LOCALE: Locale = "fr";
 
 export const SITE_CONFIG = {
@@ -8,7 +7,9 @@ export const SITE_CONFIG = {
   description: "Igreja Cévennes - Communauté chrétienne",
   url: "https://erelachapelle.org",
   locations: ["Saint-Hippolyte"] as const,
+  socialMedia: {
+    facebook: "https://www.facebook.com/erelachapelle/",
+    instagram: "https://www.instagram.com/erelachapelle",
+    youtube: "https://www.youtube.com/@erelachapelle/featured",
+  },
 } as const;
-
-export { EVENT_TYPES } from "@/types/event";
-export { GROUP_TYPES, DAYS_OF_WEEK } from "@/types/group";
