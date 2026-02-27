@@ -12,10 +12,10 @@ export async function AboutSection() {
       <div className="mx-auto max-w-7xl px-4">
         <div className="mt-6 grid items-center gap-12 md:grid-cols-2">
           <div>
-            <h2 className="font-serif text-3xl font-bold text-primary md:text-4xl">
+            <h2 className="font-serif font-bold text-primary">
               {t("title")}
             </h2>
-            <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-4 leading-relaxed text-muted-foreground">
               {tAbout("mission")}
             </p>
           </div>
