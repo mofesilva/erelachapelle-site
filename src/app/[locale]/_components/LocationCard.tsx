@@ -45,9 +45,9 @@ export function LocationCard({
 
         {/* Name overlay on image */}
         <div className="absolute bottom-0 left-0 right-0 p-4 md:p-6">
-          <h3 className="font-serif text-xl md:text-2xl font-bold text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
+          <h5 className="font-serif font-bold text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
             {name}
-          </h3>
+          </h5>
         </div>
       </div>
 
