@@ -41,10 +41,10 @@ export default async function EventsPage({ searchParams }: PageProps) {
     <main>
       <section className="bg-primary py-20 text-primary-foreground">
         <div className="mx-auto max-w-7xl px-4 text-center">
-          <h1 className="font-serif text-4xl font-bold md:text-5xl">
+          <h1 className="font-serif font-bold">
             {t("title")}
           </h1>
-          <p className="mt-4 text-lg text-primary-foreground/80">
+          <p className="mt-4 text-primary-foreground/80">
             {t("upcoming")}
           </p>
         </div>
