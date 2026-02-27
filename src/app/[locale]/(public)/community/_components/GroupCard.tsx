@@ -18,15 +18,15 @@ export function GroupCard({ group, locale, typeLabel, dayLabel }: GroupCardProps
     <Card className="transition-shadow hover:shadow-md">
       <CardContent className="pt-6">
         <UsersGroupRoundedBold size={24} color="var(--primary)" className="mb-3" />
-        <h3 className="font-serif text-lg font-semibold">
+        <h6 className="font-serif font-semibold">
           <Link
             href={`/${locale}/community/groups/${group._id}`}
             className="hover:text-primary"
           >
             {getLocalizedContent(group.name, locale)}
           </Link>
-        </h3>
-        <p className="mt-2 line-clamp-2 text-sm text-muted-foreground">
+        </h6>
+        <p className="mt-2 line-clamp-2 text-muted-foreground">
           {getLocalizedContent(group.description, locale)}
         </p>
         <div className="mt-4 space-y-2">
@@ -36,7 +36,7 @@ export function GroupCard({ group, locale, typeLabel, dayLabel }: GroupCardProps
               {dayLabel} · {group.meetingTime}
             </span>
           </div>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-muted-foreground">
             {group.leaderName}
           </p>
         </div>
