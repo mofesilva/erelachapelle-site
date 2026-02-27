@@ -1,5 +1,4 @@
 import type { Event } from "@/types/event";
-import type { BlogArticle } from "@/types/blog";
 import type { Sermon } from "@/types/sermon";
 import type { Location } from "@/types/location";
 import type { Locale } from "@/types/common";
@@ -18,21 +17,21 @@ export function churchJsonLd(locations: Location[]) {
       "Communauté de foi chrétienne protestante dans les Cévennes, France",
     address: mainLocation
       ? {
-          "@type": "PostalAddress",
-          streetAddress: mainLocation.address,
-          addressLocality: mainLocation.city,
-          postalCode: mainLocation.postalCode,
-          addressCountry: "FR",
-        }
+        "@type": "PostalAddress",
+        streetAddress: mainLocation.address,
+        addressLocality: mainLocation.city,
+        postalCode: mainLocation.postalCode,
+        addressCountry: "FR",
+      }
       : undefined,
     telephone: mainLocation?.contactPhone,
     email: mainLocation?.contactEmail,
     geo: mainLocation?.coordinates
       ? {
-          "@type": "GeoCoordinates",
-          latitude: mainLocation.coordinates.lat,
-          longitude: mainLocation.coordinates.lng,
-        }
+        "@type": "GeoCoordinates",
+        latitude: mainLocation.coordinates.lat,
+        longitude: mainLocation.coordinates.lng,
+      }
       : undefined,
   };
 }
@@ -50,27 +49,6 @@ export function eventJsonLd(event: Event, locale: Locale) {
     eventAttendanceMode:
       "https://schema.org/OfflineEventAttendanceMode",
     organizer: {
-      "@type": "Organization",
-      name: "Église Réformée Évangélique La Chapelle",
-      url: BASE_URL,
-    },
-  };
-}
-
-export function articleJsonLd(article: BlogArticle, locale: Locale) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: getLocalizedContent(article.title, locale),
-    description: getLocalizedContent(article.excerpt, locale),
-    author: {
-      "@type": "Person",
-      name: article.author,
-    },
-    datePublished: article.publishedAt,
-    dateModified: article.updatedAt,
-    url: `${BASE_URL}/${locale}/blog/${article.slug}`,
-    publisher: {
       "@type": "Organization",
       name: "Église Réformée Évangélique La Chapelle",
       url: BASE_URL,
