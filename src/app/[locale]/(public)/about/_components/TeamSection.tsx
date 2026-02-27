@@ -1,52 +1,74 @@
 import { getTranslations, getLocale } from "next-intl/server";
 import Image from "next/image";
 import { SectionLabel } from "@/_components/SectionLabel";
-import { Card, CardContent } from "@/_components/ui/card";
 import { getLeadershipTeam } from "@/lib/data/leadership";
 import { getLocalizedContent } from "@/lib/utils";
 import type { Locale } from "@/types/common";
+import { UsersGroupRoundedBoldDuotone } from "solar-icon-set";
 
 export async function TeamSection() {
-  const t = await getTranslations("homepage.team");
+  const t = await getTranslations("about.team");
   const locale = (await getLocale()) as Locale;
   const team = getLeadershipTeam();
 
   return (
-    <section className="py-20">
-      <div className="mx-auto max-w-7xl px-4">
-        <SectionLabel title={t("title")} />
+    <section className="bg-dust-grey/40 py-20 md:py-28">
+      <div className="mx-auto max-w-4xl px-6">
+        <SectionLabel
+          icon={UsersGroupRoundedBoldDuotone}
+          title={t("title")}
+          color="bordeaux"
+        />
+        <p className="mx-auto mt-3 max-w-md text-center text-coffee-bean/60">
+          {t("subtitle")}
+        </p>
 
-        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Horizontal team cards — stacked */}
+        <div className="mt-14 space-y-6">
           {team.map((member) => (
-            <Card key={member._id} className="text-center">
-              <CardContent className="pt-6">
-                <div className="mx-auto mb-4 flex h-24 w-24 items-center justify-center overflow-hidden rounded-full bg-muted">
-                  {member.photoUrl ? (
-                    <Image
-                      src={member.photoUrl}
-                      alt={member.fullName}
-                      width={96}
-                      height={96}
-                      className="h-full w-full object-cover"
-                      unoptimized
-                    />
-                  ) : (
-                    <span className="text-3xl text-muted-foreground">
-                      {member.fullName.charAt(0)}
-                    </span>
-                  )}
-                </div>
-                <h3 className="font-serif text-lg font-semibold">
+            <div
+              key={member._id}
+              className="flex flex-col items-center gap-6 rounded-xl border border-dust-grey bg-white p-6 sm:flex-row sm:items-start sm:p-8"
+            >
+              {/* Photo */}
+              <div className="flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden rounded-full bg-powder-petal ring-2 ring-toffee-brown/15 sm:h-24 sm:w-24">
+                {member.photoUrl ? (
+                  <Image
+                    src={member.photoUrl}
+                    alt={member.fullName}
+                    width={96}
+                    height={96}
+                    className="h-full w-full object-cover"
+                    unoptimized
+                  />
+                ) : (
+                  <span className="font-serif text-3xl font-bold text-coffee-bean/30">
+                    {member.fullName.charAt(0)}
+                  </span>
+                )}
+              </div>
+
+              {/* Info */}
+              <div className="min-w-0 text-center sm:text-left">
+                <h5 className="font-serif font-bold text-carbon-black">
                   {member.fullName}
-                </h3>
-                <p className="mt-1 text-sm text-primary">
+                </h5>
+                <span className="mt-1 inline-block text-xs font-semibold uppercase tracking-wider text-toffee-brown">
                   {getLocalizedContent(member.role, locale)}
-                </p>
-                <p className="mt-3 text-sm text-muted-foreground">
+                </span>
+                <p className="mt-3 leading-relaxed text-coffee-bean">
                   {getLocalizedContent(member.bio, locale)}
                 </p>
-              </CardContent>
-            </Card>
+                {member.email && (
+                  <a
+                    href={`mailto:${member.email}`}
+                    className="mt-2 inline-block text-sm text-night-bordeaux-2/60 underline decoration-night-bordeaux-2/15 underline-offset-4 transition-fast hover:text-night-bordeaux-2 hover:decoration-night-bordeaux-2/40"
+                  >
+                    {member.email}
+                  </a>
+                )}
+              </div>
+            </div>
           ))}
         </div>
       </div>
