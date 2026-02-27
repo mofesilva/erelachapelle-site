@@ -7,16 +7,16 @@ export async function NewsletterSection() {
     const t = await getTranslations("homepage.newsletter");
 
     return (
-        <section className="relative overflow-hidden bg-gradient-to-br from-rich-mahogany via-night-bordeaux to-night-bordeaux-2 py-24 md:py-32">
+        <section className="relative overflow-hidden bg-gradient-to-b from-rich-mahogany via-night-bordeaux to-night-bordeaux-2 py-24 md:py-32">
             {/* Decorative radial glow */}
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(255,255,255,0.04)_0%,_transparent_60%)]" />
-            {/* Subtle diagonal shimmer */}
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(147,102,57,0.08)_0%,_transparent_50%)]" />
+            {/* Subtle shimmer — top only to avoid seam with footer */}
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(147,102,57,0.08)_0%,_transparent_50%)]" />
 
             <div className="relative mx-auto max-w-5xl px-6">
                 {/* Header */}
                 <SectionLabel icon={LetterBoldDuotone} title={t("title")} color="parchment" />
-                <p className="mx-auto mt-6 max-w-lg text-center text-sm leading-relaxed text-white/60 md:text-base">
+                <p className="mx-auto mt-6 max-w-lg text-center leading-relaxed text-white/60">
                     {t("subtitle")}
                 </p>
 
