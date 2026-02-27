@@ -60,7 +60,7 @@ export default async function EventDetailPage({ params }: PageProps) {
           >
             ← {tCommon("back")}
           </Link>
-          <h1 className="mt-4 font-serif text-3xl font-bold md:text-4xl">
+          <h1 className="mt-4 font-serif font-bold">
             {getLocalizedContent(event.title, locale)}
           </h1>
           <Badge className="mt-4 bg-primary-foreground/20 text-primary-foreground">
@@ -73,7 +73,7 @@ export default async function EventDetailPage({ params }: PageProps) {
         <div className="mx-auto max-w-4xl px-4">
           <div className="grid gap-8 md:grid-cols-3">
             <div className="space-y-8 md:col-span-2">
-              <p className="text-lg leading-relaxed text-muted-foreground">
+              <p className="leading-relaxed text-muted-foreground">
                 {getLocalizedContent(event.description, locale)}
               </p>
 
@@ -100,7 +100,7 @@ export default async function EventDetailPage({ params }: PageProps) {
                       {formatDateTime(event.startDate, locale)}
                     </p>
                     {event.endDate && (
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-muted-foreground">
                         → {formatDateTime(event.endDate, locale)}
                       </p>
                     )}
@@ -112,10 +112,10 @@ export default async function EventDetailPage({ params }: PageProps) {
                     <MapPointBold size={20} color="var(--primary)" className="mt-1" />
                     <div>
                       <p className="font-semibold">{location.name}</p>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-muted-foreground">
                         {location.address}
                       </p>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-muted-foreground">
                         {location.postalCode} {location.city}
                       </p>
                     </div>
@@ -125,9 +125,9 @@ export default async function EventDetailPage({ params }: PageProps) {
 
               {event.registrationEnabled && (
                 <div className="rounded-lg border p-6">
-                  <h3 className="mb-4 font-serif text-lg font-semibold">
+                  <h6 className="mb-4 font-serif font-semibold">
                     {t("register")}
-                  </h3>
+                  </h6>
                   <EventRegistrationForm eventId={event._id} />
                 </div>
               )}
