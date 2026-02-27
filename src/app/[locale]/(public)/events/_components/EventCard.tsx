@@ -37,7 +37,7 @@ export function EventCard({ event, locale, typeLabel }: EventCardProps) {
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <p className="line-clamp-2 text-sm text-muted-foreground">
+        <p className="line-clamp-2 text-muted-foreground">
           {getLocalizedContent(event.description, locale)}
         </p>
         <Badge variant="secondary" className="mt-3">
