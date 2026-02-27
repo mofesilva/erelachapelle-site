@@ -43,7 +43,7 @@ export default async function ArticleDetailPage({ params }: PageProps) {
           >
             ← {tCommon("back")}
           </Link>
-          <h1 className="mt-4 font-serif text-3xl font-bold md:text-4xl">
+          <h1 className="mt-4 font-serif font-bold">
             {getLocalizedContent(article.title, locale)}
           </h1>
           <div className="mt-4 text-sm text-primary-foreground/80">
@@ -56,7 +56,7 @@ export default async function ArticleDetailPage({ params }: PageProps) {
       <section className="py-12">
         <div className="mx-auto max-w-3xl px-4">
           <div className="prose prose-lg max-w-none">
-            <p className="text-lg leading-relaxed text-muted-foreground">
+            <p className="leading-relaxed text-muted-foreground">
               {getLocalizedContent(article.content, locale)}
             </p>
           </div>
