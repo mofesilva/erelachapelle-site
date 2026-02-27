@@ -86,11 +86,11 @@ export function SermonCard({
             {format(date, "d MMMM yyyy", { locale: dateLocale })}
           </time>
 
-          <h3 className="mt-2 font-serif text-xl font-bold text-rich-mahogany line-clamp-2 group-hover:text-night-bordeaux transition-colors duration-300">
+          <h5 className="mt-2 font-serif font-bold text-rich-mahogany line-clamp-2 group-hover:text-night-bordeaux transition-colors duration-300">
             {title}
-          </h3>
+          </h5>
 
-          <p className="mt-2 text-sm font-medium text-toffee-brown">{preacher}</p>
+          <p className="mt-2 font-medium text-toffee-brown">{preacher}</p>
 
           {/* Decorative accent */}
           <div className="mt-4 h-0.5 w-8 rounded-full bg-toffee-brown/30 transition-all duration-500 group-hover:w-16 group-hover:bg-toffee-brown" />
