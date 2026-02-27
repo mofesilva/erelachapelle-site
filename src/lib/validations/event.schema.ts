@@ -8,5 +8,3 @@ export const eventRegistrationSchema = z.object({
   attendees: z.number().int().min(1).max(20),
   honeypot: z.string().max(0).optional(),
 });
-
-export type EventRegistrationInput = z.infer<typeof eventRegistrationSchema>;
