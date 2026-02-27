@@ -1,30 +1,23 @@
 import { cn } from "@/lib/utils";
+import { DiamondDivider } from "@/_components/DiamondDivider";
 
 /* ── Colour variants ─────────────────────────────────────── */
 const colorVariants = {
     gold: {
         iconColor: "var(--toffee-brown)",
         title: "text-toffee-brown",
-        line: "bg-toffee-brown/30",
-        diamond: "text-toffee-brown/50",
     },
     bordeaux: {
         iconColor: "var(--night-bordeaux-2)",
         title: "text-night-bordeaux-2",
-        line: "bg-night-bordeaux-2/25",
-        diamond: "text-night-bordeaux-2/40",
     },
     black: {
         iconColor: "var(--carbon-black)",
         title: "text-carbon-black",
-        line: "bg-carbon-black/20",
-        diamond: "text-carbon-black/30",
     },
     parchment: {
         iconColor: "var(--parchment)",
         title: "text-parchment",
-        line: "bg-parchment/30",
-        diamond: "text-parchment/40",
     },
 } as const;
 
@@ -78,7 +71,7 @@ export function SectionLabel({
             {/* Title */}
             <h2
                 className={cn(
-                    "font-serif text-3xl font-bold md:text-5xl",
+                    "font-serif font-bold",
                     c.title,
                 )}
             >
@@ -86,11 +79,7 @@ export function SectionLabel({
             </h2>
 
             {/* Diamond divider */}
-            <div className={cn("flex items-center gap-3", a.divider)}>
-                <span className={cn("h-px w-10", c.line)} />
-                <span className={cn("text-[10px]", c.diamond)}>◆</span>
-                <span className={cn("h-px w-10", c.line)} />
-            </div>
+            <DiamondDivider variant={color} className={a.divider} />
         </div>
     );
 }
