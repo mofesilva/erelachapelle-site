@@ -43,12 +43,3 @@ export interface CommunityGroup {
   createdAt: string;
   updatedAt: string;
 }
-
-export interface GroupInterest {
-  _id: string;
-  groupId: string;
-  name: string;
-  email: string;
-  message?: string;
-  createdAt: string;
-}
