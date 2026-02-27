@@ -2,7 +2,6 @@ import type { MetadataRoute } from "next";
 import { getAllSermons } from "@/lib/data/sermons";
 import { getAllEvents } from "@/lib/data/events";
 import { getAllArticles } from "@/lib/data/blog";
-import { getGroups } from "@/lib/data/groups";
 
 const BASE_URL = "https://erelachapelle.fr";
 const LOCALES = ["fr", "pt", "en"] as const;
@@ -16,12 +15,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/about", priority: 0.8, changeFrequency: "monthly" as const },
     { path: "/sermons", priority: 0.9, changeFrequency: "weekly" as const },
     { path: "/events", priority: 0.9, changeFrequency: "weekly" as const },
-    { path: "/community", priority: 0.7, changeFrequency: "monthly" as const },
-    {
-      path: "/community/groups",
-      priority: 0.7,
-      changeFrequency: "monthly" as const,
-    },
     { path: "/blog", priority: 0.8, changeFrequency: "weekly" as const },
     { path: "/contact", priority: 0.7, changeFrequency: "monthly" as const },
   ];
@@ -69,18 +62,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastModified: new Date(article.updatedAt),
         changeFrequency: "monthly",
         priority: 0.6,
-      });
-    }
-  }
-
-  // Group detail pages
-  for (const group of getGroups()) {
-    for (const locale of LOCALES) {
-      entries.push({
-        url: `${BASE_URL}/${locale}/community/groups/${group._id}`,
-        lastModified: new Date(group.updatedAt),
-        changeFrequency: "monthly",
-        priority: 0.5,
       });
     }
   }
