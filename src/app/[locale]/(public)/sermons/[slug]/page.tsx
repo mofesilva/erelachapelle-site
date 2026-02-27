@@ -47,8 +47,8 @@ export default async function SermonDetailPage({ params }: PageProps) {
   // Related sermons from the same series (excluding current)
   const relatedSermons = sermon.series
     ? filterSermons({ series: sermon.series })
-        .filter((s) => s._id !== sermon._id)
-        .slice(0, 3)
+      .filter((s) => s._id !== sermon._id)
+      .slice(0, 3)
     : [];
 
   return (
