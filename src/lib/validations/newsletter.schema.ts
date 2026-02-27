@@ -5,5 +5,3 @@ export const newsletterSchema = z.object({
   locale: z.enum(["fr", "pt", "en"]),
   honeypot: z.string().max(0).optional(),
 });
-
-export type NewsletterInput = z.infer<typeof newsletterSchema>;
