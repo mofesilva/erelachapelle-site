@@ -18,18 +18,3 @@ export interface Sermon {
   createdAt: string;
   updatedAt: string;
 }
-
-export interface SermonFilter {
-  preacher?: string;
-  series?: string;
-  tag?: string;
-  dateFrom?: string;
-  dateTo?: string;
-  page?: number;
-  limit?: number;
-}
-
-export interface SermonSeries {
-  name: string;
-  count: number;
-}
