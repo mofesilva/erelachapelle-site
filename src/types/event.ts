@@ -29,22 +29,3 @@ export interface Event {
   createdAt: string;
   updatedAt: string;
 }
-
-export interface EventFilter {
-  eventType?: EventType;
-  locationId?: string;
-  dateFrom?: string;
-  dateTo?: string;
-  page?: number;
-  limit?: number;
-}
-
-export interface EventRegistration {
-  _id: string;
-  eventId: string;
-  name: string;
-  email: string;
-  phone?: string;
-  attendees: number;
-  createdAt: string;
-}
