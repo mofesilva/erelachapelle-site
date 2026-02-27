@@ -20,7 +20,7 @@ export async function SermonsPreviewSection() {
           <SectionLabel icon={VideocameraBoldDuotone} title={t("title")} />
           <div className="mt-14 flex flex-col items-center gap-4 text-rich-mahogany/40">
             <VideocameraBoldDuotone size={64} />
-            <p className="text-lg font-light">{t("empty")}</p>
+            <p className="font-light">{t("empty")}</p>
           </div>
         </div>
       </section>
