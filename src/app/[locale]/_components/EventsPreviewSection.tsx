@@ -30,7 +30,7 @@ export async function EventsPreviewSection() {
           <SectionLabel icon={CalendarBoldDuotone} title={t("title")} />
           <div className="mt-14 flex flex-col items-center gap-4 text-rich-mahogany/30">
             <CalendarBoldDuotone size={48} />
-            <p className="text-base font-light">{t("empty")}</p>
+            <p className="font-light">{t("empty")}</p>
           </div>
         </div>
       </section>
