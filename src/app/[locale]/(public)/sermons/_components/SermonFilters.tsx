@@ -2,7 +2,7 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
-import { Button } from "@/_components/ui/button";
+import { cn } from "@/lib/utils";
 
 interface SermonFiltersProps {
   preachers: string[];
@@ -11,7 +11,6 @@ interface SermonFiltersProps {
 
 export function SermonFilters({ preachers, seriesList }: SermonFiltersProps) {
   const t = useTranslations("sermons");
-  const tCommon = useTranslations("common");
   const locale = useLocale();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -36,41 +35,65 @@ export function SermonFilters({ preachers, seriesList }: SermonFiltersProps) {
   const hasFilters = activePreacher || activeSeries;
 
   return (
-    <div className="flex flex-wrap items-center gap-4">
-      <select
-        value={activePreacher}
-        onChange={(e) => updateFilter("preacher", e.target.value)}
-        className="rounded-md border bg-background px-3 py-2 text-sm"
-        aria-label={t("filterByPreacher")}
-      >
-        <option value="">{t("filterByPreacher")}</option>
+    <div className="space-y-5">
+      {/* Preachers */}
+      <div className="flex flex-wrap items-center justify-center gap-2">
+        <span className="mr-1 text-[11px] font-bold uppercase tracking-[0.15em] text-toffee-brown">
+          {t("filterByPreacher")}
+        </span>
         {preachers.map((p) => (
-          <option key={p} value={p}>
+          <button
+            key={p}
+            onClick={() =>
+              updateFilter("preacher", activePreacher === p ? "" : p)
+            }
+            className={cn(
+              "rounded-full border px-4 py-1.5 text-sm transition-all duration-200",
+              activePreacher === p
+                ? "border-night-bordeaux-2 bg-night-bordeaux-2 text-parchment"
+                : "border-dust-grey bg-white text-coffee-bean hover:border-toffee-brown/50 hover:text-night-bordeaux-2"
+            )}
+          >
             {p}
-          </option>
+          </button>
         ))}
-      </select>
+      </div>
 
+      {/* Series */}
       {seriesList.length > 0 && (
-        <select
-          value={activeSeries}
-          onChange={(e) => updateFilter("series", e.target.value)}
-          className="rounded-md border bg-background px-3 py-2 text-sm"
-          aria-label={t("filterBySeries")}
-        >
-          <option value="">{t("filterBySeries")}</option>
+        <div className="flex flex-wrap items-center justify-center gap-2">
+          <span className="mr-1 text-[11px] font-bold uppercase tracking-[0.15em] text-toffee-brown">
+            {t("filterBySeries")}
+          </span>
           {seriesList.map((s) => (
-            <option key={s} value={s}>
+            <button
+              key={s}
+              onClick={() =>
+                updateFilter("series", activeSeries === s ? "" : s)
+              }
+              className={cn(
+                "rounded-full border px-4 py-1.5 text-sm transition-all duration-200",
+                activeSeries === s
+                  ? "border-night-bordeaux-2 bg-night-bordeaux-2 text-parchment"
+                  : "border-dust-grey bg-white text-coffee-bean hover:border-toffee-brown/50 hover:text-night-bordeaux-2"
+              )}
+            >
               {s}
-            </option>
+            </button>
           ))}
-        </select>
+        </div>
       )}
 
+      {/* Clear filters */}
       {hasFilters && (
-        <Button variant="ghost" size="sm" onClick={clearFilters}>
-          {tCommon("all")}
-        </Button>
+        <div className="text-center">
+          <button
+            onClick={clearFilters}
+            className="text-sm text-toffee-brown underline underline-offset-2 transition-colors hover:text-night-bordeaux-2"
+          >
+            {t("clearFilters")}
+          </button>
+        </div>
       )}
     </div>
   );
