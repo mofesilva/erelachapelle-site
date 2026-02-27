@@ -65,11 +65,11 @@ export async function BlogPreviewSection() {
                     <span>{article.author}</span>
                   </div>
 
-                  <h3 className="mt-3 font-serif text-lg font-bold text-rich-mahogany line-clamp-2 leading-snug group-hover:text-night-bordeaux-2 transition-colors duration-300">
+                  <h6 className="mt-3 font-serif font-bold text-rich-mahogany line-clamp-2 leading-snug group-hover:text-night-bordeaux-2 transition-colors duration-300">
                     {getLocalizedContent(article.title, locale)}
-                  </h3>
+                  </h6>
 
-                  <p className="mt-2 text-sm text-coffee-bean/60 line-clamp-2 leading-relaxed">
+                  <p className="mt-2 text-coffee-bean/60 line-clamp-2 leading-relaxed">
                     {getLocalizedContent(article.excerpt, locale)}
                   </p>
 
