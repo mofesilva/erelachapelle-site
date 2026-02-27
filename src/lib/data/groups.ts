@@ -92,18 +92,5 @@ export function getGroups(): CommunityGroup[] {
 }
 
 export function getGroupById(id: string): CommunityGroup | null {
-  return GROUPS.find((g) => g._id === id && g.active) ?? null;
-}
-
-export function getGroupTypes(): string[] {
-  const types = new Set(GROUPS.filter((g) => g.active).map((g) => g.groupType));
-  return Array.from(types).sort();
-}
-
-export function filterGroups(filters: { groupType?: string }): CommunityGroup[] {
-  return GROUPS.filter((g) => {
-    if (!g.active) return false;
-    if (filters.groupType && g.groupType !== filters.groupType) return false;
-    return true;
-  });
+  return GROUPS.find((g) => g._id === id) ?? null;
 }
