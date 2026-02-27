@@ -70,9 +70,9 @@ export function EventCard({
           </div>
 
           {/* Title */}
-          <h3 className="mt-4 font-serif text-xl font-bold text-rich-mahogany line-clamp-2 group-hover:text-night-bordeaux-2 transition-colors duration-300">
+          <h5 className="mt-4 font-serif font-bold text-rich-mahogany line-clamp-2 group-hover:text-night-bordeaux-2 transition-colors duration-300">
             {title}
-          </h3>
+          </h5>
 
           {/* Location */}
           {location && (
@@ -84,7 +84,7 @@ export function EventCard({
 
           {/* Description */}
           {description && (
-            <p className="mt-3 text-sm text-carbon-black/45 line-clamp-2 leading-relaxed">
+            <p className="mt-3 text-carbon-black/45 line-clamp-2 leading-relaxed">
               {description}
             </p>
           )}
