@@ -15,22 +15,15 @@ export interface Coordinates {
   lng: number;
 }
 
-export interface PaginatedResponse<T> {
-  data: T[];
-  total: number;
-  page: number;
-  limit: number;
-  totalPages: number;
-}
-
-export interface SEOMeta {
-  title: string;
-  description: string;
-  ogImage?: string;
-}
-
-/** Reusable type for Solar Icon components (replaces LucideIcon) */
-export type { SolarIconProps } from "solar-icon-set";
 export type SolarIcon = (props: import("solar-icon-set").SolarIconProps) => React.JSX.Element;
 
 export type Locale = "fr" | "pt" | "en";
+
+export interface FacebookPhoto {
+  id: string;
+  imageUrl: string;
+  alt: string;
+  createdAt: string;
+  width: number;
+  height: number;
+}
