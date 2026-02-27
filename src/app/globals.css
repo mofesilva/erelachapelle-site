@@ -229,3 +229,15 @@
     animation: none;
   }
 }
+
+/* Scrollbar-hide utility for horizontal scroll galleries */
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
