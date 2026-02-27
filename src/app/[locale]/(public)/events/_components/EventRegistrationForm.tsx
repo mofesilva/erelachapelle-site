@@ -84,7 +84,7 @@ export function EventRegistrationForm({ eventId }: EventRegistrationFormProps) {
       </div>
 
       {state && !state.success && (
-        <p className="text-sm text-destructive">{state.message}</p>
+        <p className="text-destructive">{state.message}</p>
       )}
 
       <Button type="submit" disabled={isPending} className="w-full">
