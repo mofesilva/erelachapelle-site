@@ -8,7 +8,7 @@ import { CommunitySection } from "./_components/CommunitySection";
 import { FacebookGallerySection } from "./_components/FacebookGallerySection";
 import { NewsletterSection } from "./_components/NewsletterSection";
 import { churchJsonLd } from "@/lib/structured-data";
-import { getLocations } from "@/lib/data/locations";
+import { getLocations } from "@/lib/locations";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("homepage.hero");
@@ -23,7 +23,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function HomePage() {
-  const locations = getLocations();
+  const locations = await getLocations();
 
   return (
     <>
