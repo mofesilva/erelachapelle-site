@@ -6,10 +6,8 @@ import { Button } from "@/_components/ui/button";
 import { Input } from "@/_components/ui/input";
 import { Textarea } from "@/_components/ui/textarea";
 import { Label } from "@/_components/ui/label";
-import {
-    submitGroupInterest,
-    type GroupInterestResult,
-} from "@/app/actions/groups";
+import { submitGroupInterest } from "@/lib/groups/controller";
+import type { GroupInterestResult } from "@/lib/groups/model";
 
 interface JoinGroupFormProps {
     groupId: string;
