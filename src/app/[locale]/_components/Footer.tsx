@@ -112,17 +112,17 @@ export async function Footer() {
                 className="group flex items-start gap-3 text-white/70 transition-colors duration-300 hover:text-white"
               >
                 <MapPointBold size={18} className="mt-0.5 shrink-0 text-toffee-brown/80" />
-                <span>
+                <p>
                   {location.address}<br />
                   {location.postalCode} {location.city}<br />
                   {location.country}
-                </span>
+                </p>
               </a>
 
               {/* Worship Schedule */}
               <div className="flex items-start gap-3 text-white/70">
                 <ClockCircleBold size={18} className="mt-0.5 shrink-0 text-toffee-brown/80" />
-                <span>{location.worshipSchedule[locale]}</span>
+                <p>{location.worshipSchedule[locale]}</p>
               </div>
 
               {/* Phone */}
@@ -133,7 +133,7 @@ export async function Footer() {
                   className="flex items-center gap-3 text-white/70 transition-colors duration-300 hover:text-white"
                 >
                   <PhoneBold size={18} className="shrink-0 text-toffee-brown/80" />
-                  <span>{location.contactPhone}</span>
+                  <p>{location.contactPhone}</p>
                 </a>
               )}
 
@@ -145,7 +145,7 @@ export async function Footer() {
                   className="flex items-center gap-3 text-white/70 transition-colors duration-300 hover:text-white"
                 >
                   <LetterBold size={18} className="shrink-0 text-toffee-brown/80" />
-                  <span>{location.contactEmail}</span>
+                  <p>{location.contactEmail}</p>
                 </a>
               )}
             </div>
