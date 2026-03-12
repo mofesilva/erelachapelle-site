@@ -5,7 +5,8 @@ import { useTranslations } from "next-intl";
 import { Button } from "@/_components/ui/button";
 import { Input } from "@/_components/ui/input";
 import { Label } from "@/_components/ui/label";
-import { registerForEvent, type RegistrationResult } from "@/app/actions/events";
+import { registerForEvent } from "@/lib/events/controller";
+import type { RegistrationResult } from "@/lib/events/model";
 
 interface EventRegistrationFormProps {
   eventId: string;
