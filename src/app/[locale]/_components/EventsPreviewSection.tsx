@@ -2,7 +2,7 @@ import { getTranslations, getLocale } from "next-intl/server";
 import { EventCard } from "./EventCard";
 import { SplitButton } from "@/_components/SplitButton";
 import { SectionLabel } from "@/_components/SectionLabel";
-import { getRecentEvents } from "@/lib/data/events";
+import { getRecentEvents } from "@/lib/events";
 import { getLocalizedContent } from "@/lib/utils";
 import type { Locale } from "@/types/common";
 import { CalendarBoldDuotone } from "solar-icon-set";
@@ -21,7 +21,7 @@ export async function EventsPreviewSection() {
   const t = await getTranslations("homepage.events");
   const tEvents = await getTranslations("events.types");
   const locale = (await getLocale()) as Locale;
-  const events = getRecentEvents();
+  const events = await getRecentEvents();
 
   if (events.length === 0) {
     return (
