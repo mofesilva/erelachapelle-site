@@ -8,7 +8,7 @@ import {
 } from "@/_components/ui/card";
 import { formatDate, getLocalizedContent } from "@/lib/utils";
 import type { Locale } from "@/types/common";
-import type { Event } from "@/types/event";
+import type { Event } from "@/lib/events";
 import { CalendarBold } from "solar-icon-set";
 
 interface EventCardProps {
