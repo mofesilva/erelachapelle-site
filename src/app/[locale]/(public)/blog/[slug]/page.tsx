@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, getLocale } from "next-intl/server";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getArticleBySlug, getAllArticles } from "@/lib/data/blog";
+import { getArticleBySlug, getAllArticles } from "@/lib/blog";
 import { formatDate, getLocalizedContent } from "@/lib/utils";
 import type { Locale } from "@/types/common";
 
@@ -11,12 +11,12 @@ type PageProps = {
 };
 
 export async function generateStaticParams() {
-  return getAllArticles().map((article) => ({ slug: article.slug }));
+  return [];
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const article = getArticleBySlug(slug);
+  const article = await getArticleBySlug(slug);
   if (!article) return {};
   return {
     title: article.title.fr,
@@ -29,7 +29,7 @@ export default async function ArticleDetailPage({ params }: PageProps) {
   const t = await getTranslations("blog");
   const tCommon = await getTranslations("common");
   const locale = (await getLocale()) as Locale;
-  const article = getArticleBySlug(slug);
+  const article = await getArticleBySlug(slug);
 
   if (!article) notFound();
 
