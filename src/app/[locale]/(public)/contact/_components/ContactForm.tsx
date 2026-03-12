@@ -6,7 +6,8 @@ import { Button } from "@/_components/ui/button";
 import { Input } from "@/_components/ui/input";
 import { Textarea } from "@/_components/ui/textarea";
 import { Label } from "@/_components/ui/label";
-import { submitContactForm, type ContactResult } from "@/app/actions/contact";
+import { submitContactForm } from "@/lib/contact/controller";
+import type { ContactResult } from "@/lib/contact/model";
 
 export function ContactForm() {
   const t = useTranslations("contact.form");
