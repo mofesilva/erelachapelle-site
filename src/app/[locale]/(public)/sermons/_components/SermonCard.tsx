@@ -5,7 +5,7 @@ import { DiamondDivider } from "@/_components/DiamondDivider";
 import { formatDate, getLocalizedContent } from "@/lib/utils";
 import { getYouTubeThumbnailUrl } from "@/lib/integrations/youtube";
 import type { Locale } from "@/types/common";
-import type { Sermon } from "@/types/sermon";
+import type { Sermon } from "@/lib/sermons";
 import { PeekRectangle } from "@/_components/PeekRectangle";
 
 interface SermonCardProps {
