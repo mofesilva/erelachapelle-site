@@ -8,7 +8,7 @@ import {
 } from "@/_components/ui/card";
 import { Badge } from "@/_components/ui/badge";
 import { formatDate, getLocalizedContent } from "@/lib/utils";
-import type { BlogArticle } from "@/types/blog";
+import type { BlogArticle } from "@/lib/blog";
 import type { Locale } from "@/types/common";
 
 interface ArticleCardProps {
