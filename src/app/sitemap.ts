@@ -1,12 +1,12 @@
 import type { MetadataRoute } from "next";
-import { getAllSermons } from "@/lib/data/sermons";
-import { getAllEvents } from "@/lib/data/events";
-import { getAllArticles } from "@/lib/data/blog";
+import { getAllSermons } from "@/lib/sermons";
+import { getAllEvents } from "@/lib/events";
+import { getAllArticles } from "@/lib/blog";
 
 const BASE_URL = "https://erelachapelle.fr";
 const LOCALES = ["fr", "pt", "en"] as const;
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const entries: MetadataRoute.Sitemap = [];
 
   // Static pages
@@ -31,7 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   // Sermon detail pages
-  for (const sermon of getAllSermons()) {
+  for (const sermon of await getAllSermons()) {
     for (const locale of LOCALES) {
       entries.push({
         url: `${BASE_URL}/${locale}/sermons/${sermon.slug}`,
@@ -43,7 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   // Event detail pages
-  for (const event of getAllEvents()) {
+  for (const event of await getAllEvents()) {
     for (const locale of LOCALES) {
       entries.push({
         url: `${BASE_URL}/${locale}/events/${event.slug}`,
@@ -55,7 +55,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   // Blog article detail pages
-  for (const article of getAllArticles()) {
+  for (const article of await getAllArticles()) {
     for (const locale of LOCALES) {
       entries.push({
         url: `${BASE_URL}/${locale}/blog/${article.slug}`,
