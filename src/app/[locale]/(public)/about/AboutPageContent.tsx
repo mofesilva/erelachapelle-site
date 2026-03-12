@@ -11,8 +11,8 @@ export function AboutPageContent() {
   return (
     <article>
       {/* Hero */}
-      <section className="bg-primary py-20 text-primary-foreground">
-        <div className="mx-auto max-w-7xl px-4 text-center">
+      <section className="bg-primary py-20 text-primary-foreground h-[50vh]">
+        <div className="mx-auto max-w-7xl px-4 text-center h-[50vh]">
           <h1 className="font-serif font-bold">
             {t("title")}
           </h1>
