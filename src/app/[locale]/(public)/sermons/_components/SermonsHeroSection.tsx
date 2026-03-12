@@ -22,7 +22,7 @@ export async function SermonsHeroSection() {
                     {t("title")}
                 </h1>
 
-                <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-powder-petal/60 md:text-xl">
+                <p className="mx-auto mt-5 max-w-2xl leading-relaxed text-powder-petal/60">
                     {t("heroSubtitle")}
                 </p>
 
