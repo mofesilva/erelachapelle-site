@@ -38,9 +38,9 @@ export function SermonFilters({ preachers, seriesList }: SermonFiltersProps) {
     <div className="space-y-5">
       {/* Preachers */}
       <div className="flex flex-wrap items-center justify-center gap-2">
-        <span className="mr-1 text-[11px] font-bold uppercase tracking-[0.15em] text-toffee-brown">
+        <p className="mr-1 font-bold uppercase tracking-[0.15em] text-toffee-brown">
           {t("filterByPreacher")}
-        </span>
+        </p>
         {preachers.map((p) => (
           <button
             key={p}
@@ -48,7 +48,7 @@ export function SermonFilters({ preachers, seriesList }: SermonFiltersProps) {
               updateFilter("preacher", activePreacher === p ? "" : p)
             }
             className={cn(
-              "rounded-full border px-4 py-1.5 text-sm transition-all duration-200",
+              "border px-4 py-1.5 text-sm transition-all duration-200",
               activePreacher === p
                 ? "border-night-bordeaux-2 bg-night-bordeaux-2 text-parchment"
                 : "border-dust-grey bg-white text-coffee-bean hover:border-toffee-brown/50 hover:text-night-bordeaux-2"
@@ -62,9 +62,9 @@ export function SermonFilters({ preachers, seriesList }: SermonFiltersProps) {
       {/* Series */}
       {seriesList.length > 0 && (
         <div className="flex flex-wrap items-center justify-center gap-2">
-          <span className="mr-1 text-[11px] font-bold uppercase tracking-[0.15em] text-toffee-brown">
+          <p className="mr-1 font-bold uppercase tracking-[0.15em] text-toffee-brown">
             {t("filterBySeries")}
-          </span>
+          </p>
           {seriesList.map((s) => (
             <button
               key={s}
@@ -72,7 +72,7 @@ export function SermonFilters({ preachers, seriesList }: SermonFiltersProps) {
                 updateFilter("series", activeSeries === s ? "" : s)
               }
               className={cn(
-                "rounded-full border px-4 py-1.5 text-sm transition-all duration-200",
+                "border px-4 py-1.5 text-sm transition-all duration-200",
                 activeSeries === s
                   ? "border-night-bordeaux-2 bg-night-bordeaux-2 text-parchment"
                   : "border-dust-grey bg-white text-coffee-bean hover:border-toffee-brown/50 hover:text-night-bordeaux-2"
