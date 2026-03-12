@@ -1,5 +1,5 @@
 import { getTranslations, getLocale } from "next-intl/server";
-import { getGroups } from "@/lib/data/groups";
+import { getGroups } from "@/lib/groups";
 import { getLocalizedContent } from "@/lib/utils";
 import type { Locale } from "@/types/common";
 import { UsersGroupRoundedBoldDuotone, UsersGroupRoundedBold, HeartBold, Book2Bold, MusicNoteBold } from "solar-icon-set";
@@ -12,7 +12,7 @@ export async function CommunitySection() {
   const t = await getTranslations("homepage.community");
   const tGroups = await getTranslations("community.groups.types");
   const locale = (await getLocale()) as Locale;
-  const groups = getGroups().slice(0, 4);
+  const groups = (await getGroups()).slice(0, 4);
 
   return (
     <section className="bg-parchment h-auto py-16 md:pt-32 md:pb-16 px-6">
