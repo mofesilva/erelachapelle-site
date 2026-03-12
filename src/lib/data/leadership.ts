@@ -4,6 +4,7 @@ export const LEADERSHIP_TEAM: LeadershipMember[] = [
   {
     _id: "leader-1",
     fullName: "Pasteur Jean-Marc Dupont",
+    photoUrl: "/chase-kennedy-ueXAnDZgnr4-unsplash.jpg",
     role: {
       fr: "Pasteur principal",
       pt: "Pastor principal",
@@ -22,6 +23,7 @@ export const LEADERSHIP_TEAM: LeadershipMember[] = [
   {
     _id: "leader-2",
     fullName: "Marie-Claire Fontaine",
+    photoUrl: "/chase-kennedy-ueXAnDZgnr4-unsplash.jpg",
     role: {
       fr: "Responsable louange",
       pt: "Responsável pelo louvor",
@@ -40,6 +42,7 @@ export const LEADERSHIP_TEAM: LeadershipMember[] = [
   {
     _id: "leader-3",
     fullName: "Pierre Moreau",
+    photoUrl: "/chase-kennedy-ueXAnDZgnr4-unsplash.jpg",
     role: {
       fr: "Responsable jeunesse",
       pt: "Responsável pela juventude",
