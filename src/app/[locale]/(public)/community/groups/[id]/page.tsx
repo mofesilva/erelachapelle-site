@@ -53,7 +53,7 @@ export default async function GroupDetailPage({ params }: PageProps) {
           >
             ← {tCommon("back")}
           </Link>
-          <h1 className="mt-4 font-serif text-3xl font-bold md:text-4xl">
+          <h1 className="mt-4 font-serif font-bold">
             {getLocalizedContent(group.name, locale)}
           </h1>
           <Badge className="mt-4 bg-primary-foreground/20 text-primary-foreground">
@@ -66,20 +66,20 @@ export default async function GroupDetailPage({ params }: PageProps) {
         <div className="mx-auto max-w-4xl px-4">
           <div className="grid gap-8 md:grid-cols-3">
             <div className="md:col-span-2">
-              <p className="text-lg leading-relaxed text-muted-foreground">
+              <p className="leading-relaxed text-muted-foreground">
                 {getLocalizedContent(group.description, locale)}
               </p>
             </div>
 
             <div className="space-y-6">
-              <div className="space-y-4 rounded-lg bg-muted/50 p-6">
+              <div className="space-y-4 bg-muted/50 p-6">
                 <div className="flex items-start gap-3">
                   <ClockCircleBold size={20} color="var(--primary)" className="mt-1" />
                   <div>
                     <p className="font-semibold">
                       {tDays(group.meetingDay)}
                     </p>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-muted-foreground">
                       {group.meetingTime}
                     </p>
                   </div>
@@ -89,7 +89,7 @@ export default async function GroupDetailPage({ params }: PageProps) {
                   <UsersGroupRoundedBold size={20} color="var(--primary)" className="mt-1" />
                   <div>
                     <p className="font-semibold">{t("leader")}</p>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-muted-foreground">
                       {group.leaderName}
                     </p>
                   </div>
@@ -100,10 +100,10 @@ export default async function GroupDetailPage({ params }: PageProps) {
                     <MapPointBold size={20} color="var(--primary)" className="mt-1" />
                     <div>
                       <p className="font-semibold">{location.name}</p>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-muted-foreground">
                         {location.address}
                       </p>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-muted-foreground">
                         {location.postalCode} {location.city}
                       </p>
                     </div>
@@ -111,10 +111,10 @@ export default async function GroupDetailPage({ params }: PageProps) {
                 )}
               </div>
 
-              <div className="rounded-lg border p-6">
-                <h3 className="mb-4 font-serif text-lg font-semibold">
+              <div className="border p-6">
+                <h6 className="mb-4 font-serif font-semibold">
                   {t("joinGroup")}
-                </h3>
+                </h6>
                 <JoinGroupForm groupId={group._id} />
               </div>
             </div>
