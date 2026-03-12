@@ -1,7 +1,7 @@
 import { getTranslations, getLocale } from "next-intl/server";
 import Image from "next/image";
 import { SectionLabel } from "@/_components/SectionLabel";
-import { getLeadershipTeam } from "@/lib/data/leadership";
+import { getLeadershipTeam } from "@/lib/leadership";
 import { getLocalizedContent } from "@/lib/utils";
 import type { Locale } from "@/types/common";
 import { UsersGroupRoundedBoldDuotone } from "solar-icon-set";
@@ -10,7 +10,7 @@ import { PeekRectangle } from "@/_components/PeekRectangle";
 export async function TeamSection() {
   const t = await getTranslations("about.team");
   const locale = (await getLocale()) as Locale;
-  const team = getLeadershipTeam();
+  const team = await getLeadershipTeam();
 
   return (
     <section className="bg-dust-grey/40 py-20 md:py-28">
