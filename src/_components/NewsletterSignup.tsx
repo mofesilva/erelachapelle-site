@@ -7,7 +7,7 @@ import { Input } from "@/_components/ui/input";
 import {
   subscribeNewsletter,
   type NewsletterResult,
-} from "@/app/actions/newsletter";
+} from "@/lib/newsletter";
 import { LetterBold } from "solar-icon-set";
 import { cn } from "@/lib/utils";
 
