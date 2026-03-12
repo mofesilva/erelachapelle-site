@@ -3,8 +3,8 @@ import { getTranslations, getLocale } from "next-intl/server";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Badge } from "@/_components/ui/badge";
-import { getGroupById, getGroups } from "@/lib/data/groups";
-import { getLocationById } from "@/lib/data/locations";
+import { getGroupById, getGroups } from "@/lib/groups";
+import { getLocationById } from "@/lib/locations";
 import { getLocalizedContent } from "@/lib/utils";
 import type { Locale } from "@/types/common";
 import { UsersGroupRoundedBold, ClockCircleBold, MapPointBold } from "solar-icon-set";
@@ -15,12 +15,12 @@ type PageProps = {
 };
 
 export async function generateStaticParams() {
-  return getGroups().map((group) => ({ id: group._id }));
+  return [];
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { id } = await params;
-  const group = getGroupById(id);
+  const group = await getGroupById(id);
   if (!group) return {};
   return {
     title: group.name.fr,
@@ -35,12 +35,12 @@ export default async function GroupDetailPage({ params }: PageProps) {
   const tDays = await getTranslations("community.groups.days");
   const tCommon = await getTranslations("common");
   const locale = (await getLocale()) as Locale;
-  const group = getGroupById(id);
+  const group = await getGroupById(id);
 
   if (!group) notFound();
 
   const location = group.locationId
-    ? getLocationById(group.locationId)
+    ? await getLocationById(group.locationId)
     : null;
 
   return (
