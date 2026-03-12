@@ -3,7 +3,10 @@ import { Outfit, Libre_Baskerville } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
+import { serializeAuthState } from "@cappuccino/web-sdk";
 import { routing } from "@/i18n/routing";
+import { getServerClient } from "@/lib/cappuccino/server";
+import { CappuccinoClientProvider } from "@/lib/cappuccino/client";
 import { Header } from "./_components/Header";
 import { Footer } from "./_components/Footer";
 import { SmoothScroll } from "@/_components/SmoothScroll";
@@ -56,17 +59,34 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
 
   const messages = await getMessages();
 
+  // Hydrate Cappuccino auth state from server cookies
+  const { authManager, storage } = await getServerClient();
+  await authManager.initialize();
+
+  const [token, refreshToken] = await Promise.all([
+    storage.getAccessToken(),
+    storage.getRefreshToken(),
+  ]);
+
+  const initialAuthState = serializeAuthState({
+    user: authManager.getUser(),
+    token,
+    refreshToken,
+  });
+
   return (
     <html lang={locale}>
       <body
         className={`${outfit.variable} ${libreBaskerville.variable} font-sans antialiased`}
       >
-        <NextIntlClientProvider messages={messages}>
-          <SmoothScroll />
-          <Header />
-          <main className="min-h-screen">{children}</main>
-          <Footer />
-        </NextIntlClientProvider>
+        <CappuccinoClientProvider initialAuthState={initialAuthState}>
+          <NextIntlClientProvider messages={messages}>
+            <SmoothScroll />
+            <Header />
+            <main className="min-h-screen">{children}</main>
+            <Footer />
+          </NextIntlClientProvider>
+        </CappuccinoClientProvider>
       </body>
     </html>
   );
