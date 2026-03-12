@@ -3,7 +3,7 @@ import { getTranslations, getLocale } from "next-intl/server";
 import { VideocameraBoldDuotone, PlayBold } from "solar-icon-set";
 import { SectionLabel } from "@/_components/SectionLabel";
 import { SplitButton } from "@/_components/SplitButton";
-import { getRecentSermons } from "@/lib/data/sermons";
+import { getRecentSermons } from "@/lib/sermons";
 import { formatDate, getLocalizedContent } from "@/lib/utils";
 import { getYouTubeThumbnailUrl } from "@/lib/integrations/youtube";
 import type { Locale } from "@/types/common";
@@ -12,7 +12,7 @@ import { PeekRectangle } from "@/_components/PeekRectangle";
 export async function FeaturedSermon() {
     const t = await getTranslations("sermons");
     const locale = (await getLocale()) as Locale;
-    const [sermon] = getRecentSermons(1);
+    const [sermon] = await getRecentSermons(1);
 
     if (!sermon) return null;
 
