@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Badge } from "@/_components/ui/badge";
 import { Card, CardContent } from "@/_components/ui/card";
 import { getLocalizedContent } from "@/lib/utils";
-import type { CommunityGroup } from "@/types/group";
+import type { CommunityGroup } from "@/lib/groups";
 import type { Locale } from "@/types/common";
 import { UsersGroupRoundedBold, ClockCircleBold } from "solar-icon-set";
 
