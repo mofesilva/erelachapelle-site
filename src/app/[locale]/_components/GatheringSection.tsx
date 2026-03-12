@@ -23,7 +23,7 @@ export async function GatheringSection() {
         <section className="relative min-h-150 md:min-h-175">
             {/* ── Full-bleed background image ── */}
             <Image
-                src="https://cappuccino.dzign-e.app/erelachappelle-assets/igreja-lachappelle.jpg"
+                src="https://cappuccino.dzign-e.app/erelachappelle-assets/inside-church.png"
                 alt={t("churchName")}
                 fill
                 className="object-cover"
@@ -39,9 +39,9 @@ export async function GatheringSection() {
                         {/* Label */}
                         <div className="flex items-center gap-4">
                             <span className="h-px w-10 bg-powder-petal/30" />
-                            <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-powder-petal/50">
+                            <p className="font-bold uppercase tracking-[0.3em] text-powder-petal/50">
                                 {t("label")}
-                            </span>
+                            </p>
                         </div>
 
                         {/* Church name */}
@@ -60,10 +60,10 @@ export async function GatheringSection() {
                             {/* Address */}
                             <div className="flex flex-col items-start sm:pr-10">
                                 <MapPointBold size={28} color="var(--toffee-brown)" />
-                                <span className="mt-3 block text-[11px] font-bold uppercase tracking-[0.2em] text-parchment/40">
+                                <p className="mt-3 font-bold uppercase tracking-[0.2em] text-parchment/40">
                                     {t("addressLabel")}
-                                </span>
-                                <address className="mt-2 text-xl not-italic font-semibold leading-relaxed text-parchment">
+                                </p>
+                                <address className="mt-2 text- not-italic font-semibold leading-relaxed text-parchment">
                                     {location.address}
                                     <br />
                                     {location.postalCode} {location.city}
@@ -78,9 +78,9 @@ export async function GatheringSection() {
                             {/* Schedule */}
                             <div className="flex flex-col items-start sm:px-10">
                                 <ClockCircleBold size={28} color="var(--toffee-brown)" />
-                                <span className="mt-3 block text-[11px] font-bold uppercase tracking-[0.2em] text-parchment/40">
+                                <p className="mt-3 font-bold uppercase tracking-[0.2em] text-parchment/40">
                                     {t("scheduleLabel")}
-                                </span>
+                                </p>
                                 <p className="mt-2 font-semibold text-parchment">
                                     {getLocalizedContent(location.worshipSchedule, locale)}
                                 </p>
@@ -93,9 +93,9 @@ export async function GatheringSection() {
                             {location.contactEmail && (
                                 <div className="flex flex-col items-start sm:pl-10">
                                     <LetterBold size={28} color="var(--toffee-brown)" />
-                                    <span className="mt-3 block text-[11px] font-bold uppercase tracking-[0.2em] text-parchment/40">
+                                    <p className="mt-3 font-bold uppercase tracking-[0.2em] text-parchment/40">
                                         {t("contactLabel")}
-                                    </span>
+                                    </p>
                                     <a
                                         href={`mailto:${location.contactEmail}`}
                                         className="mt-2 text-xl font-semibold text-parchment underline decoration-parchment/30 underline-offset-4 transition-colors hover:text-toffee-brown hover:decoration-toffee-brown"
