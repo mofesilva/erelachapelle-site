@@ -2,7 +2,7 @@ import { getTranslations, getLocale } from "next-intl/server";
 import { SectionLabel } from "@/_components/SectionLabel";
 import { SermonCard } from "./SermonCard";
 import { SplitButton } from "@/_components/SplitButton";
-import { getRecentSermons } from "@/lib/data/sermons";
+import { getRecentSermons } from "@/lib/sermons";
 import { getLocalizedContent } from "@/lib/utils";
 import { getYouTubeThumbnailUrl } from "@/lib/integrations/youtube";
 import type { Locale } from "@/types/common";
@@ -11,7 +11,7 @@ import { VideocameraBoldDuotone } from "solar-icon-set";
 export async function SermonsPreviewSection() {
   const t = await getTranslations("homepage.sermons");
   const locale = (await getLocale()) as Locale;
-  const sermons = getRecentSermons();
+  const sermons = await getRecentSermons();
 
   if (sermons.length === 0) {
     return (
