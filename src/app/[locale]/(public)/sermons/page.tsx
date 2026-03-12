@@ -8,7 +8,7 @@ import {
   getAllSermons,
   getSermonPreachers,
   getSermonSeries,
-} from "@/lib/data/sermons";
+} from "@/lib/sermons";
 import type { Locale } from "@/types/common";
 import { SermonsHeroSection } from "./_components/SermonsHeroSection";
 import { FeaturedSermon } from "./_components/FeaturedSermon";
@@ -35,11 +35,11 @@ export default async function SermonsPage({ searchParams }: PageProps) {
 
   const hasFilters = params.preacher || params.series;
   const sermons = hasFilters
-    ? filterSermons({ preacher: params.preacher, series: params.series })
-    : getAllSermons();
+    ? await filterSermons({ preacher: params.preacher, series: params.series })
+    : await getAllSermons();
 
-  const preachers = getSermonPreachers();
-  const seriesList = getSermonSeries();
+  const preachers = await getSermonPreachers();
+  const seriesList = await getSermonSeries();
 
   return (
     <main>
