@@ -1,5 +1,5 @@
 import { getTranslations, getLocale } from "next-intl/server";
-import { getLocations } from "@/lib/data/locations";
+import { getLocations } from "@/lib/locations";
 import { getLocalizedContent } from "@/lib/utils";
 import { getDirectionsUrl } from "@/lib/integrations/maps";
 import type { Locale } from "@/types/common";
@@ -9,7 +9,7 @@ import { MapPointBold, ClockCircleBold, LetterBold, ArrowRightBold } from "solar
 export async function GatheringSection() {
     const t = await getTranslations("homepage.gathering");
     const locale = (await getLocale()) as Locale;
-    const locations = getLocations();
+    const locations = await getLocations();
     const location = locations[0];
 
     if (!location) return null;
