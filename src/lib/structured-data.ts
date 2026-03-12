@@ -1,6 +1,6 @@
-import type { Event } from "@/types/event";
-import type { Sermon } from "@/types/sermon";
-import type { Location } from "@/types/location";
+import type { Event } from "@/lib/events";
+import type { Sermon } from "@/lib/sermons";
+import type { Location } from "@/lib/locations";
 import type { Locale } from "@/types/common";
 import { getLocalizedContent } from "@/lib/utils";
 
