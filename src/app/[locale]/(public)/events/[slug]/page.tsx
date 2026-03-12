@@ -5,8 +5,8 @@ import { notFound } from "next/navigation";
 import { Badge } from "@/_components/ui/badge";
 import { GoogleMapEmbed } from "@/_components/GoogleMapEmbed";
 import { ShareButtons } from "@/_components/ShareButtons";
-import { getEventBySlug, getAllEvents } from "@/lib/data/events";
-import { getLocationById } from "@/lib/data/locations";
+import { getEventBySlug, getAllEvents } from "@/lib/events";
+import { getLocationById } from "@/lib/locations";
 import { formatDateTime, getLocalizedContent } from "@/lib/utils";
 import { eventJsonLd } from "@/lib/structured-data";
 import type { Locale } from "@/types/common";
@@ -18,12 +18,12 @@ type PageProps = {
 };
 
 export async function generateStaticParams() {
-  return getAllEvents().map((event) => ({ slug: event.slug }));
+  return [];
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const event = getEventBySlug(slug);
+  const event = await getEventBySlug(slug);
   if (!event) return {};
   return {
     title: event.title.fr,
@@ -37,11 +37,11 @@ export default async function EventDetailPage({ params }: PageProps) {
   const tTypes = await getTranslations("events.types");
   const tCommon = await getTranslations("common");
   const locale = (await getLocale()) as Locale;
-  const event = getEventBySlug(slug);
+  const event = await getEventBySlug(slug);
 
   if (!event) notFound();
 
-  const location = getLocationById(event.locationId);
+  const location = await getLocationById(event.locationId);
   const pageUrl = `https://erelachapelle.fr/${locale}/events/${event.slug}`;
 
   return (
