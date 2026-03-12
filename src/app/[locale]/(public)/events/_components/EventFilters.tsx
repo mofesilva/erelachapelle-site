@@ -41,7 +41,7 @@ export function EventFilters({ eventTypes, locations }: EventFiltersProps) {
       <select
         value={activeType}
         onChange={(e) => updateFilter("type", e.target.value)}
-        className="rounded-md border bg-background px-3 py-2 text-sm"
+        className="border bg-background px-3 py-2 text-sm"
         aria-label={t("filterByType")}
       >
         <option value="">{t("filterByType")}</option>
@@ -55,7 +55,7 @@ export function EventFilters({ eventTypes, locations }: EventFiltersProps) {
       <select
         value={activeLocation}
         onChange={(e) => updateFilter("location", e.target.value)}
-        className="rounded-md border bg-background px-3 py-2 text-sm"
+        className="border bg-background px-3 py-2 text-sm"
         aria-label={t("filterByLocation")}
       >
         <option value="">{t("filterByLocation")}</option>
