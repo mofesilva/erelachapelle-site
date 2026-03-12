@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, getLocale } from "next-intl/server";
 import { Card, CardContent } from "@/_components/ui/card";
-import { getLocations } from "@/lib/data/locations";
+import { getLocations } from "@/lib/locations";
 import { getLocalizedContent } from "@/lib/utils";
 import type { Locale } from "@/types/common";
 import { MapPointBold, PhoneBold, LetterBold, ClockCircleBold } from "solar-icon-set";
@@ -18,7 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function ContactPage() {
   const t = await getTranslations("contact");
   const locale = (await getLocale()) as Locale;
-  const locations = getLocations();
+  const locations = await getLocations();
 
   return (
     <main>
