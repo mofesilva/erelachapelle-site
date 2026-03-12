@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { SplitButton } from "@/_components/SplitButton";
 import { SectionLabel } from "@/_components/SectionLabel";
-import { getRecentArticles } from "@/lib/data/blog";
+import { getRecentArticles } from "@/lib/blog";
 import { formatDate, getLocalizedContent } from "@/lib/utils";
 import type { Locale } from "@/types/common";
 import { ArrowRightUpBold, NotebookBoldDuotone } from "solar-icon-set";
@@ -12,7 +12,7 @@ import { PeekRectangle, getPeekProps } from "@/_components/PeekRectangle";
 export async function BlogPreviewSection() {
   const t = await getTranslations("homepage.blog");
   const locale = (await getLocale()) as Locale;
-  const articles = getRecentArticles();
+  const articles = await getRecentArticles();
 
   if (articles.length === 0) return null;
 
