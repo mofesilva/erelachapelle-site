@@ -18,7 +18,7 @@ export function GoogleMapEmbed({
 
   return (
     <div className="space-y-3">
-      <div className="aspect-video overflow-hidden rounded-lg border">
+      <div className="aspect-video overflow-hidden border">
         <iframe
           src={mapSrc}
           title={address}
