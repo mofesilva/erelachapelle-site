@@ -10,7 +10,7 @@ import {
   getSermonBySlug,
   getAllSermons,
   filterSermons,
-} from "@/lib/data/sermons";
+} from "@/lib/sermons";
 import { formatDate, getLocalizedContent } from "@/lib/utils";
 import { videoJsonLd } from "@/lib/structured-data";
 import type { Locale } from "@/types/common";
@@ -21,14 +21,14 @@ type PageProps = {
 };
 
 export async function generateStaticParams() {
-  return getAllSermons().map((sermon) => ({ slug: sermon.slug }));
+  return [];
 }
 
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const sermon = getSermonBySlug(slug);
+  const sermon = await getSermonBySlug(slug);
   if (!sermon) return {};
   return {
     title: sermon.title.fr,
@@ -40,13 +40,13 @@ export default async function SermonDetailPage({ params }: PageProps) {
   const { slug } = await params;
   const t = await getTranslations("sermons");
   const locale = (await getLocale()) as Locale;
-  const sermon = getSermonBySlug(slug);
+  const sermon = await getSermonBySlug(slug);
 
   if (!sermon) notFound();
 
   // Related sermons from the same series (excluding current)
   const relatedSermons = sermon.series
-    ? filterSermons({ series: sermon.series })
+    ? (await filterSermons({ series: sermon.series }))
       .filter((s) => s._id !== sermon._id)
       .slice(0, 3)
     : [];
