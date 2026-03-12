@@ -5,7 +5,7 @@ import {
   filterArticles,
   getAllArticles,
   getArticleCategories,
-} from "@/lib/data/blog";
+} from "@/lib/blog";
 import type { Locale } from "@/types/common";
 import { ArticleCard } from "./_components/ArticleCard";
 import { ArticleFilters } from "./_components/ArticleFilters";
@@ -29,10 +29,10 @@ export default async function BlogPage({ searchParams }: PageProps) {
 
   const hasFilters = !!params.category;
   const articles = hasFilters
-    ? filterArticles({ category: params.category })
-    : getAllArticles();
+    ? await filterArticles({ category: params.category })
+    : await getAllArticles();
 
-  const categories = getArticleCategories();
+  const categories = await getArticleCategories();
 
   return (
     <main>
