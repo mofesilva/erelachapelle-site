@@ -4,10 +4,8 @@ import { useActionState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Input } from "@/_components/ui/input";
 import { SplitButton } from "@/_components/SplitButton";
-import {
-    subscribeNewsletter,
-    type NewsletterResult,
-} from "@/app/actions/newsletter";
+import { subscribeNewsletter } from "@/lib/newsletter/controller";
+import type { NewsletterResult } from "@/lib/newsletter/model";
 import { LetterBold } from "solar-icon-set";
 
 export function NewsletterSplitForm() {
