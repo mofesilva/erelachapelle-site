@@ -36,7 +36,7 @@
     --border: var(--dust-grey);
     --input: var(--dust-grey);
     --ring: var(--night-bordeaux);
-    --radius: 0.5rem;
+    --radius: 0;
   }
 }
 
@@ -75,6 +75,10 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
+  /* ── Tipografia ── */
+  --font-outfit: var(--font-sans);
+  --font-baskerville: var(--font-serif);
+
   /* ── Radius ── */
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -99,12 +103,15 @@
   p {
     font-size: 1rem;
     line-height: 1.5;
+    font-family: var(--font-sans);
+    font-weight: 400;
   }
 
   h6 {
     font-size: 1.125rem;
     letter-spacing: -0.005em;
     line-height: 1.45;
+
   }
 
   h5 {
