@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { MapPointBold, ClockCircleBold, PhoneBold, LetterBold } from "solar-icon-set";
 import { SITE_CONFIG } from "@/lib/constants";
-import { LOCATIONS } from "@/lib/data/locations";
+import { getLocations } from "@/lib/locations";
 import { DiamondDivider } from "@/_components/DiamondDivider";
 import { SocialIconButton } from "@/_components/SocialIconButton";
 import { FacebookIcon, InstagramIcon, YouTubeIcon } from "@/_components/icons";
@@ -23,7 +23,8 @@ export async function Footer() {
   const tFooter = await getTranslations("footer");
   const locale = (await getLocale()) as Locale;
 
-  const location = LOCATIONS[0];
+  const locations = await getLocations();
+  const location = locations[0];
 
   return (
     <footer className="relative bg-night-bordeaux-2">
