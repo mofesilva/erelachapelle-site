@@ -92,7 +92,7 @@ export default async function EventDetailPage({ params }: PageProps) {
             </div>
 
             <div className="space-y-6">
-              <div className="space-y-6 rounded-lg bg-muted/50 p-6">
+              <div className="space-y-6 bg-muted/50 p-6">
                 <div className="flex items-start gap-3">
                   <CalendarBold size={20} color="var(--primary)" className="mt-1" />
                   <div>
@@ -124,7 +124,7 @@ export default async function EventDetailPage({ params }: PageProps) {
               </div>
 
               {event.registrationEnabled && (
-                <div className="rounded-lg border p-6">
+                <div className="border p-6">
                   <h6 className="mb-4 font-serif font-semibold">
                     {t("register")}
                   </h6>

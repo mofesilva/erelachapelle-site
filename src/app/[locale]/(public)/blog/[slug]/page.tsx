@@ -46,10 +46,10 @@ export default async function ArticleDetailPage({ params }: PageProps) {
           <h1 className="mt-4 font-serif font-bold">
             {getLocalizedContent(article.title, locale)}
           </h1>
-          <div className="mt-4 text-sm text-primary-foreground/80">
+          <p className="mt-4 text-primary-foreground/80">
             <span>{t("publishedOn")} {formatDate(article.publishedAt, locale)}</span>
             <span> · {t("by")} {article.author}</span>
-          </div>
+          </p>
         </div>
       </section>
 

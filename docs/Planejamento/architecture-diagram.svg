@@ -1,0 +1,273 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradients for elegant styling -->
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#722F37;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5C262D;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="secondaryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5A462;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E87B6C;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A90E2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#357ABD;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="successGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#48BB78;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#38A169;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Drop shadow filter -->
+    <filter id="dropshadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#00000020"/>
+    </filter>
+    
+    <!-- Glow effect -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="600" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#722F37">
+    Igreja Cévennes - Architecture Overview
+  </text>
+  
+  <!-- Layer 1: Users -->
+  <g filter="url(#dropshadow)">
+    <rect x="50" y="80" width="200" height="80" rx="15" fill="url(#successGrad)" stroke="#2D3748" stroke-width="2"/>
+    <text x="150" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+      👤 Users
+    </text>
+    <text x="150" y="135" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      Visitors &amp; Admins
+    </text>
+  </g>
+  
+  <!-- Layer 2: Frontend Next.js -->
+  <g filter="url(#dropshadow)">
+    <rect x="50" y="200" width="400" height="120" rx="20" fill="url(#primaryGrad)" stroke="#2D3748" stroke-width="3"/>
+    <text x="250" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white">
+      🚀 Next.js 14+ Frontend
+    </text>
+    <text x="250" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white">
+      React Server Components + App Router
+    </text>
+    <text x="250" y="275" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      Multilingual (FR/PT/EN) + Tailwind CSS + shadcn/ui
+    </text>
+    <text x="250" y="295" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white">
+      Design System + Component Architecture
+    </text>
+  </g>
+  
+  <!-- Layer 3: Application Logic (Three boxes) -->
+  <g filter="url(#dropshadow)">
+    <!-- UI Components -->
+    <rect x="50" y="360" width="120" height="100" rx="15" fill="url(#secondaryGrad)" stroke="#2D3748" stroke-width="2"/>
+    <text x="110" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      🎨 UI
+    </text>
+    <text x="110" y="405" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      Components
+    </text>
+    <text x="110" y="430" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+      Presentation
+    </text>
+    <text x="110" y="445" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+      Layer
+    </text>
+    
+    <!-- Custom Hooks -->
+    <rect x="190" y="360" width="120" height="100" rx="15" fill="url(#secondaryGrad)" stroke="#2D3748" stroke-width="2"/>
+    <text x="250" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      🔄 Custom
+    </text>
+    <text x="250" y="405" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      Hooks
+    </text>
+    <text x="250" y="430" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+      Application
+    </text>
+    <text x="250" y="445" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+      Layer
+    </text>
+    
+    <!-- Server Actions -->
+    <rect x="330" y="360" width="120" height="100" rx="15" fill="url(#secondaryGrad)" stroke="#2D3748" stroke-width="2"/>
+    <text x="390" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      ⚡ Server
+    </text>
+    <text x="390" y="405" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      Actions
+    </text>
+    <text x="390" y="430" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+      Business
+    </text>
+    <text x="390" y="445" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+      Logic
+    </text>
+  </g>
+  
+  <!-- Layer 4: Infrastructure -->
+  <g filter="url(#dropshadow)">
+    <rect x="50" y="500" width="400" height="100" rx="20" fill="url(#accentGrad)" stroke="#2D3748" stroke-width="3"/>
+    <text x="250" y="530" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">
+      🔌 Infrastructure Layer
+    </text>
+    <text x="250" y="550" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white">
+      Cappuccino SDK + API Wrappers
+    </text>
+    <text x="250" y="570" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      YouTube API + Google Maps Integration
+    </text>
+  </g>
+  
+  <!-- Layer 5: External Services (Three boxes) -->
+  <g filter="url(#dropshadow)">
+    <!-- Cappuccino Cloud -->
+    <rect x="50" y="640" width="120" height="100" rx="15" fill="#722F37" stroke="#2D3748" stroke-width="2"/>
+    <text x="110" y="670" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      ☁️ Cappuccino
+    </text>
+    <text x="110" y="685" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      Cloud
+    </text>
+    <text x="110" y="710" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+      BaaS Platform
+    </text>
+    
+    <!-- MongoDB -->
+    <rect x="190" y="640" width="120" height="100" rx="15" fill="#722F37" stroke="#2D3748" stroke-width="2"/>
+    <text x="250" y="670" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      🍃 MongoDB
+    </text>
+    <text x="250" y="685" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      Database
+    </text>
+    <text x="250" y="710" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+      Document Store
+    </text>
+    
+    <!-- External APIs -->
+    <rect x="330" y="640" width="120" height="100" rx="15" fill="#722F37" stroke="#2D3748" stroke-width="2"/>
+    <text x="390" y="670" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      🌐 External
+    </text>
+    <text x="390" y="685" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      APIs
+    </text>
+    <text x="390" y="710" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+      YouTube + Maps
+    </text>
+  </g>
+  
+  <!-- Side Panel: Features -->
+  <g filter="url(#dropshadow)">
+    <rect x="550" y="200" width="280" height="400" rx="20" fill="white" stroke="#722F37" stroke-width="4"/>
+    <text x="690" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#722F37">
+      🏛️ Church Features
+    </text>
+    
+    <!-- Features list -->
+    <text x="570" y="270" font-family="Arial, sans-serif" font-size="13" fill="#2D3748">📅 Events Management</text>
+    <text x="570" y="295" font-family="Arial, sans-serif" font-size="13" fill="#2D3748">🎤 Sermons (YouTube Integration)</text>
+    <text x="570" y="320" font-family="Arial, sans-serif" font-size="13" fill="#2D3748">👥 Community Groups</text>
+    <text x="570" y="345" font-family="Arial, sans-serif" font-size="13" fill="#2D3748">📝 Blog &amp; Articles</text>
+    <text x="570" y="370" font-family="Arial, sans-serif" font-size="13" fill="#2D3748">🙏 Prayer Requests</text>
+    <text x="570" y="395" font-family="Arial, sans-serif" font-size="13" fill="#2D3748">💌 Newsletter Subscription</text>
+    <text x="570" y="420" font-family="Arial, sans-serif" font-size="13" fill="#2D3748">📍 3 Locations Support</text>
+    <text x="570" y="445" font-family="Arial, sans-serif" font-size="13" fill="#2D3748">🌍 Multilingual (FR/PT/EN)</text>
+    <text x="570" y="470" font-family="Arial, sans-serif" font-size="13" fill="#2D3748">📱 Responsive Design</text>
+    <text x="570" y="495" font-family="Arial, sans-serif" font-size="13" fill="#2D3748">🔒 Admin CMS</text>
+    <text x="570" y="520" font-family="Arial, sans-serif" font-size="13" fill="#2D3748">⚡ Server-First Performance</text>
+    <text x="570" y="545" font-family="Arial, sans-serif" font-size="13" fill="#2D3748">🎨 Design System</text>
+  </g>
+  
+  <!-- Deployment Panel -->
+  <g filter="url(#dropshadow)">
+    <rect x="550" y="640" width="280" height="100" rx="15" fill="url(#successGrad)" stroke="#2D3748" stroke-width="2"/>
+    <text x="690" y="670" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+      🚀 Vercel Deployment
+    </text>
+    <text x="690" y="690" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      Edge Functions + Global CDN
+    </text>
+    <text x="690" y="710" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="white">
+      Auto Preview + Production Deployments
+    </text>
+  </g>
+  
+  <!-- Technology Stack Panel -->
+  <g filter="url(#dropshadow)">
+    <rect x="880" y="200" width="280" height="540" rx="20" fill="#f8f9fa" stroke="#722F37" stroke-width="3"/>
+    <text x="1020" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#722F37">
+      🛠️ Technology Stack
+    </text>
+    
+    <!-- Frontend Stack -->
+    <rect x="900" y="250" width="240" height="120" rx="10" fill="#722F37" opacity="0.1"/>
+    <text x="1020" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#722F37">
+      Frontend
+    </text>
+    <text x="910" y="290" font-family="Arial, sans-serif" font-size="11" fill="#2D3748">• Next.js 14+ (App Router)</text>
+    <text x="910" y="305" font-family="Arial, sans-serif" font-size="11" fill="#2D3748">• React 18+ (Server Components)</text>
+    <text x="910" y="320" font-family="Arial, sans-serif" font-size="11" fill="#2D3748">• TypeScript 5+</text>
+    <text x="910" y="335" font-family="Arial, sans-serif" font-size="11" fill="#2D3748">• Tailwind CSS + shadcn/ui</text>
+    <text x="910" y="350" font-family="Arial, sans-serif" font-size="11" fill="#2D3748">• next-intl (i18n)</text>
+    
+    <!-- Backend Stack -->
+    <rect x="900" y="380" width="240" height="100" rx="10" fill="#F5A462" opacity="0.1"/>
+    <text x="1020" y="400" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#722F37">
+      Backend
+    </text>
+    <text x="910" y="420" font-family="Arial, sans-serif" font-size="11" fill="#2D3748">• Cappuccino Cloud (BaaS)</text>
+    <text x="910" y="435" font-family="Arial, sans-serif" font-size="11" fill="#2D3748">• MongoDB (Document DB)</text>
+    <text x="910" y="450" font-family="Arial, sans-serif" font-size="11" fill="#2D3748">• Server Actions</text>
+    <text x="910" y="465" font-family="Arial, sans-serif" font-size="11" fill="#2D3748">• React Hook Form + Zod</text>
+    
+    <!-- Deployment Stack -->
+    <rect x="900" y="490" width="240" height="100" rx="10" fill="#4A90E2" opacity="0.1"/>
+    <text x="1020" y="510" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#722F37">
+      Deployment
+    </text>
+    <text x="910" y="530" font-family="Arial, sans-serif" font-size="11" fill="#2D3748">• Vercel Platform</text>
+    <text x="910" y="545" font-family="Arial, sans-serif" font-size="11" fill="#2D3748">• Edge Functions</text>
+    <text x="910" y="560" font-family="Arial, sans-serif" font-size="11" fill="#2D3748">• Global CDN</text>
+    <text x="910" y="575" font-family="Arial, sans-serif" font-size="11" fill="#2D3748">• Auto Scaling</text>
+    
+    <!-- External APIs -->
+    <rect x="900" y="600" width="240" height="80" rx="10" fill="#48BB78" opacity="0.1"/>
+    <text x="1020" y="620" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#722F37">
+      External APIs
+    </text>
+    <text x="910" y="640" font-family="Arial, sans-serif" font-size="11" fill="#2D3748">• YouTube API (Video Embed)</text>
+    <text x="910" y="655" font-family="Arial, sans-serif" font-size="11" fill="#2D3748">• Google Maps API</text>
+    <text x="910" y="670" font-family="Arial, sans-serif" font-size="11" fill="#2D3748">• Vercel Analytics</text>
+  </g>
+  
+  <!-- Flow Arrows -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#722F37" />
+    </marker>
+  </defs>
+  
+  <!-- Vertical flow arrows -->
+  <line x1="150" y1="160" x2="250" y2="200" stroke="#722F37" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <line x1="250" y1="320" x2="250" y2="360" stroke="#722F37" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <line x1="250" y1="460" x2="250" y2="500" stroke="#722F37" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <line x1="250" y1="600" x2="250" y2="640" stroke="#722F37" stroke-width="3" marker-end="url(#arrowhead)"/>
+  
+  <!-- Data flow arrow to features -->
+  <line x1="450" y1="260" x2="550" y2="260" stroke="#E87B6C" stroke-width="2" marker-end="url(#arrowhead)" stroke-dasharray="5,5"/>
+  
+</svg>

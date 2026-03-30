@@ -9,9 +9,9 @@ export async function HistorySection() {
       <div className="mx-auto max-w-3xl px-6">
         {/* Centered section header */}
         <div className="text-center">
-          <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-toffee-brown">
+          <p className="font-bold uppercase tracking-[0.3em] text-toffee-brown">
             {t("historySubtitle")}
-          </span>
+          </p>
           <h2 className="mt-3 font-serif font-bold text-night-bordeaux-2">
             {t("history")}
           </h2>
@@ -27,7 +27,7 @@ export async function HistorySection() {
           >
             {t("historyText").charAt(0)}
           </span>
-          <p className="text-lg leading-[1.8] text-coffee-bean md:text-xl md:leading-[1.9]">
+          <p className="leading-[1.8] text-coffee-bean md:leading-[1.9]">
             {t("historyText").slice(1)}
           </p>
         </div>

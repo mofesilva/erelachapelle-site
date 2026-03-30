@@ -9,7 +9,7 @@ interface YouTubeEmbedProps {
 
 export function YouTubeEmbed({ videoId, title }: YouTubeEmbedProps) {
   return (
-    <div className="aspect-video overflow-hidden rounded-lg">
+    <div className="aspect-video overflow-hidden">
       <iframe
         src={getYouTubeEmbedUrl(videoId)}
         title={title}

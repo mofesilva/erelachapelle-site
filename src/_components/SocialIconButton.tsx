@@ -19,7 +19,7 @@ const variants: Record<SocialIconButtonVariant, string> = {
 };
 
 const baseClasses =
-    "flex h-10 w-10 items-center justify-center rounded-full transition-all duration-300 hover:scale-110";
+    "flex h-10 w-10 items-center justify-center transition-all duration-300 hover:scale-110";
 
 export function SocialIconButton({
     href,

@@ -7,6 +7,7 @@ import { getRecentSermons } from "@/lib/data/sermons";
 import { formatDate, getLocalizedContent } from "@/lib/utils";
 import { getYouTubeThumbnailUrl } from "@/lib/integrations/youtube";
 import type { Locale } from "@/types/common";
+import { PeekRectangle } from "@/_components/PeekRectangle";
 
 export async function FeaturedSermon() {
     const t = await getTranslations("sermons");
@@ -26,30 +27,32 @@ export async function FeaturedSermon() {
 
                 <div className="mt-12 grid items-center gap-8 md:grid-cols-2 md:gap-12">
                     {/* Thumbnail */}
-                    <div className="group relative aspect-video overflow-hidden rounded-xl shadow-lg">
-                        <Image
-                            src={getYouTubeThumbnailUrl(sermon.youtubeVideoId)}
-                            alt={getLocalizedContent(sermon.title, locale)}
-                            width={640}
-                            height={360}
-                            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                            unoptimized
-                        />
-                        {/* Play overlay */}
-                        <div className="absolute inset-0 flex items-center justify-center bg-night-bordeaux-2/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/90 shadow-lg">
-                                <PlayBold size={28} color="var(--night-bordeaux-2)" />
+                    <PeekRectangle color="gold" position="bottom-right">
+                        <div className="group relative aspect-video overflow-hidden shadow-lg">
+                            <Image
+                                src={getYouTubeThumbnailUrl(sermon.youtubeVideoId)}
+                                alt={getLocalizedContent(sermon.title, locale)}
+                                width={640}
+                                height={360}
+                                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                unoptimized
+                            />
+                            {/* Play overlay */}
+                            <div className="absolute inset-0 flex items-center justify-center bg-night-bordeaux-2/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                                <div className="flex h-16 w-16 items-center justify-center bg-white/90 shadow-lg">
+                                    <PlayBold size={28} color="var(--night-bordeaux-2)" />
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </PeekRectangle>
 
                     {/* Info */}
                     <div>
-                        <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-toffee-brown">
+                        <p className="font-bold uppercase tracking-[0.2em] text-toffee-brown">
                             {formatDate(sermon.date, locale)} · {sermon.preacher}
-                        </span>
+                        </p>
 
-                        <h3 className="mt-3 font-serif text-2xl font-bold text-night-bordeaux-2 md:text-3xl">
+                        <h3 className="mt-3 font-serif font-bold text-night-bordeaux-2">
                             {getLocalizedContent(sermon.title, locale)}
                         </h3>
 
@@ -62,17 +65,17 @@ export async function FeaturedSermon() {
                         {/* Badges */}
                         <div className="mt-5 flex flex-wrap gap-2">
                             {sermon.series && (
-                                <span className="rounded-full border border-toffee-brown/30 px-3 py-0.5 text-xs text-coffee-bean/70">
+                                <p className="border border-toffee-brown/30 px-3 py-0.5 text-coffee-bean/70">
                                     {sermon.series}
-                                </span>
+                                </p>
                             )}
                             {sermon.biblicalReference && (
-                                <span className="rounded-full border border-dust-grey px-3 py-0.5 text-xs text-coffee-bean/70">
+                                <p className="border border-dust-grey px-3 py-0.5 text-coffee-bean/70">
                                     {sermon.biblicalReference.book}{" "}
                                     {sermon.biblicalReference.chapter}
                                     {sermon.biblicalReference.verses &&
                                         `:${sermon.biblicalReference.verses}`}
-                                </span>
+                                </p>
                             )}
                         </div>
 

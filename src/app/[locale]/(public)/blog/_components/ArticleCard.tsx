@@ -34,10 +34,10 @@ export function ArticleCard({ article, locale, categoryLabel }: ArticleCardProps
         </div>
       )}
       <CardHeader>
-        <span className="text-xs text-muted-foreground">
+        <p className="text-muted-foreground">
           {formatDate(article.publishedAt, locale)} · {article.author}
-        </span>
-        <CardTitle className="font-serif text-lg">
+        </p>
+        <CardTitle className="font-serif">
           <Link
             href={`/${locale}/blog/${article.slug}`}
             className="hover:text-primary"

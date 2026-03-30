@@ -5,6 +5,7 @@ import { SectionLabel } from "@/_components/SectionLabel";
 import { getAllPagePhotos } from "@/lib/integrations/facebook";
 import { SITE_CONFIG } from "@/lib/constants";
 import { GalleryBoldDuotone } from "solar-icon-set";
+import { PeekRectangle, getPeekProps } from "@/_components/PeekRectangle";
 
 export async function FacebookGallerySection() {
     const t = await getTranslations("homepage.gallery");
@@ -34,24 +35,33 @@ export async function FacebookGallerySection() {
                 {/* Left spacer for centering effect on wide screens */}
                 <div className="shrink-0 w-0 md:w-[calc((100vw-80rem)/2)]" aria-hidden="true" />
 
-                {photos.map((photo) => (
-                    <div
-                        key={photo.id}
-                        className="relative shrink-0 w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 snap-center rounded-2xl overflow-hidden shadow-[0_2px_16px_rgba(0,0,0,0.06)] transition-all duration-500 hover:shadow-[0_12px_40px_rgba(61,0,8,0.10)] hover:scale-[1.02]"
-                    >
-                        <Image
-                            src={photo.imageUrl}
-                            alt={photo.alt || t("title")}
-                            fill
-                            className="object-cover"
-                            sizes="(max-width: 640px) 256px, (max-width: 768px) 288px, 320px"
-                            loading="lazy"
-                            unoptimized
-                        />
-                        {/* Subtle vignette overlay */}
-                        <div className="absolute inset-0 bg-linear-to-t from-black/10 to-transparent pointer-events-none" />
-                    </div>
-                ))}
+                {photos.map((photo, index) => {
+                    const peek = getPeekProps(index);
+                    return (
+                        <PeekRectangle
+                            key={photo.id}
+                            color={peek.color}
+                            position={peek.position}
+                            className="shrink-0 snap-center"
+                        >
+                            <div
+                                className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 overflow-hidden shadow-[0_2px_16px_rgba(0,0,0,0.06)] transition-all duration-500 hover:shadow-[0_12px_40px_rgba(61,0,8,0.10)] hover:scale-[1.02]"
+                            >
+                                <Image
+                                    src={photo.imageUrl}
+                                    alt={photo.alt || t("title")}
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 640px) 256px, (max-width: 768px) 288px, 320px"
+                                    loading="lazy"
+                                    unoptimized
+                                />
+                                {/* Subtle vignette overlay */}
+                                <div className="absolute inset-0 bg-linear-to-t from-black/10 to-transparent pointer-events-none" />
+                            </div>
+                        </PeekRectangle>
+                    );
+                })}
 
                 {/* Right spacer */}
                 <div className="shrink-0 w-0 md:w-[calc((100vw-80rem)/2)]" aria-hidden="true" />

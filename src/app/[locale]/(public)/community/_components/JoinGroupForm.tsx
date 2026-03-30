@@ -25,7 +25,7 @@ export function JoinGroupForm({ groupId }: JoinGroupFormProps) {
 
     if (state?.success) {
         return (
-            <div className="rounded-lg border border-green-200 bg-green-50 p-4 text-center text-green-700">
+            <div className="border border-green-200 bg-green-50 p-4 text-center text-green-700">
                 {t("success")}
             </div>
         );

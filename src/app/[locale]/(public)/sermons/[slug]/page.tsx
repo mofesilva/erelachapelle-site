@@ -90,14 +90,14 @@ export default async function SermonDetailPage({ params }: PageProps) {
 
             {/* Meta pills */}
             <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-              <span className="inline-flex rounded-full bg-white/10 px-3 py-1 text-sm text-parchment/80">
+              <p className="inline-flex bg-white/10 px-3 py-1 text-parchment/80">
                 {formatDate(sermon.date, locale)}
-              </span>
-              <span className="inline-flex rounded-full bg-white/10 px-3 py-1 text-sm text-parchment/80">
+              </p>
+              <p className="inline-flex bg-white/10 px-3 py-1 text-parchment/80">
                 {sermon.preacher}
-              </span>
+              </p>
               {sermon.biblicalReference && (
-                <span className="inline-flex rounded-full bg-white/10 px-3 py-1 text-sm text-parchment/80">
+                <span className="inline-flex bg-white/10 px-3 py-1 text-parchment/80">
                   {sermon.biblicalReference.book}{" "}
                   {sermon.biblicalReference.chapter}
                   {sermon.biblicalReference.verses &&
@@ -120,7 +120,7 @@ export default async function SermonDetailPage({ params }: PageProps) {
       <section className="bg-parchment py-12 md:py-16">
         <div className="mx-auto max-w-4xl px-6">
           {/* Video embed */}
-          <div className="overflow-hidden rounded-xl shadow-lg">
+          <div className="overflow-hidden shadow-lg">
             <YouTubeEmbed
               videoId={sermon.youtubeVideoId}
               title={getLocalizedContent(sermon.title, locale)}
@@ -130,7 +130,7 @@ export default async function SermonDetailPage({ params }: PageProps) {
           {/* Description */}
           {sermon.description && (
             <div className="mt-10">
-              <p className="text-lg leading-relaxed text-coffee-bean">
+              <p className="leading-relaxed text-coffee-bean">
                 <span className="font-serif text-5xl font-bold leading-none text-toffee-brown/30">
                   {getLocalizedContent(sermon.description, locale).charAt(0)}
                 </span>
@@ -141,10 +141,10 @@ export default async function SermonDetailPage({ params }: PageProps) {
 
           {/* Series info */}
           {sermon.series && (
-            <div className="mt-8 rounded-xl border border-dust-grey bg-white p-6">
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-toffee-brown">
+            <div className="mt-8 border border-dust-grey bg-white p-6">
+              <p className="font-bold uppercase tracking-[0.2em] text-toffee-brown">
                 {t("series")}
-              </span>
+              </p>
               <p className="mt-2 font-serif font-bold text-night-bordeaux-2">
                 {sermon.series}
               </p>
@@ -158,9 +158,9 @@ export default async function SermonDetailPage({ params }: PageProps) {
         <section className="bg-powder-petal py-16 md:py-20">
           <div className="mx-auto max-w-5xl px-6">
             <div className="text-center">
-              <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-toffee-brown/70">
+              <p className="font-bold uppercase tracking-[0.3em] text-toffee-brown/70">
                 {t("series")}
-              </span>
+              </p>
               <h2 className="mt-3 font-serif font-bold text-night-bordeaux-2">
                 {t("relatedSermons")}
               </h2>

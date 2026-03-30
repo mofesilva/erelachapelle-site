@@ -5,6 +5,7 @@ import { getLeadershipTeam } from "@/lib/data/leadership";
 import { getLocalizedContent } from "@/lib/utils";
 import type { Locale } from "@/types/common";
 import { UsersGroupRoundedBoldDuotone } from "solar-icon-set";
+import { PeekRectangle } from "@/_components/PeekRectangle";
 
 export async function TeamSection() {
   const t = await getTranslations("about.team");
@@ -13,7 +14,7 @@ export async function TeamSection() {
 
   return (
     <section className="bg-dust-grey/40 py-20 md:py-28">
-      <div className="mx-auto max-w-4xl px-6">
+      <div className="mx-auto max-w-6xl px-6">
         <SectionLabel
           icon={UsersGroupRoundedBoldDuotone}
           title={t("title")}
@@ -23,53 +24,55 @@ export async function TeamSection() {
           {t("subtitle")}
         </p>
 
-        {/* Horizontal team cards — stacked */}
-        <div className="mt-14 space-y-6">
-          {team.map((member) => (
-            <div
-              key={member._id}
-              className="flex flex-col items-center gap-6 rounded-xl border border-dust-grey bg-white p-6 sm:flex-row sm:items-start sm:p-8"
-            >
-              {/* Photo */}
-              <div className="flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden rounded-full bg-powder-petal ring-2 ring-toffee-brown/15 sm:h-24 sm:w-24">
-                {member.photoUrl ? (
-                  <Image
-                    src={member.photoUrl}
-                    alt={member.fullName}
-                    width={96}
-                    height={96}
-                    className="h-full w-full object-cover"
-                    unoptimized
-                  />
-                ) : (
-                  <span className="font-serif text-3xl font-bold text-coffee-bean/30">
-                    {member.fullName.charAt(0)}
-                  </span>
-                )}
-              </div>
+        {/* Team cards — side by side grid */}
+        <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {team.map((member, index) => {
+            return (
+              <PeekRectangle key={member._id} color={"dark"} position={'bottom-right'}>
+                <div className="flex h-full flex-col border border-dust-grey bg-white overflow-hidden">
+                  {/* Photo — banner no topo do card */}
+                  <div className="relative aspect-square w-full shrink-0 bg-powder-petal overflow-hidden">
+                    {member.photoUrl ? (
+                      <Image
+                        src={member.photoUrl}
+                        alt={member.fullName}
+                        fill
+                        className="object-cover object-top"
+                        unoptimized
+                      />
+                    ) : (
+                      <div className="flex h-full items-center justify-center">
+                        <span className="font-serif text-4xl font-bold text-coffee-bean/30">
+                          {member.fullName.charAt(0)}
+                        </span>
+                      </div>
+                    )}
+                  </div>
 
-              {/* Info */}
-              <div className="min-w-0 text-center sm:text-left">
-                <h5 className="font-serif font-bold text-carbon-black">
-                  {member.fullName}
-                </h5>
-                <span className="mt-1 inline-block text-xs font-semibold uppercase tracking-wider text-toffee-brown">
-                  {getLocalizedContent(member.role, locale)}
-                </span>
-                <p className="mt-3 leading-relaxed text-coffee-bean">
-                  {getLocalizedContent(member.bio, locale)}
-                </p>
-                {member.email && (
-                  <a
-                    href={`mailto:${member.email}`}
-                    className="mt-2 inline-block text-sm text-night-bordeaux-2/60 underline decoration-night-bordeaux-2/15 underline-offset-4 transition-fast hover:text-night-bordeaux-2 hover:decoration-night-bordeaux-2/40"
-                  >
-                    {member.email}
-                  </a>
-                )}
-              </div>
-            </div>
-          ))}
+                  {/* Info */}
+                  <div className="flex flex-1 flex-col p-5 md:p-6">
+                    <h5 className="font-serif font-bold text-carbon-black">
+                      {member.fullName}
+                    </h5>
+                    <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-toffee-brown">
+                      {getLocalizedContent(member.role, locale)}
+                    </p>
+                    <p className="mt-3 flex-1 text-sm leading-relaxed text-coffee-bean">
+                      {getLocalizedContent(member.bio, locale)}
+                    </p>
+                    {member.email && (
+                      <a
+                        href={`mailto:${member.email}`}
+                        className="mt-3 inline-block text-xs text-night-bordeaux-2/60 underline decoration-night-bordeaux-2/15 underline-offset-4 transition-fast hover:text-night-bordeaux-2 hover:decoration-night-bordeaux-2/40"
+                      >
+                        {member.email}
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </PeekRectangle>
+            );
+          })}
         </div>
       </div>
     </section>

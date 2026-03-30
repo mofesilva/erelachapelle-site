@@ -37,7 +37,7 @@ export function ArticleFilters({ categories }: ArticleFiltersProps) {
       <select
         value={activeCategory}
         onChange={(e) => updateFilter(e.target.value)}
-        className="rounded-md border bg-background px-3 py-2 text-sm"
+        className="border bg-background px-3 py-2 text-sm"
         aria-label={t("filterByCategory")}
       >
         <option value="">{t("filterByCategory")}</option>

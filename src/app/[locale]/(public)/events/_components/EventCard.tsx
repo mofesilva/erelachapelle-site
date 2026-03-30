@@ -23,11 +23,11 @@ export function EventCard({ event, locale, typeLabel }: EventCardProps) {
       <CardHeader>
         <div className="flex items-center gap-2">
           <CalendarBold size={16} color="var(--primary)" />
-          <span className="text-sm text-muted-foreground">
+          <p className="text-muted-foreground">
             {formatDate(event.startDate, locale)}
-          </span>
+          </p>
         </div>
-        <CardTitle className="font-serif text-lg">
+        <CardTitle className="font-serif">
           <Link
             href={`/${locale}/events/${event.slug}`}
             className="hover:text-primary"

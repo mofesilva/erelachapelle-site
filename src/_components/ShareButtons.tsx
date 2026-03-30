@@ -33,14 +33,14 @@ export function ShareButtons({ url, title }: ShareButtonsProps) {
 
   return (
     <div className="flex items-center gap-3">
-      <span className="text-sm text-muted-foreground">{t("share")}:</span>
+      <p className="text-muted-foreground">{t("share")}:</p>
       {links.map((link) => (
         <a
           key={link.label}
           href={link.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex h-8 w-8 items-center justify-center rounded-full bg-muted text-sm font-semibold text-muted-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
+          className="flex h-8 w-8 items-center justify-center bg-muted text-sm font-semibold text-muted-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
           aria-label={`${t("share")} ${link.label}`}
           title={link.label}
         >
