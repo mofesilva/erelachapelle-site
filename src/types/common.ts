@@ -19,11 +19,4 @@ export type SolarIcon = (props: import("solar-icon-set").SolarIconProps) => Reac
 
 export type Locale = "fr" | "pt" | "en";
 
-export interface FacebookPhoto {
-  id: string;
-  imageUrl: string;
-  alt: string;
-  createdAt: string;
-  width: number;
-  height: number;
-}
+
