@@ -5,17 +5,17 @@ import { useLocale } from "next-intl";
 import Link from "next/link";
 import Image from "next/image";
 import { HamburgerMenuBold } from "solar-icon-set";
-import { useState, useEffect } from "react";
+import { useState, useLayoutEffect, useEffect } from "react";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { MobileMenu } from "./MobileMenu";
 
 const navItems = [
   "home",
   "about",
-  "sermons",
-  "events",
-  "community",
-  "blog",
+  // "sermons",   // hidden — no content yet
+  // "events",    // hidden — no content yet
+  // "community", // hidden — no content yet
+  // "blog",      // hidden — no content yet
   "contact",
 ] as const;
 
@@ -24,12 +24,22 @@ export function Header() {
   const locale = useLocale();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [ready, setReady] = useState(false);
 
+  // Sync scroll state before paint — prevents bg flash on mount/remount
+  useLayoutEffect(() => {
+    setScrolled(window.scrollY > 50);
+  }, []);
+
+  // Enable CSS transitions only after first correct paint
   useEffect(() => {
+    requestAnimationFrame(() => setReady(true));
     const handleScroll = () => setScrolled(window.scrollY > 50);
-    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      setReady(false);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   // Build labels object for mobile menu
@@ -39,12 +49,12 @@ export function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 z-50 w-full transition-all duration-300 ${scrolled
+        className={`fixed top-0 z-50 w-full ${ready ? "transition-all duration-300" : ""} ${scrolled
           ? "bg-rich-mahogany"
           : "bg-transparent"
           }`}
       >
-        <div className={`mx-auto flex max-w-7xl items-center justify-between px-4 transition-all duration-300 ${scrolled ? "h-16" : "h-24"}`}>
+        <div className={`mx-auto flex max-w-7xl items-center justify-between px-4 ${ready ? "transition-all duration-300" : ""} ${scrolled ? "h-16" : "h-24"}`}>
           <Link
             href={`/${locale}`}
             className="flex shrink-0 items-center"
@@ -54,7 +64,7 @@ export function Header() {
               alt="Église Réformée Évangélique La Chapelle"
               width={320}
               height={180}
-              className={`w-auto transition-all duration-300 ${scrolled ? "h-8 md:h-10" : "h-14 md:h-20"}`}
+              className={`w-auto ${ready ? "transition-all duration-300" : ""} ${scrolled ? "h-8 md:h-10" : "h-14 md:h-20"}`}
               priority
             />
           </Link>

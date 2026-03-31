@@ -11,10 +11,10 @@ import type { Locale } from "@/types/common";
 
 const navItems = [
   { key: "about", href: "/about" },
-  { key: "sermons", href: "/sermons" },
-  { key: "events", href: "/events" },
-  { key: "community", href: "/community/groups" },
-  { key: "blog", href: "/blog" },
+  // { key: "sermons", href: "/sermons" },
+  // { key: "events", href: "/events" },
+  // { key: "community", href: "/community/groups" },
+  // { key: "blog", href: "/blog" },
   { key: "contact", href: "/contact" },
 ] as const;
 
