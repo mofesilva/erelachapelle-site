@@ -1,6 +1,5 @@
 import { getTranslations } from "next-intl/server";
 import { SectionLabel } from "@/_components/SectionLabel";
-import { NewsletterSplitForm } from "./NewsletterSplitForm";
 import { LetterBoldDuotone } from "solar-icon-set";
 
 export async function NewsletterSection() {
@@ -20,10 +19,9 @@ export async function NewsletterSection() {
                     {t("subtitle")}
                 </p>
 
-                {/* Newsletter form */}
-                <div className="mt-10 md:mt-12 flex justify-center">
-                    <NewsletterSplitForm />
-                </div>
+                {/* Coming soon notice */}
+
+
             </div>
         </section>
     );
