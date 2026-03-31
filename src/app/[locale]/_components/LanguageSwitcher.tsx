@@ -18,7 +18,7 @@ export function LanguageSwitcher({ variant = "default" }: { variant?: "default" 
   function handleChange(newLocale: Locale) {
     const segments = pathname.split("/");
     segments[1] = newLocale;
-    router.push(segments.join("/"));
+    router.push(segments.join("/"), { scroll: false });
   }
 
   const isLight = variant === "light";
