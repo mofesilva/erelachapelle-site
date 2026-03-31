@@ -58,7 +58,9 @@
       "label": "Eventos",
       "title": "Próximos eventos",
       "cta": "Todos os eventos",
-      "empty": "Novos eventos serão anunciados em breve."
+      "empty": "Novos eventos serão anunciados em breve.",
+      "comingSoon": "Os eventos da nossa igreja estarão disponíveis aqui em breve. Fique de olho!",
+      "comingSoonBadge": "Em breve"
     },
     "sermons": {
       "label": "Pregações",
@@ -69,7 +71,11 @@
     "community": {
       "label": "Comunidade",
       "title": "Vida comunitária",
-      "cta": "Participar de um grupo"
+      "cta": "Participar de um grupo",
+      "bibleStudyLabel": "Estudo & comunhão",
+      "bibleStudyTitle": "Estudo bíblico",
+      "prayerGroupLabel": "Vida de oração",
+      "prayerGroupTitle": "Grupo de oração"
     },
     "faith": {
       "statement": "Cremos em um só Deus, Pai, Filho e Espírito Santo, e proclamamos Jesus Cristo como Senhor e Salvador. Enraizados na tradição reformada, vivemos pela graça, guiados pelas Escrituras.",
@@ -77,11 +83,12 @@
     },
     "newsletter": {
       "label": "Fique conectado",
-      "title": "Assine nossa newsletter",
+      "title": "Em breve você poderá conferir nossa newsletter.",
       "subtitle": "Receba novidades sobre nossa comunidade, eventos e reflexões espirituais diretamente no seu email.",
       "placeholder": "Digite seu email",
       "subscribe": "Inscrever-se",
-      "success": "Bem-vindo! Você agora está inscrito."
+      "success": "Bem-vindo! Você agora está inscrito.",
+      "comingSoon": "Em breve você poderá conferir nossa newsletter — fique ligado!"
     }
   },
   "events": {

@@ -58,7 +58,9 @@
       "label": "Événements",
       "title": "Prochains événements",
       "cta": "Tous les événements",
-      "empty": "De nouveaux événements seront annoncés bientôt."
+      "empty": "De nouveaux événements seront annoncés bientôt.",
+      "comingSoon": "Les événements de notre église seront bientôt disponibles ici. Revenez nous rendre visite !",
+      "comingSoonBadge": "Bientôt"
     },
     "sermons": {
       "label": "Prédications",
@@ -69,7 +71,11 @@
     "community": {
       "label": "Communauté",
       "title": "Vie communautaire",
-      "cta": "Rejoindre un groupe"
+      "cta": "Rejoindre un groupe",
+      "bibleStudyLabel": "Étude & fellowship",
+      "bibleStudyTitle": "Étude biblique",
+      "prayerGroupLabel": "Vie de prière",
+      "prayerGroupTitle": "Groupe de prière"
     },
     "faith": {
       "statement": "Nous croyons en un seul Dieu, Père, Fils et Saint-Esprit, et nous proclamons Jésus-Christ comme Seigneur et Sauveur. Enracinés dans la tradition réformée, nous vivons par la grâce, guidés par l'Écriture.",
@@ -77,11 +83,12 @@
     },
     "newsletter": {
       "label": "Restez connecté",
-      "title": "Rejoignez notre newsletter",
+      "title": "Bientôt vous pourrez consulter notre bulletin.",
       "subtitle": "Recevez des nouvelles de notre communauté, événements et réflexions spirituelles directement dans votre boîte mail.",
       "placeholder": "Entrez votre email",
       "subscribe": "S'abonner",
-      "success": "Bienvenue ! Vous êtes maintenant inscrit."
+      "success": "Bienvenue ! Vous êtes maintenant inscrit.",
+      "comingSoon": "Notre bulletin arrive bientôt — restez à l'écoute !"
     }
   },
   "events": {
@@ -268,7 +275,7 @@
     }
   },
   "newsletter": {
-    "title": "Newsletter",
+    "title": "Bulletin",
     "placeholder": "Votre email",
     "subscribe": "S'abonner",
     "success": "Inscription confirmée !"

@@ -58,7 +58,9 @@
       "label": "Events",
       "title": "Upcoming events",
       "cta": "All events",
-      "empty": "New events will be announced soon."
+      "empty": "New events will be announced soon.",
+      "comingSoon": "Our church events will be available here soon. Check back soon!",
+      "comingSoonBadge": "Coming soon"
     },
     "sermons": {
       "label": "Sermons",
@@ -69,7 +71,11 @@
     "community": {
       "label": "Community",
       "title": "Community life",
-      "cta": "Join a group"
+      "cta": "Join a group",
+      "bibleStudyLabel": "Study & fellowship",
+      "bibleStudyTitle": "Bible study",
+      "prayerGroupLabel": "Prayer life",
+      "prayerGroupTitle": "Prayer group"
     },
     "faith": {
       "statement": "We believe in one God, Father, Son and Holy Spirit, and we proclaim Jesus Christ as Lord and Savior. Rooted in the Reformed tradition, we live by grace, guided by Scripture.",
@@ -77,11 +83,12 @@
     },
     "newsletter": {
       "label": "Stay Connected",
-      "title": "Join Our Newsletter",
+      "title": "Soon you will be able to check out our newsletter.",
       "subtitle": "Receive updates about our community, events, and spiritual reflections directly in your inbox.",
       "placeholder": "Enter your email",
       "subscribe": "Subscribe",
-      "success": "Welcome! You're now subscribed."
+      "success": "Welcome! You're now subscribed.",
+      "comingSoon": "Our newsletter is coming soon — stay tuned!"
     }
   },
   "events": {
