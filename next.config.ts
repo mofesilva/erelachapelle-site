@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "cappuccino.dzign-e.app",
+        hostname: "erelachapelle.dzign-e.app",
       },
       {
         protocol: "https",

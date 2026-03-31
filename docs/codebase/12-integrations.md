@@ -131,7 +131,7 @@ images: {
   remotePatterns: [
     {
       protocol: "https",
-      hostname: "cappuccino.dzign-e.app",
+      hostname: "erelachapelle.dzign-e.app",
     },
   ],
 }
@@ -140,6 +140,6 @@ images: {
 This is the CDN host for church photos and assets. Images from this domain can be used with `next/image`.
 
 Currently used URLs:
-- `https://cappuccino.dzign-e.app/erelachappelle-assets/igreja-lachappelle.jpg` — Church exterior (hero, gathering section)
-- `https://cappuccino.dzign-e.app/erelachappelle-assets/top-view-crown-thorns-bible-arrangement.jpg` — Bible image (faith statement, mobile)
-- `https://cappuccino.dzign-e.app/erelachappelle-assets/top-view-crown-thorns-bible.jpg` — Bible image (faith statement, desktop)
+- `https://erelachapelle.dzign-e.app/igreja-lachappelle.jpg` — Church exterior (hero, gathering section)
+- `https://erelachapelle.dzign-e.app/top-view-crown-thorns-bible-arrangement.jpg` — Bible image (faith statement, mobile)
+- `https://erelachapelle.dzign-e.app/top-view-crown-thorns-bible.jpg` — Bible image (faith statement, desktop)
