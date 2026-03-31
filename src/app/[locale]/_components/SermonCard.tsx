@@ -4,7 +4,8 @@ import { PlayBold } from "solar-icon-set";
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { PeekRectangle } from "@/_components/PeekRectangle";
+import { cn } from "@/lib/utils";
+import { PeekRectangle, borderMap } from "@/_components/PeekRectangle";
 
 interface SermonCardProps {
   thumbnail: string;
@@ -40,7 +41,7 @@ export function SermonCard({
           href={videoUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="block overflow-hidden bg-white shadow-[0_4px_24px_rgba(0,0,0,0.06)] transition-all duration-500 hover:shadow-[0_16px_50px_rgba(106,13,30,0.15)] hover:-translate-y-1"
+          className={cn("block overflow-hidden bg-white shadow-[0_4px_24px_rgba(0,0,0,0.06)] transition-all duration-500 hover:shadow-[0_16px_50px_rgba(106,13,30,0.15)] hover:-translate-y-1", borderMap["gold"])}
         >
           {/* Thumbnail with Play Overlay */}
           <div className="relative aspect-video overflow-hidden">

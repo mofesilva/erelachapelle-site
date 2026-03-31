@@ -48,7 +48,7 @@ export function EventCard({
       <PeekRectangle color="bordeaux" position="bottom-right" className="h-full">
         <Link
           href={href}
-          className="flex h-full flex-col overflow-hidden bg-white shadow-[0_2px_16px_rgba(0,0,0,0.06)] border border-rich-mahogany/8 transition-all duration-500 hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:-translate-y-1"
+          className={cn("flex h-full flex-col overflow-hidden bg-white shadow-[0_2px_16px_rgba(0,0,0,0.06)] transition-all duration-500 hover:shadow-[0_8px_32px_rgba(0,0,0,0.1)] hover:-translate-y-1")}
         >
           <div className="flex flex-1 flex-col p-5 md:p-6">
             {/* Date + badge row */}
