@@ -4,7 +4,7 @@ import { getLocalizedContent } from "@/lib/utils";
 import { getDirectionsUrl } from "@/lib/integrations/maps";
 import type { Locale } from "@/types/common";
 import Image from "next/image";
-import { MapPointBold, ClockCircleBold, LetterBold, ArrowRightBold } from "solar-icon-set";
+import { MapPointBoldDuotone, ClockCircleBoldDuotone, LetterBoldDuotone, ArrowRightBold } from "solar-icon-set";
 
 export async function GatheringSection() {
     const t = await getTranslations("homepage.gathering");
@@ -23,7 +23,7 @@ export async function GatheringSection() {
         <section className="relative min-h-150 md:min-h-175">
             {/* ── Full-bleed background image ── */}
             <Image
-                src="https://cappuccino.dzign-e.app/erelachappelle-assets/inside-church.png"
+                src="https://erelachapelle.dzign-e.app/inside-church.png"
                 alt={t("churchName")}
                 fill
                 className="object-cover"
@@ -45,7 +45,7 @@ export async function GatheringSection() {
                         </div>
 
                         {/* Church name */}
-                        <h2 className="mt-5 max-w-2xl font-serif font-bold text-parchment">
+                        <h2 className="mt-5 max-w-2xl font-serif font-bold text-4xl md:text-5xl lg:text-6xl text-white">
                             {t("churchName")}
                         </h2>
 
@@ -59,11 +59,11 @@ export async function GatheringSection() {
                         <div className="mt-12 flex flex-col gap-10 sm:flex-row sm:items-start sm:gap-0">
                             {/* Address */}
                             <div className="flex flex-col items-start sm:pr-10">
-                                <MapPointBold size={28} color="var(--toffee-brown)" />
-                                <p className="mt-3 font-bold uppercase tracking-[0.2em] text-parchment/40">
+                                <MapPointBoldDuotone size={28} color="#fff" />
+                                <p className="mt-3 font-bold uppercase tracking-[0.2em] text-white">
                                     {t("addressLabel")}
                                 </p>
-                                <address className="mt-2 text- not-italic font-semibold leading-relaxed text-parchment">
+                                <address className="mt-2 not-italic text-base font-semibold leading-relaxed text-parchment">
                                     {location.address}
                                     <br />
                                     {location.postalCode} {location.city}
@@ -77,11 +77,11 @@ export async function GatheringSection() {
 
                             {/* Schedule */}
                             <div className="flex flex-col items-start sm:px-10">
-                                <ClockCircleBold size={28} color="var(--toffee-brown)" />
-                                <p className="mt-3 font-bold uppercase tracking-[0.2em] text-parchment/40">
+                                <ClockCircleBoldDuotone size={28} color="#fff" />
+                                <p className="mt-3 font-bold uppercase tracking-[0.2em] text-white">
                                     {t("scheduleLabel")}
                                 </p>
-                                <p className="mt-2 font-semibold text-parchment">
+                                <p className="mt-2 text-base font-semibold text-parchment">
                                     {getLocalizedContent(location.worshipSchedule, locale)}
                                 </p>
                             </div>
@@ -92,13 +92,13 @@ export async function GatheringSection() {
                             {/* Contact email */}
                             {location.contactEmail && (
                                 <div className="flex flex-col items-start sm:pl-10">
-                                    <LetterBold size={28} color="var(--toffee-brown)" />
-                                    <p className="mt-3 font-bold uppercase tracking-[0.2em] text-parchment/40">
+                                    <LetterBoldDuotone size={28} color="#fff" />
+                                    <p className="mt-3 font-bold uppercase tracking-[0.2em] text-white">
                                         {t("contactLabel")}
                                     </p>
                                     <a
                                         href={`mailto:${location.contactEmail}`}
-                                        className="mt-2 text-xl font-semibold text-parchment underline decoration-parchment/30 underline-offset-4 transition-colors hover:text-toffee-brown hover:decoration-toffee-brown"
+                                        className="mt-2 text-base font-semibold text-parchment underline decoration-parchment/30 underline-offset-4 transition-colors hover:text-toffee-brown hover:decoration-toffee-brown"
                                     >
                                         {location.contactEmail}
                                     </a>
