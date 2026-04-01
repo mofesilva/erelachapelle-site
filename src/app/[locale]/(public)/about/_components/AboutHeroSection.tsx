@@ -11,7 +11,7 @@ export async function AboutHeroSection() {
       <div className="relative mx-auto max-w-4xl px-6 text-center">
         <CrossDivider variant="white" className="justify-center" />
 
-        <blockquote className="mt-8 font-serif text-2xl italic leading-relaxed text-parchment md:mt-10 md:text-3xl lg:text-4xl">
+        <blockquote className="mt-8 font-serif italic leading-relaxed text-parchment md:mt-10">
           “{t("heroQuote")}”
         </blockquote>
 

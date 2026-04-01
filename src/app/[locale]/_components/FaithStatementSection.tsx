@@ -10,7 +10,7 @@ export async function FaithStatementSection() {
       <div className="mx-auto max-w-4xl px-4 text-center">
         <ScrollReveal from="left">
           <span className="font-serif text-4xl md:text-8xl text-toffee-brown leading-none select-none">&ldquo;</span>
-          <blockquote className="font-baskerville text-xl sm:text-2xl md:text-3xl lg:text-4xl leading-relaxed md:leading-relaxed text-white">
+          <blockquote className="font-baskerville leading-relaxed md:leading-relaxed text-white">
             {t("statement")}
           </blockquote>
         </ScrollReveal>

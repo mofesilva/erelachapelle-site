@@ -45,7 +45,7 @@ export async function GatheringSection() {
                         </div>
 
                         {/* Church name */}
-                        <h2 className="mt-5 max-w-2xl font-serif font-bold text-4xl md:text-5xl lg:text-6xl text-white">
+                        <h2 className="mt-5 max-w-2xl font-serif font-bold text-white">
                             {t("churchName")}
                         </h2>
 

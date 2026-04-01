@@ -28,15 +28,15 @@ export async function CommunitySection() {
   const t = await getTranslations("homepage.community");
 
   return (
-    <section className="bg-parchment py-16 md:pt-32 md:pb-16 px-6">
-      <div className="mx-auto max-w-5xl">
+    <section className="bg-parchment py-10 md:py-12 lg:py-14 2xl:pt-32 2xl:pb-16 px-6">
+      <div className="mx-auto max-w-xl sm:max-w-xl md:max-w-2xl 2xl:max-w-5xl">
         <SectionLabel icon={UsersGroupRoundedBoldDuotone} title={t("title")} color="bordeaux" />
 
-        <div className="mt-12 md:mt-14 grid grid-cols-1 gap-10 sm:grid-cols-2">
+        <div className="mt-6 sm:mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 2xl:gap-10">
           {cards.map((card) => (
             <PeekRectangle key={card.src} color={card.color} position={card.position}>
               <div className="overflow-hidden shadow-[0_2px_16px_rgba(0,0,0,0.06)]">
-                {/* 3:4 image */}
+                {/* Responsive aspect ratio: tall on mobile, shorter on desktop */}
                 <div className="relative aspect-[3/4]">
                   <Image
                     src={card.src}
@@ -51,7 +51,7 @@ export async function CommunitySection() {
                     <p className="text-xs font-bold uppercase tracking-[0.2em] text-toffee-brown">
                       {t(card.labelKey)}
                     </p>
-                    <h3 className="mt-2 font-serif font-bold text-white text-2xl">
+                    <h3 className="mt-2 font-serif font-bold text-white">
                       {t(card.titleKey)}
                     </h3>
                   </div>

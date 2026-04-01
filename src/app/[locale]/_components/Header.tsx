@@ -74,7 +74,7 @@ export function Header() {
             {navItems.map((item) => (
               <Link
                 key={item}
-                href={`/${locale}${item === "home" ? "" : `/${item === "community" ? "community/groups" : item}`}`}
+                href={`/${locale}${item === "home" ? "" : `/${item}`}`}
                 className="text-sm font-medium text-white/80 transition-colors hover:text-white"
               >
                 {t(item)}

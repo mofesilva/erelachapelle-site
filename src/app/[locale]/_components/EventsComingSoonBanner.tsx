@@ -18,7 +18,7 @@ export async function EventsComingSoonBanner() {
           color="gold"
         />
 
-        <h2 className="font-serif text-3xl md:text-4xl text-night-bordeaux-2 leading-snug">
+        <h2 className="font-serif text-night-bordeaux-2 leading-snug">
           {t("title")}
         </h2>
 
