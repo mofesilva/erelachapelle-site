@@ -64,7 +64,7 @@ export function Header() {
               alt="Église Réformée Évangélique La Chapelle"
               width={320}
               height={180}
-              className={`w-auto ${ready ? "transition-all duration-300" : ""} ${scrolled ? "h-8 md:h-10" : "h-14 md:h-20"}`}
+              className={`w-auto ${ready ? "transition-all duration-300" : ""} ${scrolled ? "h-8 md:h-10" : "h-10 md:h-14 lg:h-16"}`}
               priority
             />
           </Link>

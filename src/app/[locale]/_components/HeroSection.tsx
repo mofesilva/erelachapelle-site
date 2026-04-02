@@ -27,11 +27,11 @@ export async function HeroSection() {
                 className="relative flex items-center justify-center "
                 style={{ height: "100%", paddingTop: "48px" }}
             >
-                <div className="mx-auto w-full max-w-7xl px-4 md:px-8 lg:px-16 xl:px-4 text-center md:text-left">
+                <div className="mx-auto w-full max-w-7xl px-4 md:px-8 lg:max-w-6xl lg:px-10 2xl:max-w-7xl 2xl:px-4 text-center md:text-left">
                     <CrossDivider className="mb-2 md:mb-8 justify-center md:justify-start" />
                     <h1
                         id="hero-title"
-                        className="font-serif font-bold text-white mx-auto md:mx-0 max-w-full md:max-w-[61.8%] leading-[1.25] tracking-wide "
+                        className="font-serif font-bold text-white mx-auto md:mx-0 max-w-full md:max-w-[40%] lg:max-w-[45%] xl:max-w-[50%] 2xl:max-w-[61.8%] leading-[1.25] tracking-wide"
                     >
                         {t("title")}
                     </h1>
