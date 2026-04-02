@@ -14,7 +14,7 @@ export const GROUPS: CommunityGroup[] = [
       en: "A time of in-depth Bible study, sharing and prayer for adults.",
     },
     groupType: "bible_study",
-    leaderName: "Jean-Marc Dupont",
+    leaderName: "Paulo Sicoli",
     meetingDay: "wednesday",
     meetingTime: "20:00",
     locationId: "loc-saint-hippolyte",

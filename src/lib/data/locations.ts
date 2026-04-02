@@ -8,14 +8,13 @@ export const LOCATIONS: Location[] = [
     city: "St Hippolyte du Fort",
     postalCode: "30170",
     country: "France",
-    coordinates: { lat: 43.9622486, lng: 3.8569039 },
+    coordinates: { lat: 43.9622648, lng: 3.8568278 },
     worshipSchedule: {
       fr: "Dimanche 10h30",
       pt: "Domingo 10h30",
       en: "Sunday 10:30 AM",
     },
     contactEmail: "erelachapelle@orange.fr",
-    contactPhone: "04 66 77 20 58",
     active: true,
   },
 ];

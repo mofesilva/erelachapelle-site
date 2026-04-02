@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     default: "Église Réformée Évangélique La Chapelle",
     template: "%s | Église Réformée Évangélique La Chapelle",
   },
-  description: "Communauté chrétienne dans les Cévennes",
+  description: "Communauté chrétienne à Saint-Hippolyte-du-Fort",
   metadataBase: new URL("https://erelachapelle.fr"),
   openGraph: {
     type: "website",

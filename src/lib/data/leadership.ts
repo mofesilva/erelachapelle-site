@@ -3,7 +3,7 @@ import type { LeadershipMember } from "@/types/leader";
 export const LEADERSHIP_TEAM: LeadershipMember[] = [
   {
     _id: "leader-1",
-    fullName: "Pasteur Jean-Marc Dupont",
+    fullName: "Pasteur Paulo Sicoli",
     photoUrl: "/chase-kennedy-ueXAnDZgnr4-unsplash.jpg",
     role: {
       fr: "Pasteur principal",
@@ -11,11 +11,11 @@ export const LEADERSHIP_TEAM: LeadershipMember[] = [
       en: "Senior Pastor",
     },
     bio: {
-      fr: "Pasteur Jean-Marc dirige notre communauté depuis 2015. Passionné par l'enseignement biblique et l'accompagnement pastoral.",
-      pt: "Pastor Jean-Marc lidera nossa comunidade desde 2015. Apaixonado pelo ensino bíblico e acompanhamento pastoral.",
-      en: "Pastor Jean-Marc has led our community since 2015. Passionate about biblical teaching and pastoral care.",
+      fr: "Pasteur Paulo dirige notre communauté depuis 2015. Passionné par l'enseignement biblique et l'accompagnement pastoral.",
+      pt: "Pastor Paulo lidera nossa comunidade desde 2015. Apaixonado pelo ensino bíblico e acompanhamento pastoral.",
+      en: "Pastor Paulo has led our community since 2015. Passionate about biblical teaching and pastoral care.",
     },
-    email: "jeanmarc@erelachapelle.fr",
+    email: "paulo@erelachapelle.fr",
     ministryAreas: ["teaching", "pastoral-care", "leadership"],
     order: 1,
     active: true,
@@ -37,7 +37,7 @@ export const LEADERSHIP_TEAM: LeadershipMember[] = [
     email: "marieclaire@erelachapelle.fr",
     ministryAreas: ["worship", "music"],
     order: 2,
-    active: true,
+    active: false,
   },
   {
     _id: "leader-3",
@@ -56,7 +56,7 @@ export const LEADERSHIP_TEAM: LeadershipMember[] = [
     email: "pierre@erelachapelle.fr",
     ministryAreas: ["youth", "activities"],
     order: 3,
-    active: true,
+    active: false,
   },
 ];
 
