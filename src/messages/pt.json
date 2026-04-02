@@ -29,13 +29,13 @@
   "homepage": {
     "hero": {
       "title": "Bem-vindo à Igreja Reformada Evangélica La Chapelle",
-      "subtitle": "Uma comunidade de fé nas Cévennes",
+      "subtitle": "Uma comunidade de fé em Saint-Hippolyte-du-Fort",
       "cta": "Conheça-nos"
     },
     "gathering": {
       "label": "Nossa igreja",
       "title": "Junte-se a nós",
-      "subtitle": "Uma comunidade de fé no coração das Cévennes",
+      "subtitle": "Uma comunidade de fé em Saint-Hippolyte-du-Fort",
       "churchName": "Igreja Reformada Evangélica de La Chapelle",
       "addressLabel": "Endereço",
       "scheduleLabel": "Culto",
@@ -75,7 +75,9 @@
       "bibleStudyLabel": "Estudo & comunhão",
       "bibleStudyTitle": "Estudo bíblico",
       "prayerGroupLabel": "Vida de oração",
-      "prayerGroupTitle": "Grupo de oração"
+      "prayerGroupTitle": "Grupo de oração",
+      "sundayServiceLabel": "Domingos às 10h",
+      "sundayServiceTitle": "Cultos de domingo"
     },
     "faith": {
       "statement": "Cremos em um só Deus, Pai, Filho e Espírito Santo, e proclamamos Jesus Cristo como Senhor e Salvador. Enraizados na tradição reformada, vivemos pela graça, guiados pelas Escrituras.",
@@ -185,17 +187,17 @@
     }
   },
   "about": {
-    "title": "Sobre",
+    "title": "Nossa Igreja",
     "heroQuote": "Consideremos como estimular uns aos outros ao amor e às boas obras. Não deixemos de nos reunir como igreja.",
     "heroQuoteRef": "Hebreus 10:24-25",
-    "heroSubtitle": "Uma comunidade de fé no coração das Cévennes",
+    "heroSubtitle": "Uma comunidade de fé em Saint-Hippolyte-du-Fort",
     "mission": "Nossa missão",
-    "missionText": "A Igreja Reformada Evangélica La Chapelle é uma comunidade cristã comprometida em servir os habitantes das Cévennes. Nossa missão é acolher cada pessoa, compartilhar o amor de Deus e construir uma comunidade fundada na fé, na esperança e no amor.",
+    "missionText": "A Igreja Reformada Evangélica La Chapelle é uma comunidade cristã comprometida em servir os habitantes de Saint-Hippolyte-du-Fort. Nossa missão é acolher cada pessoa, compartilhar o amor de Deus e construir uma comunidade fundada na fé, na esperança e no amor.",
     "vision": "Nossa visão",
-    "visionText": "Aspiramos ser um lugar de refúgio e renovação espiritual nas Cévennes, onde cada pessoa pode descobrir seu lugar na família de Deus, crescer na fé e servir os outros com amor.",
+    "visionText": "Aspiramos ser um lugar de refúgio e renovação espiritual em Saint-Hippolyte-du-Fort, onde cada pessoa pode descobrir seu lugar na família de Deus, crescer na fé e servir os outros com amor.",
     "history": "Nossa história",
     "historySubtitle": "Uma história escrita pela fé",
-    "historyText": "Nascida da visão de reunir crentes na região das Cévennes, nossa igreja se estabeleceu em Saint-Hippolyte-du-Fort. Desde o início, crescemos como uma comunidade multicultural e multilíngue, acolhendo pessoas de todas as origens.",
+    "historyText": "Nascida da visão de reunir crentes, nossa igreja se estabeleceu em Saint-Hippolyte-du-Fort. Desde o início, crescemos como uma comunidade multicultural e multilíngue, acolhendo pessoas de todas as origens.",
     "faith": "Declaração de fé",
     "faithSubtitle": "Os fundamentos da nossa crença",
     "faithItems": {
@@ -258,8 +260,10 @@
   "contact": {
     "title": "Contato",
     "subtitle": "Fale conosco",
+    "heroDescription": "Gostaríamos muito de ouvir você. Entre em contato para perguntas, pedidos de oração ou simplesmente para dizer olá.",
     "sendMessage": "Envie-nos uma mensagem",
     "ourLocations": "Nossos locais de culto",
+    "directions": "Como chegar",
     "address": "Endereço",
     "phone": "Telefone",
     "email": "Email",
@@ -270,8 +274,14 @@
       "subject": "Assunto",
       "message": "Mensagem",
       "send": "Enviar mensagem",
-      "success": "Sua mensagem foi enviada com sucesso!",
+      "successTitle": "Mensagem enviada!",
+      "success": "Obrigado pela sua mensagem. Responderemos o mais breve possível.",
       "error": "Erro ao enviar. Por favor, tente novamente."
+    },
+    "cta": {
+      "title": "Venha nos visitar",
+      "subtitle": "Junte-se a nós todo domingo às 10h30 e descubra uma comunidade que o recebe de braços abertos.",
+      "button": "Ver nossos eventos"
     }
   },
   "newsletter": {
@@ -281,7 +291,7 @@
     "success": "Inscrição confirmada!"
   },
   "footer": {
-    "tagline": "Uma comunidade de fé no coração das Cévennes, enraizada na tradição reformada.",
+    "tagline": "Uma comunidade de fé em Saint-Hippolyte-du-Fort, enraizada na tradição reformada.",
     "quickLinks": "Links rápidos",
     "contactUs": "Contato",
     "stayConnected": "Fique conectado",
@@ -292,6 +302,6 @@
     "email": "E-mail",
     "followUs": "Siga-nos",
     "copyright": "Todos os direitos reservados.",
-    "madeIn": "Feito com fé nas Cévennes"
+    "madeIn": "Feito com fé em Saint-Hippolyte-du-Fort"
   }
 }

@@ -17,7 +17,6 @@
   },
   "navigation": {
     "home": "Accueil",
-    "home": "Accueil",
     "about": "À propos",
     "sermons": "Prédications",
     "events": "Événements",
@@ -29,13 +28,13 @@
   "homepage": {
     "hero": {
       "title": "Bienvenue à l'Église Réformée Évangélique La Chapelle",
-      "subtitle": "Une communauté de foi dans les Cévennes",
+      "subtitle": "Une communauté de foi à Saint-Hippolyte-du-Fort",
       "cta": "Nous découvrir"
     },
     "gathering": {
       "label": "Notre église",
       "title": "Rejoignez-nous",
-      "subtitle": "Une communauté de foi au cœur des Cévennes",
+      "subtitle": "Une communauté de foi à Saint-Hippolyte-du-Fort",
       "churchName": "Église Réformée Évangélique de La Chapelle",
       "addressLabel": "Adresse",
       "scheduleLabel": "Culte",
@@ -72,10 +71,12 @@
       "label": "Communauté",
       "title": "Vie communautaire",
       "cta": "Rejoindre un groupe",
-      "bibleStudyLabel": "Étude & fellowship",
+      "bibleStudyLabel": "Étude & communion",
       "bibleStudyTitle": "Étude biblique",
       "prayerGroupLabel": "Vie de prière",
-      "prayerGroupTitle": "Groupe de prière"
+      "prayerGroupTitle": "Groupe de prière",
+      "sundayServiceLabel": "Dimanches à 10h",
+      "sundayServiceTitle": "Cultes du dimanche"
     },
     "faith": {
       "statement": "Nous croyons en un seul Dieu, Père, Fils et Saint-Esprit, et nous proclamons Jésus-Christ comme Seigneur et Sauveur. Enracinés dans la tradition réformée, nous vivons par la grâce, guidés par l'Écriture.",
@@ -185,17 +186,17 @@
     }
   },
   "about": {
-    "title": "À propos",
+    "title": "Notre église",
     "heroQuote": "Veillons les uns sur les autres pour nous inciter à l'amour et aux bonnes œuvres. N'abandonnons pas notre assemblée.",
     "heroQuoteRef": "Hébreux 10:24-25",
-    "heroSubtitle": "Une communauté de foi au cœur des Cévennes",
+    "heroSubtitle": "Une communauté de foi à Saint-Hippolyte-du-Fort",
     "mission": "Notre mission",
-    "missionText": "L'Église Réformée Évangélique La Chapelle est une communauté chrétienne engagée à servir les habitants des Cévennes. Notre mission est d'accueillir chacun, de partager l'amour de Dieu et de construire une communauté fondée sur la foi, l'espérance et la charité.",
+    "missionText": "L'Église Réformée Évangélique La Chapelle est une communauté chrétienne engagée à servir les habitants de Saint-Hippolyte-du-Fort. Notre mission est d'accueillir chacun, de partager l'amour de Dieu et de construire une communauté fondée sur la foi, l'espérance et la charité.",
     "vision": "Notre vision",
-    "visionText": "Nous aspirons à être un lieu de refuge et de renouveau spirituel dans les Cévennes, où chaque personne peut découvrir sa place dans la famille de Dieu, grandir dans la foi et servir les autres avec amour.",
+    "visionText": "Nous aspirons à être un lieu de refuge et de renouveau spirituel à Saint-Hippolyte-du-Fort, où chaque personne peut découvrir sa place dans la famille de Dieu, grandir dans la foi et servir les autres avec amour.",
     "history": "Notre histoire",
     "historySubtitle": "Une histoire écrite par la foi",
-    "historyText": "Née d'une vision de rassembler les croyants dans la région des Cévennes, notre église s'est implantée à Saint-Hippolyte-du-Fort. Depuis nos débuts, nous avons grandi en tant que communauté multiculturelle et multilingue, accueillant des personnes de tous horizons.",
+    "historyText": "Née d'une vision de rassembler les croyants, notre église s'est implantée à Saint-Hippolyte-du-Fort. Depuis nos débuts, nous avons grandi en tant que communauté multiculturelle et multilingue, accueillant des personnes de tous horizons.",
     "faith": "Déclaration de foi",
     "faithSubtitle": "Les fondements de notre croyance",
     "faithItems": {
@@ -258,8 +259,10 @@
   "contact": {
     "title": "Contact",
     "subtitle": "Nous contacter",
+    "heroDescription": "Nous serions ravis de vous entendre. N'hésitez pas à nous contacter pour toute question, demande de prière ou simplement pour dire bonjour.",
     "sendMessage": "Envoyez-nous un message",
     "ourLocations": "Nos lieux de culte",
+    "directions": "Itinéraire",
     "address": "Adresse",
     "phone": "Téléphone",
     "email": "Email",
@@ -270,8 +273,14 @@
       "subject": "Sujet",
       "message": "Message",
       "send": "Envoyer le message",
-      "success": "Votre message a été envoyé avec succès !",
+      "successTitle": "Message envoyé !",
+      "success": "Merci pour votre message. Nous vous répondrons dans les meilleurs délais.",
       "error": "Erreur lors de l'envoi. Veuillez réessayer."
+    },
+    "cta": {
+      "title": "Venez nous rendre visite",
+      "subtitle": "Rejoignez-nous chaque dimanche à 10h30 et découvrez une communauté qui vous accueille à bras ouverts.",
+      "button": "Voir nos événements"
     }
   },
   "newsletter": {
@@ -281,7 +290,7 @@
     "success": "Inscription confirmée !"
   },
   "footer": {
-    "tagline": "Une communauté de foi au cœur des Cévennes, enracinée dans la tradition réformée.",
+    "tagline": "Une communauté de foi à Saint-Hippolyte-du-Fort, enracinée dans la tradition réformée.",
     "quickLinks": "Liens rapides",
     "contactUs": "Contact",
     "stayConnected": "Restez connecté",
@@ -292,6 +301,6 @@
     "email": "E-mail",
     "followUs": "Suivez-nous",
     "copyright": "Tous droits réservés.",
-    "madeIn": "Fait avec foi dans les Cévennes"
+    "madeIn": "Fait avec foi à Saint-Hippolyte-du-Fort"
   }
 }
