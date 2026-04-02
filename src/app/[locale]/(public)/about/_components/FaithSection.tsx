@@ -7,7 +7,7 @@ export async function FaithSection() {
   const t = await getTranslations("about");
 
   return (
-    <section className="bg-carbon-black py-20 md:py-28">
+    <section className="bg-carbon-black py-28 md:py-40">
       <div className="mx-auto max-w-3xl px-6">
         {/* Header */}
         <div className="text-center">
@@ -21,7 +21,7 @@ export async function FaithSection() {
         </div>
 
         {/* 2×2 faith grid */}
-        <div className="mt-14 grid gap-8 sm:grid-cols-2">
+        <div className="mt-16 grid gap-10 sm:grid-cols-2 md:mt-20 md:gap-14">
           {FAITH_KEYS.map((key, index) => (
             <div key={key} className="text-center sm:text-left">
               <p className="font-serif text-3xl font-bold text-toffee-brown/20">

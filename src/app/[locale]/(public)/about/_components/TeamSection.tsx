@@ -24,8 +24,14 @@ export async function TeamSection() {
           {t("subtitle")}
         </p>
 
-        {/* Team cards — side by side grid */}
-        <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {/* Team cards — centered single or grid for multiple */}
+        <div
+          className={
+            team.length === 1
+              ? "mt-14 mx-auto max-w-sm"
+              : "mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+          }
+        >
           {team.map((member, index) => {
             return (
               <PeekRectangle key={member._id} color={"dark"} position={'bottom-right'}>
