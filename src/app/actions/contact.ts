@@ -1,6 +1,7 @@
 "use server";
 
 import { contactSchema } from "@/lib/validations/contact.schema";
+import { sendContactEmail } from "@/lib/integrations/email";
 
 export type ContactResult = {
   success: boolean;
@@ -28,6 +29,11 @@ export async function submitContactForm(
     return { success: false, message: parsed.error.issues[0].message };
   }
 
-  // Phase 1: Static — just simulate success
+  const result = await sendContactEmail(parsed.data);
+
+  if (!result.success) {
+    return { success: false, message: "error" };
+  }
+
   return { success: true, message: "success" };
 }
