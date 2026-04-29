@@ -99,75 +99,75 @@
     @apply bg-background text-foreground;
   }
 
-  /* Typographic Scale (1.25 ratio) - Mobile First */
+  /* Typographic Scale (1.25 ratio) - Mobile First | Base: 18px */
   p {
-    font-size: 1rem;
+    font-size: 1.125rem;
     line-height: 1.5;
     font-family: var(--font-sans);
     font-weight: 400;
   }
 
   h6 {
-    font-size: 1.125rem;
+    font-size: 1.266rem;
     letter-spacing: -0.005em;
     line-height: 1.45;
 
   }
 
   h5 {
-    font-size: 1.25rem;
+    font-size: 1.406rem;
     letter-spacing: -0.0075em;
     line-height: 1.4;
   }
 
   h4 {
-    font-size: 1.5rem;
+    font-size: 1.688rem;
     letter-spacing: -0.01em;
     line-height: 1.3;
   }
 
   h3 {
-    font-size: 1.75rem;
+    font-size: 1.969rem;
     letter-spacing: -0.015em;
     line-height: 1.2;
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: 2.25rem;
     letter-spacing: -0.0175em;
     line-height: 1.1;
   }
 
   h1 {
-    font-size: 2.5rem;
+    font-size: 2.813rem;
     letter-spacing: -0.02em;
     line-height: 1.0;
   }
 
-  /* Desktop typography scale */
+  /* Desktop typography scale | Base: 18px, ratio: 1.25 */
   @media (min-width: 768px) {
     h6 {
-      font-size: 1.25rem;
+      font-size: 1.406rem;
     }
 
     h5 {
-      font-size: 1.563rem;
+      font-size: 1.758rem;
     }
 
     h4 {
-      font-size: 1.953rem;
+      font-size: 2.197rem;
     }
 
     h3 {
-      font-size: 2.441rem;
+      font-size: 2.747rem;
     }
 
     h2 {
-      font-size: 3.052rem;
+      font-size: 3.433rem;
     }
 
     h1 {
-      font-size: 3.815rem;
+      font-size: 4.292rem;
     }
   }
 }
