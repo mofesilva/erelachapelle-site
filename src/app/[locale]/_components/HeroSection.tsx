@@ -31,13 +31,13 @@ export async function HeroSection() {
                     <CrossDivider className="mb-2 md:mb-8 justify-center md:justify-start" />
                     <h1
                         id="hero-title"
-                        className="font-serif font-bold text-white mx-auto md:mx-0 max-w-full md:max-w-[61.8%] leading-[1.25] tracking-wide "
+                        className="font-serif font-bold text-white mx-auto md:mx-0 max-w-full md:max-w-[61.8%] "
                     >
                         {t("title")}
                     </h1>
-                    <p className="mt-2 md:mt-6 text-white/85 font-light tracking-wide mx-auto md:mx-0 max-w-full md:max-w-[50%]">
+                    <h6 className="mt-2 md:mt-6 text-white/85 tracking-wide mx-auto md:mx-0 max-w-full md:max-w-[50%]">
                         {t("subtitle")}
-                    </p>
+                    </h6>
                     <div className="mt-5 md:mt-10">
                         <SplitButton href={`/${locale}/about`}>
                             {t("cta")}
