@@ -4,7 +4,7 @@ export const DEFAULT_LOCALE: Locale = "fr";
 
 export const SITE_CONFIG = {
   name: "Église Réformée Évangélique La Chapelle",
-  description: "Igreja Cévennes - Communauté chrétienne",
+  description: "Rassemblés autour de la Parole de Dieu",
   url: "https://erelachapelle.org",
   locations: ["Saint-Hippolyte"] as const,
   socialMedia: {
