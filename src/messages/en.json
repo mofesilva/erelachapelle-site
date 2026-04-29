@@ -29,13 +29,13 @@
   "homepage": {
     "hero": {
       "title": "Welcome to the Reformed Evangelical Church La Chapelle",
-      "subtitle": "A community of faith in the Cévennes",
+      "subtitle": "Gathered around the Word",
       "cta": "Discover us"
     },
     "gathering": {
       "label": "Our church",
       "title": "Join us",
-      "subtitle": "A faith community in the heart of the Cévennes",
+      "subtitle": "Gathered around the Word",
       "churchName": "Evangelical Reformed Church of La Chapelle",
       "addressLabel": "Address",
       "scheduleLabel": "Worship service",
@@ -75,7 +75,9 @@
       "bibleStudyLabel": "Study & fellowship",
       "bibleStudyTitle": "Bible study",
       "prayerGroupLabel": "Prayer life",
-      "prayerGroupTitle": "Prayer group"
+      "prayerGroupTitle": "Prayer group",
+      "insideChurchLabel": "Worship",
+      "insideChurchTitle": "Sunday worship"
     },
     "faith": {
       "statement": "We believe in one God, Father, Son and Holy Spirit, and we proclaim Jesus Christ as Lord and Savior. Rooted in the Reformed tradition, we live by grace, guided by Scripture.",
@@ -186,16 +188,61 @@
   },
   "about": {
     "title": "About",
-    "heroQuote": "Let us consider how to spur one another on toward love and good deeds, not giving up meeting together.",
-    "heroQuoteRef": "Hebrews 10:24-25",
-    "heroSubtitle": "A community of faith in the heart of the Cévennes",
+    "heroQuote": "A community that seeks God together, shares His love, and lives this truth every day.",
+    "heroSubtitle": "Gathered around the Word",
     "mission": "Our mission",
-    "missionText": "The Reformed Evangelical Church La Chapelle is a Christian community committed to serving the people of the Cévennes. Our mission is to welcome everyone, share God's love, and build a community founded on faith, hope, and charity.",
-    "vision": "Our vision",
-    "visionText": "We aspire to be a place of refuge and spiritual renewal in the Cévennes, where every person can discover their place in God's family, grow in faith, and serve others with love.",
-    "history": "Our history",
-    "historySubtitle": "A story written by faith",
-    "historyText": "Born from a vision to gather believers in the Cévennes region, our church established itself in Saint-Hippolyte-du-Fort. Since our beginnings, we have grown as a multicultural and multilingual community, welcoming people from all walks of life.",
+    "missionText": "Our mission is to proclaim the Gospel of Jesus Christ, fostering spiritual and social transformation through the Word of God. We seek to live and share the love of Christ, forming committed disciples who positively impact the community in which we are rooted.",
+    "missionCommitments": [
+      {
+        "title": "Proclaim the Gospel",
+        "description": "Faithfully sharing the Good News in every context and opportunity."
+      },
+      {
+        "title": "Life of Prayer",
+        "description": "Cultivating a daily life of prayer and dependence on God alone."
+      },
+      {
+        "title": "Authentic Fellowship",
+        "description": "Promoting a warm, authentic, and welcoming community for all."
+      },
+      {
+        "title": "Form Leaders",
+        "description": "Identifying and equipping prepared and committed leaders for ministry."
+      },
+      {
+        "title": "Mercy & Justice",
+        "description": "Serving through concrete acts of compassion, mercy, and justice."
+      },
+      {
+        "title": "All Generations",
+        "description": "Reaching and valuing children, youth, adults, and the elderly."
+      }
+    ],
+    "missionClosing": "Join us in this mission of bringing hope and the abundant life that only Christ can offer.",
+    "whoWeAre": "Who are we?",
+    "whoWeAreText": "The history of the Reformed Evangelical Church (ERE) La Chapelle in Saint-Hippolyte-du-Fort is closely tied to the rich Protestant tradition of the Cévennes, a region marked by centuries of reformed faith and religious resistance.",
+    "origins": "Origins and development",
+    "originsText": "Born from the desire to maintain a distinct reformed evangelical identity, the community is today established on the Boulevard des Remparts in Saint-Hippolyte-du-Fort and affiliated with UNEPREF (National Union of Reformed Evangelical Protestant Churches of France). The responsible pastors are Paulo Sicoli (associate pastor) and Nicolas Thébault (interim pastor).",
+    "originsDates": [
+      {
+        "year": "1877",
+        "label": "First records of the ERE in Saint-Hippolyte-du-Fort"
+      },
+      {
+        "year": "1905",
+        "label": "Separation of Church and State in France — reorganization of French Protestantism"
+      },
+      {
+        "year": "1931",
+        "label": "Inauguration of the current temple on Boulevard des Remparts"
+      }
+    ],
+    "localContext": "Local context: a Protestant town",
+    "localContextText": "Saint-Hippolyte-du-Fort is known for its rich Protestant heritage. In the 17th century, the town was predominantly Huguenot, with approximately 98% of its population adhering to the Reformed faith. After the revocation of the Edict of Nantes in 1685, the original temple was destroyed and a fort was built to contain the local Protestants. In addition to ERE La Chapelle, the town is home to the Grand Temple, built between 1820 and 1822. It is one of the largest Protestant temples in France, characterized by its neoclassical architecture and impressive organ dating from 1854.",
+    "localContextHighlight": "Huguenot in the 17th century",
+    "communityLife": "Current community life",
+    "communityLifeText": "ERE La Chapelle holds services every Sunday at 10am, in French. The church is active in the spiritual and community life of the region, offering times of prayer, worship, and Bible study.",
+    "communityLifeSchedule": "Every Sunday at 10am",
     "faith": "Statement of faith",
     "faithSubtitle": "The foundations of our belief",
     "faithItems": {
@@ -218,40 +265,43 @@
     },
     "values": "Our values",
     "valuesSubtitle": "The principles that guide our community",
+    "valuesClosing": "Join us to live together in the hope and love that Jesus Christ offers us!",
     "valuesItems": {
-      "welcome": {
-        "title": "Unconditional Welcome",
-        "description": "We open our doors to everyone, without distinction, because every person is precious in God's eyes."
+      "word": {
+        "title": "The Word of God",
+        "description": "We believe the Bible is the Word of God and want to follow its teachings in our daily lives."
       },
-      "authenticity": {
-        "title": "Authenticity",
-        "description": "We cultivate honest and transparent relationships, grounded in truth and mutual respect."
+      "growth": {
+        "title": "Spiritual Growth",
+        "description": "We desire to grow each day in our faith and draw closer to Jesus."
+      },
+      "witness": {
+        "title": "Witness",
+        "description": "We want to share the love of Jesus around us with joy and simplicity."
+      },
+      "community": {
+        "title": "Community",
+        "description": "We believe in the importance of a united community, where each person uses their gifts to help others."
       },
       "service": {
         "title": "Service",
-        "description": "We serve one another and our community with generosity, following Christ's example of humility."
+        "description": "We are committed to serving others with generosity and justice."
       },
-      "prayer": {
-        "title": "Prayer",
-        "description": "Prayer is the heartbeat of our community, the foundation upon which everything else is built."
-      },
-      "teaching": {
-        "title": "Biblical Teaching",
-        "description": "We are committed to faithful, relevant teaching of Scripture that transforms hearts and minds."
-      },
-      "fellowship": {
-        "title": "Fellowship",
-        "description": "We nurture deep bonds of brotherhood, sharing joys and burdens as one family in Christ."
+      "unity": {
+        "title": "Unity",
+        "description": "We respect each person's differences while seeking to live together in unity."
       }
     },
     "team": {
       "label": "Our team",
       "title": "Pastoral team",
-      "subtitle": "Servant leaders guiding our community with love and dedication"
+      "subtitle": "The pastor guiding our community with love and dedication",
+      "readMore": "Read full biography",
+      "backToTeam": "Back to the team"
     },
     "cta": {
       "title": "Come visit us",
-      "subtitle": "Join us every Sunday at 10:30 AM and discover a community that welcomes you with open arms.",
+      "subtitle": "Join us every Sunday at 10:00 AM and discover a community that welcomes you with open arms.",
       "button": "Plan your visit"
     }
   },
@@ -260,6 +310,8 @@
     "subtitle": "Get in touch",
     "sendMessage": "Send us a message",
     "ourLocations": "Our worship locations",
+    "findUs": "Find Us",
+    "sundayService": "Sunday Service",
     "address": "Address",
     "phone": "Phone",
     "email": "Email",
@@ -281,7 +333,7 @@
     "success": "Subscription confirmed!"
   },
   "footer": {
-    "tagline": "A community of faith in the heart of the Cévennes, rooted in the Reformed tradition.",
+    "tagline": "A church gathered around the Word, rooted in the Reformed tradition.",
     "quickLinks": "Quick Links",
     "contactUs": "Contact",
     "stayConnected": "Stay Connected",
@@ -292,6 +344,6 @@
     "email": "Email",
     "followUs": "Follow us",
     "copyright": "All rights reserved.",
-    "madeIn": "Made with faith in the Cévennes"
+    "madeIn": "Made with faith"
   }
 }
