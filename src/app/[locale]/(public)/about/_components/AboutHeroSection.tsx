@@ -15,10 +15,6 @@ export async function AboutHeroSection() {
           “{t("heroQuote")}”
         </blockquote>
 
-        <cite className="mt-4 block text-sm font-medium not-italic tracking-wide text-toffee-brown/80">
-          {t("heroQuoteRef")}
-        </cite>
-
         <p className="mx-auto mt-5 max-w-2xl leading-relaxed text-powder-petal/60">
           {t("heroSubtitle")}
         </p>
