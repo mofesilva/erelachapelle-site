@@ -9,9 +9,9 @@ export const BLOG_ARTICLES: BlogArticle[] = [
       en: "Looking Back at Our Spiritual Retreat",
     },
     excerpt: {
-      fr: "Un week-end ressourçant dans les montagnes des Cévennes, riche en partage et en communion fraternelle.",
-      pt: "Um fim de semana revigorante nas montanhas das Cévennes, rico em partilha e comunhão fraternal.",
-      en: "A refreshing weekend in the Cévennes mountains, rich in sharing and fellowship.",
+      fr: "Un week-end ressourçant, riche en partage et en communion fraternelle.",
+      pt: "Um fim de semana revigorante, rico em partilha e comunhão fraternal.",
+      en: "A refreshing weekend, rich in sharing and fellowship.",
     },
     content: {
       fr: "Notre retraite annuelle s'est déroulée dans un magnifique cadre naturel. Les participants ont pu se ressourcer spirituellement à travers des temps de prière, de louange et d'enseignement. Un moment fort de communion fraternelle qui a renforcé les liens de notre communauté.",
