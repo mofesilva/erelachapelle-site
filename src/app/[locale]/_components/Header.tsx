@@ -50,7 +50,7 @@ export function Header() {
     <>
       <header
         className={`fixed top-0 z-50 w-full ${ready ? "transition-all duration-300" : ""} ${scrolled
-          ? "bg-rich-mahogany"
+          ? "bg-rich-mahogany/90 backdrop-blur-sm"
           : "bg-transparent"
           }`}
       >
@@ -74,8 +74,8 @@ export function Header() {
             {navItems.map((item) => (
               <Link
                 key={item}
-                href={`/${locale}${item === "home" ? "" : `/${item === "community" ? "community/groups" : item}`}`}
-                className="text-sm font-medium text-white/80 transition-colors hover:text-white"
+                href={`/${locale}${item === "home" ? "" : `/${item}`}`}
+                className="text-lg font-medium text-white/80 transition-colors hover:text-white"
               >
                 {t(item)}
               </Link>
