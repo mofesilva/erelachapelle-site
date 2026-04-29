@@ -29,13 +29,13 @@
   "homepage": {
     "hero": {
       "title": "Bienvenue à l'Église Réformée Évangélique La Chapelle",
-      "subtitle": "Une communauté de foi dans les Cévennes",
+      "subtitle": "Rassemblés autour de la Parole",
       "cta": "Nous découvrir"
     },
     "gathering": {
       "label": "Notre église",
       "title": "Rejoignez-nous",
-      "subtitle": "Une communauté de foi au cœur des Cévennes",
+      "subtitle": "Rassemblés autour de la Parole",
       "churchName": "Église Réformée Évangélique de La Chapelle",
       "addressLabel": "Adresse",
       "scheduleLabel": "Culte",
@@ -75,7 +75,9 @@
       "bibleStudyLabel": "Étude & fellowship",
       "bibleStudyTitle": "Étude biblique",
       "prayerGroupLabel": "Vie de prière",
-      "prayerGroupTitle": "Groupe de prière"
+      "prayerGroupTitle": "Groupe de prière",
+      "insideChurchLabel": "Culte",
+      "insideChurchTitle": "Culte du dimanche"
     },
     "faith": {
       "statement": "Nous croyons en un seul Dieu, Père, Fils et Saint-Esprit, et nous proclamons Jésus-Christ comme Seigneur et Sauveur. Enracinés dans la tradition réformée, nous vivons par la grâce, guidés par l'Écriture.",
@@ -186,16 +188,61 @@
   },
   "about": {
     "title": "À propos",
-    "heroQuote": "Veillons les uns sur les autres pour nous inciter à l'amour et aux bonnes œuvres. N'abandonnons pas notre assemblée.",
-    "heroQuoteRef": "Hébreux 10:24-25",
-    "heroSubtitle": "Une communauté de foi au cœur des Cévennes",
+    "heroQuote": "Une communauté qui cherche Dieu ensemble, partage son amour et vit cette vérité au quotidien.",
+    "heroSubtitle": "Rassemblés autour de la Parole",
     "mission": "Notre mission",
-    "missionText": "L'Église Réformée Évangélique La Chapelle est une communauté chrétienne engagée à servir les habitants des Cévennes. Notre mission est d'accueillir chacun, de partager l'amour de Dieu et de construire une communauté fondée sur la foi, l'espérance et la charité.",
-    "vision": "Notre vision",
-    "visionText": "Nous aspirons à être un lieu de refuge et de renouveau spirituel dans les Cévennes, où chaque personne peut découvrir sa place dans la famille de Dieu, grandir dans la foi et servir les autres avec amour.",
-    "history": "Notre histoire",
-    "historySubtitle": "Une histoire écrite par la foi",
-    "historyText": "Née d'une vision de rassembler les croyants dans la région des Cévennes, notre église s'est implantée à Saint-Hippolyte-du-Fort. Depuis nos débuts, nous avons grandi en tant que communauté multiculturelle et multilingue, accueillant des personnes de tous horizons.",
+    "missionText": "Notre mission est de proclamer l'Évangile de Jésus-Christ, en favorisant une transformation spirituelle et sociale à travers la Parole de Dieu. Nous cherchons à vivre et à partager l'amour du Christ, en formant des disciples engagés qui impactent positivement la communauté dans laquelle nous sommes insérés.",
+    "missionCommitments": [
+      {
+        "title": "Annoncer l'Évangile",
+        "description": "Partager fidèlement la Bonne Nouvelle en toute occasion et en tout lieu."
+      },
+      {
+        "title": "Vie de prière",
+        "description": "Cultiver une vie quotidienne de prière et de dépendance envers Dieu seul."
+      },
+      {
+        "title": "Communion authentique",
+        "description": "Favoriser une communauté chaleureuse, authentique et accueillante pour tous."
+      },
+      {
+        "title": "Former des leaders",
+        "description": "Identifier et équiper des leaders préparés et engagés pour le service."
+      },
+      {
+        "title": "Miséricorde & Justice",
+        "description": "Servir par des actions concrètes de compassion, de miséricorde et de justice."
+      },
+      {
+        "title": "Toutes les générations",
+        "description": "Atteindre et valoriser les enfants, les jeunes, les adultes et les personnes âgées."
+      }
+    ],
+    "missionClosing": "Rejoins-nous dans cette mission d'apporter l'espérance et la vie abondante que seul le Christ peut offrir.",
+    "whoWeAre": "Qui sommes nous ?",
+    "whoWeAreText": "L'histoire de l'Église Réformée Évangélique (ERE) La Chapelle à Saint-Hippolyte-du-Fort est étroitement liée à la riche tradition protestante des Cévennes, région marquée par des siècles de foi réformée et de résistance religieuse.",
+    "origins": "Origines et développement",
+    "originsText": "Née du désir de maintenir une identité réformée évangélique distincte, la communauté est aujourd'hui établie sur le Boulevard des Remparts à Saint-Hippolyte-du-Fort et affiliée à l'UNEPREF (Union nationale des Églises protestantes réformées évangéliques de France). Les pasteurs responsables sont Paulo Sicoli (pasteur associé) et Nicolas Thébault (pasteur intérimaire).",
+    "originsDates": [
+      {
+        "year": "1877",
+        "label": "Premiers registres de l'ERE à Saint-Hippolyte-du-Fort"
+      },
+      {
+        "year": "1905",
+        "label": "Séparation de l'Église et de l'État en France — réorganisation du protestantisme français"
+      },
+      {
+        "year": "1931",
+        "label": "Inauguration du temple actuel sur le Boulevard des Remparts"
+      }
+    ],
+    "localContext": "Contexte local : une ville protestante",
+    "localContextText": "Saint-Hippolyte-du-Fort est connue pour son riche héritage protestant. Au XVIIe siècle, la ville était majoritairement huguenote, avec environ 98 % de sa population adhérant à la foi réformée. Après la révocation de l'Édit de Nantes en 1685, le temple originel a été détruit et un fort a été construit pour contenir les protestants locaux. Outre l'ERE La Chapelle, la ville abrite le Grand Temple, construit entre 1820 et 1822. C'est l'un des plus grands temples protestants de France, caractérisé par son architecture néoclassique et son impressionnant orgue datant de 1854.",
+    "localContextHighlight": "huguenote au XVIIe siècle",
+    "communityLife": "Vie communautaire actuelle",
+    "communityLifeText": "L'ERE La Chapelle organise des cultes chaque dimanche à 10h, en français. L'église est active dans la vie spirituelle et communautaire de la région, proposant des moments de prière, de louange et d'études bibliques.",
+    "communityLifeSchedule": "Chaque dimanche à 10h",
     "faith": "Déclaration de foi",
     "faithSubtitle": "Les fondements de notre croyance",
     "faithItems": {
@@ -218,40 +265,43 @@
     },
     "values": "Nos valeurs",
     "valuesSubtitle": "Les principes qui guident notre communauté",
+    "valuesClosing": "Rejoins-nous pour vivre ensemble l'espérance et l'amour que Jésus-Christ nous offre !",
     "valuesItems": {
-      "welcome": {
-        "title": "Accueil inconditionnel",
-        "description": "Nous ouvrons nos portes à tous, sans distinction, car chaque personne est précieuse aux yeux de Dieu."
+      "word": {
+        "title": "La Parole de Dieu",
+        "description": "Nous croyons que la Bible est la Parole de Dieu et voulons suivre ses enseignements dans notre quotidien."
       },
-      "authenticity": {
-        "title": "Authenticité",
-        "description": "Nous cultivons des relations honnêtes et transparentes, fondées sur la vérité et le respect mutuel."
+      "growth": {
+        "title": "Croissance spirituelle",
+        "description": "Nous souhaitons grandir chaque jour dans notre foi et être proches de Jésus."
+      },
+      "witness": {
+        "title": "Témoignage",
+        "description": "Nous voulons partager l'amour de Jésus autour de nous avec joie et simplicité."
+      },
+      "community": {
+        "title": "Communauté",
+        "description": "Nous croyons en l'importance d'une communauté unie, où chacun utilise ses dons pour aider les autres."
       },
       "service": {
         "title": "Service",
-        "description": "Nous servons les uns les autres et notre communauté avec générosité, suivant l'exemple d'humilité du Christ."
+        "description": "Nous nous engageons à servir les autres avec générosité et justice."
       },
-      "prayer": {
-        "title": "Prière",
-        "description": "La prière est le cœur battant de notre communauté, le fondement sur lequel tout le reste est bâti."
-      },
-      "teaching": {
-        "title": "Enseignement biblique",
-        "description": "Nous nous engageons à un enseignement fidèle et pertinent des Écritures qui transforme les cœurs et les esprits."
-      },
-      "fellowship": {
-        "title": "Communion fraternelle",
-        "description": "Nous nourrissons des liens profonds de fraternité, partageant joies et fardeaux comme une seule famille en Christ."
+      "unity": {
+        "title": "Unité",
+        "description": "Nous respectons les différences de chacun tout en cherchant à vivre ensemble dans l'unité."
       }
     },
     "team": {
       "label": "Notre équipe",
       "title": "L'équipe pastorale",
-      "subtitle": "Des serviteurs dévoués qui guident notre communauté avec amour et dévouement"
+      "subtitle": "Le pasteur qui guide notre communauté avec amour et dévouement",
+      "readMore": "Lire la biographie complète",
+      "backToTeam": "Retour à l'équipe"
     },
     "cta": {
       "title": "Venez nous rendre visite",
-      "subtitle": "Rejoignez-nous chaque dimanche à 10h30 et découvrez une communauté qui vous accueille à bras ouverts.",
+      "subtitle": "Rejoignez-nous chaque dimanche à 10h00 et découvrez une communauté qui vous accueille à bras ouverts.",
       "button": "Planifier votre visite"
     }
   },
@@ -260,6 +310,8 @@
     "subtitle": "Nous contacter",
     "sendMessage": "Envoyez-nous un message",
     "ourLocations": "Nos lieux de culte",
+    "findUs": "Nous trouver",
+    "sundayService": "Culte du Dimanche",
     "address": "Adresse",
     "phone": "Téléphone",
     "email": "Email",
@@ -281,7 +333,7 @@
     "success": "Inscription confirmée !"
   },
   "footer": {
-    "tagline": "Une communauté de foi au cœur des Cévennes, enracinée dans la tradition réformée.",
+    "tagline": "Une église rassemblée autour de la Parole, enracinée dans la tradition réformée.",
     "quickLinks": "Liens rapides",
     "contactUs": "Contact",
     "stayConnected": "Restez connecté",
@@ -292,6 +344,6 @@
     "email": "E-mail",
     "followUs": "Suivez-nous",
     "copyright": "Tous droits réservés.",
-    "madeIn": "Fait avec foi dans les Cévennes"
+    "madeIn": "Fait avec foi"
   }
 }
