@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { AboutHeroSection } from "./_components/AboutHeroSection";
 import { MissionVisionSection } from "./_components/MissionVisionSection";
-import { HistorySection } from "./_components/HistorySection";
+import { ChurchOriginsSection } from "./_components/ChurchOriginsSection";
+import { LocalContextSection } from "./_components/LocalContextSection";
+import { CommunityLifeSection } from "./_components/CommunityLifeSection";
 import { ValuesSection } from "./_components/ValuesSection";
 import { FaithSection } from "./_components/FaithSection";
 import { TeamSection } from "./_components/TeamSection";
@@ -21,7 +23,8 @@ export default async function AboutPage() {
     <main>
       <AboutHeroSection />
       <MissionVisionSection />
-      <HistorySection />
+      <ChurchOriginsSection />
+      <LocalContextSection />
       <ValuesSection />
       <FaithSection />
       <TeamSection />
