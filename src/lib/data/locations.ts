@@ -10,9 +10,9 @@ export const LOCATIONS: Location[] = [
     country: "France",
     coordinates: { lat: 43.9622486, lng: 3.8569039 },
     worshipSchedule: {
-      fr: "Dimanche 10h30",
-      pt: "Domingo 10h30",
-      en: "Sunday 10:30 AM",
+      fr: "Dimanche 10h00",
+      pt: "Domingo 10h00",
+      en: "Sunday 10:00 AM",
     },
     contactEmail: "erelachapelle@orange.fr",
     contactPhone: "04 66 77 20 58",
