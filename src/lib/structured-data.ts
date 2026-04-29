@@ -14,7 +14,7 @@ export function churchJsonLd(locations: Location[]) {
     name: "Église Réformée Évangélique La Chapelle",
     url: BASE_URL,
     description:
-      "Communauté de foi chrétienne protestante dans les Cévennes, France",
+      "Communauté chrétienne rassemblée autour de la prédication de la Parole de Dieu",
     address: mainLocation
       ? {
         "@type": "PostalAddress",
