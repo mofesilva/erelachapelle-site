@@ -29,13 +29,13 @@
   "homepage": {
     "hero": {
       "title": "Bem-vindo à Igreja Reformada Evangélica La Chapelle",
-      "subtitle": "Uma comunidade de fé nas Cévennes",
+      "subtitle": "Unidos em torno da Palavra",
       "cta": "Conheça-nos"
     },
     "gathering": {
       "label": "Nossa igreja",
       "title": "Junte-se a nós",
-      "subtitle": "Uma comunidade de fé no coração das Cévennes",
+      "subtitle": "Unidos em torno da Palavra",
       "churchName": "Igreja Reformada Evangélica de La Chapelle",
       "addressLabel": "Endereço",
       "scheduleLabel": "Culto",
@@ -75,7 +75,9 @@
       "bibleStudyLabel": "Estudo & comunhão",
       "bibleStudyTitle": "Estudo bíblico",
       "prayerGroupLabel": "Vida de oração",
-      "prayerGroupTitle": "Grupo de oração"
+      "prayerGroupTitle": "Grupo de oração",
+      "insideChurchLabel": "Culto",
+      "insideChurchTitle": "Culto dominical"
     },
     "faith": {
       "statement": "Cremos em um só Deus, Pai, Filho e Espírito Santo, e proclamamos Jesus Cristo como Senhor e Salvador. Enraizados na tradição reformada, vivemos pela graça, guiados pelas Escrituras.",
@@ -186,16 +188,61 @@
   },
   "about": {
     "title": "Sobre",
-    "heroQuote": "Consideremos como estimular uns aos outros ao amor e às boas obras. Não deixemos de nos reunir como igreja.",
-    "heroQuoteRef": "Hebreus 10:24-25",
-    "heroSubtitle": "Uma comunidade de fé no coração das Cévennes",
+    "heroQuote": "Uma comunidade que busca a Deus juntos, compartilha o Seu amor e vive esta verdade no dia a dia.",
+    "heroSubtitle": "Unidos em torno da Palavra",
     "mission": "Nossa missão",
-    "missionText": "A Igreja Reformada Evangélica La Chapelle é uma comunidade cristã comprometida em servir os habitantes das Cévennes. Nossa missão é acolher cada pessoa, compartilhar o amor de Deus e construir uma comunidade fundada na fé, na esperança e no amor.",
-    "vision": "Nossa visão",
-    "visionText": "Aspiramos ser um lugar de refúgio e renovação espiritual nas Cévennes, onde cada pessoa pode descobrir seu lugar na família de Deus, crescer na fé e servir os outros com amor.",
-    "history": "Nossa história",
-    "historySubtitle": "Uma história escrita pela fé",
-    "historyText": "Nascida da visão de reunir crentes na região das Cévennes, nossa igreja se estabeleceu em Saint-Hippolyte-du-Fort. Desde o início, crescemos como uma comunidade multicultural e multilíngue, acolhendo pessoas de todas as origens.",
+    "missionText": "Nossa missão é proclamar o Evangelho de Jesus Cristo, promovendo uma transformação espiritual e social através da Palavra de Deus. Buscamos viver e compartilhar o amor de Cristo, formando discípulos comprometidos que impactam positivamente a comunidade em que estamos inseridos.",
+    "missionCommitments": [
+      {
+        "title": "Proclamar o Evangelho",
+        "description": "Anunciando fielmente as Boas Novas em cada contexto e oportunidade."
+      },
+      {
+        "title": "Vida de Oração",
+        "description": "Cultivando uma vida diária de oração e dependência de Deus."
+      },
+      {
+        "title": "Comunhão Autêntica",
+        "description": "Promovendo uma comunidade calorosa, autêntica e acolhedora para todos."
+      },
+      {
+        "title": "Formar Líderes",
+        "description": "Identificando e equipando líderes preparados e comprometidos para o ministério."
+      },
+      {
+        "title": "Misericórdia & Justiça",
+        "description": "Servindo por meio de ações concretas de compaixão, misericórdia e justiça."
+      },
+      {
+        "title": "Todas as Gerações",
+        "description": "Alcançando e valorizando crianças, jovens, adultos e idosos."
+      }
+    ],
+    "missionClosing": "Junte-se a nós nesta missão de trazer esperança e a vida abundante que somente Cristo pode oferecer.",
+    "whoWeAre": "Quem somos nós?",
+    "whoWeAreText": "A história da Igreja Reformada Evangélica (ERE) La Chapelle em Saint-Hippolyte-du-Fort está intimamente ligada à rica tradição protestante das Cévennes, região marcada por séculos de fé reformada e resistência religiosa.",
+    "origins": "Origens e desenvolvimento",
+    "originsText": "Nascida do desejo de manter uma identidade reformada evangélica distinta, a comunidade está hoje estabelecida no Boulevard des Remparts em Saint-Hippolyte-du-Fort e filiada à UNEPREF (União Nacional das Igrejas Protestantes Reformadas Evangélicas da França). Os pastores responsáveis são Paulo Sicoli (pastor associado) e Nicolas Thébault (pastor interino).",
+    "originsDates": [
+      {
+        "year": "1877",
+        "label": "Primeiros registros da ERE em Saint-Hippolyte-du-Fort"
+      },
+      {
+        "year": "1905",
+        "label": "Separação entre Igreja e Estado na França — reorganização do protestantismo francês"
+      },
+      {
+        "year": "1931",
+        "label": "Inauguração do templo atual no Boulevard des Remparts"
+      }
+    ],
+    "localContext": "Contexto local: uma cidade protestante",
+    "localContextText": "Saint-Hippolyte-du-Fort é conhecida por seu rico patrimônio protestante. No século XVII, a cidade era predominantemente huguenote, com cerca de 98% de sua população aderindo à fé reformada. Após a revogação do Édito de Nantes em 1685, o templo original foi destruído e um forte foi construído para conter os protestantes locais. Além da ERE La Chapelle, a cidade abriga o Grand Temple, construído entre 1820 e 1822. É um dos maiores templos protestantes da França, caracterizado por sua arquitetura neoclássica e seu impressionante órgão datado de 1854.",
+    "localContextHighlight": "huguenote no século XVII",
+    "communityLife": "Vida comunitária atual",
+    "communityLifeText": "A ERE La Chapelle realiza cultos todo domingo às 10h, em francês. A igreja é ativa na vida espiritual e comunitária da região, oferecendo momentos de oração, louvor e estudos bíblicos.",
+    "communityLifeSchedule": "Todo domingo às 10h",
     "faith": "Declaração de fé",
     "faithSubtitle": "Os fundamentos da nossa crença",
     "faithItems": {
@@ -218,40 +265,43 @@
     },
     "values": "Nossos valores",
     "valuesSubtitle": "Os princípios que guiam nossa comunidade",
+    "valuesClosing": "Junte-se a nós para viver juntos a esperança e o amor que Jesus Cristo nos oferece!",
     "valuesItems": {
-      "welcome": {
-        "title": "Acolhimento incondicional",
-        "description": "Abrimos nossas portas a todos, sem distinção, pois cada pessoa é preciosa aos olhos de Deus."
+      "word": {
+        "title": "A Palavra de Deus",
+        "description": "Cremos que a Bíblia é a Palavra de Deus e queremos seguir seus ensinamentos no nosso cotidiano."
       },
-      "authenticity": {
-        "title": "Autenticidade",
-        "description": "Cultivamos relações honestas e transparentes, fundamentadas na verdade e no respeito mútuo."
+      "growth": {
+        "title": "Crescimento espiritual",
+        "description": "Desejamos crescer cada dia na nossa fé e estar próximos de Jesus."
+      },
+      "witness": {
+        "title": "Testemunho",
+        "description": "Queremos compartilhar o amor de Jesus ao nosso redor com alegria e simplicidade."
+      },
+      "community": {
+        "title": "Comunidade",
+        "description": "Cremos na importância de uma comunidade unida, onde cada um usa seus dons para ajudar os outros."
       },
       "service": {
         "title": "Serviço",
-        "description": "Servimos uns aos outros e nossa comunidade com generosidade, seguindo o exemplo de humildade de Cristo."
+        "description": "Comprometemo-nos a servir os outros com generosidade e justiça."
       },
-      "prayer": {
-        "title": "Oração",
-        "description": "A oração é o coração pulsante da nossa comunidade, o alicerce sobre o qual tudo o mais é construído."
-      },
-      "teaching": {
-        "title": "Ensino bíblico",
-        "description": "Estamos comprometidos com o ensino fiel e relevante das Escrituras que transforma corações e mentes."
-      },
-      "fellowship": {
-        "title": "Comunhão fraterna",
-        "description": "Nutrimos laços profundos de fraternidade, partilhando alegrias e fardos como uma só família em Cristo."
+      "unity": {
+        "title": "Unidade",
+        "description": "Respeitamos as diferenças de cada um, buscando viver juntos na unidade."
       }
     },
     "team": {
       "label": "Nossa equipe",
       "title": "Equipe pastoral",
-      "subtitle": "Líderes servos que guiam nossa comunidade com amor e dedicação"
+      "subtitle": "O pastor que guia nossa comunidade com amor e dedicação",
+      "readMore": "Ler a biografia completa",
+      "backToTeam": "Voltar para a equipe"
     },
     "cta": {
       "title": "Venha nos visitar",
-      "subtitle": "Junte-se a nós todo domingo às 10h30 e descubra uma comunidade que o recebe de braços abertos.",
+      "subtitle": "Junte-se a nós todo domingo às 10h00 e descubra uma comunidade que o recebe de braços abertos.",
       "button": "Planeje sua visita"
     }
   },
@@ -260,6 +310,8 @@
     "subtitle": "Fale conosco",
     "sendMessage": "Envie-nos uma mensagem",
     "ourLocations": "Nossos locais de culto",
+    "findUs": "Como nos encontrar",
+    "sundayService": "Culto de Domingo",
     "address": "Endereço",
     "phone": "Telefone",
     "email": "Email",
@@ -281,7 +333,7 @@
     "success": "Inscrição confirmada!"
   },
   "footer": {
-    "tagline": "Uma comunidade de fé no coração das Cévennes, enraizada na tradição reformada.",
+    "tagline": "Uma igreja unida em torno da Palavra, enraizada na tradição reformada.",
     "quickLinks": "Links rápidos",
     "contactUs": "Contato",
     "stayConnected": "Fique conectado",
@@ -292,6 +344,6 @@
     "email": "E-mail",
     "followUs": "Siga-nos",
     "copyright": "Todos os direitos reservados.",
-    "madeIn": "Feito com fé nas Cévennes"
+    "madeIn": "Feito com fé"
   }
 }
