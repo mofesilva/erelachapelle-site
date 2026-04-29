@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Église Réformée Évangélique La Chapelle",
-  description: "Communauté chrétienne dans les Cévennes",
+  description: "Rassemblés autour de la Parole de Dieu",
 };
 
 export default function RootLayout({
