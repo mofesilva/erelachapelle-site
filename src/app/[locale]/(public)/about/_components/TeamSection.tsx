@@ -1,12 +1,12 @@
 import { getTranslations, getLocale } from "next-intl/server";
-import Image from "next/image";
-import Link from "next/link";
 import { SectionLabel } from "@/_components/SectionLabel";
 import { getLeadershipTeam } from "@/lib/data/leadership";
 import { getLocalizedContent } from "@/lib/utils";
 import type { Locale } from "@/types/common";
 import { UsersGroupRoundedBoldDuotone } from "solar-icon-set";
 import { PeekRectangle } from "@/_components/PeekRectangle";
+import Link from "next/link";
+import { SkeletonImage } from "@/_components/SkeletonImage";
 
 export async function TeamSection() {
   const t = await getTranslations("about.team");
@@ -35,7 +35,7 @@ export async function TeamSection() {
               {/* Photo */}
               <div className="relative w-full md:w-72 shrink-0 aspect-square md:aspect-auto bg-powder-petal overflow-hidden">
                 {pastor.photoUrl ? (
-                  <Image
+                  <SkeletonImage
                     src={pastor.photoUrl}
                     alt={pastor.fullName}
                     fill
