@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { PlayBold } from "solar-icon-set";
 import { DiamondDivider } from "@/_components/DiamondDivider";
 import { formatDate, getLocalizedContent } from "@/lib/utils";
@@ -7,6 +6,7 @@ import { getYouTubeThumbnailUrl } from "@/lib/integrations/youtube";
 import type { Locale } from "@/types/common";
 import type { Sermon } from "@/types/sermon";
 import { PeekRectangle } from "@/_components/PeekRectangle";
+import { SkeletonImage } from "@/_components/SkeletonImage";
 
 interface SermonCardProps {
   sermon: Sermon;
@@ -22,7 +22,7 @@ export function SermonCard({ sermon, locale }: SermonCardProps) {
       >
         {/* Thumbnail */}
         <div className="relative aspect-video overflow-hidden bg-dust-grey">
-          <Image
+          <SkeletonImage
             src={getYouTubeThumbnailUrl(sermon.youtubeVideoId)}
             alt={getLocalizedContent(sermon.title, locale)}
             width={480}
