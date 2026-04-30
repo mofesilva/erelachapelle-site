@@ -9,15 +9,11 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "erelachapelle.dzign-e.app",
-      },
-      {
-        protocol: "https",
-        hostname: "**.fbcdn.net",
-      },
-      {
-        protocol: "https",
         hostname: "images.unsplash.com",
+      },
+      {
+        protocol: "https",
+        hostname: "erelachapelle.dzign-e.app",
       },
     ],
   },
