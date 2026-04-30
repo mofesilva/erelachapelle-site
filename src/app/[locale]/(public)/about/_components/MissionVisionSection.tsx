@@ -1,7 +1,6 @@
 import { getTranslations } from "next-intl/server";
-import Image from "next/image";
-import { DiamondDivider } from "@/_components/DiamondDivider";
 import { PeekRectangle } from "@/_components/PeekRectangle";
+import { SkeletonImage } from "@/_components/SkeletonImage";
 import {
   MicrophoneBold,
   FlameBold,
@@ -10,6 +9,8 @@ import {
   HandHeartBold,
   InfinityBold,
 } from "solar-icon-set";
+import { CrossDivider } from "@/_components/CrossDivider";
+import { TextParagraphs } from "@/_components/TextParagraphs";
 
 const COMMITMENT_ICONS = [
   MicrophoneBold,
@@ -35,7 +36,7 @@ export async function MissionVisionSection() {
           {/* Left — photo */}
           <div className="order-first">
             <PeekRectangle color="bordeaux" position="bottom-right">
-              <Image
+              <SkeletonImage
                 src="https://erelachapelle.dzign-e.app/broto-nature.jpg"
                 alt=""
                 width={1080}
@@ -48,13 +49,14 @@ export async function MissionVisionSection() {
 
           {/* Right — content */}
           <div>
-            <h3 className="mt-3 font-serif font-bold text-night-bordeaux-2 text-justify">
+            <h3 className="mt-3 pb-4 font-serif font-bold text-night-bordeaux-2 text-center md:text-justify">
               {t("mission")}
             </h3>
-            <DiamondDivider variant="bordeaux" className="mt-4 justify-start" />
-            <p className="mt-6 leading-relaxed text-coffee-bean text-justify">
-              {t("missionText")}
-            </p>
+            <CrossDivider variant="burgundy" className="justify-center" />
+            <TextParagraphs
+              text={t("missionText")}
+              className="mt-6 leading-relaxed text-coffee-bean text-justify"
+            />
 
             {/* Commitment grid — same structure as ValuesSection */}
             <div className="mt-10 grid gap-x-12 gap-y-8 md:grid-cols-2">
@@ -63,9 +65,9 @@ export async function MissionVisionSection() {
                 return (
                   <div
                     key={index}
-                    className="flex gap-5 border-l-2 border-toffee-brown/25 py-1 pl-6"
+                    className="flex flex-col md:flex-row gap-5 border-l-2 border-toffee-brown/25 py-1 pl-6"
                   >
-                    <div className="shrink-0 pt-0.5">
+                    <div className="shrink-0 md:pt-0.5">
                       <Icon size={22} color="var(--toffee-brown)" />
                     </div>
                     <div>
