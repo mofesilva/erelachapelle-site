@@ -1,7 +1,7 @@
-import Image from "next/image";
 import { MapPointBold, ClockCircleBold } from "solar-icon-set";
 import type { SolarIcon } from "@/types/common";
 import { PeekRectangle } from "@/_components/PeekRectangle";
+import { SkeletonImage } from "@/_components/SkeletonImage";
 
 interface LocationCardProps {
   image?: string;
@@ -24,7 +24,7 @@ export function LocationCard({
         {/* Image or Placeholder */}
         <div className="relative h-48 md:h-56 overflow-hidden">
           {image ? (
-            <Image
+            <SkeletonImage
               src={image}
               alt={name}
               fill
