@@ -1,13 +1,13 @@
 import { getTranslations } from "next-intl/server";
-import Image from "next/image";
 import { PeekRectangle } from "@/_components/PeekRectangle";
+import { SkeletonImage } from "@/_components/SkeletonImage";
 import { SectionLabel } from "@/_components/SectionLabel";
 
 import { UsersGroupRoundedBoldDuotone } from "solar-icon-set";
 
 const cards = [
   {
-    src: "/images/community/bible-study.jpg",
+    src: "https://erelachapelle.dzign-e.app/bible-study.jpg",
     labelKey: "bibleStudyLabel",
     titleKey: "bibleStudyTitle",
     color: "gold",
@@ -15,7 +15,7 @@ const cards = [
     objectPosition: "object-center",
   },
   {
-    src: "/images/community/prayer-group.jpg",
+    src: "https://erelachapelle.dzign-e.app/prayer-group.jpg",
     labelKey: "prayerGroupLabel",
     titleKey: "prayerGroupTitle",
     color: "bordeaux",
@@ -46,7 +46,7 @@ export async function CommunitySection() {
               <div className="overflow-hidden shadow-[0_2px_16px_rgba(0,0,0,0.06)]">
                 {/* 3:4 image */}
                 <div className="relative aspect-[3/4]">
-                  <Image
+                  <SkeletonImage
                     src={card.src}
                     alt={t(card.titleKey)}
                     fill
