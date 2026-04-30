@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { getTranslations, getLocale } from "next-intl/server";
 import { VideocameraBoldDuotone, PlayBold } from "solar-icon-set";
 import { SectionLabel } from "@/_components/SectionLabel";
@@ -8,6 +7,7 @@ import { formatDate, getLocalizedContent } from "@/lib/utils";
 import { getYouTubeThumbnailUrl } from "@/lib/integrations/youtube";
 import type { Locale } from "@/types/common";
 import { PeekRectangle } from "@/_components/PeekRectangle";
+import { SkeletonImage } from "@/_components/SkeletonImage";
 
 export async function FeaturedSermon() {
     const t = await getTranslations("sermons");
@@ -29,7 +29,7 @@ export async function FeaturedSermon() {
                     {/* Thumbnail */}
                     <PeekRectangle color="gold" position="bottom-right">
                         <div className="group relative aspect-video overflow-hidden shadow-lg">
-                            <Image
+                    <SkeletonImage
                                 src={getYouTubeThumbnailUrl(sermon.youtubeVideoId)}
                                 alt={getLocalizedContent(sermon.title, locale)}
                                 width={640}
