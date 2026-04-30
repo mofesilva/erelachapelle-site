@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { CrossDivider } from "@/_components/CrossDivider";
+import { SecondaryHeroSection } from "@/_components/SecondaryHeroSection";
 import { ContactForm } from "./_components/ContactForm";
 import { ChurchInfoSection } from "./_components/ChurchInfoSection";
 
@@ -17,20 +17,9 @@ export default async function ContactPage() {
 
   return (
     <main>
-      {/* ── Hero Section ─────────────────────────────────────────── */}
-      <section className="relative bg-night-bordeaux-2 pb-20 pt-40 md:pb-28 md:pt-48 h-[50vh]">
-        <div className="relative mx-auto max-w-4xl px-6 text-center">
-          <CrossDivider variant="white" className="justify-center" />
-          <h1 className="mt-8 font-serif text-4xl font-bold text-parchment md:text-5xl lg:text-6xl">
-            Contactez-nous
-          </h1>
-          <div className="mx-auto mt-8 flex items-center justify-center gap-2">
-            <div className="h-0.5 w-12 bg-toffee-brown/40" />
-            <div className="h-1 w-1 rotate-45 bg-toffee-brown/60" />
-            <div className="h-0.5 w-12 bg-toffee-brown/40" />
-          </div>
-        </div>
-      </section>
+      <SecondaryHeroSection
+        title={t("title")}
+      />
 
       {/* ── Section 1: Formulário de contato ────────────────────── */}
       <section className="bg-parchment py-24">
