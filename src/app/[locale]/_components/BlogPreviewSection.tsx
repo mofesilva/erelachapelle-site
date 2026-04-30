@@ -1,6 +1,5 @@
 import { getTranslations, getLocale } from "next-intl/server";
 import Link from "next/link";
-import Image from "next/image";
 import { SplitButton } from "@/_components/SplitButton";
 import { SectionLabel } from "@/_components/SectionLabel";
 import { getRecentArticles } from "@/lib/data/blog";
@@ -8,6 +7,7 @@ import { formatDate, getLocalizedContent } from "@/lib/utils";
 import type { Locale } from "@/types/common";
 import { ArrowRightUpBold, NotebookBoldDuotone } from "solar-icon-set";
 import { PeekRectangle, getPeekProps } from "@/_components/PeekRectangle";
+import { SkeletonImage } from "@/_components/SkeletonImage";
 
 export async function BlogPreviewSection() {
   const t = await getTranslations("homepage.blog");
@@ -43,7 +43,7 @@ export async function BlogPreviewSection() {
                     {/* Image */}
                     <div className="relative aspect-16/10 overflow-hidden">
                       {article.featuredImage ? (
-                        <Image
+                        <SkeletonImage
                           src={article.featuredImage}
                           alt={getLocalizedContent(article.title, locale)}
                           fill
