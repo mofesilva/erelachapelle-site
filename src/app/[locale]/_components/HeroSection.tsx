@@ -14,7 +14,8 @@ export async function HeroSection() {
 
     return (
         <section
-            className="relative min-h-[50svh] md:h-[100svh] md:overflow-hidden"
+            className="relative overflow-hidden"
+            style={{ height: "100dvh" }}
             aria-labelledby="hero-title"
         >
             <HeroBanner />
@@ -23,17 +24,18 @@ export async function HeroSection() {
                 style={{ height: "50%" }}
             />
             <div
-                className="relative pt-24 pb-20 md:flex md:items-center md:justify-center md:h-full md:pt-[48px] md:pb-0"
+                className="relative flex flex-col justify-center pt-24 pb-16 md:items-center md:justify-center md:pt-[48px] md:pb-0"
+                style={{ height: "100%" }}
             >
-                <div className="mx-auto w-full max-w-7xl px-4 md:px-8 lg:px-16 xl:px-4 text-center md:text-left">
-                    <CrossDivider className="mb-2 md:mb-8 justify-center md:justify-start" />
+                <div className="mx-auto w-full max-w-7xl pt-4 px-4 md:px-8 lg:px-16 xl:px-4 text-left md:text-left">
+                    <CrossDivider className="mb-2 md:mb-8 justify-start md:justify-start" />
                     <h1
                         id="hero-title"
                         className="font-serif font-bold text-white mx-auto md:mx-0 max-w-full md:max-w-[61.8%] "
                     >
                         {t("title")}
                     </h1>
-                    <h6 className="mt-2 md:mt-6 text-white/85 tracking-wide mx-auto md:mx-0 max-w-full md:max-w-[50%]">
+                    <h6 className="mt-10 md:mt-6 text-white/85 tracking-wide mx-auto md:mx-0 max-w-full md:max-w-[50%]">
                         {t("subtitle")}
                     </h6>
                     <div className="mt-5 md:mt-10">
@@ -41,7 +43,7 @@ export async function HeroSection() {
                             {t("cta")}
                         </SplitButton>
                     </div>
-                    <div className="mt-6 md:mt-8 flex items-center gap-4 justify-center md:justify-start">
+                    <div className="mt-6 md:mt-8 flex items-center gap-4 justify-start">
                         <SocialIconButton
                             href={SITE_CONFIG.socialMedia.facebook}
                             icon={<FacebookIcon />}
