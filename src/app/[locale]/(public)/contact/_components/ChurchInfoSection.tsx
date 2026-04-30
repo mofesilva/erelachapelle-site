@@ -11,7 +11,7 @@ import type { Locale } from "@/types/common";
 const columnLabelClass =
   "text-[10px] uppercase tracking-widest font-semibold text-white/50 mb-1";
 
-const columnValueClass = "text-white font-serif text-base leading-snug";
+const columnValueClass = "text-parchment text-base font-semibold leading-relaxed";
 
 export async function ChurchInfoSection() {
   const t = await getTranslations("contact");
