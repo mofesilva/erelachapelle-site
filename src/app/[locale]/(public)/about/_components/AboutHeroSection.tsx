@@ -5,7 +5,7 @@ export async function AboutHeroSection() {
   const t = await getTranslations("about");
 
   return (
-    <section className="relative bg-night-bordeaux-2 pb-20 pt-40 md:pb-28 md:pt-48 h-[50vh]">
+    <section className="relative bg-night-bordeaux-2 pb-20 pt-40 md:pb-28 md:pt-48 min-h-[50svh]">
 
 
       <div className="relative mx-auto max-w-4xl px-6 text-center">
