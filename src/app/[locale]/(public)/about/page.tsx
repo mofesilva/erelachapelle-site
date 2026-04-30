@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { AboutHeroSection } from "./_components/AboutHeroSection";
+import { SecondaryHeroSection } from "@/_components/SecondaryHeroSection";
 import { MissionVisionSection } from "./_components/MissionVisionSection";
 import { ChurchOriginsSection } from "./_components/ChurchOriginsSection";
 import { LocalContextSection } from "./_components/LocalContextSection";
@@ -19,9 +19,15 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function AboutPage() {
+  const t = await getTranslations("about");
+
   return (
     <main>
-      <AboutHeroSection />
+      <SecondaryHeroSection
+        variant="quote"
+        title={t("heroQuote")}
+        description={t("heroSubtitle")}
+      />
       <MissionVisionSection />
       <ChurchOriginsSection />
       <LocalContextSection />
