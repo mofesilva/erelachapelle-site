@@ -21,7 +21,7 @@ export async function ChurchOriginsSection() {
                 </div>
 
                 {/* Intro paragraph */}
-                <p className="mt-10 mb-28 leading-[1.8] w-2/3 mx-auto text-center text-coffee-bean md:leading-[1.9]">
+                <p className="mt-6 mb-28 leading-[1.8] md:w-2/3 mx-auto text-justify md:text-center text-coffee-bean md:leading-[1.9]">
                     {t("whoWeAreText")}
                 </p>
 
@@ -30,7 +30,7 @@ export async function ChurchOriginsSection() {
                     {/* ── Desktop: horizontal timeline ── */}
                     <div className="hidden md:block">
                         {/* Top row — even indexes: label; odd indexes: year */}
-                        <div className="grid grid-cols-3">
+                        <div className="grid grid-cols-3 items-end">
                             {dates.map(({ year, label }, index) => (
                                 <div key={`top-${year}`} className="px-4 pb-6 text-center">
                                     {index % 2 === 0 ? (
@@ -38,7 +38,7 @@ export async function ChurchOriginsSection() {
                                             {label}
                                         </p>
                                     ) : (
-                                        <p className="font-serif text-5xl font-bold leading-none text-toffee-brown/50">
+                                        <p className="mx-auto font-serif text-5xl font-bold leading-none text-toffee-brown/50">
                                             {year}
                                         </p>
                                     )}
@@ -63,7 +63,7 @@ export async function ChurchOriginsSection() {
                         </div>
 
                         {/* Bottom row — even indexes: year; odd indexes: label */}
-                        <div className="grid grid-cols-3">
+                        <div className="grid grid-cols-3 items-start">
                             {dates.map(({ year, label }, index) => (
                                 <div key={`bottom-${year}`} className="px-4 pt-6 text-center">
                                     {index % 2 === 0 ? (
@@ -80,25 +80,51 @@ export async function ChurchOriginsSection() {
                         </div>
                     </div>
 
-                    {/* ── Mobile: vertical timeline with left line ── */}
+                    {/* ── Mobile: vertical timeline — centered line, alternating sides ── */}
                     <div className="relative md:hidden">
-                        <div className="absolute inset-y-0 left-4 w-px bg-toffee-brown/25" />
+                        {/* Centered vertical line */}
+                        <div className="absolute inset-y-0 left-1/2 w-px -translate-x-1/2 bg-toffee-brown/25" />
                         <div className="flex flex-col gap-10">
-                            {dates.map(({ year, label }) => (
-                                <div key={year} className="flex items-start gap-6">
-                                    <div className="relative flex w-8 flex-shrink-0 justify-center pt-1">
-                                        <div className="h-3 w-3 rotate-45 bg-toffee-brown" />
+                            {dates.map(({ year, label }, index) => {
+                                const isRight = index % 2 === 0;
+                                return (
+                                    <div key={year} className="flex items-start">
+                                        {/* Left half */}
+                                        <div className="min-w-0 flex-1 pr-4 text-right">
+                                            {!isRight && (
+                                                <>
+                                                    <p className="font-serif text-4xl font-bold leading-none text-toffee-brown/50">
+                                                        {year}
+                                                    </p>
+                                                    <p className="mt-2 text-sm leading-relaxed text-coffee-bean">
+                                                        {label}
+                                                    </p>
+                                                </>
+                                            )}
+                                        </div>
+
+                                        {/* Diamond — inline in flow, flex-none so both flex-1 sides are equal (center = 50%).
+                                            pt-3 nudges diamond down to visually align with the year number cap-height. */}
+                                        <div className="relative z-10 flex w-8 flex-none justify-center pt-3">
+                                            <div className="h-3 w-3 rotate-45 bg-toffee-brown" />
+                                        </div>
+
+                                        {/* Right half */}
+                                        <div className="min-w-0 flex-1 pl-4">
+                                            {isRight && (
+                                                <>
+                                                    <p className="font-serif text-4xl font-bold leading-none text-toffee-brown/50">
+                                                        {year}
+                                                    </p>
+                                                    <p className="mt-2 text-sm leading-relaxed text-coffee-bean">
+                                                        {label}
+                                                    </p>
+                                                </>
+                                            )}
+                                        </div>
                                     </div>
-                                    <div>
-                                        <p className="font-serif text-4xl font-bold leading-none text-toffee-brown/50">
-                                            {year}
-                                        </p>
-                                        <p className="mt-2 text-sm leading-relaxed text-coffee-bean">
-                                            {label}
-                                        </p>
-                                    </div>
-                                </div>
-                            ))}
+                                );
+                            })}
                         </div>
                     </div>
                 </div>
