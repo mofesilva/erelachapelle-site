@@ -14,8 +14,7 @@ export async function HeroSection() {
 
     return (
         <section
-            className="relative overflow-hidden"
-            style={{ height: "100svh" }}
+            className="relative min-h-[50svh] md:h-[100svh] md:overflow-hidden"
             aria-labelledby="hero-title"
         >
             <HeroBanner />
@@ -24,8 +23,7 @@ export async function HeroSection() {
                 style={{ height: "50%" }}
             />
             <div
-                className="relative flex items-center justify-center "
-                style={{ height: "100%", paddingTop: "48px" }}
+                className="relative pt-24 pb-20 md:flex md:items-center md:justify-center md:h-full md:pt-[48px] md:pb-0"
             >
                 <div className="mx-auto w-full max-w-7xl px-4 md:px-8 lg:px-16 xl:px-4 text-center md:text-left">
                     <CrossDivider className="mb-2 md:mb-8 justify-center md:justify-start" />
