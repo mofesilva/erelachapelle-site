@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { SectionLabel } from "@/_components/SectionLabel";
 import { Separator } from "@/_components/ui/separator";
+import { TextParagraphs } from "@/_components/TextParagraphs";
 import { TeamSection } from "./_components/TeamSection";
 
 export function AboutPageContent() {
@@ -24,7 +25,10 @@ export function AboutPageContent() {
         <div className="mx-auto max-w-3xl px-4">
           <SectionLabel title={t("mission")} />
           <div className="mt-8 space-y-4 text-lg leading-relaxed text-muted-foreground">
-            <p>{t("missionText")}</p>
+            <TextParagraphs
+              text={t("missionText")}
+              className="text-muted-foreground"
+            />
           </div>
         </div>
       </section>
