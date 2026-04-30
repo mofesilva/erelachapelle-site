@@ -10,7 +10,7 @@ import {
   getSermonSeries,
 } from "@/lib/data/sermons";
 import type { Locale } from "@/types/common";
-import { SermonsHeroSection } from "./_components/SermonsHeroSection";
+import { SecondaryHeroSection } from "@/_components/SecondaryHeroSection";
 import { FeaturedSermon } from "./_components/FeaturedSermon";
 import { SermonCard } from "./_components/SermonCard";
 import { SermonFilters } from "./_components/SermonFilters";
@@ -43,7 +43,10 @@ export default async function SermonsPage({ searchParams }: PageProps) {
 
   return (
     <main>
-      <SermonsHeroSection />
+      <SecondaryHeroSection
+        title={t("title")}
+        description={t("heroSubtitle")}
+      />
 
       {/* Featured sermon — only when no filters active */}
       {!hasFilters && <FeaturedSermon />}
