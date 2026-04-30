@@ -54,7 +54,7 @@ export function Header() {
           : "bg-transparent"
           }`}
       >
-        <div className={`mx-auto flex max-w-7xl items-center justify-between px-4 ${ready ? "transition-all duration-300" : ""} ${scrolled ? "h-16" : "h-24"}`}>
+        <div className={`mx-auto flex max-w-7xl items-center justify-between px-4 h-16 ${ready ? "transition-all duration-300" : ""} ${scrolled ? "md:h-16" : "md:h-24"}`}>
           <Link
             href={`/${locale}`}
             className="flex shrink-0 items-center"
@@ -64,7 +64,7 @@ export function Header() {
               alt="Église Réformée Évangélique La Chapelle"
               width={320}
               height={180}
-              className={`w-auto ${ready ? "transition-all duration-300" : ""} ${scrolled ? "h-8 md:h-10" : "h-14 md:h-20"}`}
+              className={`w-auto h-8 ${ready ? "transition-all duration-300" : ""} ${scrolled ? "md:h-10" : "md:h-20"}`}
               priority
             />
           </Link>
