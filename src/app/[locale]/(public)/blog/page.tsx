@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { getTranslations, getLocale } from "next-intl/server";
+import { SecondaryHeroSection } from "@/_components/SecondaryHeroSection";
 import {
   filterArticles,
   getAllArticles,
@@ -36,16 +37,10 @@ export default async function BlogPage({ searchParams }: PageProps) {
 
   return (
     <main>
-      <section className="bg-primary py-20 text-primary-foreground">
-        <div className="mx-auto max-w-7xl px-4 text-center">
-          <h1 className="font-serif font-bold">
-            {t("title")}
-          </h1>
-          <p className="mt-4 text-primary-foreground/80">
-            {t("articles")}
-          </p>
-        </div>
-      </section>
+      <SecondaryHeroSection
+        title={t("title")}
+        description={t("articles")}
+      />
 
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-4">
