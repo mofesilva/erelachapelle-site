@@ -10,6 +10,7 @@ const cards = [
     src: "https://erelachapelle.dzign-e.app/bible-study.jpg",
     labelKey: "bibleStudyLabel",
     titleKey: "bibleStudyTitle",
+    descriptionKey: "bibleStudyDescription",
     color: "gold",
     position: "bottom-right",
     objectPosition: "object-center",
@@ -18,6 +19,7 @@ const cards = [
     src: "https://erelachapelle.dzign-e.app/prayer-group.jpg",
     labelKey: "prayerGroupLabel",
     titleKey: "prayerGroupTitle",
+    descriptionKey: "prayerGroupDescription",
     color: "bordeaux",
     position: "bottom-right",
     objectPosition: "object-right",
@@ -26,6 +28,7 @@ const cards = [
     src: "https://erelachapelle.dzign-e.app/open-bible-black-background-religion-concept.jpg",
     labelKey: "insideChurchLabel",
     titleKey: "insideChurchTitle",
+    descriptionKey: "insideChurchDescription",
     color: "gold",
     position: "bottom-right",
     objectPosition: "object-center",
@@ -54,7 +57,7 @@ export async function CommunitySection() {
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   {/* Bottom overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-carbon-black/75 via-carbon-black/10 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-carbon-black/90 via-carbon-black/30 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6">
                     <p className="text-xs font-bold uppercase tracking-[0.2em] text-toffee-brown">
                       {t(card.labelKey)}
@@ -62,6 +65,9 @@ export async function CommunitySection() {
                     <h3 className="mt-2 font-serif font-bold text-white text-2xl">
                       {t(card.titleKey)}
                     </h3>
+                    <p className="mt-3 text-sm leading-relaxed text-white/80">
+                      {t(card.descriptionKey)}
+                    </p>
                   </div>
                 </div>
               </div>
