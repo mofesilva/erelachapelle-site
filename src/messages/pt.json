@@ -74,10 +74,13 @@
       "cta": "Participar de um grupo",
       "bibleStudyLabel": "Estudo & comunhão",
       "bibleStudyTitle": "Estudo bíblico",
+      "bibleStudyDescription": "Nossos estudos bíblicos são abertos a todos e transmitidos ao vivo. Um momento de partilha e aprofundamento da Palavra.",
       "prayerGroupLabel": "Vida de oração",
       "prayerGroupTitle": "Grupo de oração",
+      "prayerGroupDescription": "Nossos grupos de oração se reúnem em diversos locais para orar juntos e encorajar uns aos outros.",
       "insideChurchLabel": "Culto",
-      "insideChurchTitle": "Culto dominical"
+      "insideChurchTitle": "Culto dominical",
+      "insideChurchDescription": "Nossos cultos são transmitidos ao vivo e arquivados para serem ouvidos mais tarde. Junte-se a nós todo domingo às 10h."
     },
     "faith": {
       "statement": "Cremos em um só Deus, Pai, Filho e Espírito Santo, e proclamamos Jesus Cristo como Senhor e Salvador. Enraizados na tradição reformada, vivemos pela graça, guiados pelas Escrituras.",
