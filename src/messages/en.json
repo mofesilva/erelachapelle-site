@@ -74,10 +74,13 @@
       "cta": "Join a group",
       "bibleStudyLabel": "Study & fellowship",
       "bibleStudyTitle": "Bible study",
+      "bibleStudyDescription": "Our bible studies are open to all and streamed live. A time for sharing and going deeper into the Word.",
       "prayerGroupLabel": "Prayer life",
       "prayerGroupTitle": "Prayer group",
+      "prayerGroupDescription": "Our prayer groups meet at various locations to pray together and encourage one another.",
       "insideChurchLabel": "Worship",
-      "insideChurchTitle": "Sunday worship"
+      "insideChurchTitle": "Sunday worship",
+      "insideChurchDescription": "Our services are streamed live and archived to be listened to later. Join us every Sunday at 10am."
     },
     "faith": {
       "statement": "We believe in one God, Father, Son and Holy Spirit, and we proclaim Jesus Christ as Lord and Savior. Rooted in the Reformed tradition, we live by grace, guided by Scripture.",
