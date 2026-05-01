@@ -74,10 +74,13 @@
       "cta": "Rejoindre un groupe",
       "bibleStudyLabel": "Étude & fellowship",
       "bibleStudyTitle": "Étude biblique",
+      "bibleStudyDescription": "Nos études bibliques sont ouvertes à tous et diffusées en direct. Un moment de partage et d'approfondissement de la Parole.",
       "prayerGroupLabel": "Vie de prière",
       "prayerGroupTitle": "Groupe de prière",
+      "prayerGroupDescription": "Nos groupes de prière se réunissent à divers endroits pour prier ensemble et s'encourager mutuellement.",
       "insideChurchLabel": "Culte",
-      "insideChurchTitle": "Culte du dimanche"
+      "insideChurchTitle": "Culte du dimanche",
+      "insideChurchDescription": "Nos cultes sont diffusés en direct et archivés pour être écoutés plus tard. Rejoignez-nous chaque dimanche à 10h."
     },
     "faith": {
       "statement": "Nous croyons en un seul Dieu, Père, Fils et Saint-Esprit, et nous proclamons Jésus-Christ comme Seigneur et Sauveur. Enracinés dans la tradition réformée, nous vivons par la grâce, guidés par l'Écriture.",
