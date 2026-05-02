@@ -29,7 +29,7 @@ export async function FeaturedSermon() {
                     {/* Thumbnail */}
                     <PeekRectangle color="gold" position="bottom-right">
                         <div className="group relative aspect-video overflow-hidden shadow-lg">
-                    <SkeletonImage
+                            <SkeletonImage
                                 src={getYouTubeThumbnailUrl(sermon.youtubeVideoId)}
                                 alt={getLocalizedContent(sermon.title, locale)}
                                 width={640}
