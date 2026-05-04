@@ -49,9 +49,9 @@ export async function ValuesSection() {
             return (
               <div
                 key={key}
-                className="flex flex-col md:flex-row gap-5 border-l-2 border-toffee-brown/25 py-1 pl-6"
+                className="flex flex-col gap-3 border-l-2 border-toffee-brown/25 py-1 pl-6"
               >
-                <div className="shrink-0 md:pt-0.5">
+                <div className="shrink-0">
                   <Icon size={22} color="var(--toffee-brown)" />
                 </div>
                 <div>
