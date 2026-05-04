@@ -30,8 +30,8 @@ export async function TeamSection() {
 
         {/* Featured single-pastor card */}
         <div className="mt-14 mx-auto max-w-4xl">
-          <PeekRectangle color="dark" position="bottom-right">
-            <div className="flex flex-col md:flex-row border border-dust-grey bg-white overflow-hidden">
+          <PeekRectangle color="bordeaux" position="bottom-right">
+            <div className="flex flex-col md:flex-row bg-white overflow-hidden">
               {/* Photo */}
               <div className="relative w-full md:w-72 shrink-0 aspect-square md:aspect-auto bg-powder-petal overflow-hidden">
                 {pastor.photoUrl ? (
