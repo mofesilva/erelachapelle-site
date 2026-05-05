@@ -7,7 +7,7 @@ import { UsersGroupRoundedBoldDuotone } from "solar-icon-set";
 
 const cards = [
   {
-    src: "https://erelachapelle.dzign-e.app/bible-study.jpg",
+    src: "/images/community/bible-study.jpg",
     labelKey: "bibleStudyLabel",
     titleKey: "bibleStudyTitle",
     descriptionKey: "bibleStudyDescription",
@@ -16,7 +16,7 @@ const cards = [
     objectPosition: "object-center",
   },
   {
-    src: "https://erelachapelle.dzign-e.app/prayer-group.jpg",
+    src: "/images/community/prayer-group.jpg",
     labelKey: "prayerGroupLabel",
     titleKey: "prayerGroupTitle",
     descriptionKey: "prayerGroupDescription",
@@ -25,7 +25,7 @@ const cards = [
     objectPosition: "object-right",
   },
   {
-    src: "https://erelachapelle.dzign-e.app/open-bible-black-background-religion-concept.jpg",
+    src: "/images/open-bible-black-background-religion-concept.jpg",
     labelKey: "insideChurchLabel",
     titleKey: "insideChurchTitle",
     descriptionKey: "insideChurchDescription",
