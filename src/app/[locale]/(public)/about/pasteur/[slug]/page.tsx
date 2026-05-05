@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getTranslations, getLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -7,6 +7,7 @@ import { ArrowLeftBold, LetterBold } from "solar-icon-set";
 import { PeekRectangle } from "@/_components/PeekRectangle";
 import { getLeadershipTeam, getLeaderBySlug } from "@/lib/data/leadership";
 import { getLocalizedContent } from "@/lib/utils";
+import { routing } from "@/i18n/routing";
 import type { Locale } from "@/types/common";
 
 type PageProps = {
@@ -14,7 +15,9 @@ type PageProps = {
 };
 
 export async function generateStaticParams() {
-  return getLeadershipTeam().map((leader) => ({ slug: leader.slug }));
+  return routing.locales.flatMap((locale) =>
+    getLeadershipTeam().map((leader) => ({ locale, slug: leader.slug }))
+  );
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -29,7 +32,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function PasteurDetailPage({ params }: PageProps) {
   const { slug, locale: paramLocale } = await params;
-  const locale = (await getLocale()) as Locale;
+  const locale = paramLocale as Locale;
   const t = await getTranslations("about.team");
   const leader = getLeaderBySlug(slug);
 
