@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { getTranslations, getLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
+import { routing } from "@/i18n/routing";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Badge } from "@/_components/ui/badge";
@@ -18,7 +19,9 @@ type PageProps = {
 };
 
 export async function generateStaticParams() {
-  return getAllEvents().map((event) => ({ slug: event.slug }));
+  return routing.locales.flatMap((locale) =>
+    getAllEvents().map((event) => ({ locale, slug: event.slug }))
+  );
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -32,11 +35,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function EventDetailPage({ params }: PageProps) {
-  const { slug } = await params;
+  const { slug, locale: paramLocale } = await params;
+  const locale = paramLocale as Locale;
   const t = await getTranslations("events");
   const tTypes = await getTranslations("events.types");
   const tCommon = await getTranslations("common");
-  const locale = (await getLocale()) as Locale;
   const event = getEventBySlug(slug);
 
   if (!event) notFound();
