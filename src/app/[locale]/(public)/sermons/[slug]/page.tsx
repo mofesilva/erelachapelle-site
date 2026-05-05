@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { getTranslations, getLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
+import { routing } from "@/i18n/routing";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeftBold } from "solar-icon-set";
@@ -21,7 +22,9 @@ type PageProps = {
 };
 
 export async function generateStaticParams() {
-  return getAllSermons().map((sermon) => ({ slug: sermon.slug }));
+  return routing.locales.flatMap((locale) =>
+    getAllSermons().map((sermon) => ({ locale, slug: sermon.slug }))
+  );
 }
 
 export async function generateMetadata({
@@ -37,9 +40,9 @@ export async function generateMetadata({
 }
 
 export default async function SermonDetailPage({ params }: PageProps) {
-  const { slug } = await params;
+  const { slug, locale: paramLocale } = await params;
+  const locale = paramLocale as Locale;
   const t = await getTranslations("sermons");
-  const locale = (await getLocale()) as Locale;
   const sermon = getSermonBySlug(slug);
 
   if (!sermon) notFound();
