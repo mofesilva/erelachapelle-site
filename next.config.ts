@@ -11,10 +11,12 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "images.unsplash.com",
       },
-      {
-        protocol: "https",
-        hostname: "erelachapelle.dzign-e.app",
-      },
+      // Temporarily disabled — images served locally from public/images/
+      // Re-enable when switching back to the remote image server
+      // {
+      //   protocol: "https",
+      //   hostname: "erelachapelle.dzign-e.app",
+      // },
     ],
   },
 };
