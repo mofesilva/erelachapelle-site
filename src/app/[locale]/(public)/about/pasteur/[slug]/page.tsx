@@ -3,7 +3,7 @@ import { getTranslations, getLocale } from "next-intl/server";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeftBold, LetterOutline } from "solar-icon-set";
+import { ArrowLeftBold, LetterBold } from "solar-icon-set";
 import { PeekRectangle } from "@/_components/PeekRectangle";
 import { getLeadershipTeam, getLeaderBySlug } from "@/lib/data/leadership";
 import { getLocalizedContent } from "@/lib/utils";
@@ -44,7 +44,7 @@ export default async function PasteurDetailPage({ params }: PageProps) {
       <section
         className="relative pb-16 pt-36 md:pb-20 md:pt-44 overflow-hidden"
         style={{
-          backgroundImage: 'url("/images/inside-church.png")',
+          backgroundImage: 'url("/images/inside-church.jpg")',
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -92,7 +92,7 @@ export default async function PasteurDetailPage({ params }: PageProps) {
                   href={`mailto:${leader.email}`}
                   className="mt-4 inline-flex items-center gap-2 text-base text-parchment/80 transition-colors hover:text-parchment"
                 >
-                  <LetterOutline size={18} color="currentColor" />
+                  <LetterBold size={18} color="currentColor" />
                   {leader.email}
                 </a>
               )}
