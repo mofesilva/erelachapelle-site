@@ -8,7 +8,7 @@ export default function HeroBanner() {
             {/* Background Image */}
             <div className="absolute inset-0">
                 <Image
-                    src="/images/igreja-lachappelle-hero-banner-2.png"
+                    src="/images/igreja-lachappelle-hero-banner-2.jpg"
                     alt=""
                     fill
                     priority
