@@ -44,7 +44,7 @@ export default async function PasteurDetailPage({ params }: PageProps) {
       <section
         className="relative pb-16 pt-36 md:pb-20 md:pt-44 overflow-hidden"
         style={{
-          backgroundImage: 'url("https://erelachapelle.dzign-e.app/inside-church.png")',
+          backgroundImage: 'url("/images/inside-church.png")',
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
