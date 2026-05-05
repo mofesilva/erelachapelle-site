@@ -5,7 +5,7 @@ export const LEADERSHIP_TEAM: LeadershipMember[] = [
     _id: "paulo-sicoli",
     slug: "paulo-sicoli",
     fullName: "Paulo Sicoli",
-    photoUrl: "https://erelachapelle.dzign-e.app/paulo-sicoli.jpg",
+    photoUrl: "/images/paulo-sicoli.jpg",
     role: {
       fr: "Pasteur",
       pt: "Pastor",
