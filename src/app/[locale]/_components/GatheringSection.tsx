@@ -23,7 +23,7 @@ export async function GatheringSection() {
         <section className="relative min-h-150 md:min-h-175">
             {/* ── Full-bleed background image ── */}
             <Image
-                src="/images/inside-church.png"
+                src="/images/inside-church.jpg"
                 alt={t("churchName")}
                 fill
                 className="object-cover"
