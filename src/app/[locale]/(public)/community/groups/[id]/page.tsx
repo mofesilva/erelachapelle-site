@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { getTranslations, getLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
+import { routing } from "@/i18n/routing";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Badge } from "@/_components/ui/badge";
@@ -15,7 +16,9 @@ type PageProps = {
 };
 
 export async function generateStaticParams() {
-  return getGroups().map((group) => ({ id: group._id }));
+  return routing.locales.flatMap((locale) =>
+    getGroups().map((group) => ({ locale, id: group._id }))
+  );
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -29,12 +32,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function GroupDetailPage({ params }: PageProps) {
-  const { id } = await params;
+  const { id, locale: paramLocale } = await params;
+  const locale = paramLocale as Locale;
   const t = await getTranslations("community.groups");
   const tTypes = await getTranslations("community.groups.types");
   const tDays = await getTranslations("community.groups.days");
   const tCommon = await getTranslations("common");
-  const locale = (await getLocale()) as Locale;
   const group = getGroupById(id);
 
   if (!group) notFound();
