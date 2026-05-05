@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { getTranslations, getLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
+import { routing } from "@/i18n/routing";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getArticleBySlug, getAllArticles } from "@/lib/data/blog";
@@ -11,7 +12,9 @@ type PageProps = {
 };
 
 export async function generateStaticParams() {
-  return getAllArticles().map((article) => ({ slug: article.slug }));
+  return routing.locales.flatMap((locale) =>
+    getAllArticles().map((article) => ({ locale, slug: article.slug }))
+  );
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -25,10 +28,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function ArticleDetailPage({ params }: PageProps) {
-  const { slug } = await params;
+  const { slug, locale: paramLocale } = await params;
+  const locale = paramLocale as Locale;
   const t = await getTranslations("blog");
   const tCommon = await getTranslations("common");
-  const locale = (await getLocale()) as Locale;
   const article = getArticleBySlug(slug);
 
   if (!article) notFound();
