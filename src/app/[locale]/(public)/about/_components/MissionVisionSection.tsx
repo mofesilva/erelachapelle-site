@@ -37,7 +37,7 @@ export async function MissionVisionSection() {
           <div className="order-first">
             <PeekRectangle color="bordeaux" position="bottom-right">
               <SkeletonImage
-                src="https://erelachapelle.dzign-e.app/broto-nature.jpg"
+                src="/images/broto-nature.jpg"
                 alt=""
                 width={1080}
                 height={1440}
