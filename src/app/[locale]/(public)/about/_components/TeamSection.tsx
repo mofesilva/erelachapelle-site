@@ -65,7 +65,7 @@ export async function TeamSection() {
                 <p className="leading-relaxed text-coffee-bean/80">…</p>
                 <div className="mt-6 flex flex-wrap items-center gap-4">
                   <Link
-                    href={`/${locale}/about/pasteur/${pastor.slug}`}
+                    href={`/about/pasteur/${pastor.slug}`}
                     className="inline-flex items-center gap-2 bg-night-bordeaux-2 px-5 py-2.5 text-sm font-semibold uppercase tracking-wider text-parchment transition-fast hover:bg-night-bordeaux-2/80"
                   >
                     {t("readMore")}
