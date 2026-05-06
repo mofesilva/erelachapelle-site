@@ -130,7 +130,7 @@ export async function ChurchOriginsSection() {
                 </div>
 
                 {/* Main narrative */}
-                <p className="mt-28 leading-[1.8] mx-auto w-2/3 text-center text-coffee-bean md:leading-[1.9]">
+                <p className="mt-28 leading-[1.8] mx-auto text-justify md:w-2/3 md:text-center text-coffee-bean md:leading-[1.9]">
                     {t("originsText")}
                 </p>
             </div>
