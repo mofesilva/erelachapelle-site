@@ -21,9 +21,9 @@ export function ContactForm() {
 
   if (state?.success) {
     return (
-      <div className="flex flex-col items-center gap-4 rounded-none border border-toffee-brown/20 bg-white/60 p-10 text-center">
-        <CheckCircleBold size={48} color="var(--toffee-brown)" />
-        <p className="font-serif text-xl text-night-bordeaux-2">{t("success")}</p>
+      <div className="flex flex-col items-center gap-4 rounded-none border border-olive-wood bg-toffee-brown p-10 text-center">
+        <CheckCircleBold size={48} color="var(--parchment)" />
+        <p className="font-serif text-xl text-parchment">{t("success")}</p>
       </div>
     );
   }
