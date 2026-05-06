@@ -5,7 +5,7 @@ import HeroBanner from "./HeroBanner";
 import { SplitButton } from "@/_components/SplitButton";
 import { CrossDivider } from "@/_components/CrossDivider";
 import { SocialIconButton } from "@/_components/SocialIconButton";
-import { FacebookIcon, InstagramIcon, YouTubeIcon } from "@/_components/icons";
+import { FacebookIcon, InstagramIcon, TikTokIcon, YouTubeIcon } from "@/_components/icons";
 import { SITE_CONFIG } from "@/lib/constants";
 
 export async function HeroSection() {
@@ -14,8 +14,7 @@ export async function HeroSection() {
 
     return (
         <section
-            className="relative overflow-hidden"
-            style={{ height: "100dvh" }}
+            className="relative h-100svh md:min-h-[50svh] md:h-[100svh] md:overflow-hidden"
             aria-labelledby="hero-title"
         >
             <HeroBanner />
@@ -24,8 +23,7 @@ export async function HeroSection() {
                 style={{ height: "50%" }}
             />
             <div
-                className="relative flex flex-col justify-center pt-24 pb-16 md:items-center md:justify-center md:pt-[48px] md:pb-0"
-                style={{ height: "100%" }}
+                className="h-full relative pt-24 pb-20 items-end md:flex md:items-center md:justify-center md:h-full md:pt-[48px] md:pb-0"
             >
                 <div className="mx-auto w-full max-w-7xl pt-4 px-4 md:px-8 lg:px-16 xl:px-4 text-left md:text-left">
                     <CrossDivider className="mb-2 md:mb-8 justify-start md:justify-start" />
@@ -55,6 +53,12 @@ export async function HeroSection() {
                             icon={<InstagramIcon />}
                             variant="gold"
                             aria-label="Instagram"
+                        />
+                        <SocialIconButton
+                            href={SITE_CONFIG.socialMedia.tiktok}
+                            icon={<TikTokIcon />}
+                            variant="gold"
+                            aria-label="TikTok"
                         />
                         <SocialIconButton
                             href={SITE_CONFIG.socialMedia.youtube}
