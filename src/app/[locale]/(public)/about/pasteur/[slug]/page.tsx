@@ -65,7 +65,7 @@ export default async function PasteurDetailPage({ params }: PageProps) {
             {t("backToTeam")}
           </Link>
 
-          <div className="mt-10 flex flex-col gap-8 md:flex-row md:items-end md:gap-12">
+          <div className="mt-10 flex flex-col items-center gap-8 md:flex-row md:items-end md:gap-12">
             {/* Photo with PeekRectangle */}
             {leader.photoUrl && (
               <PeekRectangle color="gold" position="bottom-right" className="shrink-0 h-56 w-44 md:h-72 md:w-56">
@@ -83,7 +83,7 @@ export default async function PasteurDetailPage({ params }: PageProps) {
             )}
 
             {/* Name, role & email */}
-            <div>
+            <div className="text-center md:text-left">
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-toffee-brown/80">
                 {getLocalizedContent(leader.role, locale)}
               </p>
@@ -111,7 +111,7 @@ export default async function PasteurDetailPage({ params }: PageProps) {
             {paragraphs.map((paragraph, i) => (
               <p
                 key={i}
-                className="leading-[1.85] text-coffee-bean/80 md:text-lg md:leading-[1.9]"
+                className="leading-[1.85] text-justify text-coffee-bean/80 md:text-lg md:leading-[1.9]"
               >
                 {paragraph}
               </p>
