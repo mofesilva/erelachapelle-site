@@ -24,14 +24,17 @@ export function SecondaryHeroSection({
             className={`relative pb-20 pt-40 md:pb-28 md:pt-48 min-h-[50svh] ${bgColor}`}
         >
             {bgImage && (
-                <Image
-                    src={bgImage}
-                    alt=""
-                    fill
-                    className="object-cover"
-                    priority
-                    aria-hidden="true"
-                />
+                <>
+                    <Image
+                        src={bgImage}
+                        alt=""
+                        fill
+                        className="object-cover"
+                        priority
+                        aria-hidden="true"
+                    />
+                    <div className="pointer-events-none absolute inset-0 bg-night-bordeaux-2/80" />
+                </>
             )}
 
             <div className="relative mx-auto max-w-4xl px-6 text-center">
