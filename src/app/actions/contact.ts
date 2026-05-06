@@ -125,7 +125,8 @@ export async function submitContactForm(
     });
 
     return { success: true, message: "success" };
-  } catch {
+  } catch (error) {
+    console.error("[contact] Failed to send email:", error);
     return { success: false, message: "error" };
   }
 }
