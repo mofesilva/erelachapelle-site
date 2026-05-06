@@ -101,12 +101,9 @@
     "upcoming": "Événements à venir",
     "past": "Événements passés",
     "noEvents": "Aucun événement à venir",
-    "register": "S'inscrire",
-    "registrationSuccess": "Inscription confirmée !",
     "filterByType": "Type d'événement",
     "filterByLocation": "Lieu",
     "filterByDate": "Date",
-    "attendees": "Nombre de participants",
     "types": {
       "service": "Culte",
       "conference": "Conférence",
@@ -147,7 +144,6 @@
     "groups": {
       "title": "Groupes",
       "leader": "Responsable",
-      "joinGroup": "Rejoindre ce groupe",
       "types": {
         "bible_study": "Étude biblique",
         "prayer": "Prière",
@@ -167,12 +163,6 @@
         "friday": "Vendredi",
         "saturday": "Samedi",
         "sunday": "Dimanche"
-      },
-      "form": {
-        "name": "Nom",
-        "message": "Message (optionnel)",
-        "success": "Votre intérêt a été enregistré. Nous vous contacterons bientôt !",
-        "error": "Erreur lors de l'envoi. Veuillez réessayer."
       }
     }
   },
