@@ -23,7 +23,7 @@ export async function subscribeNewsletter(
 
   const parsed = newsletterSchema.safeParse(raw);
   if (!parsed.success) {
-    return { success: false, message: parsed.error.issues[0].message };
+    return { success: false, message: "Adresse e-mail invalide." };
   }
 
   // Phase 1: Static — just simulate success
