@@ -1,7 +1,7 @@
 "use server";
 
 import { contactSchema } from "@/lib/validations/contact.schema";
-import { transporter } from "@/lib/integrations/email";
+import { resend } from "@/lib/integrations/email";
 
 export type ContactResult = {
   success: boolean;
@@ -32,9 +32,9 @@ export async function submitContactForm(
   const { name, email, subject, message } = parsed.data;
 
   try {
-    await transporter.sendMail({
-      from: `"${name}" <${process.env.GMAIL_USER}>`,
-      to: process.env.CONTACT_EMAIL,
+    await resend.emails.send({
+      from: `"${name}" <onboarding@resend.dev>`,
+      to: process.env.CONTACT_EMAIL!,
       replyTo: `"${name}" <${email}>`,
       subject: subject,
       html: `

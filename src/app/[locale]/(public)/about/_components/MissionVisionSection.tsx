@@ -49,7 +49,7 @@ export async function MissionVisionSection() {
 
           {/* Right — content */}
           <div>
-            <h3 className="mt-3 pb-4 font-serif font-bold text-night-bordeaux-2 text-center md:text-justify">
+            <h3 className="mt-3 pb-4 font-serif font-bold text-night-bordeaux-2 text-center lg:text-justify">
               {t("mission")}
             </h3>
             <CrossDivider variant="burgundy" className="justify-center" />
