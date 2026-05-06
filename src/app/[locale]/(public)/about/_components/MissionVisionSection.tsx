@@ -31,7 +31,7 @@ export async function MissionVisionSection() {
   return (
     <section className="bg-parchment pb-10 pt-20 md:pb-28 md:pt-52">
       <div className="mx-auto max-w-7xl px-4">
-        <div className="flex flex-col gap-12 md:grid md:grid-cols-[520px_1fr] md:items-start md:gap-14">
+        <div className="flex flex-col gap-12 lg:grid lg:grid-cols-[520px_1fr] lg:items-start lg:gap-14">
 
           {/* Left — photo */}
           <div className="order-first">
