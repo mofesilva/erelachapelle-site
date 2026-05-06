@@ -58,7 +58,7 @@ export async function ValuesSection() {
                   <h6 className="font-serif font-bold text-parchment">
                     {t(`valuesItems.${key}.title`)}
                   </h6>
-                  <p className="mt-1.5 leading-relaxed text-powder-petal/80">
+                  <p className="mt-1.5 leading-relaxed text-justify text-powder-petal/80">
                     {t(`valuesItems.${key}.description`)}
                   </p>
                 </div>
