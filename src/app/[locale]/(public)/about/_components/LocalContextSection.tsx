@@ -29,7 +29,7 @@ export async function LocalContextSection() {
                 </div>
 
                 {/* Main text */}
-                <p className="mt-12 leading-[1.8] text-powder-petal/80 md:leading-[1.9]">
+                <p className="mt-12 leading-[1.8] text-justify md:text-center text-powder-petal/80 md:leading-[1.9]">
                     {t("localContextText")}
                 </p>
             </div>
