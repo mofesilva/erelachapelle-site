@@ -3,6 +3,15 @@
 import { contactSchema } from "@/lib/validations/contact.schema";
 import { resend } from "@/lib/integrations/email";
 
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 export type ContactResult = {
   success: boolean;
   message: string;
@@ -26,17 +35,22 @@ export async function submitContactForm(
 
   const parsed = contactSchema.safeParse(raw);
   if (!parsed.success) {
-    return { success: false, message: parsed.error.issues[0].message };
+    return { success: false, message: "Formulaire invalide. Veuillez vérifier vos informations." };
   }
 
   const { name, email, subject, message } = parsed.data;
 
+  const safeName = escapeHtml(name);
+  const safeEmail = escapeHtml(email);
+  const safeSubject = escapeHtml(subject);
+  const safeMessage = escapeHtml(message);
+
   try {
     await resend.emails.send({
-      from: `"${name}" <onboarding@resend.dev>`,
+      from: `"La Chapelle" <onboarding@resend.dev>`,
       to: process.env.CONTACT_EMAIL!,
-      replyTo: `"${name}" <${email}>`,
-      subject: subject,
+      replyTo: `${safeEmail}`,
+      subject: safeSubject,
       html: `
         <!DOCTYPE html>
         <html lang="fr">
@@ -70,19 +84,19 @@ export async function submitContactForm(
                       <tr>
                         <td style="padding:12px 0;border-bottom:1px solid #e9dfd8;">
                           <span style="font-family:Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#936639;">Nom</span><br/>
-                          <span style="font-family:Georgia,serif;font-size:16px;color:#171717;">${name}</span>
+                          <span style="font-family:Georgia,serif;font-size:16px;color:#171717;">${safeName}</span>
                         </td>
                       </tr>
                       <tr>
                         <td style="padding:12px 0;border-bottom:1px solid #e9dfd8;">
                           <span style="font-family:Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#936639;">Email</span><br/>
-                          <a href="mailto:${email}" style="font-family:Georgia,serif;font-size:16px;color:#660019;text-decoration:none;">${email}</a>
+                          <a href="mailto:${safeEmail}" style="font-family:Georgia,serif;font-size:16px;color:#660019;text-decoration:none;">${safeEmail}</a>
                         </td>
                       </tr>
                       <tr>
                         <td style="padding:12px 0;border-bottom:1px solid #e9dfd8;">
                           <span style="font-family:Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#936639;">Sujet</span><br/>
-                          <span style="font-family:Georgia,serif;font-size:16px;color:#171717;">${subject}</span>
+                          <span style="font-family:Georgia,serif;font-size:16px;color:#171717;">${safeSubject}</span>
                         </td>
                       </tr>
                     </table>
@@ -90,15 +104,15 @@ export async function submitContactForm(
                     <!-- Message -->
                     <p style="margin:0 0 8px;font-family:Arial,sans-serif;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#936639;">Message</p>
                     <div style="background-color:#f9f4f1;border-left:3px solid #936639;padding:20px 24px;">
-                      <p style="margin:0;font-family:Georgia,serif;font-size:15px;line-height:1.7;color:#3d0008;white-space:pre-wrap;">${message}</p>
+                      <p style="margin:0;font-family:Georgia,serif;font-size:15px;line-height:1.7;color:#3d0008;white-space:pre-wrap;">${safeMessage}</p>
                     </div>
 
                     <!-- Reply CTA -->
                     <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:32px;">
                       <tr>
                         <td align="center">
-                          <a href="mailto:${email}" style="display:inline-block;background-color:#660019;color:#f9f4f1;font-family:Arial,sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;padding:14px 32px;">
-                            Répondre à ${name}
+                          <a href="mailto:${safeEmail}" style="display:inline-block;background-color:#660019;color:#f9f4f1;font-family:Arial,sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;padding:14px 32px;">
+                            Répondre à ${safeName}
                           </a>
                         </td>
                       </tr>
