@@ -6,7 +6,7 @@ import { SITE_CONFIG } from "@/lib/constants";
 import { LOCATIONS } from "@/lib/data/locations";
 import { DiamondDivider } from "@/_components/DiamondDivider";
 import { SocialIconButton } from "@/_components/SocialIconButton";
-import { FacebookIcon, InstagramIcon, YouTubeIcon } from "@/_components/icons";
+import { FacebookIcon, InstagramIcon, TikTokIcon, YouTubeIcon } from "@/_components/icons";
 import type { Locale } from "@/types/common";
 
 const navItems = [
@@ -44,7 +44,7 @@ export async function Footer() {
                 className="h-14 w-auto"
               />
             </Link>
-            <p className="mt-4 text-center md:text-left font-serif italic leading-relaxed text-white/60">
+            <p className="text-body mt-4 text-center md:text-left font-serif italic leading-relaxed text-white/60">
               {tFooter("tagline")}
             </p>
 
@@ -65,6 +65,12 @@ export async function Footer() {
                   icon={<InstagramIcon />}
                   variant="gold"
                   aria-label="Instagram"
+                />
+                <SocialIconButton
+                  href={SITE_CONFIG.socialMedia.tiktok}
+                  icon={<TikTokIcon />}
+                  variant="gold"
+                  aria-label="TikTok"
                 />
                 <SocialIconButton
                   href={SITE_CONFIG.socialMedia.youtube}
@@ -89,7 +95,7 @@ export async function Footer() {
                   href={`/${locale}${href}`}
                   className="group flex items-center gap-2 text-white/70 transition-all duration-300 hover:text-white hover:translate-x-1"
                 >
-                  <span className="hidden md:inline-block h-px w-0 bg-toffee-brown transition-all duration-300 group-hover:w-4" />
+                  <span className="inline-block h-px w-0 bg-toffee-brown transition-all duration-300 group-hover:w-4" />
                   {tNav(key)}
                 </Link>
               ))}
@@ -109,9 +115,9 @@ export async function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={tFooter("address")}
-                className="group flex flex-col items-center text-center md:flex-row md:items-start md:text-left gap-3 text-white/70 transition-colors duration-300 hover:text-white"
+                className="group flex items-start gap-3 text-white/70 transition-colors duration-300 hover:text-white"
               >
-                <MapPointBold size={18} className="shrink-0 text-toffee-brown/80" />
+                <MapPointBold size={18} className="mt-0.5 shrink-0 text-toffee-brown/80" />
                 <p>
                   {location.address}<br />
                   {location.postalCode} {location.city}<br />
@@ -120,17 +126,29 @@ export async function Footer() {
               </a>
 
               {/* Worship Schedule */}
-              <div className="flex flex-col items-center text-center md:flex-row md:items-start md:text-left gap-3 text-white/70">
-                <ClockCircleBold size={18} className="shrink-0 text-toffee-brown/80" />
+              <div className="flex items-start gap-3 text-white/70">
+                <ClockCircleBold size={18} className="mt-0.5 shrink-0 text-toffee-brown/80" />
                 <p>{location.worshipSchedule[locale]}</p>
               </div>
+
+              {/* Phone */}
+              {location.contactPhone && (
+                <a
+                  href={`tel:${location.contactPhone.replace(/\s/g, "")}`}
+                  aria-label={tFooter("phone")}
+                  className="flex items-center gap-3 text-white/70 transition-colors duration-300 hover:text-white"
+                >
+                  <PhoneBold size={18} className="shrink-0 text-toffee-brown/80" />
+                  <p>{location.contactPhone}</p>
+                </a>
+              )}
 
               {/* Email */}
               {location.contactEmail && (
                 <a
                   href={`mailto:${location.contactEmail}`}
                   aria-label={tFooter("email")}
-                  className="flex flex-col items-center text-center md:flex-row md:items-center md:text-left gap-3 text-white/70 transition-colors duration-300 hover:text-white"
+                  className="flex items-center gap-3 text-white/70 transition-colors duration-300 hover:text-white"
                 >
                   <LetterBold size={18} className="shrink-0 text-toffee-brown/80" />
                   <p>{location.contactEmail}</p>
@@ -145,10 +163,10 @@ export async function Footer() {
       {/* Bottom bar */}
       <div className="relative border-t border-white/10">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-6 sm:px-8 py-6 sm:flex-row">
-          <p className="text-white/40 text-center sm:text-left">
+          <p className="text-white/40">
             &copy; {new Date().getFullYear()} {SITE_CONFIG.name}. {tFooter("copyright")}
           </p>
-          <p className="text-white/30 text-center sm:text-right">
+          <p className="text-white/30">
             {tFooter("madeIn")} &hearts;
           </p>
         </div>
