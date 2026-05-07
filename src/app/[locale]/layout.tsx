@@ -33,7 +33,12 @@ export const metadata: Metadata = {
     template: "%s | Église Réformée Évangélique La Chapelle",
   },
   description: "Rassemblés autour de la Parole de Dieu",
-  metadataBase: new URL("https://erelachapelle.fr"),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ??
+      (process.env.VERCEL_URL
+        ? `https://${process.env.VERCEL_URL}`
+        : "https://erelachapelle.fr")
+  ),
   openGraph: {
     type: "website",
     siteName: "Église Réformée Évangélique La Chapelle",
