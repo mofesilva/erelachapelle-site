@@ -11,7 +11,6 @@ import { formatDateTime, getLocalizedContent } from "@/lib/utils";
 import { eventJsonLd } from "@/lib/structured-data";
 import type { Locale } from "@/types/common";
 import { CalendarBold, MapPointBold } from "solar-icon-set";
-import { EventRegistrationForm } from "../_components/EventRegistrationForm";
 
 type PageProps = {
   params: Promise<{ slug: string; locale: string }>;
@@ -123,14 +122,7 @@ export default async function EventDetailPage({ params }: PageProps) {
                 )}
               </div>
 
-              {event.registrationEnabled && (
-                <div className="border p-6">
-                  <h6 className="mb-4 font-serif font-semibold">
-                    {t("register")}
-                  </h6>
-                  <EventRegistrationForm eventId={event._id} />
-                </div>
-              )}
+
             </div>
           </div>
         </div>
