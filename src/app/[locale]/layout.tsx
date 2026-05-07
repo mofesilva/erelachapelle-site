@@ -39,6 +39,14 @@ export const metadata: Metadata = {
     siteName: "Église Réformée Évangélique La Chapelle",
     locale: "fr_FR",
     alternateLocale: ["pt_BR", "en_US"],
+    images: [
+      {
+        url: "/images/og-banner.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Église Réformée Évangélique La Chapelle",
+      },
+    ],
   },
 };
 

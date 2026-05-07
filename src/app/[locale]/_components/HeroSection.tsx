@@ -5,7 +5,7 @@ import HeroBanner from "./HeroBanner";
 import { SplitButton } from "@/_components/SplitButton";
 import { CrossDivider } from "@/_components/CrossDivider";
 import { SocialIconButton } from "@/_components/SocialIconButton";
-import { FacebookIcon, InstagramIcon, YouTubeIcon } from "@/_components/icons";
+import { FacebookIcon, InstagramIcon, TikTokIcon, YouTubeIcon } from "@/_components/icons";
 import { SITE_CONFIG } from "@/lib/constants";
 
 export async function HeroSection() {
@@ -55,6 +55,12 @@ export async function HeroSection() {
                             icon={<InstagramIcon />}
                             variant="gold"
                             aria-label="Instagram"
+                        />
+                        <SocialIconButton
+                            href={SITE_CONFIG.socialMedia.tiktok}
+                            icon={<TikTokIcon />}
+                            variant="gold"
+                            aria-label="TikTok"
                         />
                         <SocialIconButton
                             href={SITE_CONFIG.socialMedia.youtube}

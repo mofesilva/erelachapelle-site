@@ -101,12 +101,9 @@
     "upcoming": "Upcoming events",
     "past": "Past events",
     "noEvents": "No upcoming events",
-    "register": "Register",
-    "registrationSuccess": "Registration confirmed!",
     "filterByType": "Event type",
     "filterByLocation": "Location",
     "filterByDate": "Date",
-    "attendees": "Number of attendees",
     "types": {
       "service": "Service",
       "conference": "Conference",
@@ -147,7 +144,6 @@
     "groups": {
       "title": "Groups",
       "leader": "Leader",
-      "joinGroup": "Join this group",
       "types": {
         "bible_study": "Bible Study",
         "prayer": "Prayer",
@@ -167,12 +163,6 @@
         "friday": "Friday",
         "saturday": "Saturday",
         "sunday": "Sunday"
-      },
-      "form": {
-        "name": "Name",
-        "message": "Message (optional)",
-        "success": "Your interest has been registered. We will contact you soon!",
-        "error": "Failed to submit. Please try again."
       }
     }
   },
@@ -309,7 +299,7 @@
     }
   },
   "contact": {
-    "title": "Contact",
+    "title": "Contact us",
     "subtitle": "Get in touch",
     "sendMessage": "Send us a message",
     "ourLocations": "Our worship locations",

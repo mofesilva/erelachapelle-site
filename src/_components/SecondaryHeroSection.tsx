@@ -24,14 +24,17 @@ export function SecondaryHeroSection({
             className={`relative pb-20 pt-40 md:pb-28 md:pt-48 min-h-[50svh] ${bgColor}`}
         >
             {bgImage && (
-                <Image
-                    src={bgImage}
-                    alt=""
-                    fill
-                    className="object-cover"
-                    priority
-                    aria-hidden="true"
-                />
+                <>
+                    <Image
+                        src={bgImage}
+                        alt=""
+                        fill
+                        className="object-cover"
+                        priority
+                        aria-hidden="true"
+                    />
+                    <div className="pointer-events-none absolute inset-0 bg-night-bordeaux-2/80" />
+                </>
             )}
 
             <div className="relative mx-auto max-w-4xl px-6 text-center">
@@ -56,11 +59,7 @@ export function SecondaryHeroSection({
                     </p>
                 )}
 
-                <div className="mx-auto mt-8 flex items-center justify-center gap-2">
-                    <div className="h-0.5 w-12 bg-toffee-brown/40" />
-                    <div className="h-1 w-1 rotate-45 bg-toffee-brown/60" />
-                    <div className="h-0.5 w-12 bg-toffee-brown/40" />
-                </div>
+                <CrossDivider variant="white" className="mx-auto mt-10 justify-center" />
             </div>
         </section>
     );

@@ -15,7 +15,6 @@ export const LOCATIONS: Location[] = [
       en: "Sunday 10:00 AM",
     },
     contactEmail: "erelachapelle@orange.fr",
-    contactPhone: "04 66 77 20 58",
     active: true,
   },
 ];

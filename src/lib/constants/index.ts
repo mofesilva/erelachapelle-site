@@ -10,6 +10,7 @@ export const SITE_CONFIG = {
   socialMedia: {
     facebook: "https://www.facebook.com/erelachapelle/",
     instagram: "https://www.instagram.com/erelachapelle",
+    tiktok: "https://www.tiktok.com/@erelachapelle",
     youtube: "https://www.youtube.com/@erelachapelle/featured",
   },
 } as const;

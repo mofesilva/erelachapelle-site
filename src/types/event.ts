@@ -22,7 +22,6 @@ export interface Event {
   locationId: string;
   customAddress?: string;
   featuredImage?: string;
-  registrationEnabled: boolean;
   capacity?: number;
   slug: string;
   active: boolean;

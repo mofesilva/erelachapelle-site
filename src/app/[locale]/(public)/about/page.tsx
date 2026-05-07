@@ -27,6 +27,7 @@ export default async function AboutPage() {
         variant="quote"
         title={t("heroQuote")}
         description={t("heroSubtitle")}
+        bgImage="/images/inside-church.jpg"
       />
       <MissionVisionSection />
       <ChurchOriginsSection />

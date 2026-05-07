@@ -101,12 +101,9 @@
     "upcoming": "Próximos eventos",
     "past": "Eventos passados",
     "noEvents": "Nenhum evento próximo",
-    "register": "Inscrever-se",
-    "registrationSuccess": "Inscrição confirmada!",
     "filterByType": "Tipo de evento",
     "filterByLocation": "Local",
     "filterByDate": "Data",
-    "attendees": "Número de participantes",
     "types": {
       "service": "Culto",
       "conference": "Conferência",
@@ -147,7 +144,6 @@
     "groups": {
       "title": "Grupos",
       "leader": "Responsável",
-      "joinGroup": "Participar deste grupo",
       "types": {
         "bible_study": "Estudo bíblico",
         "prayer": "Oração",
@@ -167,12 +163,6 @@
         "friday": "Sexta-feira",
         "saturday": "Sábado",
         "sunday": "Domingo"
-      },
-      "form": {
-        "name": "Nome",
-        "message": "Mensagem (opcional)",
-        "success": "Seu interesse foi registrado. Entraremos em contato em breve!",
-        "error": "Erro ao enviar. Por favor, tente novamente."
       }
     }
   },
@@ -309,7 +299,7 @@
     }
   },
   "contact": {
-    "title": "Contato",
+    "title": "Contacte-nos",
     "subtitle": "Fale conosco",
     "sendMessage": "Envie-nos uma mensagem",
     "ourLocations": "Nossos locais de culto",

@@ -3,7 +3,7 @@ import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeftBold, LetterBold } from "solar-icon-set";
+import { ArrowLeftBold } from "solar-icon-set";
 import { PeekRectangle } from "@/_components/PeekRectangle";
 import { getLeadershipTeam, getLeaderBySlug } from "@/lib/data/leadership";
 import { getLocalizedContent } from "@/lib/utils";
@@ -90,15 +90,7 @@ export default async function PasteurDetailPage({ params }: PageProps) {
               <h1 className="mt-3 font-serif text-4xl font-bold text-parchment md:text-5xl">
                 {leader.fullName}
               </h1>
-              {leader.email && (
-                <a
-                  href={`mailto:${leader.email}`}
-                  className="mt-4 inline-flex items-center gap-2 text-base text-parchment/80 transition-colors hover:text-parchment"
-                >
-                  <LetterBold size={18} color="currentColor" />
-                  {leader.email}
-                </a>
-              )}
+
             </div>
           </div>
         </div>
