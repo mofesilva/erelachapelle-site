@@ -19,6 +19,7 @@ export default async function ContactPage() {
     <main>
       <SecondaryHeroSection
         title={t("title")}
+        bgImage="/images/inside-church.jpg"
       />
 
       {/* ── Section 1: Formulário de contato ────────────────────── */}
