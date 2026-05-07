@@ -35,9 +35,9 @@ export const metadata: Metadata = {
   description: "Rassemblés autour de la Parole de Dieu",
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL ??
-      (process.env.VERCEL_URL
-        ? `https://${process.env.VERCEL_URL}`
-        : "https://erelachapelle.fr")
+    (process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "https://erelachapelle.fr")
   ),
   openGraph: {
     type: "website",
