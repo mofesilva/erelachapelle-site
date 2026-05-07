@@ -59,11 +59,7 @@ export function SecondaryHeroSection({
                     </p>
                 )}
 
-                <div className="mx-auto mt-8 flex items-center justify-center gap-2">
-                    <div className="h-0.5 w-12 bg-toffee-brown/40" />
-                    <div className="h-1 w-1 rotate-45 bg-toffee-brown/60" />
-                    <div className="h-0.5 w-12 bg-toffee-brown/40" />
-                </div>
+                <CrossDivider variant="white" className="mx-auto mt-10 justify-center" />
             </div>
         </section>
     );
