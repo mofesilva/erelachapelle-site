@@ -2,6 +2,12 @@
 
 > Lista de tarefas a partir do que foi definido em `decisoes-usuario.md`, `decisoes-arquitetura.md` e `modelo-de-dados.md`. Organizada por fase, na ordem em que faz sentido executar.
 
+## Lembrete — prioridade do cliente (AINDA NÃO DECIDIDO)
+
+O que ele mais quer de cara: um backoffice pra entrar e postar **Sermons, Podcast, Newsletter (dentro de Posts) e o Ebook que ele está fazendo (dentro de MediaAssets)**. Só isso, de início.
+
+O resto das entidades entra aos poucos, depois. Ainda não fechado quais nem em que ordem.
+
 ## Fase 0 — Fechar o modelo de dados
 
 - [x] User
@@ -57,7 +63,3 @@
 - [ ] Substituir as funções de leitura de `src/lib/data/` por chamadas à API
 - [ ] Validar que o site público continua funcionando igual, agora lendo do banco
 
-## Pendências em aberto (não bloqueiam, mas precisam de decisão futura)
-
-- [ ] Onde ficam `SiteSettings`, `Banner`, `MenuItem`, `FAQ`, `Ministry` — hoje fora de escopo, mas o site ainda tem esse conteúdo hardcoded
-- [ ] O que fazer com `ContactSubmission`/`NewsletterSubscriber` — hoje só envia e-mail / simula, sem persistência
