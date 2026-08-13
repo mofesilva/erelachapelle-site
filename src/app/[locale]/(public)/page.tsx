@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import { HeroSection } from "./_components/HeroSection";
-import { FaithStatementSection } from "./_components/FaithStatementSection";
-import { GatheringSection } from "./_components/GatheringSection";
-import { EventsComingSoonBanner } from "./_components/EventsComingSoonBanner";
-import { CommunitySection } from "./_components/CommunitySection";
-import { NewsletterSection } from "./_components/NewsletterSection";
+import { HeroSection } from "../_components/HeroSection";
+import { FaithStatementSection } from "../_components/FaithStatementSection";
+import { GatheringSection } from "../_components/GatheringSection";
+import { EventsComingSoonBanner } from "../_components/EventsComingSoonBanner";
+import { CommunitySection } from "../_components/CommunitySection";
+import { NewsletterSection } from "../_components/NewsletterSection";
 import { churchJsonLd } from "@/lib/structured-data";
 import { getLocations } from "@/lib/data/locations";
 import { baseOpenGraph } from "@/lib/metadata";

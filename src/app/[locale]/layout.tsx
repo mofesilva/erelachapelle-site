@@ -4,9 +4,6 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
-import { Header } from "./_components/Header";
-import { Footer } from "./_components/Footer";
-import { SmoothScroll } from "@/_components/SmoothScroll";
 import { baseOpenGraph, defaultOpenGraphImages } from "@/lib/metadata";
 
 
@@ -61,12 +58,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
       <body
         className={`${outfit.variable} ${libreBaskerville.variable} font-sans antialiased`}
       >
-        <NextIntlClientProvider messages={messages}>
-          <SmoothScroll />
-          <Header />
-          <main className="min-h-screen">{children}</main>
-          <Footer />
-        </NextIntlClientProvider>
+        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
       </body>
     </html>
   );
