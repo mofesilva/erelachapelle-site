@@ -8,6 +8,7 @@ import { CommunitySection } from "./_components/CommunitySection";
 import { NewsletterSection } from "./_components/NewsletterSection";
 import { churchJsonLd } from "@/lib/structured-data";
 import { getLocations } from "@/lib/data/locations";
+import { baseOpenGraph } from "@/lib/metadata";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("homepage.hero");
@@ -15,6 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: t("title"),
     description: t("subtitle"),
     openGraph: {
+      ...baseOpenGraph,
       title: t("title"),
       description: t("subtitle"),
     },

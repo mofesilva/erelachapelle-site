@@ -7,6 +7,7 @@ import { routing } from "@/i18n/routing";
 import { Header } from "./_components/Header";
 import { Footer } from "./_components/Footer";
 import { SmoothScroll } from "@/_components/SmoothScroll";
+import { baseOpenGraph, defaultOpenGraphImages } from "@/lib/metadata";
 
 
 const outfit = Outfit({
@@ -33,25 +34,11 @@ export const metadata: Metadata = {
     template: "%s | Église Réformée Évangélique La Chapelle",
   },
   description: "Rassemblés autour de la Parole de Dieu",
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ??
-    (process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : "https://erelachapelle.fr")
-  ),
-  openGraph: {
-    type: "website",
-    siteName: "Église Réformée Évangélique La Chapelle",
-    locale: "fr_FR",
-    alternateLocale: ["pt_BR", "en_US"],
-    images: [
-      {
-        url: "/images/og-banner.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Église Réformée Évangélique La Chapelle",
-      },
-    ],
+  metadataBase: new URL("https://erelachapelle.fr"),
+  openGraph: baseOpenGraph,
+  twitter: {
+    card: "summary_large_image",
+    images: defaultOpenGraphImages,
   },
 };
 
