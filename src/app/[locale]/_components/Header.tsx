@@ -24,20 +24,16 @@ export function Header() {
   const locale = useLocale();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [ready, setReady] = useState(false);
 
   // Sync scroll state before paint — prevents bg flash on mount/remount
   useLayoutEffect(() => {
     setScrolled(window.scrollY > 50);
   }, []);
 
-  // Enable CSS transitions only after first correct paint
   useEffect(() => {
-    requestAnimationFrame(() => setReady(true));
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
-      setReady(false);
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
@@ -49,12 +45,12 @@ export function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 z-50 w-full ${ready ? "transition-all duration-300" : ""} ${scrolled
+        className={`fixed top-0 z-50 w-full transition-all duration-300 ${scrolled
           ? "bg-rich-mahogany/90 backdrop-blur-sm"
           : "bg-transparent"
           }`}
       >
-        <div className={`mx-auto flex max-w-7xl items-center justify-between px-4 h-16 ${ready ? "transition-all duration-300" : ""} ${scrolled ? "md:h-16" : "md:h-24"}`}>
+        <div className={`mx-auto flex max-w-7xl items-center justify-between px-4 h-16 transition-all duration-300 ${scrolled ? "md:h-16" : "md:h-24"}`}>
           <Link
             href={`/${locale}`}
             className="flex shrink-0 items-center"
@@ -64,7 +60,7 @@ export function Header() {
               alt="Église Réformée Évangélique La Chapelle"
               width={320}
               height={180}
-              className={`w-auto h-8 ${ready ? "transition-all duration-300" : ""} ${scrolled ? "md:h-10" : "md:h-20"}`}
+              className={`w-auto h-8 transition-all duration-300 ${scrolled ? "md:h-10" : "md:h-20"}`}
               priority
             />
           </Link>
