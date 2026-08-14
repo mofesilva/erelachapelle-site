@@ -24,7 +24,7 @@ const securityHeaders = [
       "img-src 'self' data: blob: https://images.unsplash.com",
       "font-src 'self'",
       "frame-src https://www.youtube.com https://www.youtube-nocookie.com https://www.google.com",
-      "connect-src 'self'",
+      "connect-src 'self' http://localhost:2026 https://api.erelachapelle.fr",
       "media-src 'self'",
     ].join("; "),
   },

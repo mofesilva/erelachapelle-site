@@ -1,4 +1,28 @@
 {
+  "admin": {
+    "login": {
+      "title": "Sign in",
+      "subtitle": "Admin area",
+      "emailLabel": "Email",
+      "passwordLabel": "Password",
+      "submit": "Sign in",
+      "submitting": "Signing in...",
+      "errorInvalidCredentials": "Incorrect email or password",
+      "errorGeneric": "Something went wrong. Try again."
+    },
+    "nav": {
+      "events": "Events",
+      "sermons": "Sermons",
+      "podcasts": "Podcast",
+      "posts": "Posts",
+      "themes": "Themes",
+      "categories": "Categories",
+      "mediaAssets": "Media library",
+      "albums": "Albums",
+      "collapse": "Collapse menu",
+      "expand": "Expand menu"
+    }
+  },
   "common": {
     "readMore": "Read more",
     "seeAll": "See all",

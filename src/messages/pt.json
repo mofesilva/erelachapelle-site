@@ -1,4 +1,28 @@
 {
+  "admin": {
+    "login": {
+      "title": "Entrar",
+      "subtitle": "Área administrativa",
+      "emailLabel": "Email",
+      "passwordLabel": "Senha",
+      "submit": "Entrar",
+      "submitting": "Entrando...",
+      "errorInvalidCredentials": "Email ou senha incorretos",
+      "errorGeneric": "Ocorreu um erro. Tente novamente."
+    },
+    "nav": {
+      "events": "Eventos",
+      "sermons": "Sermões",
+      "podcasts": "Podcast",
+      "posts": "Artigos",
+      "themes": "Temas",
+      "categories": "Categorias",
+      "mediaAssets": "Biblioteca de mídia",
+      "albums": "Álbuns",
+      "collapse": "Recolher menu",
+      "expand": "Expandir menu"
+    }
+  },
   "common": {
     "readMore": "Ler mais",
     "seeAll": "Ver tudo",
