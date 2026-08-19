@@ -5,17 +5,15 @@ import { useTranslations, useLocale } from "next-intl";
 import { cn } from "@/lib/utils";
 
 interface SermonFiltersProps {
-  preachers: string[];
   seriesList: string[];
 }
 
-export function SermonFilters({ preachers, seriesList }: SermonFiltersProps) {
+export function SermonFilters({ seriesList }: SermonFiltersProps) {
   const t = useTranslations("sermons");
   const locale = useLocale();
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const activePreacher = searchParams.get("preacher") ?? "";
   const activeSeries = searchParams.get("series") ?? "";
 
   function updateFilter(key: string, value: string) {
@@ -32,33 +30,10 @@ export function SermonFilters({ preachers, seriesList }: SermonFiltersProps) {
     router.push(`/${locale}/sermons`);
   }
 
-  const hasFilters = activePreacher || activeSeries;
+  const hasFilters = activeSeries;
 
   return (
     <div className="space-y-5">
-      {/* Preachers */}
-      <div className="flex flex-wrap items-center justify-center gap-2">
-        <p className="mr-1 font-bold uppercase tracking-[0.15em] text-toffee-brown">
-          {t("filterByPreacher")}
-        </p>
-        {preachers.map((p) => (
-          <button
-            key={p}
-            onClick={() =>
-              updateFilter("preacher", activePreacher === p ? "" : p)
-            }
-            className={cn(
-              "border px-4 py-1.5 text-sm transition-all duration-200",
-              activePreacher === p
-                ? "border-night-bordeaux-2 bg-night-bordeaux-2 text-parchment"
-                : "border-dust-grey bg-white text-coffee-bean hover:border-toffee-brown/50 hover:text-night-bordeaux-2"
-            )}
-          >
-            {p}
-          </button>
-        ))}
-      </div>
-
       {/* Series */}
       {seriesList.length > 0 && (
         <div className="flex flex-wrap items-center justify-center gap-2">
