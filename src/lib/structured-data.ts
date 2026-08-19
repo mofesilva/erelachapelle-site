@@ -3,6 +3,7 @@ import type { Sermon } from "@/types/sermon";
 import type { Location } from "@/types/location";
 import type { Locale } from "@/types/common";
 import { getLocalizedContent } from "@/lib/utils";
+import { getYouTubeEmbedUrl } from "@/lib/integrations/youtube";
 
 const BASE_URL = "https://erelachapelle.fr";
 
@@ -66,8 +67,6 @@ export function videoJsonLd(sermon: Sermon, locale: Locale) {
       : undefined,
     uploadDate: sermon.date,
     url: `${BASE_URL}/${locale}/sermons/${sermon.slug}`,
-    embedUrl: sermon.youtubeVideoId
-      ? `https://www.youtube-nocookie.com/embed/${sermon.youtubeVideoId}`
-      : undefined,
+    embedUrl: sermon.youtubeVideoId ? getYouTubeEmbedUrl(sermon.youtubeVideoId) : undefined,
   };
 }
