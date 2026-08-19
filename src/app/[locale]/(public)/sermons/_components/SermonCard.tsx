@@ -1,11 +1,9 @@
 import Link from "next/link";
 import { PlayBold } from "solar-icon-set";
-import { DiamondDivider } from "@/_components/DiamondDivider";
 import { formatDate, getLocalizedContent } from "@/lib/utils";
 import { getYouTubeThumbnailUrl } from "@/lib/integrations/youtube";
 import type { Locale } from "@/types/common";
 import type { Sermon } from "@/types/sermon";
-import { PeekRectangle } from "@/_components/PeekRectangle";
 import { SkeletonImage } from "@/_components/SkeletonImage";
 
 interface SermonCardProps {
@@ -14,9 +12,7 @@ interface SermonCardProps {
 }
 
 export function SermonCard({ sermon, locale }: SermonCardProps) {
-  return (
-    <PeekRectangle color="gold" position="top-right">
-      <Link
+  return (      <Link
         href={`/${locale}/sermons/${sermon.slug}`}
         className="group block overflow-hidden border border-dust-grey bg-white shadow-sm transition-shadow duration-300 hover:shadow-md"
       >
@@ -39,37 +35,35 @@ export function SermonCard({ sermon, locale }: SermonCardProps) {
           </div>
         </div>
 
-        {/* Content */}
+        {/* Content — tamanhos fixados na mão: a escala de `globals.css` é de título de
+            página (`p` a 18px, `h6` a 22px), o que dentro do card deixava a data em
+            maiúscula do mesmo tamanho do título, gritando mais que ele. */}
         <div className="p-5 md:p-6">
-          <p className="font-bold uppercase tracking-[0.15em] text-toffee-brown">
-            {formatDate(sermon.date, locale)} · {sermon.preacher}
+          <p className="text-[0.6875rem] font-bold uppercase leading-none tracking-[0.18em] text-toffee-brown">
+            {formatDate(sermon.date, locale)}
           </p>
 
-          <h6 className="mt-2 font-serif font-bold text-night-bordeaux-2 transition-colors duration-200 group-hover:text-toffee-brown">
+          <h6 className="mt-2.5 font-serif text-[1.25rem] font-bold leading-[1.3] text-night-bordeaux-2 transition-colors duration-200 group-hover:text-toffee-brown">
             {getLocalizedContent(sermon.title, locale)}
           </h6>
 
           {sermon.description && (
-            <p className="mt-2 line-clamp-2 leading-relaxed text-coffee-bean/80">
+            <p className="mt-3 line-clamp-2 text-[0.875rem] leading-[1.65] text-coffee-bean/75">
               {getLocalizedContent(sermon.description, locale)}
             </p>
           )}
 
-          {/* Divider + Badges */}
+          {/* Badges */}
           {(sermon.series || sermon.biblicalReference) && (
             <>
-              <DiamondDivider
-                variant="bordeaux"
-                className="mt-4 justify-start"
-              />
-              <div className="mt-3 flex flex-wrap gap-2">
+              <div className="mt-4 flex flex-wrap gap-2">
                 {sermon.series && (
-                  <p className="border border-toffee-brown/30 px-3 py-0.5 text-coffee-bean/70">
+                  <p className="border border-toffee-brown/30 px-2.5 py-1 text-[0.6875rem] uppercase tracking-[0.1em] text-coffee-bean/70">
                     {sermon.series}
                   </p>
                 )}
                 {sermon.biblicalReference && (
-                  <p className="border border-dust-grey px-3 py-0.5 text-coffee-bean/70">
+                  <p className="border border-dust-grey px-2.5 py-1 text-[0.6875rem] uppercase tracking-[0.1em] text-coffee-bean/70">
                     {sermon.biblicalReference.book}{" "}
                     {sermon.biblicalReference.chapter}
                     {sermon.biblicalReference.verses &&
@@ -81,6 +75,5 @@ export function SermonCard({ sermon, locale }: SermonCardProps) {
           )}
         </div>
       </Link>
-    </PeekRectangle>
   );
 }
