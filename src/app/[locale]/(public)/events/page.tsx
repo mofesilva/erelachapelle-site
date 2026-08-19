@@ -7,7 +7,6 @@ import {
   getAllEvents,
   getEventTypes,
 } from "@/lib/data/events";
-import { getLocations } from "@/lib/data/locations";
 import type { Locale } from "@/types/common";
 import { EventCard } from "./_components/EventCard";
 import { EventFilters } from "./_components/EventFilters";
@@ -32,11 +31,14 @@ export default async function EventsPage({ searchParams }: PageProps) {
 
   const hasFilters = params.type || params.location;
   const events = hasFilters
-    ? filterEvents({ eventType: params.type, locationId: params.location })
-    : getAllEvents();
+    ? await filterEvents({ eventType: params.type, locationName: params.location })
+    : await getAllEvents();
 
-  const eventTypes = getEventTypes();
-  const locations = getLocations().map((l) => ({ id: l._id, name: l.name }));
+  const eventTypes = await getEventTypes();
+  const allEvents = await getAllEvents();
+  const locations = Array.from(new Set(allEvents.map((e) => e.location.name)))
+    .sort()
+    .map((name) => ({ id: name, name }));
 
   return (
     <main>
