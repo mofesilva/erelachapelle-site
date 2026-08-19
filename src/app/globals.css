@@ -1,4 +1,8 @@
 @import "tailwindcss";
+/* Utilitários `animate-in` / `slide-in-from-*` / `fade-in-*`. Sem isso, as classes de animação
+   que vêm embutidas nos componentes shadcn (Sheet, Dialog, Dropdown, Tooltip, Popover…) são
+   inertes e tudo aparece/some sem transição. */
+@import "tw-animate-css";
 @source "../../src";
 
 /* Sem paleta de modo escuro definida no projeto — trava a variante `dark:` do Tailwind pra só
@@ -21,6 +25,9 @@
     --dust-grey: #e9dfd8ff;
     --parchment: #f9f4f1ff;
     --scarlet-red: #EF4444ff;
+    /* Opaca, não `toffee-brown/12`: a pastilha de evento cruza a borda entre dias da grade do
+       calendário, e uma cor translúcida deixa essa borda vazar por baixo dela. */
+    --toffee-brown-tint: color-mix(in srgb, var(--toffee-brown) 12%, var(--parchment));
 
     /* ── Aliases semânticos shadcn/ui ── */
     --background: var(--parchment);
@@ -55,6 +62,7 @@
   --color-coffee-bean: var(--coffee-bean);
   --color-olive-wood: var(--olive-wood);
   --color-toffee-brown: var(--toffee-brown);
+  --color-toffee-brown-tint: var(--toffee-brown-tint);
   --color-powder-petal: var(--powder-petal);
   --color-dust-grey: var(--dust-grey);
   --color-parchment: var(--parchment);
@@ -189,6 +197,72 @@
   }
 }
 
+/* Mesma escala das tags h1–h6, porém como utilitária. Serve pros casos em que o elemento é
+   imposto e não pode ser trocado — SheetTitle e AlertDialogTitle são <h2> obrigatórios do
+   Radix (acessibilidade) mas precisam do tamanho de um título menor. Assim o tamanho sai
+   sempre da escala do projeto, nunca de um valor avulso.
+   Precisa ser `@utility` (Tailwind v4): um `@layer utilities` escrito à mão é descartado.
+   Os valores acompanham as regras de h1–h6 acima; mexeu lá, mexe aqui. */
+@utility text-h1 {
+  font-size: 2.028rem;
+  letter-spacing: -0.02em;
+  line-height: 1.0;
+
+  @media (min-width: 768px) {
+    font-size: 4.292rem;
+  }
+}
+
+@utility text-h2 {
+  font-size: 1.802rem;
+  letter-spacing: -0.0175em;
+  line-height: 1.1;
+
+  @media (min-width: 768px) {
+    font-size: 3.433rem;
+  }
+}
+
+@utility text-h3 {
+  font-size: 1.602rem;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+
+  @media (min-width: 768px) {
+    font-size: 2.747rem;
+  }
+}
+
+@utility text-h4 {
+  font-size: 1.424rem;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+
+  @media (min-width: 768px) {
+    font-size: 2.197rem;
+  }
+}
+
+@utility text-h5 {
+  font-size: 1.266rem;
+  letter-spacing: -0.0075em;
+  line-height: 1.4;
+
+  @media (min-width: 768px) {
+    font-size: 1.758rem;
+  }
+}
+
+@utility text-h6 {
+  font-size: 1.125rem;
+  letter-spacing: -0.005em;
+  line-height: 1.45;
+
+  @media (min-width: 768px) {
+    font-size: 1.406rem;
+  }
+}
+
 @keyframes shimmer {
   0% {
     transform: translateX(-100%);
@@ -285,24 +359,95 @@
   }
 }
 
-:root {
-  --sidebar: hsl(0 0% 98%);
-  --sidebar-foreground: hsl(240 5.3% 26.1%);
-  --sidebar-primary: hsl(240 5.9% 10%);
-  --sidebar-primary-foreground: hsl(0 0% 98%);
-  --sidebar-accent: hsl(240 4.8% 95.9%);
-  --sidebar-accent-foreground: hsl(240 5.9% 10%);
-  --sidebar-border: hsl(220 13% 91%);
-  --sidebar-ring: hsl(217.2 91.2% 59.8%);
+/* Sidebar do backoffice — usa a paleta do site: fundo carbon-black, texto parchment e
+   destaque toffee-brown. Mesmos valores em `.dark` porque a sidebar é sempre escura,
+   independente do tema da página. */
+:root,
+.dark {
+  --sidebar: var(--carbon-black);
+  --sidebar-foreground: var(--parchment);
+  --sidebar-primary: var(--toffee-brown);
+  --sidebar-primary-foreground: var(--parchment);
+  /* Hover: leve clareada do fundo, mantendo o texto branco — o dourado fica reservado
+     pro item selecionado, senão hover e seleção viram a mesma coisa. */
+  --sidebar-accent: color-mix(in srgb, var(--parchment) 10%, transparent);
+  --sidebar-accent-foreground: var(--parchment);
+  --sidebar-border: color-mix(in srgb, var(--parchment) 12%, transparent);
+  --sidebar-ring: var(--toffee-brown);
 }
 
-.dark {
-  --sidebar: hsl(240 5.9% 10%);
-  --sidebar-foreground: hsl(240 4.8% 95.9%);
-  --sidebar-primary: hsl(224.3 76.3% 48%);
-  --sidebar-primary-foreground: hsl(0 0% 100%);
-  --sidebar-accent: hsl(240 3.7% 15.9%);
-  --sidebar-accent-foreground: hsl(240 4.8% 95.9%);
-  --sidebar-border: hsl(240 3.7% 15.9%);
-  --sidebar-ring: hsl(217.2 91.2% 59.8%);
+/* `@tiptap/extension-placeholder` só marca o nó vazio com `data-placeholder` — quem desenha
+   o texto na tela é o CSS abaixo. Sem isso, o corpo do editor de posts fica visualmente vazio,
+   sem nenhum sinal de que dá pra clicar ali e escrever. */
+.tiptap.ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+  color: var(--coffee-bean);
+  opacity: 0.4;
+}
+
+/* Sem plugin de tipografia instalado (ver RichTextEditor.tsx) — estiliza à mão o HTML que
+   vem do editor rich text dos posts (Tiptap), pra render público da página de artigo. */
+.post-content {
+  color: var(--coffee-bean);
+  line-height: 1.75;
+}
+
+.post-content p {
+  margin: 1.25em 0;
+}
+
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  color: var(--night-bordeaux-2);
+  margin: 1.5em 0 0.5em;
+}
+
+.post-content a {
+  color: var(--toffee-brown);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.post-content strong {
+  font-weight: 700;
+  color: var(--carbon-black);
+}
+
+.post-content ul,
+.post-content ol {
+  margin: 1.25em 0;
+  padding-left: 1.5em;
+}
+
+.post-content ul {
+  list-style: disc;
+}
+
+.post-content ol {
+  list-style: decimal;
+}
+
+.post-content li {
+  margin: 0.4em 0;
+}
+
+.post-content blockquote {
+  border-left: 3px solid var(--toffee-brown);
+  padding-left: 1.25em;
+  margin: 1.5em 0;
+  font-style: italic;
+  color: var(--olive-wood);
+}
+
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  margin: 1.5em 0;
 }
