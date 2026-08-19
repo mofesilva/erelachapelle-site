@@ -2,21 +2,17 @@ import type { Metadata } from "next";
 import { getTranslations, getLocale } from "next-intl/server";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getArticleBySlug, getAllArticles } from "@/lib/data/blog";
+import { getArticleById } from "@/lib/data/blog";
 import { formatDate, getLocalizedContent } from "@/lib/utils";
 import type { Locale } from "@/types/common";
 
 type PageProps = {
-  params: Promise<{ slug: string; locale: string }>;
+  params: Promise<{ id: string; locale: string }>;
 };
 
-export async function generateStaticParams() {
-  return getAllArticles().map((article) => ({ slug: article.slug }));
-}
-
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const article = getArticleBySlug(slug);
+  const { id } = await params;
+  const article = await getArticleById(id);
   if (!article) return {};
   return {
     title: article.title.fr,
@@ -25,11 +21,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function ArticleDetailPage({ params }: PageProps) {
-  const { slug } = await params;
+  const { id } = await params;
   const t = await getTranslations("blog");
   const tCommon = await getTranslations("common");
   const locale = (await getLocale()) as Locale;
-  const article = getArticleBySlug(slug);
+  const article = await getArticleById(id);
 
   if (!article) notFound();
 
@@ -49,17 +45,21 @@ export default async function ArticleDetailPage({ params }: PageProps) {
           <p className="mt-4 text-primary-foreground/80">
             <span>{t("publishedOn")} {formatDate(article.publishedAt, locale)}</span>
             <span> · {t("by")} {article.author}</span>
+            <span> · {getLocalizedContent(article.category.name, locale)}</span>
           </p>
         </div>
       </section>
 
       <section className="py-12">
         <div className="mx-auto max-w-3xl px-4">
-          <div className="prose prose-lg max-w-none">
-            <p className="leading-relaxed text-muted-foreground">
-              {getLocalizedContent(article.content, locale)}
-            </p>
-          </div>
+          {/* Conteúdo HTML vem do editor rich text do backoffice, já sanitizado no servidor
+              (ver erelachapelle-api/src/lib/sanitize-html.ts) — seguro pra injetar direto. */}
+          <div
+            className="post-content"
+            dangerouslySetInnerHTML={{
+              __html: getLocalizedContent(article.content, locale),
+            }}
+          />
         </div>
       </section>
     </main>
