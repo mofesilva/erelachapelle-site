@@ -1,4 +1,4 @@
-import type { MultilingualText } from "./common";
+import type { Coordinates, MultilingualText } from "./common";
 
 export const EVENT_TYPES = [
   "service",
@@ -12,6 +12,13 @@ export const EVENT_TYPES = [
 
 export type EventType = (typeof EVENT_TYPES)[number];
 
+export interface EventLocation {
+  name: string;
+  address: string;
+  coordinates: Coordinates;
+}
+
+/** Formato devolvido por `GET /events` da API (ver erelachapelle-api/src/schemas/event.ts). */
 export interface Event {
   _id: string;
   title: MultilingualText;
@@ -19,12 +26,12 @@ export interface Event {
   eventType: EventType;
   startDate: string;
   endDate?: string;
-  locationId: string;
+  location: EventLocation;
   customAddress?: string;
-  featuredImage?: string;
+  featuredImage?: { id: string; url: string; altText?: MultilingualText };
   capacity?: number;
   slug: string;
-  active: boolean;
+  active?: boolean;
   createdAt: string;
   updatedAt: string;
 }
