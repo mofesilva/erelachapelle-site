@@ -2,10 +2,8 @@ import type { Metadata } from "next";
 import { getTranslations, getLocale } from "next-intl/server";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeftBold } from "solar-icon-set";
+import { ArrowLeftBold, DownloadBold } from "solar-icon-set";
 import { YouTubeEmbed } from "@/_components/YouTubeEmbed";
-import { CrossDivider } from "@/_components/CrossDivider";
-import { DiamondDivider } from "@/_components/DiamondDivider";
 import {
   getSermonBySlug,
   getAllSermons,
@@ -21,14 +19,15 @@ type PageProps = {
 };
 
 export async function generateStaticParams() {
-  return getAllSermons().map((sermon) => ({ slug: sermon.slug }));
+  const sermons = await getAllSermons();
+  return sermons.map((sermon) => ({ slug: sermon.slug }));
 }
 
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const sermon = getSermonBySlug(slug);
+  const sermon = await getSermonBySlug(slug);
   if (!sermon) return {};
   return {
     title: sermon.title.fr,
@@ -40,13 +39,13 @@ export default async function SermonDetailPage({ params }: PageProps) {
   const { slug } = await params;
   const t = await getTranslations("sermons");
   const locale = (await getLocale()) as Locale;
-  const sermon = getSermonBySlug(slug);
+  const sermon = await getSermonBySlug(slug);
 
   if (!sermon) notFound();
 
   // Related sermons from the same series (excluding current)
   const relatedSermons = sermon.series
-    ? filterSermons({ series: sermon.series })
+    ? (await filterSermons({ series: sermon.series }))
       .filter((s) => s._id !== sermon._id)
       .slice(0, 3)
     : [];
@@ -63,41 +62,32 @@ export default async function SermonDetailPage({ params }: PageProps) {
       {/* Hero */}
       <section className="relative bg-night-bordeaux-2 pb-16 pt-36 md:pb-20 md:pt-44">
         {/* Texture overlay */}
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              "url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPSc0JyBoZWlnaHQ9JzQnPjxyZWN0IHdpZHRoPScxJyBoZWlnaHQ9JzEnIGZpbGw9JyNmZmYnLz48L3N2Zz4=\")",
-          }}
-        />
+      
 
-        <div className="relative mx-auto max-w-4xl px-6">
+        <div className="relative mx-auto max-w-7xl px-4">
           {/* Back link */}
           <Link
             href={`/${locale}/sermons`}
-            className="inline-flex items-center gap-1.5 text-sm text-parchment/60 transition-colors hover:text-parchment"
+            className="inline-flex items-center gap-1.5 text-md text-parchment/60 transition-colors hover:text-parchment"
           >
             <ArrowLeftBold size={14} color="currentColor" />
             {t("backToSermons")}
           </Link>
 
           <div className="mt-8 text-center">
-            <CrossDivider variant="white" className="justify-center" />
 
             <h1 className="mt-8 font-serif font-bold text-parchment md:mt-10">
               {getLocalizedContent(sermon.title, locale)}
             </h1>
 
-            {/* Meta pills */}
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-              <p className="inline-flex bg-white/10 px-3 py-1 text-parchment/80">
+            {/* Meta — mesmas badges com borda usadas no destaque de /sermons; sem o
+                pregador aqui. Data e referência bíblica com o mesmo tratamento. */}
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
+              <span className="border border-parchment/25 px-2.5 py-1 text-[0.6875rem] uppercase tracking-[0.1em] text-parchment/70">
                 {formatDate(sermon.date, locale)}
-              </p>
-              <p className="inline-flex bg-white/10 px-3 py-1 text-parchment/80">
-                {sermon.preacher}
-              </p>
+              </span>
               {sermon.biblicalReference && (
-                <span className="inline-flex bg-white/10 px-3 py-1 text-parchment/80">
+                <span className="border border-parchment/25 px-2.5 py-1 text-[0.6875rem] uppercase tracking-[0.1em] text-parchment/70">
                   {sermon.biblicalReference.book}{" "}
                   {sermon.biblicalReference.chapter}
                   {sermon.biblicalReference.verses &&
@@ -105,20 +95,13 @@ export default async function SermonDetailPage({ params }: PageProps) {
                 </span>
               )}
             </div>
-
-            {/* Gold accent */}
-            <div className="mx-auto mt-8 flex items-center justify-center gap-2">
-              <div className="h-0.5 w-12 bg-toffee-brown/40" />
-              <div className="h-1 w-1 rotate-45 bg-toffee-brown/60" />
-              <div className="h-0.5 w-12 bg-toffee-brown/40" />
-            </div>
           </div>
         </div>
       </section>
 
       {/* Body */}
       <section className="bg-parchment py-12 md:py-16">
-        <div className="mx-auto max-w-4xl px-6">
+        <div className="mx-auto max-w-7xl px-4">
           {/* Video embed */}
           <div className="overflow-hidden shadow-lg">
             <YouTubeEmbed
@@ -150,13 +133,26 @@ export default async function SermonDetailPage({ params }: PageProps) {
               </p>
             </div>
           )}
+
+          {/* Notes download */}
+          {sermon.notes && (
+            <a
+              href={sermon.notes.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 flex items-center justify-center gap-2 border border-toffee-brown/40 bg-white px-6 py-3 font-bold uppercase tracking-[0.15em] text-night-bordeaux-2 transition-colors hover:border-toffee-brown hover:bg-powder-petal"
+            >
+              <DownloadBold size={18} color="currentColor" />
+              {t("downloadNotes")}
+            </a>
+          )}
         </div>
       </section>
 
       {/* Related sermons */}
       {relatedSermons.length > 0 && (
         <section className="bg-powder-petal py-16 md:py-20">
-          <div className="mx-auto max-w-5xl px-6">
+          <div className="mx-auto max-w-7xl px-6">
             <div className="text-center">
               <p className="font-bold uppercase tracking-[0.3em] text-toffee-brown/70">
                 {t("series")}
@@ -164,10 +160,7 @@ export default async function SermonDetailPage({ params }: PageProps) {
               <h2 className="mt-3 font-serif font-bold text-night-bordeaux-2">
                 {t("relatedSermons")}
               </h2>
-              <DiamondDivider
-                variant="bordeaux"
-                className="mt-5 justify-center"
-              />
+              
             </div>
 
             <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
