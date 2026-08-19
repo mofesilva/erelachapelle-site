@@ -6,7 +6,6 @@ import { Badge } from "@/_components/ui/badge";
 import { GoogleMapEmbed } from "@/_components/GoogleMapEmbed";
 import { ShareButtons } from "@/_components/ShareButtons";
 import { getEventBySlug, getAllEvents } from "@/lib/data/events";
-import { getLocationById } from "@/lib/data/locations";
 import { formatDateTime, getLocalizedContent } from "@/lib/utils";
 import { eventJsonLd } from "@/lib/structured-data";
 import type { Locale } from "@/types/common";
@@ -17,12 +16,13 @@ type PageProps = {
 };
 
 export async function generateStaticParams() {
-  return getAllEvents().map((event) => ({ slug: event.slug }));
+  const events = await getAllEvents();
+  return events.map((event) => ({ slug: event.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const event = getEventBySlug(slug);
+  const event = await getEventBySlug(slug);
   if (!event) return {};
   return {
     title: event.title.fr,
@@ -36,11 +36,10 @@ export default async function EventDetailPage({ params }: PageProps) {
   const tTypes = await getTranslations("events.types");
   const tCommon = await getTranslations("common");
   const locale = (await getLocale()) as Locale;
-  const event = getEventBySlug(slug);
+  const event = await getEventBySlug(slug);
 
   if (!event) notFound();
 
-  const location = getLocationById(event.locationId);
   const pageUrl = `https://erelachapelle.fr/${locale}/events/${event.slug}`;
 
   return (
@@ -76,13 +75,11 @@ export default async function EventDetailPage({ params }: PageProps) {
                 {getLocalizedContent(event.description, locale)}
               </p>
 
-              {location && (
-                <GoogleMapEmbed
-                  address={`${location.address}, ${location.postalCode} ${location.city}`}
-                  coordinates={location.coordinates}
-                  directionsLabel={tCommon("getDirections")}
-                />
-              )}
+              <GoogleMapEmbed
+                address={event.customAddress || event.location.address}
+                coordinates={event.location.coordinates}
+                directionsLabel={tCommon("getDirections")}
+              />
 
               <ShareButtons
                 url={pageUrl}
@@ -106,20 +103,15 @@ export default async function EventDetailPage({ params }: PageProps) {
                   </div>
                 </div>
 
-                {location && (
-                  <div className="flex items-start gap-3">
-                    <MapPointBold size={20} color="var(--primary)" className="mt-1" />
-                    <div>
-                      <p className="font-semibold">{location.name}</p>
-                      <p className="text-muted-foreground">
-                        {location.address}
-                      </p>
-                      <p className="text-muted-foreground">
-                        {location.postalCode} {location.city}
-                      </p>
-                    </div>
+                <div className="flex items-start gap-3">
+                  <MapPointBold size={20} color="var(--primary)" className="mt-1" />
+                  <div>
+                    <p className="font-semibold">{event.location.name}</p>
+                    <p className="text-muted-foreground">
+                      {event.customAddress || event.location.address}
+                    </p>
                   </div>
-                )}
+                </div>
               </div>
 
 
