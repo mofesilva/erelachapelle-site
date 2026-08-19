@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 import type { LoginResponse } from "@/lib/admin-api";
 
 type AdminAuth = {
@@ -11,6 +11,19 @@ type AdminAuth = {
 };
 
 const AdminAuthContext = createContext<AdminAuth | null>(null);
+
+/**
+ * Ponte entre o `apiFetch` (fora da árvore React) e o estado do provider: permite
+ * renovar o access token em silêncio após um 401 e encerrar a sessão se o refresh
+ * também falhar, sem precisar passar callbacks por toda a cadeia de services.
+ */
+export const authTokenBridge = {
+  getToken: (): string | null => null,
+  setToken: (token: string) => {
+    void token;
+  },
+  onSessionExpired: () => {},
+};
 
 export function AdminAuthProvider({ children }: { children: ReactNode }) {
   const [accessToken, setAccessToken] = useState<string | null>(null);
@@ -25,6 +38,12 @@ export function AdminAuthProvider({ children }: { children: ReactNode }) {
     setAccessToken(null);
     setUser(null);
   }
+
+  useEffect(() => {
+    authTokenBridge.getToken = () => accessToken;
+    authTokenBridge.setToken = setAccessToken;
+    authTokenBridge.onSessionExpired = clearSession;
+  }, [accessToken]);
 
   return (
     <AdminAuthContext.Provider value={{ accessToken, user, setSession, clearSession }}>
