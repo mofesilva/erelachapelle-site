@@ -1,17 +1,16 @@
-import type { MultilingualText } from "./common";
+import type { ExtendedRef, MediaRef, MultilingualText } from "./common";
 
-export interface BlogArticle {
+export interface Post {
   _id: string;
   title: MultilingualText;
   content: MultilingualText;
   excerpt: MultilingualText;
   author: string;
-  authorBio?: string;
+  category: ExtendedRef;
+  tags?: string[];
+  themes?: ExtendedRef[];
+  featuredImage?: MediaRef;
   publishedAt: string;
-  featuredImage?: string;
-  categories: string[];
-  tags: string[];
-  slug: string;
   published: boolean;
   active: boolean;
   createdAt: string;
