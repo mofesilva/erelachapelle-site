@@ -12,10 +12,12 @@ import { MobileMenu } from "./MobileMenu";
 const navItems = [
   "home",
   "about",
-  // "sermons",   // hidden — no content yet
+  "sermons",
+  "podcast",
   // "events",    // hidden — no content yet
   // "community", // hidden — no content yet
-  // "blog",      // hidden — no content yet
+  "blog",
+  "gallery",
   "contact",
 ] as const;
 
