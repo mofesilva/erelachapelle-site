@@ -12,7 +12,7 @@ import { SkeletonImage } from "@/_components/SkeletonImage";
 export async function BlogPreviewSection() {
   const t = await getTranslations("homepage.blog");
   const locale = (await getLocale()) as Locale;
-  const articles = getRecentArticles();
+  const articles = await getRecentArticles();
 
   if (articles.length === 0) return null;
 
@@ -37,14 +37,14 @@ export async function BlogPreviewSection() {
               <article key={article._id} className="group">
                 <PeekRectangle color={peek.color} position={peek.position}>
                   <Link
-                    href={`/${locale}/blog/${article.slug}`}
+                    href={`/${locale}/blog/${article._id}`}
                     className="block overflow-hidden bg-white shadow-[0_2px_16px_rgba(0,0,0,0.04)] transition-all duration-500 hover:shadow-[0_12px_40px_rgba(61,0,8,0.08)] hover:-translate-y-1"
                   >
                     {/* Image */}
                     <div className="relative aspect-16/10 overflow-hidden">
                       {article.featuredImage ? (
                         <SkeletonImage
-                          src={article.featuredImage}
+                          src={article.featuredImage.url}
                           alt={getLocalizedContent(article.title, locale)}
                           fill
                           className="object-cover transition-transform duration-700 group-hover:scale-105"
