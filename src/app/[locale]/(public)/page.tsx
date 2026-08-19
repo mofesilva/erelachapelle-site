@@ -3,7 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { HeroSection } from "../_components/HeroSection";
 import { FaithStatementSection } from "../_components/FaithStatementSection";
 import { GatheringSection } from "../_components/GatheringSection";
-import { EventsComingSoonBanner } from "../_components/EventsComingSoonBanner";
+import { EventsPreviewSection } from "../_components/EventsPreviewSection";
 import { CommunitySection } from "../_components/CommunitySection";
 import { NewsletterSection } from "../_components/NewsletterSection";
 import { churchJsonLd } from "@/lib/structured-data";
@@ -38,7 +38,7 @@ export default async function HomePage() {
       <FaithStatementSection />
       <GatheringSection />
       <CommunitySection />
-      <EventsComingSoonBanner />
+      <EventsPreviewSection />
       <NewsletterSection />
     </>
   );
