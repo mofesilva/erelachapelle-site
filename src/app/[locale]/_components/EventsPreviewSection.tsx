@@ -1,8 +1,8 @@
 import { getTranslations, getLocale } from "next-intl/server";
-import { EventCard } from "./EventCard";
+import { UpcomingEventsGrid, type UpcomingEventItem } from "./UpcomingEventsGrid";
 import { SplitButton } from "@/_components/SplitButton";
 import { SectionLabel } from "@/_components/SectionLabel";
-import { getRecentEvents } from "@/lib/data/events";
+import { getUpcomingEvents } from "@/lib/data/events";
 import { getLocalizedContent } from "@/lib/utils";
 import type { Locale } from "@/types/common";
 import { CalendarBoldDuotone } from "solar-icon-set";
@@ -21,50 +21,35 @@ export async function EventsPreviewSection() {
   const t = await getTranslations("homepage.events");
   const tEvents = await getTranslations("events.types");
   const locale = (await getLocale()) as Locale;
-  const events = getRecentEvents();
 
-  if (events.length === 0) {
-    return (
-      <section className="relative bg-parchment py-16 md:pt-32 md:pb-16 overflow-hidden">
-        <div className="relative mx-auto max-w-5xl px-6">
-          <SectionLabel icon={CalendarBoldDuotone} title={t("title")} />
-          <div className="mt-14 flex flex-col items-center gap-4 text-rich-mahogany/30">
-            <CalendarBoldDuotone size={48} />
-            <p className="font-light">{t("empty")}</p>
-          </div>
-        </div>
-      </section>
-    );
-  }
+  // Busca uma folga a mais (10) que o exibido (3): o corte final por data acontece no
+  // cliente, com o relógio de quem visita — essa margem absorve a diferença entre o
+  // instante da renderização no servidor e o do navegador.
+  const upcoming = await getUpcomingEvents(new Date(), 10);
+  const events: UpcomingEventItem[] = upcoming.map((event) => ({
+    id: event._id,
+    startDate: event.startDate,
+    type: eventTypeMap[event.eventType] || "autre",
+    title: getLocalizedContent(event.title, locale),
+    location: event.location?.name || event.customAddress || "",
+    description: getLocalizedContent(event.description, locale),
+    href: `/${locale}/events/${event.slug}`,
+    typeLabel: tEvents(event.eventType),
+  }));
 
   return (
     <section className="relative bg-parchment py-16 md:pt-16 md:pb-16 overflow-hidden">
+      <div className="relative mx-auto max-w-5xl px-6">
+        <SectionLabel icon={CalendarBoldDuotone} title={t("label")} align="center" color="gold" />
 
-      <div className="relative mx-auto max-w-5xl">
-        {/* Centered header */}
-        <SectionLabel icon={CalendarBoldDuotone} title={t("title")} />
+        <h2 className="mt-4 text-center font-serif text-3xl md:text-4xl text-night-bordeaux-2 leading-snug">
+          {t("title")}
+        </h2>
 
-        {/* Events list */}
-        <div className="mt-12 md:mt-14 space-y-8 md:space-y-0 md:grid md:gap-8 md:grid-cols-3">
-          {events.map((event) => (
-            <EventCard
-              key={event._id}
-              date={new Date(event.startDate)}
-              type={eventTypeMap[event.eventType] || "autre"}
-              title={getLocalizedContent(event.title, locale)}
-              location={event.locationId || ""}
-              description={getLocalizedContent(event.description, locale)}
-              href={`/${locale}/events/${event.slug}`}
-              locale={locale}
-              typeLabel={tEvents(event.eventType)}
-            />
-          ))}
-        </div>
+        <UpcomingEventsGrid events={events} locale={locale} emptyLabel={t("empty")} />
 
         <div className="mt-12 text-center">
-          <SplitButton href={`/${locale}/events`}>
-            {t("cta")}
-          </SplitButton>
+          <SplitButton href={`/${locale}/events`}>{t("cta")}</SplitButton>
         </div>
       </div>
     </section>
