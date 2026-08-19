@@ -11,7 +11,7 @@ import { VideocameraBoldDuotone } from "solar-icon-set";
 export async function SermonsPreviewSection() {
   const t = await getTranslations("homepage.sermons");
   const locale = (await getLocale()) as Locale;
-  const sermons = getRecentSermons();
+  const sermons = await getRecentSermons();
 
   if (sermons.length === 0) {
     return (
@@ -42,7 +42,7 @@ export async function SermonsPreviewSection() {
               thumbnail={getYouTubeThumbnailUrl(sermon.youtubeVideoId)}
               date={new Date(sermon.date)}
               preacher={sermon.preacher}
-              series={sermon.series || ""}
+              series={sermon.series ?? ""}
               title={getLocalizedContent(sermon.title, locale)}
               videoUrl={`https://www.youtube.com/watch?v=${sermon.youtubeVideoId}`}
               locale={locale}
