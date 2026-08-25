@@ -413,6 +413,7 @@
     "groups": "Groups",
     "blog": "Blog",
     "gallery": "Gallery",
+    "files": "Files",
     "contact": "Contact"
   },
   "homepage": {
@@ -527,6 +528,21 @@
     "ctaTitle": "Follow our sermons",
     "ctaSubtitle": "Find all our sermons on our YouTube channel and stay nourished by the Word.",
     "ctaButton": "Our YouTube channel",
+    "loadMore": "Load more"
+  },
+  "files": {
+    "title": "Files",
+    "heroSubtitle": "Bulletins, study guides and church documents",
+    "allFiles": "All files",
+    "filterByType": "Document type",
+    "documentTypes": {
+      "bulletin": "Bulletin",
+      "notes": "Notes",
+      "study_guide": "Study guide",
+      "book": "Book"
+    },
+    "clearFilters": "Clear filters",
+    "noFiles": "No files found",
     "loadMore": "Load more"
   },
   "podcast": {

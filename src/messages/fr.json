@@ -413,6 +413,7 @@
     "groups": "Groupes",
     "blog": "Blog",
     "gallery": "Galerie",
+    "files": "Fichiers",
     "contact": "Contact"
   },
   "homepage": {
@@ -527,6 +528,21 @@
     "ctaTitle": "Suivez nos prédications",
     "ctaSubtitle": "Retrouvez toutes nos prédications sur notre chaîne YouTube et restez nourris par la Parole.",
     "ctaButton": "Notre chaîne YouTube",
+    "loadMore": "Charger plus"
+  },
+  "files": {
+    "title": "Fichiers",
+    "heroSubtitle": "Bulletins, guides d'étude et documents de l'église",
+    "allFiles": "Tous les fichiers",
+    "filterByType": "Type de document",
+    "documentTypes": {
+      "bulletin": "Bulletin",
+      "notes": "Notes",
+      "study_guide": "Guide d'étude",
+      "book": "Livre"
+    },
+    "clearFilters": "Effacer les filtres",
+    "noFiles": "Aucun fichier trouvé",
     "loadMore": "Charger plus"
   },
   "podcast": {

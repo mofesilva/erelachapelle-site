@@ -413,6 +413,7 @@
     "groups": "Grupos",
     "blog": "Blog",
     "gallery": "Galeria",
+    "files": "Arquivos",
     "contact": "Contato"
   },
   "homepage": {
@@ -527,6 +528,21 @@
     "ctaTitle": "Acompanhe nossas pregações",
     "ctaSubtitle": "Encontre todas as nossas pregações em nosso canal do YouTube e fique alimentado pela Palavra.",
     "ctaButton": "Nosso canal YouTube",
+    "loadMore": "Carregar mais"
+  },
+  "files": {
+    "title": "Arquivos",
+    "heroSubtitle": "Boletins, guias de estudo e documentos da igreja",
+    "allFiles": "Todos os arquivos",
+    "filterByType": "Tipo de documento",
+    "documentTypes": {
+      "bulletin": "Boletim",
+      "notes": "Notas",
+      "study_guide": "Guia de estudo",
+      "book": "Livro"
+    },
+    "clearFilters": "Limpar filtros",
+    "noFiles": "Nenhum arquivo encontrado",
     "loadMore": "Carregar mais"
   },
   "podcast": {
