@@ -4,6 +4,7 @@ import { HeroSection } from "../_components/HeroSection";
 import { FaithStatementSection } from "../_components/FaithStatementSection";
 import { GatheringSection } from "../_components/GatheringSection";
 import { EventsPreviewSection } from "../_components/EventsPreviewSection";
+import { HighlightsSection } from "../_components/HighlightsSection";
 import { CommunitySection } from "../_components/CommunitySection";
 import { NewsletterSection } from "../_components/NewsletterSection";
 import { churchJsonLd } from "@/lib/structured-data";
@@ -37,6 +38,7 @@ export default async function HomePage() {
       <HeroSection />
       <FaithStatementSection />
       <GatheringSection />
+      <HighlightsSection />
       <CommunitySection />
       <EventsPreviewSection />
       <NewsletterSection />

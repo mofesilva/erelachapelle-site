@@ -106,6 +106,9 @@
   --color-sidebar-primary: var(--sidebar-primary);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar: var(--sidebar);
+
+  /* Breakpoints */
+  --breakpoint-fullhd: 1300px;
 }
 
 @layer base {

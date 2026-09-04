@@ -7,7 +7,7 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
     <>
       <SmoothScroll />
       <Header />
-      <main className="min-h-screen">{children}</main>
+      <main className="flex min-h-screen flex-col">{children}</main>
       <Footer />
     </>
   );

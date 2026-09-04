@@ -3,6 +3,11 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
+// Inclui o host real configurado em NEXT_PUBLIC_API_URL (localhost, IP da rede local pra
+// testar em celular, ou domínio de produção) — evita hardcodar um host fixo que quebra
+// assim que o valor da env muda.
+const apiUrl = process.env.NEXT_PUBLIC_API_URL ?? "";
+
 const securityHeaders = [
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "X-Frame-Options", value: "DENY" },
@@ -21,10 +26,10 @@ const securityHeaders = [
       "default-src 'self'",
       "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
       "style-src 'self' 'unsafe-inline'",
-      "img-src 'self' data: blob: https://images.unsplash.com https://img.youtube.com http://localhost:2026 https://api.erelachapelle.fr",
+      `img-src 'self' data: blob: https://images.unsplash.com https://img.youtube.com ${apiUrl} https://api.erelachapelle.fr`,
       "font-src 'self'",
       "frame-src https://www.youtube.com https://www.youtube-nocookie.com https://www.google.com https://open.spotify.com",
-      "connect-src 'self' http://localhost:2026 https://api.erelachapelle.fr",
+      `connect-src 'self' ${apiUrl} https://api.erelachapelle.fr`,
       "media-src 'self'",
     ].join("; "),
   },

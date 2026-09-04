@@ -1,21 +1,11 @@
 import { getTranslations, getLocale } from "next-intl/server";
 import { UpcomingEventsGrid, type UpcomingEventItem } from "./UpcomingEventsGrid";
 import { SplitButton } from "@/_components/SplitButton";
-import { SectionLabel } from "@/_components/SectionLabel";
+import { eventTypeToCardType } from "@/_components/EventCard";
+import { CalendarBoldDuotone } from "solar-icon-set";
 import { getUpcomingEvents } from "@/lib/data/events";
 import { getLocalizedContent } from "@/lib/utils";
 import type { Locale } from "@/types/common";
-import { CalendarBoldDuotone } from "solar-icon-set";
-
-const eventTypeMap: Record<string, "culte" | "conference" | "jeunesse" | "autre"> = {
-  service: "culte",
-  conference: "conference",
-  youth: "jeunesse",
-  community: "autre",
-  outreach: "autre",
-  prayer: "culte",
-  other: "autre",
-};
 
 export async function EventsPreviewSection() {
   const t = await getTranslations("homepage.events");
@@ -27,9 +17,11 @@ export async function EventsPreviewSection() {
   // instante da renderização no servidor e o do navegador.
   const upcoming = await getUpcomingEvents(new Date(), 10);
   const events: UpcomingEventItem[] = upcoming.map((event) => ({
-    id: event._id,
+    // `_id` sozinho não é único aqui: um evento recorrente devolve várias ocorrências com o
+    // mesmo `_id` e `startDate` diferente — sem isso, a chave do grid colide entre elas.
+    id: `${event._id}-${event.startDate}`,
     startDate: event.startDate,
-    type: eventTypeMap[event.eventType] || "autre",
+    type: eventTypeToCardType[event.eventType] || "autre",
     title: getLocalizedContent(event.title, locale),
     location: event.location?.name || event.customAddress || "",
     description: getLocalizedContent(event.description, locale),
@@ -38,19 +30,19 @@ export async function EventsPreviewSection() {
   }));
 
   return (
-    <section className="relative bg-parchment py-16 md:pt-16 md:pb-16 overflow-hidden">
-      <div className="relative mx-auto max-w-5xl px-6">
-        <SectionLabel icon={CalendarBoldDuotone} title={t("label")} align="center" color="gold" />
-
-        <h2 className="mt-4 text-center font-serif text-3xl md:text-4xl text-night-bordeaux-2 leading-snug">
-          {t("title")}
-        </h2>
-
-        <UpcomingEventsGrid events={events} locale={locale} emptyLabel={t("empty")} />
-
-        <div className="mt-12 text-center">
+    <section className="relative bg-parchment py-16 px-6 md:pt-16 md:pb-16 overflow-hidden">
+      <div className="relative mx-auto max-w-7xl">
+        {/* Label — same icon + line treatment used above the sermons list — with the CTA at the end */}
+        <div className="flex flex-wrap items-center gap-3">
+          <CalendarBoldDuotone size={18} color="var(--night-bordeaux-2)" />
+          <p className="text-[0.6875rem] font-bold uppercase leading-none tracking-[0.25em] text-night-bordeaux-2">
+            {t("label")}
+          </p>
+          <span className="h-px flex-1 bg-night-bordeaux-2/15" />
           <SplitButton href={`/${locale}/events`}>{t("cta")}</SplitButton>
         </div>
+
+        <UpcomingEventsGrid events={events} locale={locale} emptyLabel={t("empty")} />
       </div>
     </section>
   );

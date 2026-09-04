@@ -1,8 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { PeekRectangle } from "@/_components/PeekRectangle";
 import { SkeletonImage } from "@/_components/SkeletonImage";
-import { SectionLabel } from "@/_components/SectionLabel";
-
 import { UsersGroupRoundedBoldDuotone } from "solar-icon-set";
 
 const cards = [
@@ -41,7 +39,14 @@ export async function CommunitySection() {
   return (
     <section className="bg-parchment py-16 md:pt-32 md:pb-16 px-6">
       <div className="mx-auto max-w-7xl">
-        <SectionLabel icon={UsersGroupRoundedBoldDuotone} title={t("title")} color="bordeaux" />
+        {/* Label — same icon + line treatment used above the sermons list */}
+        <div className="flex items-center gap-3">
+          <UsersGroupRoundedBoldDuotone size={18} color="var(--night-bordeaux-2)" />
+          <p className="text-[0.6875rem] font-bold uppercase leading-none tracking-[0.25em] text-night-bordeaux-2">
+            {t("title")}
+          </p>
+          <span className="h-px flex-1 bg-night-bordeaux-2/15" />
+        </div>
 
         <div className="mt-12 md:mt-14 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {cards.map((card) => (
