@@ -23,10 +23,10 @@ const colorMap: Record<PeekColor, string> = {
  * "peeks" from one corner. The shift amount is 10-12 px.
  */
 const positionMap: Record<PeekPosition, string> = {
-    "top-left": "-translate-x-2.5 -translate-y-2.5 md:-translate-x-3 md:-translate-y-3",
-    "top-right": "translate-x-2.5 -translate-y-2.5 md:translate-x-3 md:-translate-y-3",
-    "bottom-left": "-translate-x-2.5 translate-y-2.5 md:-translate-x-3 md:translate-y-3",
-    "bottom-right": "translate-x-2.5 translate-y-2.5 md:translate-x-3 md:translate-y-3",
+    "top-left": "-translate-x-1.5 -translate-y-1.5 md:-translate-x-2 md:-translate-y-2",
+    "top-right": "translate-x-1.5 -translate-y-1.5 md:translate-x-2 md:-translate-y-2",
+    "bottom-left": "-translate-x-1.5 translate-y-1.5 md:-translate-x-2 md:translate-y-2",
+    "bottom-right": "translate-x-1.5 translate-y-1.5 md:translate-x-2 md:translate-y-2",
 };
 
 /** Cycling helpers for lists — vary color & position per index */

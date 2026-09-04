@@ -1,6 +1,8 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { LetterBold } from "solar-icon-set";
+import { FacebookIcon, WhatsAppIcon } from "@/_components/icons";
 
 interface ShareButtonsProps {
   url: string;
@@ -17,36 +19,40 @@ export function ShareButtons({ url, title }: ShareButtonsProps) {
     {
       label: "Facebook",
       href: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
-      icon: "f",
+      icon: <FacebookIcon width={16} height={16} />,
     },
     {
       label: "WhatsApp",
       href: `https://wa.me/?text=${encodedTitle}%20${encodedUrl}`,
-      icon: "w",
+      icon: <WhatsAppIcon width={16} height={16} />,
     },
     {
       label: "Email",
       href: `mailto:?subject=${encodedTitle}&body=${encodedUrl}`,
-      icon: "✉",
+      icon: <LetterBold size={16} color="currentColor" />,
     },
   ];
 
   return (
-    <div className="flex items-center gap-3">
-      <p className="text-muted-foreground">{t("share")}:</p>
-      {links.map((link) => (
-        <a
-          key={link.label}
-          href={link.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex h-8 w-8 items-center justify-center bg-muted text-sm font-semibold text-muted-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
-          aria-label={`${t("share")} ${link.label}`}
-          title={link.label}
-        >
-          {link.icon}
-        </a>
-      ))}
+    <div className="flex flex-col items-start gap-3">
+      <p className="text-[0.8125rem] uppercase tracking-[0.1em] text-coffee-bean/60">
+        {t("share")}
+      </p>
+      <div className="flex items-center gap-3">
+        {links.map((link) => (
+          <a
+            key={link.label}
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex h-9 w-9 items-center justify-center border border-dust-grey bg-white text-coffee-bean transition-colors hover:border-toffee-brown hover:bg-toffee-brown hover:text-white"
+            aria-label={`${t("share")} ${link.label}`}
+            title={link.label}
+          >
+            {link.icon}
+          </a>
+        ))}
+      </div>
     </div>
   );
 }

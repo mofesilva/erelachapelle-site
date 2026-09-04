@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { EventCard } from "./EventCard";
+import { EventCard } from "@/_components/EventCard";
 import { CalendarBoldDuotone } from "solar-icon-set";
 
 export interface UpcomingEventItem {

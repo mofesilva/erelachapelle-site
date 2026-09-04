@@ -4,8 +4,10 @@ import { MapPointBold } from "solar-icon-set";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { PeekRectangle } from "@/_components/PeekRectangle";
+import type { EventType as ApiEventType } from "@/types/event";
 
-type EventType = "culte" | "conference" | "jeunesse" | "autre";
+export type EventCardType = "culte" | "conference" | "jeunesse" | "autre";
+type EventType = EventCardType;
 
 interface EventCardProps {
   date: Date;
@@ -18,7 +20,7 @@ interface EventCardProps {
   typeLabel: string;
 }
 
-const badgeColors: Record<EventType, string> = {
+export const eventCardBadgeColors: Record<EventType, string> = {
   culte: "bg-toffee-brown text-white",
   conference: "bg-powder-petal text-rich-mahogany",
   jeunesse: "bg-night-bordeaux-2 text-white",
@@ -29,6 +31,17 @@ const localeMap = {
   fr: fr,
   pt: pt,
   en: enUS,
+};
+
+// Une o `EventType` da API (7 valores) ao union visual do card (4 cores de badge).
+export const eventTypeToCardType: Record<ApiEventType, EventType> = {
+  service: "culte",
+  conference: "conference",
+  youth: "jeunesse",
+  community: "autre",
+  outreach: "autre",
+  prayer: "culte",
+  other: "autre",
 };
 
 export function EventCard({
@@ -61,13 +74,13 @@ export function EventCard({
                   {format(date, "d")}
                 </p>
                 <p className="mt-1.5 block text-[0.75rem] uppercase leading-none tracking-[0.18em] text-rich-mahogany/40">
-                  {format(date, "MMM", { locale: dateLocale })}
+                  {format(date, "EEE · MMM", { locale: dateLocale })}
                 </p>
               </time>
               <p
                 className={cn(
                   "px-2.5 py-1 text-[0.6875rem] font-bold uppercase tracking-[0.1em]",
-                  badgeColors[type]
+                  eventCardBadgeColors[type]
                 )}
               >
                 {typeLabel}
@@ -81,9 +94,9 @@ export function EventCard({
               </h5>
 
               {location && (
-                <address className="flex items-center gap-2 text-[0.8125rem] text-carbon-black/50 not-italic">
-                  <MapPointBold size={14} color="var(--toffee-brown)" className="shrink-0" />
-                  <p className="truncate">{location}</p>
+                <address className="flex items-center gap-2 text-carbon-black/50 not-italic">
+                  <MapPointBold size={13} color="var(--toffee-brown)" className="shrink-0" />
+                  <p className="truncate text-[0.8125rem]">{location}</p>
                 </address>
               )}
 

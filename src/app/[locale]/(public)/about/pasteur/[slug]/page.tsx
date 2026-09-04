@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeftBold } from "solar-icon-set";
+import { BackLink } from "@/_components/BackLink";
 import { PeekRectangle } from "@/_components/PeekRectangle";
 import { getLeadershipTeam, getLeaderBySlug } from "@/lib/data/leadership";
 import { getLocalizedContent } from "@/lib/utils";
@@ -55,17 +54,10 @@ export default async function PasteurDetailPage({ params }: PageProps) {
         {/* Bordeaux overlay */}
         <div className="pointer-events-none absolute inset-0 bg-carbon-black/80" />
 
-        <div className="relative mx-auto max-w-5xl px-6">
-          {/* Back link */}
-          <Link
-            href={`/${paramLocale}/about#team`}
-            className="inline-flex items-center gap-1.5 text-sm text-parchment/60 transition-colors hover:text-parchment"
-          >
-            <ArrowLeftBold size={14} color="currentColor" />
-            {t("backToTeam")}
-          </Link>
+        <div className="relative mx-auto max-w-7xl px-4">
+          <BackLink href={`/${paramLocale}/about#team`}>{t("backToTeam")}</BackLink>
 
-          <div className="mt-10 flex flex-col items-center gap-8 md:flex-row md:items-end md:gap-12">
+          <div className="mx-auto mt-10 flex max-w-5xl flex-col items-center gap-8 md:flex-row md:items-end md:gap-12">
             {/* Photo with PeekRectangle */}
             {leader.photoUrl && (
               <PeekRectangle color="gold" position="bottom-right" className="shrink-0 h-56 w-44 md:h-72 md:w-56">
@@ -112,13 +104,7 @@ export default async function PasteurDetailPage({ params }: PageProps) {
 
           {/* Back link */}
           <div className="mt-12">
-            <Link
-              href={`/${paramLocale}/about#team`}
-              className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-night-bordeaux-2/60 transition-colors hover:text-night-bordeaux-2"
-            >
-              <ArrowLeftBold size={14} color="currentColor" />
-              {t("backToTeam")}
-            </Link>
+            <BackLink href={`/${paramLocale}/about#team`}>{t("backToTeam")}</BackLink>
           </div>
         </div>
       </section>
