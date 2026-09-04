@@ -19,6 +19,7 @@
       "themes": "Temas",
       "categories": "Categorias",
       "mediaAssets": "Biblioteca de mídia",
+      "publicFiles": "Arquivos",
       "albums": "Álbuns",
       "users": "Usuários",
       "collapse": "Recolher menu",
@@ -82,7 +83,12 @@
         "statusUploading": "Enviando…",
         "statusSuccess": "Enviado",
         "statusError": "Erro no envio",
-        "dismiss": "Remover da lista"
+        "dismiss": "Remover da lista",
+        "titleLabel": "Título dos arquivos",
+        "titlePlaceholder": "Ex.: Boletim de domingo",
+        "send": "{count, plural, one {Enviar # arquivo} other {Enviar # arquivos}}",
+        "sending": "Enviando…",
+        "removeStaged": "Remover"
       },
       "toolbar": {
         "filterAllTypes": "Todos os tipos de arquivo",
@@ -92,7 +98,76 @@
           "jpeg": "JPEG",
           "epub": "EPUB"
         }
-      }
+      },
+      "picker": {
+        "title": "Selecionar arquivo",
+        "description": "Envie um novo arquivo ou escolha um já existente na mediateca.",
+        "dropzoneTitle": "Arraste um arquivo aqui",
+        "dropzoneSubtitle": "ou clique no botão abaixo para selecionar",
+        "browseButton": "Procurar arquivo",
+        "accepted": "Aceitos: {types}",
+        "uploading": "Enviando…",
+        "uploadError": "Falha no envio. Tente novamente.",
+        "orSelectExisting": "ou selecione um já existente",
+        "loadError": "Não foi possível carregar os arquivos.",
+        "noAssetsAvailable": "Nenhum arquivo disponível na mediateca.",
+        "fileType": {
+          "pdf": "PDF",
+          "png": "PNG",
+          "jpeg": "JPEG",
+          "epub": "EPUB"
+        }
+      },
+      "edit": "Editar",
+      "editTitleSheetTitle": "Editar título",
+      "editTitleSheetDescription": "Esse título aparece no lugar do nome do arquivo no site.",
+      "titleFieldLabel": "Título",
+      "titleFieldPlaceholder": "Ex.: Boletim de domingo",
+      "errorForbidden": "Você não tem permissão para fazer isso.",
+      "errorGeneric": "Algo deu errado. Tente novamente."
+    },
+    "publicFiles": {
+      "title": "Arquivos",
+      "subtitle": "Gerencie os arquivos públicos do site (boletins, notas, guias, livros)",
+      "add": "Adicionar arquivo",
+      "loading": "Carregando…",
+      "loadError": "Não foi possível carregar os arquivos.",
+      "emptyTitle": "Nenhum arquivo",
+      "emptyDescription": "Adicione seu primeiro arquivo para começar.",
+      "columnTitle": "Título",
+      "columnDocumentType": "Tipo",
+      "columnCreatedAt": "Criado em",
+      "columnActions": "Ações",
+      "previous": "Anterior",
+      "next": "Próximo",
+      "pageCount": "{count, plural, =0 {Nenhum arquivo nesta página} one {<strong>#</strong> arquivo nesta página} other {<strong>#</strong> arquivos nesta página}}",
+      "createTitle": "Novo arquivo",
+      "editTitle": "Editar arquivo",
+      "createDescription": "Título, tipo e arquivo são obrigatórios.",
+      "titleLabel": "Título",
+      "titlePlaceholder": "Ex.: Boletim de domingo",
+      "descriptionLabel": "Descrição",
+      "descriptionPlaceholder": "Uma breve descrição do arquivo (opcional)",
+      "documentTypeLabel": "Tipo de documento",
+      "documentType": {
+        "bulletin": "Boletim",
+        "notes": "Notas",
+        "study_guide": "Guia de estudo",
+        "book": "Livro"
+      },
+      "assetLabel": "Arquivo",
+      "selectFile": "Selecionar arquivo",
+      "removeFile": "Remover arquivo",
+      "save": "Salvar",
+      "saving": "Salvando…",
+      "cancel": "Cancelar",
+      "errorForbidden": "Você não tem permissão para essa ação.",
+      "errorGeneric": "Ocorreu um erro. Tente novamente.",
+      "edit": "Editar",
+      "delete": "Excluir",
+      "deleting": "Excluindo…",
+      "deleteTitle": "Excluir este arquivo?",
+      "deleteDescription": "“{name}” será movido para a lixeira e excluído definitivamente após 30 dias."
     },
     "albums": {
       "title": "Álbuns",
@@ -413,6 +488,7 @@
     "groups": "Grupos",
     "blog": "Blog",
     "gallery": "Galeria",
+    "files": "Arquivos",
     "contact": "Contato"
   },
   "homepage": {
@@ -483,16 +559,42 @@
       "subscribe": "Inscrever-se",
       "success": "Bem-vindo! Você agora está inscrito.",
       "comingSoon": "Em breve você poderá conferir nossa newsletter — fique ligado!"
+    },
+    "highlights": {
+      "label": "Para você",
+      "title": "Nossas últimas publicações",
+      "sermon": {
+        "label": "Pregação",
+        "cta": "Assistir"
+      },
+      "podcast": {
+        "label": "Podcast",
+        "cta": "Ouvir"
+      },
+      "blog": {
+        "label": "Blog",
+        "cta": "Ler o artigo"
+      },
+      "album": {
+        "label": "Galeria",
+        "cta": "Ver o álbum"
+      }
     }
   },
   "events": {
     "title": "Eventos",
+    "allEvents": "Todos os eventos",
     "upcoming": "Próximos eventos",
     "past": "Eventos passados",
     "noEvents": "Nenhum evento próximo",
     "filterByType": "Tipo de evento",
     "filterByLocation": "Local",
     "filterByDate": "Data",
+    "time": "Horário",
+    "previousMonth": "Mês anterior",
+    "nextMonth": "Próximo mês",
+    "backToEvents": "Voltar aos eventos",
+    "moreEvents": "Outros eventos em breve",
     "types": {
       "service": "Culto",
       "conference": "Conferência",
@@ -510,6 +612,7 @@
     "latestSermon": "Pregação recente",
     "watchNow": "Assistir",
     "allSermons": "Todas as pregações",
+    "searchPlaceholder": "Buscar uma pregação…",
     "clearFilters": "Limpar filtros",
     "backToSermons": "Voltar às pregações",
     "relatedSermons": "Pregações da série",
@@ -529,15 +632,33 @@
     "ctaButton": "Nosso canal YouTube",
     "loadMore": "Carregar mais"
   },
+  "files": {
+    "title": "Arquivos",
+    "heroSubtitle": "Boletins, guias de estudo e documentos da igreja",
+    "documentTypes": {
+      "bulletin": "Boletim",
+      "notes": "Notas",
+      "study_guide": "Guia de estudo",
+      "book": "Livro"
+    },
+    "seeAllInType": "Ver todos",
+    "backToFiles": "Voltar aos arquivos",
+    "noFiles": "Nenhum arquivo encontrado",
+    "loadMore": "Carregar mais"
+  },
   "podcast": {
     "title": "Podcast",
     "heroSubtitle": "Ouça nossas mensagens onde estiver",
     "allEpisodes": "Todos os episódios",
+    "searchPlaceholder": "Buscar um episódio…",
+    "clearFilters": "Limpar filtros",
     "noEpisodes": "Nenhum episódio disponível no momento",
     "episode": "Episódio",
     "latestEpisode": "Episódio recente",
     "listen": "Ouvir episódio",
     "close": "Fechar player",
+    "backToPodcast": "Voltar aos episódios",
+    "date": "Data",
     "episodesCount": "episódios",
     "loadMore": "Carregar mais"
   },
@@ -580,6 +701,8 @@
     "title": "Blog",
     "articles": "Artigos",
     "filterByCategory": "Categoria",
+    "allCategories": "Todas as categorias",
+    "searchPlaceholder": "Buscar um artigo…",
     "noArticles": "Nenhum artigo encontrado",
     "publishedOn": "Publicado em",
     "by": "Por",
@@ -588,11 +711,19 @@
       "news": "Notícias",
       "devotional": "Meditação"
     },
+    "postTypes": {
+      "artigo": "Artigo",
+      "newsletter": "Newsletter",
+      "boletim": "Ordem de Culto"
+    },
+    "seeAllInType": "Ver todos",
     "readMore": "Ler mais",
-    "allArticles": "Todos os artigos",
     "heroSubtitle": "Reflexões, notícias e meditações da nossa comunidade",
     "clearFilters": "Limpar filtros",
-    "loadMore": "Carregar mais"
+    "loadMore": "Carregar mais",
+    "backToArticles": "Voltar aos artigos",
+    "readingTime": "{count} min de leitura",
+    "relatedArticles": "Veja também"
   },
   "about": {
     "title": "Sobre",

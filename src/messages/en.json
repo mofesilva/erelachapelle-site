@@ -19,6 +19,7 @@
       "themes": "Themes",
       "categories": "Categories",
       "mediaAssets": "Media library",
+      "publicFiles": "Files",
       "albums": "Albums",
       "users": "Users",
       "collapse": "Collapse menu",
@@ -82,7 +83,12 @@
         "statusUploading": "Uploading…",
         "statusSuccess": "Uploaded",
         "statusError": "Upload failed",
-        "dismiss": "Remove from list"
+        "dismiss": "Remove from list",
+        "titleLabel": "File titles",
+        "titlePlaceholder": "E.g. Sunday bulletin",
+        "send": "{count, plural, one {Upload # file} other {Upload # files}}",
+        "sending": "Uploading…",
+        "removeStaged": "Remove"
       },
       "toolbar": {
         "filterAllTypes": "All file types",
@@ -92,7 +98,76 @@
           "jpeg": "JPEG",
           "epub": "EPUB"
         }
-      }
+      },
+      "picker": {
+        "title": "Select file",
+        "description": "Upload a new file or choose one already in the media library.",
+        "dropzoneTitle": "Drag a file here",
+        "dropzoneSubtitle": "or click the button below to select",
+        "browseButton": "Browse file",
+        "accepted": "Accepted: {types}",
+        "uploading": "Uploading…",
+        "uploadError": "Upload failed. Try again.",
+        "orSelectExisting": "or select an existing one",
+        "loadError": "Could not load files.",
+        "noAssetsAvailable": "No files available in the media library.",
+        "fileType": {
+          "pdf": "PDF",
+          "png": "PNG",
+          "jpeg": "JPEG",
+          "epub": "EPUB"
+        }
+      },
+      "edit": "Edit",
+      "editTitleSheetTitle": "Edit title",
+      "editTitleSheetDescription": "This title is shown instead of the file name on the site.",
+      "titleFieldLabel": "Title",
+      "titleFieldPlaceholder": "E.g. Sunday bulletin",
+      "errorForbidden": "You don't have permission to do that.",
+      "errorGeneric": "Something went wrong. Try again."
+    },
+    "publicFiles": {
+      "title": "Files",
+      "subtitle": "Manage the site's public files (bulletins, notes, guides, books)",
+      "add": "Add file",
+      "loading": "Loading…",
+      "loadError": "Could not load files.",
+      "emptyTitle": "No files",
+      "emptyDescription": "Add your first file to get started.",
+      "columnTitle": "Title",
+      "columnDocumentType": "Type",
+      "columnCreatedAt": "Created",
+      "columnActions": "Actions",
+      "previous": "Previous",
+      "next": "Next",
+      "pageCount": "{count, plural, =0 {No files on this page} one {<strong>#</strong> file on this page} other {<strong>#</strong> files on this page}}",
+      "createTitle": "New file",
+      "editTitle": "Edit file",
+      "createDescription": "Title, type, and file are required.",
+      "titleLabel": "Title",
+      "titlePlaceholder": "E.g. Sunday bulletin",
+      "descriptionLabel": "Description",
+      "descriptionPlaceholder": "A short description of the file (optional)",
+      "documentTypeLabel": "Document type",
+      "documentType": {
+        "bulletin": "Bulletin",
+        "notes": "Notes",
+        "study_guide": "Study guide",
+        "book": "Book"
+      },
+      "assetLabel": "File",
+      "selectFile": "Select file",
+      "removeFile": "Remove file",
+      "save": "Save",
+      "saving": "Saving…",
+      "cancel": "Cancel",
+      "errorForbidden": "You don't have permission to do that.",
+      "errorGeneric": "Something went wrong. Try again.",
+      "edit": "Edit",
+      "delete": "Delete",
+      "deleting": "Deleting…",
+      "deleteTitle": "Delete this file?",
+      "deleteDescription": "“{name}” will be moved to the trash and permanently deleted after 30 days."
     },
     "albums": {
       "title": "Albums",
@@ -413,6 +488,7 @@
     "groups": "Groups",
     "blog": "Blog",
     "gallery": "Gallery",
+    "files": "Files",
     "contact": "Contact"
   },
   "homepage": {
@@ -483,16 +559,42 @@
       "subscribe": "Subscribe",
       "success": "Welcome! You're now subscribed.",
       "comingSoon": "Our newsletter is coming soon — stay tuned!"
+    },
+    "highlights": {
+      "label": "For you",
+      "title": "Our latest publications",
+      "sermon": {
+        "label": "Sermon",
+        "cta": "Watch"
+      },
+      "podcast": {
+        "label": "Podcast",
+        "cta": "Listen"
+      },
+      "blog": {
+        "label": "Blog",
+        "cta": "Read the article"
+      },
+      "album": {
+        "label": "Gallery",
+        "cta": "View the album"
+      }
     }
   },
   "events": {
     "title": "Events",
+    "allEvents": "All events",
     "upcoming": "Upcoming events",
     "past": "Past events",
     "noEvents": "No upcoming events",
     "filterByType": "Event type",
     "filterByLocation": "Location",
     "filterByDate": "Date",
+    "time": "Time",
+    "previousMonth": "Previous month",
+    "nextMonth": "Next month",
+    "backToEvents": "Back to events",
+    "moreEvents": "More upcoming events",
     "types": {
       "service": "Service",
       "conference": "Conference",
@@ -510,6 +612,7 @@
     "latestSermon": "Latest sermon",
     "watchNow": "Watch",
     "allSermons": "All sermons",
+    "searchPlaceholder": "Search sermons…",
     "clearFilters": "Clear filters",
     "backToSermons": "Back to sermons",
     "relatedSermons": "Sermons from this series",
@@ -529,15 +632,33 @@
     "ctaButton": "Our YouTube channel",
     "loadMore": "Load more"
   },
+  "files": {
+    "title": "Files",
+    "heroSubtitle": "Bulletins, study guides and church documents",
+    "documentTypes": {
+      "bulletin": "Bulletin",
+      "notes": "Notes",
+      "study_guide": "Study guide",
+      "book": "Book"
+    },
+    "seeAllInType": "See all",
+    "backToFiles": "Back to files",
+    "noFiles": "No files found",
+    "loadMore": "Load more"
+  },
   "podcast": {
     "title": "Podcast",
     "heroSubtitle": "Listen to our messages wherever you are",
     "allEpisodes": "All episodes",
+    "searchPlaceholder": "Search episodes…",
+    "clearFilters": "Clear filters",
     "noEpisodes": "No episodes available yet",
     "episode": "Episode",
     "latestEpisode": "Latest episode",
     "listen": "Listen to episode",
     "close": "Close player",
+    "backToPodcast": "Back to episodes",
+    "date": "Date",
     "episodesCount": "episodes",
     "loadMore": "Load more"
   },
@@ -580,6 +701,8 @@
     "title": "Blog",
     "articles": "Articles",
     "filterByCategory": "Category",
+    "allCategories": "All categories",
+    "searchPlaceholder": "Search articles…",
     "noArticles": "No articles found",
     "publishedOn": "Published on",
     "by": "By",
@@ -588,11 +711,19 @@
       "news": "News",
       "devotional": "Devotional"
     },
+    "postTypes": {
+      "artigo": "Article",
+      "newsletter": "Newsletter",
+      "boletim": "Order of Service"
+    },
+    "seeAllInType": "See all",
     "readMore": "Read more",
-    "allArticles": "All articles",
     "heroSubtitle": "Reflections, news and meditations from our community",
     "clearFilters": "Clear filters",
-    "loadMore": "Load more"
+    "loadMore": "Load more",
+    "backToArticles": "Back to articles",
+    "readingTime": "{count} min read",
+    "relatedArticles": "You might also like"
   },
   "about": {
     "title": "About",
