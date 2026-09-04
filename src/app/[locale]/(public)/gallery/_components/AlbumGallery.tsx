@@ -5,6 +5,7 @@ import { createPortal } from "react-dom";
 import Image from "next/image";
 import { ArrowLeftBold, ArrowRightBold, CloseSquareBold } from "solar-icon-set";
 import { getLocalizedContent } from "@/lib/utils";
+import { resolveMediaAssetUrl } from "@/types/media-asset";
 import type { MediaRef, MultilingualText } from "@/types/common";
 
 interface AlbumGalleryProps {
@@ -57,7 +58,7 @@ export function AlbumGallery({ images, albumTitle, locale }: AlbumGalleryProps) 
             className="group relative aspect-square cursor-pointer overflow-hidden bg-dust-grey"
           >
             <Image
-              src={image.url}
+              src={resolveMediaAssetUrl(image.url)}
               alt={altFor(image)}
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -102,7 +103,7 @@ export function AlbumGallery({ images, albumTitle, locale }: AlbumGalleryProps) 
               onClick={(e) => e.stopPropagation()}
             >
               <Image
-                src={images[openIndex].url}
+                src={resolveMediaAssetUrl(images[openIndex].url)}
                 alt={altFor(images[openIndex])}
                 fill
                 className="object-contain"

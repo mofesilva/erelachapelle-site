@@ -1,7 +1,9 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
+import { MagniferLinear } from "solar-icon-set";
 import { cn } from "@/lib/utils";
 
 interface SermonFiltersProps {
@@ -15,6 +17,13 @@ export function SermonFilters({ seriesList }: SermonFiltersProps) {
   const searchParams = useSearchParams();
 
   const activeSeries = searchParams.get("series") ?? "";
+  const activeQuery = searchParams.get("q") ?? "";
+  const [query, setQuery] = useState(activeQuery);
+
+  // Mantém o campo em sincronia se o usuário navegar (voltar/avançar) mudando a URL.
+  useEffect(() => {
+    setQuery(activeQuery);
+  }, [activeQuery]);
 
   function updateFilter(key: string, value: string) {
     const params = new URLSearchParams(searchParams.toString());
@@ -23,17 +32,43 @@ export function SermonFilters({ seriesList }: SermonFiltersProps) {
     } else {
       params.delete(key);
     }
-    router.push(`/${locale}/sermons?${params.toString()}`);
+    router.push(`/${locale}/sermons?${params.toString()}`, { scroll: false });
   }
+
+  // Debounce: evita disparar uma navegação a cada tecla digitada.
+  useEffect(() => {
+    if (query === activeQuery) return;
+    const timeout = setTimeout(() => updateFilter("q", query), 400);
+    return () => clearTimeout(timeout);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [query]);
 
   function clearFilters() {
-    router.push(`/${locale}/sermons`);
+    setQuery("");
+    router.push(`/${locale}/sermons`, { scroll: false });
   }
 
-  const hasFilters = activeSeries;
+  const hasFilters = activeSeries || activeQuery;
 
   return (
     <div className="space-y-5">
+      {/* Search */}
+      <div className="relative sm:w-72">
+        <MagniferLinear
+          size={16}
+          color="var(--toffee-brown)"
+          className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 opacity-60"
+        />
+        <input
+          type="search"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder={t("searchPlaceholder")}
+          aria-label={t("searchPlaceholder")}
+          className="w-full border border-dust-grey bg-white py-2 pl-9 pr-3 text-[0.875rem] text-coffee-bean placeholder:text-coffee-bean/40 outline-none transition-colors duration-200 focus:border-toffee-brown"
+        />
+      </div>
+
       {/* Series */}
       {seriesList.length > 0 && (
         <div className="flex flex-wrap items-center justify-center gap-2">

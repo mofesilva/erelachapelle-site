@@ -1,6 +1,7 @@
-import type { MultilingualText } from "@/types/common";
+import type { Locale, MultilingualText } from "@/types/common";
 import type { Sermon } from "@/types/sermon";
 import { fetchList } from "@/lib/api/client";
+import { getLocalizedContent } from "@/lib/utils";
 
 // Volume baixo (poucos sermões por mês, ver docs/contexto-e-referencia.md) — uma busca
 // de até 100 cobre a base inteira numa requisição só; a paginação de 24 por página é
@@ -46,7 +47,32 @@ export async function getSermonSeries(): Promise<string[]> {
   return Array.from(new Set(sermons.flatMap((s) => (s.series ? [s.series] : [])))).sort();
 }
 
-export async function filterSermons(filters: { series?: string }): Promise<Sermon[]> {
+// Busca por texto: sem case, sem acento — mesma normalização usada em `searchArticles`
+// (ver `lib/data/blog.ts`). Filtra em memória sobre o conjunto já carregado (ver
+// FETCH_SIZE acima); não precisa de endpoint de busca na API.
+const COMBINING_MARKS = new RegExp("[\\u0300-\\u036f]", "g");
+
+function normalizeForSearch(value: string): string {
+  return value
+    .normalize("NFD")
+    .replace(COMBINING_MARKS, "")
+    .toLowerCase()
+    .trim();
+}
+
+export async function filterSermons(
+  filters: { series?: string; q?: string },
+  locale: Locale = "fr"
+): Promise<Sermon[]> {
   const sermons = await getAllSermons();
-  return sermons.filter((s) => !filters.series || s.series === filters.series);
+  const query = filters.q ? normalizeForSearch(filters.q) : "";
+
+  return sermons.filter((s) => {
+    if (filters.series && s.series !== filters.series) return false;
+    if (!query) return true;
+    const haystack = normalizeForSearch(
+      `${getLocalizedContent(s.title, locale)} ${s.preacher} ${s.series ?? ""}`
+    );
+    return haystack.includes(query);
+  });
 }

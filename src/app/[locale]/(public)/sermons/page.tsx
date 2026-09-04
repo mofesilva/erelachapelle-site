@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Suspense } from "react";
 import { getTranslations, getLocale } from "next-intl/server";
 import { BookBoldDuotone } from "solar-icon-set";
@@ -23,7 +24,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 type PageProps = {
-  searchParams: Promise<{ series?: string }>;
+  searchParams: Promise<{ series?: string; q?: string }>;
 };
 
 export default async function SermonsPage({ searchParams }: PageProps) {
@@ -31,8 +32,10 @@ export default async function SermonsPage({ searchParams }: PageProps) {
   const locale = (await getLocale()) as Locale;
   const params = await searchParams;
 
-  const hasFilters = !!params.series;
-  const filteredSermons = hasFilters ? await filterSermons({ series: params.series }) : null;
+  const hasFilters = !!params.series || !!params.q;
+  const filteredSermons = hasFilters
+    ? await filterSermons({ series: params.series, q: params.q }, locale)
+    : null;
   const { sermons, totalPages } = hasFilters
     ? { sermons: filteredSermons!, totalPages: 1 }
     : await getSermonsPage(1);
@@ -40,15 +43,26 @@ export default async function SermonsPage({ searchParams }: PageProps) {
   const seriesList = await getSermonSeries();
 
   return (
-    <main>
+    <main className="flex flex-1 flex-col">
       {/* Bloco bordeaux do topo: leva o sermão em destaque dentro, no lugar do antigo
           título "Prédications" — o hero era um retângulo quase vazio. */}
-      <section className="bg-night-bordeaux-2 pb-16 pt-32 md:pb-20 md:pt-40">
-        <FeaturedSermon />
+      <section className="relative min-h-[50svh] bg-night-bordeaux-2 pb-16 pt-32 md:pb-20 md:pt-40">
+        <Image
+          src="/images/inside-church.jpg"
+          alt=""
+          fill
+          className="object-cover"
+          priority
+          aria-hidden="true"
+        />
+        <div className="pointer-events-none absolute inset-0 bg-night-bordeaux-2/80" />
+        <div className="relative">
+          <FeaturedSermon />
+        </div>
       </section>
 
       {/* Sermon grid with filters */}
-      <section className="bg-powder-petal py-16 md:py-20">
+      <section className="bg-parchment py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4">
           {/* Cabeçalho da seção no mesmo formato do rótulo do destaque — o <h2> do
               SectionLabel sai a 55px e gritava mais que o título da prédication. */}

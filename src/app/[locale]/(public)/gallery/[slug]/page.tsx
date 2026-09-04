@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, getLocale } from "next-intl/server";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeftBold } from "solar-icon-set";
+import { BackLink } from "@/_components/BackLink";
 import { getAlbumBySlug, getAllAlbums } from "@/lib/data/albums";
 import { getLocalizedContent } from "@/lib/utils";
 import type { Locale } from "@/types/common";
@@ -38,24 +37,20 @@ export default async function AlbumDetailPage({ params }: PageProps) {
   return (
     <main>
       <section className="relative bg-night-bordeaux-2 pb-16 pt-36 md:pb-20 md:pt-44">
-        <div className="relative mx-auto max-w-4xl px-6 text-center">
-          <Link
-            href={`/${locale}/gallery`}
-            className="inline-flex items-center gap-1.5 text-sm text-parchment/60 transition-colors hover:text-parchment"
-          >
-            <ArrowLeftBold size={14} color="currentColor" />
-            {t("backToGallery")}
-          </Link>
+        <div className="relative mx-auto max-w-7xl px-4">
+          <BackLink href={`/${locale}/gallery`}>{t("backToGallery")}</BackLink>
 
-          <h1 className="mt-8 font-serif font-bold text-parchment">
-            {getLocalizedContent(album.title, locale)}
-          </h1>
+          <div className="mx-auto mt-8 max-w-3xl text-center">
+            <h1 className="font-serif font-bold text-parchment">
+              {getLocalizedContent(album.title, locale)}
+            </h1>
 
-          {album.description && (
-            <p className="mt-4 text-parchment/70">
-              {getLocalizedContent(album.description, locale)}
-            </p>
-          )}
+            {album.description && (
+              <p className="mt-4 text-parchment/70">
+                {getLocalizedContent(album.description, locale)}
+              </p>
+            )}
+          </div>
         </div>
       </section>
 

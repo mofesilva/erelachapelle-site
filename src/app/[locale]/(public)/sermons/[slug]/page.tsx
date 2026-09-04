@@ -1,18 +1,24 @@
 import type { Metadata } from "next";
 import { getTranslations, getLocale } from "next-intl/server";
-import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
-import { ArrowLeftBold, DownloadBold } from "solar-icon-set";
+import { format } from "date-fns";
+import { fr, pt, enUS } from "date-fns/locale";
+import { DownloadBold } from "solar-icon-set";
+import { BackLink } from "@/_components/BackLink";
 import { YouTubeEmbed } from "@/_components/YouTubeEmbed";
 import {
   getSermonBySlug,
   getAllSermons,
   filterSermons,
 } from "@/lib/data/sermons";
-import { formatDate, getLocalizedContent } from "@/lib/utils";
+import { getLocalizedContent } from "@/lib/utils";
 import { videoJsonLd } from "@/lib/structured-data";
 import type { Locale } from "@/types/common";
 import { SermonCard } from "../_components/SermonCard";
+
+const HERO_IMAGE = "/images/inside-church.jpg";
+const dateLocales = { fr, pt, en: enUS } as const;
 
 type PageProps = {
   params: Promise<{ slug: string; locale: string }>;
@@ -39,9 +45,12 @@ export default async function SermonDetailPage({ params }: PageProps) {
   const { slug } = await params;
   const t = await getTranslations("sermons");
   const locale = (await getLocale()) as Locale;
+  const dateLocale = dateLocales[locale] ?? fr;
   const sermon = await getSermonBySlug(slug);
 
   if (!sermon) notFound();
+
+  const sermonDate = new Date(sermon.date);
 
   // Related sermons from the same series (excluding current)
   const relatedSermons = sermon.series
@@ -59,42 +68,81 @@ export default async function SermonDetailPage({ params }: PageProps) {
         }}
       />
 
-      {/* Hero */}
-      <section className="relative bg-night-bordeaux-2 pb-16 pt-36 md:pb-20 md:pt-44">
-        {/* Texture overlay */}
-      
+      {/* Hero — foto de fundo + overlay carbon-black, mesmo padrão do hero de
+          /events/[slug]: cresce com o conteúdo, sem altura fixa. */}
+      <section className="relative overflow-hidden bg-carbon-black pb-16 pt-36 md:pb-20 md:pt-44">
+        <Image
+          src={HERO_IMAGE}
+          alt=""
+          fill
+          priority
+          className="object-cover"
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-carbon-black/85" />
 
         <div className="relative mx-auto max-w-7xl px-4">
-          {/* Back link */}
-          <Link
-            href={`/${locale}/sermons`}
-            className="inline-flex items-center gap-1.5 text-md text-parchment/60 transition-colors hover:text-parchment"
-          >
-            <ArrowLeftBold size={14} color="currentColor" />
-            {t("backToSermons")}
-          </Link>
+          <BackLink href={`/${locale}/sermons`}>{t("backToSermons")}</BackLink>
 
           <div className="mt-8 text-center">
+            {sermon.series && (
+              <p className="text-[0.75rem] font-semibold uppercase tracking-[0.35em] text-toffee-brown">
+                {sermon.series}
+              </p>
+            )}
 
-            <h1 className="mt-8 font-serif font-bold text-parchment md:mt-10">
+            {/* O título é o elemento de destaque aqui, não a data — o bloco de data
+                grande faz sentido no evento (o "quando" é a informação central), mas
+                na prédication o que importa é o título. */}
+            <h1 className="mt-6 font-serif font-bold text-parchment md:mt-8">
               {getLocalizedContent(sermon.title, locale)}
             </h1>
 
-            {/* Meta — mesmas badges com borda usadas no destaque de /sermons; sem o
-                pregador aqui. Data e referência bíblica com o mesmo tratamento. */}
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
-              <span className="border border-parchment/25 px-2.5 py-1 text-[0.6875rem] uppercase tracking-[0.1em] text-parchment/70">
-                {formatDate(sermon.date, locale)}
-              </span>
+            {sermon.description && (
+              <p className="mx-auto mt-6 text-lg leading-relaxed text-parchment/75">
+                {getLocalizedContent(sermon.description, locale)}
+              </p>
+            )}
+          </div>
+
+          {/* Colofão — data, pregador e referência bíblica, mesmo tratamento do
+              horário/local no hero de /events/[slug]. */}
+          <div className="mx-auto mt-14 max-w-4xl">
+            <div className="h-px bg-parchment/15" />
+            <div className="flex flex-wrap justify-center gap-x-12 gap-y-6 py-8 sm:gap-x-20">
+              <div className="text-center">
+                <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-toffee-brown">
+                  {t("filterByDate")}
+                </p>
+                <p className="mt-2 font-serif text-lg text-parchment">
+                  {format(sermonDate, "d MMMM yyyy", { locale: dateLocale })}
+                </p>
+              </div>
+              {sermon.preacher && (
+                <div className="text-center">
+                  <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-toffee-brown">
+                    {t("preacher")}
+                  </p>
+                  <p className="mt-2 font-serif text-lg text-parchment">
+                    {sermon.preacher}
+                  </p>
+                </div>
+              )}
               {sermon.biblicalReference && (
-                <span className="border border-parchment/25 px-2.5 py-1 text-[0.6875rem] uppercase tracking-[0.1em] text-parchment/70">
-                  {sermon.biblicalReference.book}{" "}
-                  {sermon.biblicalReference.chapter}
-                  {sermon.biblicalReference.verses &&
-                    `:${sermon.biblicalReference.verses}`}
-                </span>
+                <div className="text-center">
+                  <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-toffee-brown">
+                    {t("biblicalRef")}
+                  </p>
+                  <p className="mt-2 font-serif text-lg text-parchment">
+                    {sermon.biblicalReference.book}{" "}
+                    {sermon.biblicalReference.chapter}
+                    {sermon.biblicalReference.verses &&
+                      `:${sermon.biblicalReference.verses}`}
+                  </p>
+                </div>
               )}
             </div>
+            <div className="h-px bg-parchment/15" />
           </div>
         </div>
       </section>
@@ -109,18 +157,6 @@ export default async function SermonDetailPage({ params }: PageProps) {
               title={getLocalizedContent(sermon.title, locale)}
             />
           </div>
-
-          {/* Description */}
-          {sermon.description && (
-            <div className="mt-10">
-              <p className="leading-relaxed text-coffee-bean">
-                <span className="font-serif text-5xl font-bold leading-none text-toffee-brown/30">
-                  {getLocalizedContent(sermon.description, locale).charAt(0)}
-                </span>
-                {getLocalizedContent(sermon.description, locale).slice(1)}
-              </p>
-            </div>
-          )}
 
           {/* Series info */}
           {sermon.series && (
@@ -151,7 +187,7 @@ export default async function SermonDetailPage({ params }: PageProps) {
 
       {/* Related sermons */}
       {relatedSermons.length > 0 && (
-        <section className="bg-powder-petal py-16 md:py-20">
+        <section className="bg-parchment py-16 md:py-20">
           <div className="mx-auto max-w-7xl px-6">
             <div className="text-center">
               <p className="font-bold uppercase tracking-[0.3em] text-toffee-brown/70">

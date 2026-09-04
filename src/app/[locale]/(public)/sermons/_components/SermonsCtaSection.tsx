@@ -7,7 +7,7 @@ export async function SermonsCtaSection() {
     const t = await getTranslations("sermons");
 
     return (
-        <section className="bg-night-bordeaux-2 py-16 md:py-20">
+        <section className="flex flex-1 flex-col justify-center bg-night-bordeaux-2 py-16 md:py-20">
             <div className="mx-auto max-w-3xl px-6 text-center">
                 <DiamondDivider variant="parchment" className="justify-center" />
 

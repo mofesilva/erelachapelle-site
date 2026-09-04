@@ -29,6 +29,25 @@ export async function getUpcomingEvents(referenceDate: Date, limit = 3): Promise
     .slice(0, limit);
 }
 
+/**
+ * Eventos dentro de um mês calendário (`month` 0-indexado, convenção `Date` do JS). Usa o
+ * mesmo modo `from`/`to` de `getUpcomingEvents` para expandir ocorrências recorrentes (ex.:
+ * culto semanal) dentro do mês, o que `getAllEvents`/`filterEvents` (paginação simples) não fazem.
+ *
+ * `revalidate: 0` (sem cache): a navegação entre meses troca a URL várias vezes em sequência
+ * rápida — sem isso, ficamos reféns de qualquer camada de cache (do Next ou do navegador)
+ * devolver a resposta de um mês diferente do pedido.
+ */
+export async function getEventsByMonth(year: number, month: number): Promise<Event[]> {
+  const from = new Date(year, month, 1).toISOString();
+  const to = new Date(year, month + 1, 1).toISOString();
+
+  const events = await fetchList<Event>(`/events?from=${from}&to=${to}`, 0);
+  return events
+    .filter((e) => e.active !== false)
+    .sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime());
+}
+
 export async function getEventBySlug(slug: string): Promise<Event | null> {
   const events = await getAllEvents();
   return events.find((e) => e.slug === slug) ?? null;
