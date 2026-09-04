@@ -4,17 +4,16 @@ import type { Locale } from "@/types/common";
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export const FILE_TYPES = ["pdf", "png", "jpeg", "epub"] as const;
-export const DOCUMENT_TYPES = ["bulletin", "notes", "study_guide", "book"] as const;
 
 /** O documento como `POST /media-assets/upload` devolve. */
 export type MediaAsset = {
   _id: string;
   fileType: (typeof FILE_TYPES)[number];
-  documentType?: (typeof DOCUMENT_TYPES)[number];
   title?: LocalizedText;
   altText?: LocalizedText;
   description?: LocalizedText;
   url: string;
+  coverUrl?: string;
   slug?: string;
   active: boolean;
   createdAt: string;

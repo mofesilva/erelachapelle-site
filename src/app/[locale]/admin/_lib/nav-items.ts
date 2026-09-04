@@ -7,6 +7,7 @@ import {
   TagBold,
   FolderBold,
   GalleryWideBold,
+  FileTextBold,
   AlbumBold,
   UsersGroupRoundedBold,
 } from "solar-icon-set";
@@ -23,6 +24,7 @@ export const NAV_ITEMS = [
     labelKey: "mediaAssets",
     icon: GalleryWideBold,
   },
+  { href: "/admin/public-files", labelKey: "publicFiles", icon: FileTextBold },
   { href: "/admin/albums", labelKey: "albums", icon: AlbumBold },
   // Só admin gerencia contas — a API já bloqueia editor no backend (GET /users é
   // admin-only), aqui é só pra não mostrar um link que vai dar 403.

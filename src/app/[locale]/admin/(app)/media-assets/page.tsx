@@ -8,6 +8,7 @@ import { MediaUploadDropzone } from "../../_components/media-assets/MediaUploadD
 import { MediaAssetsToolbar } from "../../_components/media-assets/MediaAssetsToolbar";
 import { MediaAssetsGrid } from "../../_components/media-assets/MediaAssetsGrid";
 import { DeleteMediaAssetDialog } from "../../_components/media-assets/DeleteMediaAssetDialog";
+import { EditMediaAssetTitleSheet } from "../../_components/media-assets/EditMediaAssetTitleSheet";
 import { useMediaAssets } from "../../_features/media-assets/media-asset.controller";
 import type { MediaAsset } from "../../_features/media-assets/media-asset.type";
 
@@ -20,6 +21,7 @@ export default function MediaAssetsAdminPage() {
     uploads,
     uploadFiles,
     dismissUpload,
+    update,
     remove,
     fileType,
     setFilters,
@@ -29,6 +31,7 @@ export default function MediaAssetsAdminPage() {
     goToPreviousPage,
   } = useMediaAssets();
 
+  const [editing, setEditing] = useState<MediaAsset | null>(null);
   const [deleting, setDeleting] = useState<MediaAsset | null>(null);
 
   return (
@@ -43,11 +46,18 @@ export default function MediaAssetsAdminPage() {
         assets={assets}
         loading={loading}
         loadFailed={loadFailed}
+        onEdit={setEditing}
         onDelete={setDeleting}
         hasNextPage={hasNextPage}
         hasPreviousPage={hasPreviousPage}
         onNextPage={goToNextPage}
         onPreviousPage={goToPreviousPage}
+      />
+
+      <EditMediaAssetTitleSheet
+        asset={editing}
+        onOpenChange={(open) => !open && setEditing(null)}
+        onSubmit={update}
       />
 
       <DeleteMediaAssetDialog

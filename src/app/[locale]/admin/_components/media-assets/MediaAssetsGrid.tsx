@@ -14,6 +14,7 @@ type Props = {
   assets: MediaAsset[];
   loading: boolean;
   loadFailed: boolean;
+  onEdit: (asset: MediaAsset) => void;
   onDelete: (asset: MediaAsset) => void;
   hasNextPage: boolean;
   hasPreviousPage: boolean;
@@ -25,6 +26,7 @@ export function MediaAssetsGrid({
   assets,
   loading,
   loadFailed,
+  onEdit,
   onDelete,
   hasNextPage,
   hasPreviousPage,
@@ -64,7 +66,9 @@ export function MediaAssetsGrid({
                 </div>
               </div>
             ))
-          : assets.map((asset) => <MediaAssetCard key={asset._id} asset={asset} onDelete={onDelete} />)}
+          : assets.map((asset) => (
+              <MediaAssetCard key={asset._id} asset={asset} onEdit={onEdit} onDelete={onDelete} />
+            ))}
       </div>
 
       {!loading && (hasPreviousPage || hasNextPage) && (

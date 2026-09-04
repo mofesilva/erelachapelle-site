@@ -2,7 +2,8 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { useAdminAuth } from "../../_lib/auth-context";
-import { deleteMediaAsset, listMediaAssets, uploadMediaAsset } from "./media-asset.service";
+import { deleteMediaAsset, listMediaAssets, updateMediaAsset, uploadMediaAsset } from "./media-asset.service";
+import type { MediaAssetTitleFormValues } from "./media-asset.schema";
 import type { FILE_TYPES, MediaAsset } from "./media-asset.type";
 
 export const PAGE_SIZE = 24;
@@ -23,8 +24,15 @@ export type UploadStatus = "pending" | "uploading" | "success" | "error";
 export type UploadItem = {
   id: string;
   file: File;
+  title: string;
   status: UploadStatus;
   error?: string;
+};
+
+/** O que a dropzone monta antes de enviar: arquivo + título editável pelo admin. */
+export type StagedUpload = {
+  file: File;
+  title: string;
 };
 
 export function useMediaAssets() {
@@ -91,11 +99,12 @@ export function useMediaAssets() {
     return accessToken;
   }
 
-  async function uploadFiles(files: File[]) {
+  async function uploadFiles(staged: StagedUpload[]) {
     const token = requireToken();
-    const items: UploadItem[] = files.map((file) => ({
+    const items: UploadItem[] = staged.map(({ file, title }) => ({
       id: `${file.name}-${file.size}-${Date.now()}-${Math.random()}`,
       file,
+      title,
       status: "pending",
     }));
     setUploads((prev) => [...prev, ...items]);
@@ -103,8 +112,7 @@ export function useMediaAssets() {
     for (const item of items) {
       setUploads((prev) => prev.map((u) => (u.id === item.id ? { ...u, status: "uploading" } : u)));
       try {
-        const title = item.file.name.replace(/\.[^./]+$/, "");
-        await uploadMediaAsset(item.file, token, title);
+        await uploadMediaAsset(item.file, token, item.title);
         setUploads((prev) => prev.map((u) => (u.id === item.id ? { ...u, status: "success" } : u)));
       } catch (err) {
         const message = err instanceof Error ? err.message : "Erro desconhecido";
@@ -116,6 +124,12 @@ export function useMediaAssets() {
     // pra primeira página pra ele aparecer na hora.
     setCursorHistory([null]);
     await fetchPage(null);
+  }
+
+  /** Deixa o erro subir: quem chama é o formulário, que sabe traduzir por status. */
+  async function update(id: string, values: MediaAssetTitleFormValues) {
+    const updated = await updateMediaAsset(id, values, requireToken());
+    setAssets((prev) => prev.map((a) => (a._id === id ? updated : a)));
   }
 
   function dismissUpload(id: string) {
@@ -140,6 +154,7 @@ export function useMediaAssets() {
     uploads,
     uploadFiles,
     dismissUpload,
+    update,
     remove,
     fileType,
     setFilters,

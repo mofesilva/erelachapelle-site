@@ -18,6 +18,7 @@ const navItems = [
   // "community", // hidden — no content yet
   "blog",
   "gallery",
+  "files",
   "contact",
 ] as const;
 
