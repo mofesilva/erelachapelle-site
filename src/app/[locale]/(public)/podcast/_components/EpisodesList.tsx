@@ -11,6 +11,7 @@ interface EpisodesListProps {
   initialTotalPages: number;
   locale: Locale;
   episodeLabel: string;
+  listenLabel: string;
   loadMoreLabel: string;
 }
 
@@ -20,6 +21,7 @@ export function EpisodesList({
   initialTotalPages,
   locale,
   episodeLabel,
+  listenLabel,
   loadMoreLabel,
 }: EpisodesListProps) {
   const [episodes, setEpisodes] = useState(initialEpisodes);
@@ -46,6 +48,7 @@ export function EpisodesList({
             episode={episode}
             locale={locale}
             episodeLabel={episodeLabel}
+            listenLabel={listenLabel}
           />
         ))}
       </div>
