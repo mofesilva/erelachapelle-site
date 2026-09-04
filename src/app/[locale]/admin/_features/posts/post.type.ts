@@ -10,6 +10,10 @@ export type FeaturedImage = {
   altText?: LocalizedText;
 };
 
+// Separado de `category` (livre/CRUD): postType é o eixo fixo que organiza o hub de conteúdo.
+export const POST_TYPES = ["artigo", "newsletter", "boletim"] as const;
+export type PostType = (typeof POST_TYPES)[number];
+
 /** O documento como `GET /posts` devolve (datas chegam como string ISO no JSON). */
 export type Post = {
   _id: string;
@@ -17,6 +21,7 @@ export type Post = {
   content: LocalizedText;
   excerpt: LocalizedText;
   author: string;
+  postType: PostType;
   category: EntityRef;
   tags?: string[];
   themes?: EntityRef[];

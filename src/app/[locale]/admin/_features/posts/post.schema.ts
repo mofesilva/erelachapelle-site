@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { POST_TYPES } from "./post.type";
 
 // Só o francês, mesmo motivo do form de Sermons/Categories/Events: conteúdo por ora é FR-only.
 export const postFormSchema = z.object({
@@ -6,6 +7,7 @@ export const postFormSchema = z.object({
   excerpt: z.object({ fr: z.string().trim().min(1) }),
   content: z.object({ fr: z.string().trim().min(1) }),
   author: z.string().trim().min(1),
+  postType: z.enum(POST_TYPES),
   categoryId: z.string().trim().min(1),
   themeIds: z.array(z.string()),
   tags: z.array(z.string()),

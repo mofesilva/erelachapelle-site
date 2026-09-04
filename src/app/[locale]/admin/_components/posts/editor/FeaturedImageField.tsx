@@ -1,12 +1,12 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { CloseCircleBold, GalleryAddBold } from "solar-icon-set";
 import { Button } from "@/components/ui/button";
-import { useAdminAuth } from "../../../_lib/auth-context";
-import { uploadMediaAsset } from "../../../_features/media-assets/media-asset.service";
+import { MediaAssetPickerDialog } from "../../media-assets/MediaAssetPickerDialog";
+import type { MediaAsset } from "../../../_features/media-assets/media-asset.type";
 
 type Value = { id: string; url: string } | null;
 
@@ -14,6 +14,8 @@ type Props = {
   value: Value;
   onChange: (value: Value) => void;
 };
+
+const ALLOWED_FILE_TYPES = ["png", "jpeg"] as const;
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -23,23 +25,10 @@ function resolveUrl(url: string) {
 
 export function FeaturedImageField({ value, onChange }: Props) {
   const t = useTranslations("admin.posts");
-  const { accessToken } = useAdminAuth();
-  const fileInputRef = useRef<HTMLInputElement>(null);
-  const [uploading, setUploading] = useState(false);
-  const [error, setError] = useState(false);
+  const [pickerOpen, setPickerOpen] = useState(false);
 
-  async function handleFile(file: File) {
-    if (!accessToken) return;
-    setUploading(true);
-    setError(false);
-    try {
-      const asset = await uploadMediaAsset(file, accessToken);
-      onChange({ id: asset._id, url: asset.url });
-    } catch {
-      setError(true);
-    } finally {
-      setUploading(false);
-    }
+  function handleSelect(asset: MediaAsset) {
+    onChange({ id: asset._id, url: asset.url });
   }
 
   if (value) {
@@ -66,25 +55,19 @@ export function FeaturedImageField({ value, onChange }: Props) {
     <div>
       <button
         type="button"
-        onClick={() => fileInputRef.current?.click()}
-        disabled={uploading}
+        onClick={() => setPickerOpen(true)}
         className="flex aspect-video w-full max-w-sm flex-col items-center justify-center gap-2 border border-dashed border-toffee-brown/40 bg-powder-petal/20 text-coffee-bean/70 hover:bg-powder-petal/30"
       >
         <GalleryAddBold size={28} color="var(--toffee-brown)" />
-        <span>{uploading ? t("uploading") : t("uploadImage")}</span>
+        <span>{t("uploadImage")}</span>
       </button>
-      {error && <p className="mt-1.5 text-sm text-destructive">{t("uploadError")}</p>}
-      <input
-        ref={fileInputRef}
-        type="file"
-        accept="image/png,image/jpeg"
-        className="hidden"
-        onChange={(e) => {
-          const file = e.target.files?.[0];
-          if (file) handleFile(file);
-          e.target.value = "";
-        }}
+      <MediaAssetPickerDialog
+        open={pickerOpen}
+        onOpenChange={setPickerOpen}
+        allowedFileTypes={ALLOWED_FILE_TYPES}
+        onSelect={handleSelect}
       />
     </div>
   );
 }
+

@@ -30,6 +30,7 @@ const EMPTY_VALUES: PostFormValues = {
   excerpt: { fr: "" },
   content: { fr: "" },
   author: "",
+  postType: "artigo",
   categoryId: "",
   themeIds: [],
   tags: [],
@@ -44,6 +45,7 @@ function valuesFromPost(post: Post): PostFormValues {
     excerpt: { fr: post.excerpt.fr },
     content: { fr: post.content.fr },
     author: post.author,
+    postType: post.postType,
     categoryId: post.category.id,
     themeIds: post.themes?.map((theme) => theme.id) ?? [],
     tags: post.tags ?? [],
@@ -117,6 +119,7 @@ export function PostEditor({ mode, post, categories, themes, onCreateTheme, onCr
       if (!prevBody || JSON.stringify(nextBody.content) !== JSON.stringify(prevBody.content))
         patch.content = nextBody.content;
       if (!prevBody || nextBody.author !== prevBody.author) patch.author = nextBody.author;
+      if (!prevBody || nextBody.postType !== prevBody.postType) patch.postType = nextBody.postType;
       if (!prevBody || JSON.stringify(nextBody.category) !== JSON.stringify(prevBody.category))
         patch.category = nextBody.category;
       if (!prevBody || JSON.stringify(nextBody.themes) !== JSON.stringify(prevBody.themes))
@@ -297,6 +300,8 @@ export function PostEditor({ mode, post, categories, themes, onCreateTheme, onCr
         onOpenChange={setSettingsOpen}
         author={form.watch("author")}
         onAuthorChange={(value) => form.setValue("author", value, { shouldDirty: true })}
+        postType={form.watch("postType")}
+        onPostTypeChange={(value) => form.setValue("postType", value, { shouldDirty: true })}
         categoryId={form.watch("categoryId")}
         onCategoryChange={(value) => form.setValue("categoryId", value, { shouldDirty: true })}
         categoryOptions={categoryOptions}

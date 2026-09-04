@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { ArrowRightUpBold } from "solar-icon-set";
-import { PeekRectangle, type PeekColor, type PeekPosition } from "@/_components/PeekRectangle";
+import { useTranslations } from "next-intl";
 import { SkeletonImage } from "@/_components/SkeletonImage";
 import { formatDate, getLocalizedContent } from "@/lib/utils";
+import { resolveMediaAssetUrl } from "@/types/media-asset";
 import type { Post } from "@/types/blog";
 import type { Locale } from "@/types/common";
 
@@ -10,82 +11,70 @@ interface ArticleCardProps {
   article: Post;
   locale: Locale;
   readMoreLabel: string;
-  peekColor: PeekColor;
-  peekPosition: PeekPosition;
 }
 
-export function ArticleCard({
-  article,
-  locale,
-  readMoreLabel,
-  peekColor,
-  peekPosition,
-}: ArticleCardProps) {
+export function ArticleCard({ article, locale, readMoreLabel }: ArticleCardProps) {
+  const t = useTranslations("blog");
   const title = getLocalizedContent(article.title, locale);
 
   return (
-    <article className="group h-full">
-      <PeekRectangle color={peekColor} position={peekPosition} className="h-full">
-        <Link
-          href={`/${locale}/blog/${article._id}`}
-          className="flex h-full flex-col overflow-hidden bg-white shadow-[0_2px_16px_rgba(0,0,0,0.04)] transition-all duration-500 hover:shadow-[0_12px_40px_rgba(61,0,8,0.08)] hover:-translate-y-1"
-        >
-          {/* Image */}
-          <div className="relative aspect-16/10 overflow-hidden">
-            {article.featuredImage ? (
-              <SkeletonImage
-                src={article.featuredImage.url}
-                alt={
-                  article.featuredImage.altText
-                    ? getLocalizedContent(article.featuredImage.altText, locale)
-                    : title
-                }
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                loading="lazy"
-                unoptimized
-              />
-            ) : (
-              <div className="h-full w-full bg-linear-to-br from-night-bordeaux-2 via-rich-mahogany to-night-bordeaux-2">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="font-serif text-4xl text-white/10">✦</span>
-                </div>
-              </div>
-            )}
-            <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent" />
+    <article className="group">
+      <Link
+        href={`/${locale}/blog/${article._id}`}
+        className="block overflow-hidden border border-dust-grey bg-white shadow-sm transition-shadow duration-300 hover:shadow-md"
+      >
+        {/* Thumbnail — mesmo tratamento do card de prédication */}
+        <div className="relative aspect-video overflow-hidden bg-dust-grey">
+          {article.featuredImage && (
+            <SkeletonImage
+              src={resolveMediaAssetUrl(article.featuredImage.url)}
+              alt={
+                article.featuredImage.altText
+                  ? getLocalizedContent(article.featuredImage.altText, locale)
+                  : title
+              }
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              loading="lazy"
+              unoptimized
+            />
+          )}
+        </div>
 
-            {/* Categoria sobre a imagem — mesmo tratamento da série no card de prédication */}
-            <p className="absolute left-4 top-4 bg-toffee-brown px-3 py-1 font-bold uppercase tracking-widest text-white shadow-lg">
+        {/* Content — mesma escala tipográfica fixada do card de prédication (`SermonCard`):
+            o padrão de `globals.css` deixa `p` a 18px e `h6` a 22px, gritando demais dentro do card. */}
+        <div className="p-5 md:p-6">
+          <p className="flex items-center gap-2 text-[0.6875rem] font-bold uppercase leading-none tracking-[0.18em] text-toffee-brown">
+            <time dateTime={article.publishedAt}>
+              {formatDate(article.publishedAt, locale)}
+            </time>
+          </p>
+
+          <h6 className="mt-2.5 line-clamp-2 font-serif text-[1.25rem] font-bold leading-[1.3] text-night-bordeaux-2 transition-colors duration-200 group-hover:text-toffee-brown">
+            {title}
+          </h6>
+
+          <p className="mt-3 line-clamp-2 text-[0.875rem] leading-[1.65] text-coffee-bean/75">
+            {getLocalizedContent(article.excerpt, locale)}
+          </p>
+
+          {/* Badge — mesmo tratamento da série/referência bíblica no card de prédication */}
+          <div className="mt-4 flex flex-wrap gap-2">
+            <p className="border border-toffee-brown/60 bg-toffee-brown/10 px-2.5 py-1 text-[0.6875rem] font-bold uppercase tracking-[0.1em] text-toffee-brown">
+              {t(`postTypes.${article.postType}`)}
+            </p>
+            <p className="border border-toffee-brown/30 px-2.5 py-1 text-[0.6875rem] uppercase tracking-[0.1em] text-coffee-bean/70">
               {getLocalizedContent(article.category.name, locale)}
             </p>
           </div>
 
-          {/* Content */}
-          <div className="flex flex-1 flex-col p-6">
-            <p className="flex items-center gap-2 uppercase tracking-wider text-coffee-bean/50">
-              <time dateTime={article.publishedAt}>
-                {formatDate(article.publishedAt, locale)}
-              </time>
-              <span>·</span>
-              <span>{article.author}</span>
-            </p>
-
-            <h6 className="mt-3 line-clamp-2 font-serif font-bold leading-snug text-rich-mahogany transition-colors duration-300 group-hover:text-night-bordeaux-2">
-              {title}
-            </h6>
-
-            <p className="mt-2 line-clamp-2 leading-relaxed text-coffee-bean/60">
-              {getLocalizedContent(article.excerpt, locale)}
-            </p>
-
-            <div className="mt-4 flex items-center gap-1.5 text-toffee-brown opacity-0 transition-all duration-300 group-hover:opacity-100">
-              <p className="font-bold uppercase tracking-wider">{readMoreLabel}</p>
-              <ArrowRightUpBold size={12} />
-            </div>
+          <div className="mt-4 flex items-center gap-1.5 text-[0.6875rem] font-bold uppercase tracking-[0.1em] text-toffee-brown opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+            <span>{readMoreLabel}</span>
+            <ArrowRightUpBold size={12} />
           </div>
-        </Link>
-      </PeekRectangle>
+        </div>
+      </Link>
     </article>
   );
 }

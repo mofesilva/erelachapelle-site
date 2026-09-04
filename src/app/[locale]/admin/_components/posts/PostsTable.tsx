@@ -96,6 +96,7 @@ export function PostsTable({
           <TableRow className="border-dust-grey bg-powder-petal/40 hover:bg-powder-petal/40">
             <TableHead className={`${HEAD_CLASS} w-11`} />
             <TableHead className={HEAD_CLASS}>{t("columnName")}</TableHead>
+            <TableHead className={HEAD_CLASS}>{t("columnPostType")}</TableHead>
             <TableHead className={HEAD_CLASS}>{t("columnStatus")}</TableHead>
             <TableHead className={HEAD_CLASS}>{t("columnCreatedAt")}</TableHead>
             <TableHead className={HEAD_CLASS}>{t("columnPublish")}</TableHead>
@@ -113,6 +114,9 @@ export function PostsTable({
                   </TableCell>
                   <TableCell className="px-4 py-3.5">
                     <Skeleton className={`h-4 ${NAME_SKELETON_WIDTHS[i % 3]} ${SKELETON_CLASS}`} />
+                  </TableCell>
+                  <TableCell className="px-4 py-3.5">
+                    <Skeleton className={`h-4 w-16 ${SKELETON_CLASS}`} />
                   </TableCell>
                   <TableCell className="px-4 py-3.5">
                     <Skeleton className={`h-4 w-20 ${SKELETON_CLASS}`} />
@@ -154,6 +158,11 @@ export function PostsTable({
                       >
                         {localizedName(post.title, locale)}
                       </button>
+                    </TableCell>
+                    <TableCell className="px-4 py-3.5">
+                      <Badge variant="outline" className="border-toffee-brown/30 text-coffee-bean">
+                        {t(`types.${post.postType}`)}
+                      </Badge>
                     </TableCell>
                     <TableCell className="px-4 py-3.5">
                       <Badge variant="secondary" className={STATUS_VARIANT[status]}>

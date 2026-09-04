@@ -8,6 +8,7 @@ import { DateTimePicker } from "../../DateTimePicker";
 import { MultiSelect, type MultiSelectOption } from "../../MultiSelect";
 import { FeaturedImageField } from "./FeaturedImageField";
 import { TagsInput } from "./TagsInput";
+import { POST_TYPES, type PostType } from "../../../_features/posts/post.type";
 
 type Value = { id: string; url: string } | null;
 
@@ -16,6 +17,8 @@ type Props = {
   onOpenChange: (open: boolean) => void;
   author: string;
   onAuthorChange: (value: string) => void;
+  postType: PostType;
+  onPostTypeChange: (value: PostType) => void;
   categoryId: string;
   onCategoryChange: (value: string) => void;
   categoryOptions: MultiSelectOption[];
@@ -41,6 +44,8 @@ export function PostSettingsSheet({
   onOpenChange,
   author,
   onAuthorChange,
+  postType,
+  onPostTypeChange,
   categoryId,
   onCategoryChange,
   categoryOptions,
@@ -77,6 +82,23 @@ export function PostSettingsSheet({
               onChange={(e) => onAuthorChange(e.target.value)}
               className="h-11 border-dust-grey bg-white focus-visible:border-toffee-brown focus-visible:ring-toffee-brown/25"
             />
+          </div>
+
+          <div className="flex flex-col gap-1.5">
+            <label className="text-xs font-semibold uppercase text-coffee-bean">{t("postTypeLabel")}</label>
+            <Select value={postType} onValueChange={(value) => onPostTypeChange(value as PostType)}>
+              <SelectTrigger className="h-11 w-full border-dust-grey bg-white">
+                <SelectValue placeholder={t("postTypePlaceholder")} />
+              </SelectTrigger>
+              <SelectContent className="border-dust-grey bg-parchment">
+                {POST_TYPES.map((type) => (
+                  <SelectItem key={type} value={type}>
+                    {t(`types.${type}`)}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            <p className="text-xs text-coffee-bean/60">{t(`typeHints.${postType}`)}</p>
           </div>
 
           <div className="flex flex-col gap-1.5">

@@ -2,7 +2,7 @@ import { apiFetch } from "../../_lib/http-client";
 import type { Category } from "../categories/category.type";
 import type { Theme } from "../themes/theme.type";
 import type { PostFormValues } from "./post.schema";
-import type { EntityRef, FeaturedImage, Post } from "./post.type";
+import type { EntityRef, FeaturedImage, Post, PostType } from "./post.type";
 
 export type PostPage = {
   items: Post[];
@@ -52,6 +52,7 @@ export function buildPostBody(values: PostFormValues, categories: Category[], th
     excerpt: { fr: values.excerpt.fr },
     content: { fr: values.content.fr },
     author: values.author,
+    postType: values.postType,
     category: resolveCategoryRef(values.categoryId, categories),
     themes: resolveThemeRefs(values.themeIds, themes),
     tags: values.tags,
@@ -100,6 +101,7 @@ export function patchPost(
     excerpt: { fr: string };
     content: { fr: string };
     author: string;
+    postType: PostType;
     category: EntityRef;
     themes: EntityRef[];
     tags: string[];
